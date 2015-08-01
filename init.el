@@ -64,3 +64,8 @@
                 '(lambda ()
                    (set-frame-size (selected-frame) 175 55)
                    (raise-frame (selected-frame))))))
+
+;; Add melpa package repo
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
