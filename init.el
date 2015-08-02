@@ -69,3 +69,9 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+
+(add-to-list 'exec-path "/opt/local/bin")
+
+;; Add JDEE Java development environment
+(add-to-list 'load-path "~/.emacs.d/jdee-2.4.1/lisp")
+(load "jde")
