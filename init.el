@@ -32,8 +32,14 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Use aspell as installed by MacPorts.
-(setq ispell-program-name "/opt/local/bin/aspell")
+;; Ensure emacs shell has regular shell environment
+;; via exec-path-from-shell package.
+(package-initialize)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; Set up spelling
+(setq ispell-program-name "aspell")
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
@@ -69,14 +75,6 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
-
-(add-to-list 'exec-path "/opt/local/bin")
-
-;; Ensure emacs shell has regular shell environment
-;; via exec-path-from-shell package.
-(package-initialize)
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 ;; Add JDEE Java development environment
 (add-to-list 'load-path "~/.emacs.d/jdee-2.4.1/lisp")
