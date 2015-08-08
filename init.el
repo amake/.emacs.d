@@ -69,3 +69,9 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+
+;; Ensure emacs shell has regular shell environment
+;; via exec-path-from-shell package.
+(package-initialize)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
