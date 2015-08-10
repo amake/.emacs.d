@@ -41,7 +41,7 @@
 ;; Set up spelling
 (setq ispell-program-name "aspell")
 (add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 (setq-default indent-tabs-mode nil)
 
