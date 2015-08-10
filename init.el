@@ -71,6 +71,9 @@
                    (set-frame-size (selected-frame) 175 55)
                    (raise-frame (selected-frame))))))
 
+;; Set magit shortcut
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; Add melpa package repo
 (require 'package)
 (add-to-list 'package-archives
