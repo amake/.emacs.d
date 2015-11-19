@@ -71,6 +71,10 @@
                    (set-frame-size (selected-frame) 175 55)
                    (raise-frame (selected-frame))))))
 
+;; Don't intercept Japanese IME controls
+(global-unset-key (kbd "C-S-j"))
+(global-unset-key (kbd "C-:"))
+
 ;; Set magit shortcut
 (global-set-key (kbd "C-x g") 'magit-status)
 
