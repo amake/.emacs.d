@@ -89,3 +89,6 @@
 
 ;; Improve text printing speed in Python shell
 (setq python-shell-enable-font-lock nil)
+
+;; Wrap lines in org-mode
+(setq org-startup-truncated nil)
