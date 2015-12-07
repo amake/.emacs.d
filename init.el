@@ -92,3 +92,7 @@
 
 ;; Wrap lines in org-mode
 (setq org-startup-truncated nil)
+
+;; Backlog link support in org-mode
+(require 'org-backlog)
+(setq org-backlog-team "rxdev")
