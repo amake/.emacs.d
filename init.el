@@ -96,3 +96,7 @@
 ;; Backlog link support in org-mode
 (require 'org-backlog)
 (setq org-backlog-team "rxdev")
+
+;; Set org-agenda stuff
+(global-set-key (kbd "C-c a") 'org-agenda)
+(setq org-agenda-files '("~/Documents/org/agenda/"))
