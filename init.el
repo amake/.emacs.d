@@ -25,6 +25,7 @@
  '(tab-width 4)
  '(ediff-split-window-function 'split-window-horizontally)
  '(ediff-window-setup-function 'ediff-setup-windows-plain))
+ '(org-agenda-files (quote ("~/Documents/org/agenda/")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,4 +100,4 @@
 
 ;; Set org-agenda stuff
 (global-set-key (kbd "C-c a") 'org-agenda)
-(setq org-agenda-files '("~/Documents/org/agenda/"))
+
