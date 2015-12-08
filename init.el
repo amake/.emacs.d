@@ -25,6 +25,8 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(ns-pop-up-frames nil)
  '(org-agenda-files (quote ("~/Documents/org/agenda/")))
+ '(org-enforce-todo-checkbox-dependencies t)
+ '(org-enforce-todo-dependencies t)
  '(tab-width 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
