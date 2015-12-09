@@ -97,7 +97,7 @@
 (setq org-startup-truncated nil)
 
 ;; Backlog link support in org-mode
-(require 'org-backlog)
+(load "~/.emacs.d/org-backlog.el")
 (setq org-backlog-team "rxdev")
 
 ;; Set org-agenda stuff
