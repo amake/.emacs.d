@@ -22,6 +22,7 @@
  ;; If there is more than one, they won't work right.
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
+ '(fill-column 80)
  '(ns-pop-up-frames nil)
  '(org-agenda-files (quote ("~/Documents/org/agenda/")))
  '(org-enforce-todo-checkbox-dependencies t)
