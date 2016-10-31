@@ -41,6 +41,7 @@
 ;; Make some emacs-app-mac keys match vanilla Emacs.app
 (global-set-key (kbd "s-u") 'revert-buffer)
 (global-set-key (kbd "s-n") 'new-frame)
+(global-set-key (kbd "s-w") 'delete-frame)
 
 ;; Ensure emacs shell has regular shell environment
 ;; via exec-path-from-shell package.
