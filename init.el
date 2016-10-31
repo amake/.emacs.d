@@ -23,6 +23,8 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fill-column 80)
+ '(mac-command-modifier (quote super))
+ '(mac-option-modifier (quote meta))
  '(ns-pop-up-frames nil)
  '(nxml-child-indent 4)
  '(org-agenda-files (quote ("~/Documents/org/agenda/")))
@@ -35,6 +37,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Make emacs-app-mac revert-buffer match vaniall Emacs.app
+(global-set-key (kbd "s-u") 'revert-buffer)
 
 ;; Ensure emacs shell has regular shell environment
 ;; via exec-path-from-shell package.
