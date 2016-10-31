@@ -38,8 +38,9 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Make emacs-app-mac revert-buffer match vaniall Emacs.app
+;; Make some emacs-app-mac keys match vanilla Emacs.app
 (global-set-key (kbd "s-u") 'revert-buffer)
+(global-set-key (kbd "s-n") 'new-frame)
 
 ;; Ensure emacs shell has regular shell environment
 ;; via exec-path-from-shell package.
