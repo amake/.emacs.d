@@ -42,6 +42,10 @@
 (global-set-key (kbd "s-u") 'revert-buffer)
 (global-set-key (kbd "s-n") 'new-frame)
 (global-set-key (kbd "s-w") 'delete-frame)
+(global-set-key (kbd "s-a") 'mark-whole-buffer)
+(global-set-key (kbd "s-v") 'yank)
+(global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "s-x") 'kill-region)
 
 ;; Ensure emacs shell has regular shell environment
 ;; via exec-path-from-shell package.
