@@ -46,6 +46,7 @@
 (global-set-key (kbd "s-v") 'yank)
 (global-set-key (kbd "s-c") 'kill-ring-save)
 (global-set-key (kbd "s-x") 'kill-region)
+(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 
 ;; Ensure emacs shell has regular shell environment
 ;; via exec-path-from-shell package.
