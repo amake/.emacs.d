@@ -36,6 +36,7 @@
  '(org-agenda-files (quote ("~/Documents/org/agenda/")))
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
+ '(sgml-basic-offset 4)
  '(tab-width 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
