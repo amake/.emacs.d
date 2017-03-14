@@ -1,5 +1,6 @@
 ;; Increase default font size.
-(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default nil :height 180 :family "Menlo")
+
 
 ;; Set decent default fonts for Japanese and Chinese,
 ;; but *only* if in a graphical context.
@@ -7,13 +8,18 @@
 ;; when both charsets cover the same codepoints.
 (when (fboundp 'set-fontset-font)
   (set-fontset-font
-   nil
+   t
    'chinese-gbk
-   (font-spec :family "Hiragino Sans GB W3"))
+   (font-spec :family "Noto Sans CJK SC"))
   (set-fontset-font
-   nil
+   t
    'japanese-jisx0213.2004-1
-   (font-spec :family "Hiragino Kaku Gothic ProN")))
+   (font-spec :family "Source Han Code JP")))
+(add-to-list 'face-font-rescale-alist '("Source Han Code JP" . 1.25))
+
+;; Font scale test:
+;; 0123456789|ABCDEFGHIJ|
+;; ０１２３４|あいうえお|
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
