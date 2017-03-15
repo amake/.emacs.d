@@ -119,3 +119,7 @@
 
 ;; Set org-agenda stuff
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+;; org-mode hooks for TaskJuggler
+;; (from org-plus-contrib package; see also `port info taskjuggler`)
+(require 'ox-taskjuggler)
