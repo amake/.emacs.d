@@ -29,6 +29,7 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fill-column 80)
+ '(global-linum-mode t)
  '(mac-command-modifier (quote super))
  '(mac-option-modifier (quote meta))
  '(ns-pop-up-frames nil)
