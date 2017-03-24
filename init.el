@@ -40,7 +40,7 @@
  '(org-enforce-todo-dependencies t)
  '(package-selected-packages
    (quote
-    (pcre2el org-plus-contrib magit exec-path-from-shell)))
+    (flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
  '(sgml-basic-offset 4)
  '(tab-width 4))
 (custom-set-faces
@@ -131,3 +131,7 @@
 
 ;; Use PCRE-style regex
 (pcre-mode)
+
+;; On-the-fly linting
+(require 'flycheck)
+(global-flycheck-mode)
