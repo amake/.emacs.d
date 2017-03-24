@@ -30,6 +30,7 @@
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fill-column 80)
  '(global-linum-mode t)
+ '(js-indent-level 2)
  '(mac-command-modifier (quote super))
  '(mac-option-modifier (quote meta))
  '(ns-pop-up-frames nil)
