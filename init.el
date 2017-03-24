@@ -25,11 +25,14 @@
    t
    'japanese-jisx0213.2004-1
    (font-spec :family "Source Han Code JP")))
-(add-to-list 'face-font-rescale-alist '("Source Han Code JP" . 1.25))
+(dolist (item '(("Source Han Code JP" . 1.25)
+                ("Noto Sans CJK SC" . 1.25)))
+  (add-to-list 'face-font-rescale-alist item))
 
 ;; Font scale test:
 ;; 0123456789|ABCDEFGHIJ|
 ;; ０１２３４|あいうえお|
+;; 月光下，一|颗很小的蛋|躺在一个叶子上
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
