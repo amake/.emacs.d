@@ -37,7 +37,9 @@
  '(org-agenda-files (quote ("~/Documents/org/agenda/")))
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
- '(package-selected-packages (quote (org-plus-contrib magit exec-path-from-shell)))
+ '(package-selected-packages
+   (quote
+    (pcre2el org-plus-contrib magit exec-path-from-shell)))
  '(sgml-basic-offset 4)
  '(tab-width 4))
 (custom-set-faces
@@ -125,3 +127,6 @@
 ;; org-mode hooks for TaskJuggler
 ;; (from org-plus-contrib package; see also `port info taskjuggler`)
 (require 'ox-taskjuggler)
+
+;; Use PCRE-style regex
+(pcre-mode)
