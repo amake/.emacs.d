@@ -7,6 +7,10 @@
 ;; Increase default font size.
 (set-face-attribute 'default nil :height 180 :family "Menlo")
 
+;; Fancy operator ligatures with Fira Code
+(when (fboundp 'mac-auto-operator-composition-mode)
+  (set-face-attribute 'default nil :family "Fira Code")
+  (mac-auto-operator-composition-mode))
 
 ;; Set decent default fonts for Japanese and Chinese,
 ;; but *only* if in a graphical context.
