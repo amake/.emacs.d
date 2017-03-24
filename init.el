@@ -1,3 +1,9 @@
+;;; package --- Summary
+
+;;; Commentary:
+
+;;; Code:
+
 ;; Increase default font size.
 (set-face-attribute 'default nil :height 180 :family "Menlo")
 
@@ -135,3 +141,6 @@
 ;; On-the-fly linting
 (require 'flycheck)
 (global-flycheck-mode)
+
+(provide 'init)
+;;; init.el ends here
