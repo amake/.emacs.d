@@ -65,7 +65,7 @@
 
 ;; Make some emacs-app-mac keys match vanilla Emacs.app
 (global-set-key (kbd "s-u") 'revert-buffer)
-(global-set-key (kbd "s-n") 'new-frame)
+(global-set-key (kbd "s-n") 'make-frame)
 (global-set-key (kbd "s-w") 'delete-frame)
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
 (global-set-key (kbd "s-v") 'yank)
@@ -103,7 +103,7 @@
   ;; ediff customizations
   ;; https://www.ogre.com/node/446
   (add-hook 'ediff-before-setup-hook
-            'new-frame)
+            'make-frame)
   (add-hook 'ediff-quit-hook
             'delete-frame)
   (add-hook 'ediff-startup-hook
