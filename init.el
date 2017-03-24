@@ -53,7 +53,7 @@
  '(org-enforce-todo-dependencies t)
  '(package-selected-packages
    (quote
-    (flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
+    (add-node-modules-path flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
  '(sgml-basic-offset 4)
  '(tab-width 4))
 (custom-set-faces
@@ -148,6 +148,10 @@
 ;; On-the-fly linting
 (require 'flycheck)
 (global-flycheck-mode)
+
+;; Look for binaries in local node_modules first
+(eval-after-load 'js-mode
+  '(add-hook 'js-mode-hook #'add-node-modules-path))
 
 (provide 'init)
 ;;; init.el ends here
