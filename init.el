@@ -138,6 +138,11 @@
 ;; Set org-agenda stuff
 (global-set-key (kbd "C-c a") 'org-agenda)
 
+;; Set alternate key masked by flycheck
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c C-.") 'org-time-stamp-inactive)))
+
 ;; org-mode hooks for TaskJuggler
 ;; (from org-plus-contrib package; see also `port info taskjuggler`)
 (require 'ox-taskjuggler)
