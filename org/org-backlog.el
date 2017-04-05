@@ -1,19 +1,27 @@
+;;; package --- Summary:
+
 ;; org-backlog.el - Support for links to Backlog issues
+
+;;; Commentary:
+
+;;; Code:
 
 (require 'org)
 
-(setq backlog-link-template "https://%s.backlog.jp/view/%s")
+(defvar backlog-link-template "https://%s.backlog.jp/view/%s")
 
 (org-add-link-type "b" 'org-backlog-open)
 
 (defcustom org-backlog-team nil
-  "The Backlog team to use when opening links")
+  "The Backlog team to use when opening links."
+  :group 'org-backlog)
 
 (defun org-backlog-open (issue)
-  "Open Backlog issue."
+  "Open Backlog issue with key ISSUE."
   (browse-url (org-backlog-make-link issue)))
 
 (defun org-backlog-make-link (issue)
+  "Create a Backlog URL for issue ISSUE."
   (format backlog-link-template org-backlog-team issue))
 
 ;; New-style link shortcut

@@ -38,27 +38,20 @@
 (load custom-file)
 
 ;; Make some emacs-app-mac keys match vanilla Emacs.app
-(global-set-key (kbd "s-u") 'revert-buffer)
-(global-set-key (kbd "s-n") 'make-frame)
-(global-set-key (kbd "s-w") 'delete-frame)
-(global-set-key (kbd "s-a") 'mark-whole-buffer)
-(global-set-key (kbd "s-v") 'yank)
-(global-set-key (kbd "s-c") 'kill-ring-save)
-(global-set-key (kbd "s-x") 'kill-region)
-(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
+(dolist (item '(("s-u" . revert-buffer)
+                ("s-n" . make-frame)
+                ("s-w" . delete-frame)
+                ("s-a" . mark-whole-buffer)
+                ("s-v" . yank)
+                ("s-c" . kill-ring-save)
+                ("s-x" . kill-region)
+                ("s-q" . save-buffers-kill-emacs)))
+  (global-set-key (kbd (car item)) (cdr item)))
 
-;; Ensure emacs shell has regular shell environment
-;; via exec-path-from-shell package.
-(package-initialize)
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;; Set up spelling
-(setq ispell-program-name "aspell")
-(add-hook 'text-mode-hook 'flyspell-mode)
-;;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-
-(setq-default indent-tabs-mode nil)
+;; Don't intercept Japanese IME controls
+(dolist (item '("C-S-j"
+                "C-:"))
+  (global-unset-key (kbd item)))
 
 (show-paren-mode)
 (column-number-mode)
@@ -73,8 +66,34 @@
   ;; Run server so `emacsclient` will edit in GUI editor.
   ;; May have to prepend /Applications/Emacs.app/Contents/MacOS/bin
   ;; to PATH on OS X.
-  (server-start)
-  ;; ediff customizations
+  (server-start))
+
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
+
+;; Bootstrap use-package
+;; http://cachestocaches.com/2015/8/getting-started-use-package/
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
+
+(use-package flyspell
+  :config
+  ;;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  (add-hook 'text-mode-hook 'flyspell-mode))
+
+(use-package ediff
+  :if window-system
+  :config
   ;; https://www.ogre.com/node/446
   (add-hook 'ediff-before-setup-hook
             'make-frame)
@@ -85,48 +104,41 @@
                (set-frame-size (selected-frame) 175 55)
                (raise-frame (selected-frame)))))
 
-;; Don't intercept Japanese IME controls
-(global-unset-key (kbd "C-S-j"))
-(global-unset-key (kbd "C-:"))
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
+  :config
+  ;; Ensure emacs shell has regular shell environment
+  (exec-path-from-shell-initialize))
+
+(use-package org
+  :ensure org-plus-contrib
+  :bind ("C-c a" . org-agenda)
+  :config
+  ;; Backlog link support in org-mode
+  (use-package org-backlog
+    :load-path "org"))
 
 ;; Set magit shortcut
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;; Add melpa package repo
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/") t)
-
-;; Improve text printing speed in Python shell
-(setq python-shell-enable-font-lock nil)
-
-;; Wrap lines in org-mode
-(setq org-startup-truncated nil)
-
-;; Backlog link support in org-mode
-(load "~/.emacs.d/org-backlog.el")
-(setq org-backlog-team "rxdev")
-
-;; Set org-agenda stuff
-(global-set-key (kbd "C-c a") 'org-agenda)
-
-;; Set alternate key masked by flycheck
-(add-hook 'org-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c C-.") 'org-time-stamp-inactive)))
-
-;; org-mode hooks for TaskJuggler
-;; (from org-plus-contrib package; see also `port info taskjuggler`)
-(require 'ox-taskjuggler)
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
 
 ;; Use PCRE-style regex
-(pcre-mode)
+(use-package pcre2el
+  :ensure t
+  :diminish pcre-mode
+  :config
+  (pcre-mode))
 
 ;; On-the-fly linting
-(require 'flycheck)
-(global-flycheck-mode)
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode)
+  ;; Set alternate key masked by flycheck
+  (add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c C-.") 'org-time-stamp-inactive))))
 
 (provide 'init)
 ;;; init.el ends here
