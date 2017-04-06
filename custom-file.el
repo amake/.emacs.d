@@ -18,6 +18,7 @@
  '(mac-command-modifier (quote super))
  '(mac-option-modifier (quote meta))
  '(markdown-command "multimarkdown")
+ '(neo-theme (quote arrow))
  '(ns-pop-up-frames nil)
  '(nxml-child-indent 4)
  '(org-agenda-files (quote ("~/Documents/org/agenda/")))
@@ -27,7 +28,7 @@
  '(org-startup-truncated nil nil nil "Wrap lines in org-mode")
  '(package-selected-packages
    (quote
-    (groovy-mode counsel web-mode markdown-mode use-package flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
+    (neotree groovy-mode counsel web-mode markdown-mode use-package flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
  '(python-shell-font-lock-enable nil nil nil "Improve text printing speed in Python shell")
  '(sgml-basic-offset 4)
  '(tab-width 4))

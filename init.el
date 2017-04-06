@@ -166,5 +166,10 @@
   (setq enable-recursive-minibuffers t)
   (ivy-mode))
 
+(use-package neotree
+  :ensure t
+  :commands neotree-toggle
+  :bind ("<f8>" . neotree-toggle))
+
 (provide 'init)
 ;;; init.el ends here
