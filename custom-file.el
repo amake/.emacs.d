@@ -27,7 +27,7 @@
  '(org-startup-truncated nil nil nil "Wrap lines in org-mode")
  '(package-selected-packages
    (quote
-    (counsel web-mode markdown-mode use-package flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
+    (groovy-mode counsel web-mode markdown-mode use-package flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
  '(python-shell-font-lock-enable nil nil nil "Improve text printing speed in Python shell")
  '(sgml-basic-offset 4)
  '(tab-width 4))
