@@ -85,6 +85,7 @@
   (require 'use-package))
 (require 'diminish)
 (require 'bind-key)
+(package-install-selected-packages)
 
 (use-package flyspell
   :config
