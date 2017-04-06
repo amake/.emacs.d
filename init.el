@@ -121,6 +121,7 @@
 ;; Set magit shortcut
 (use-package magit
   :ensure t
+  :diminish (smerge-mode auto-revert-mode)
   :bind ("C-x g" . magit-status))
 
 ;; Use PCRE-style regex
