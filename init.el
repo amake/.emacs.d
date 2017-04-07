@@ -56,6 +56,33 @@
 (show-paren-mode)
 (column-number-mode)
 
+;; Eclipse-like line moving
+;; https://www.emacswiki.org/emacs/MoveLine
+(defmacro keep-column (&rest body)
+  "Note current column, do BODY, then restore column."
+  (let ((tmp (make-symbol "col")))
+    `(let ((,tmp (current-column)))
+       ,@body
+       (move-to-column ,tmp))))
+
+(defun move-line-up ()
+  "Swap the current line with the previous one."
+  (interactive)
+  (keep-column
+   (transpose-lines 1)
+   (forward-line -2)))
+
+(defun move-line-down ()
+  "Swap the current line with the next one."
+  (interactive)
+  (keep-column
+   (forward-line 1)
+   (transpose-lines 1)
+   (forward-line -1)))
+
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+
 ;; Only on GUI
 (when window-system
   ;; Restore session
