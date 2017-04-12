@@ -58,7 +58,7 @@
 
 ;; Eclipse-like line moving
 ;; https://www.emacswiki.org/emacs/MoveLine
-(defmacro keep-column (&rest body)
+(defmacro save-column (&rest body)
   "Note current column, do BODY, then restore column."
   (let ((tmp (make-symbol "col")))
     `(let ((,tmp (current-column)))
@@ -68,14 +68,14 @@
 (defun move-line-up ()
   "Swap the current line with the previous one."
   (interactive)
-  (keep-column
+  (save-column
    (transpose-lines 1)
    (forward-line -2)))
 
 (defun move-line-down ()
   "Swap the current line with the next one."
   (interactive)
-  (keep-column
+  (save-column
    (forward-line 1)
    (transpose-lines 1)
    (forward-line -1)))
