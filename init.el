@@ -56,6 +56,8 @@
 (show-paren-mode)
 (column-number-mode)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Eclipse-like line moving
 ;; https://www.emacswiki.org/emacs/MoveLine
 (defmacro save-column (&rest body)
