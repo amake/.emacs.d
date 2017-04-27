@@ -201,5 +201,9 @@
   :commands neotree-toggle
   :bind ("<f8>" . neotree-toggle))
 
+(use-package web-mode
+  :ensure t
+  :mode "\\.html?\\'")
+
 (provide 'init)
 ;;; init.el ends here
