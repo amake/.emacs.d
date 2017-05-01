@@ -205,5 +205,8 @@
   :ensure t
   :mode "\\.html?\\'")
 
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
 (provide 'init)
 ;;; init.el ends here
