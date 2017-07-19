@@ -208,5 +208,9 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
+(use-package dired-collapse
+  :config
+  (add-hook 'dired-mode-hook 'dired-collapse-mode))
+
 (provide 'init)
 ;;; init.el ends here
