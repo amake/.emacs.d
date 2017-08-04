@@ -223,7 +223,10 @@
 (use-package projectile
   :diminish projectile-mode
   :config
-  (projectile-mode))
+  (projectile-mode)
+  (use-package counsel-projectile
+    :config
+    (counsel-projectile-on)))
 
 (provide 'init)
 ;;; init.el ends here
