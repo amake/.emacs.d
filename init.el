@@ -217,5 +217,8 @@
   :config
   (add-hook 'dired-mode-hook 'dired-collapse-mode))
 
+(use-package dash-at-point
+  :bind ("C-c d" . dash-at-point))
+
 (provide 'init)
 ;;; init.el ends here
