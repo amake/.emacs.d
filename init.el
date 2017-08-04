@@ -220,5 +220,10 @@
 (use-package dash-at-point
   :bind ("C-c d" . dash-at-point))
 
+(use-package projectile
+  :diminish projectile-mode
+  :config
+  (projectile-mode))
+
 (provide 'init)
 ;;; init.el ends here
