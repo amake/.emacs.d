@@ -139,6 +139,12 @@
                (set-frame-size (selected-frame) 175 55)
                (raise-frame (selected-frame)))))
 
+(use-package dired
+  :config
+  ;; macOS ls doesn't support --dired
+  (when (string= system-type "darwin")
+    (setq dired-use-ls-dired nil)))
+
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :config
