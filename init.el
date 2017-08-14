@@ -90,6 +90,11 @@
   (interactive)
   (shell-command "open ."))
 
+(defun open-file ()
+  "Open the current file in the default app."
+  (interactive)
+  (shell-command (concat "open " (buffer-file-name))))
+
 ;; Only on GUI
 (when window-system
   ;; Restore session
