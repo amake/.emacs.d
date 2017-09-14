@@ -125,6 +125,7 @@
 (require 'diminish)
 (require 'bind-key)
 (package-install-selected-packages)
+(setq use-package-always-ensure t)
 
 (use-package flyspell
   :config
@@ -166,20 +167,17 @@
 
 ;; Set magit shortcut
 (use-package magit
-  :ensure t
   :diminish (smerge-mode auto-revert-mode)
   :bind ("C-x g" . magit-status))
 
 ;; Use PCRE-style regex
 (use-package pcre2el
-  :ensure t
   :diminish pcre-mode
   :config
   (pcre-mode))
 
 ;; On-the-fly linting
 (use-package flycheck
-  :ensure t
   :config
   (global-flycheck-mode)
   ;; Set alternate key masked by flycheck
@@ -213,12 +211,10 @@
   (ivy-mode))
 
 (use-package neotree
-  :ensure t
   :commands neotree-toggle
   :bind ("<f8>" . neotree-toggle))
 
 (use-package web-mode
-  :ensure t
   :mode "\\.html?\\'")
 
 (use-package expand-region
