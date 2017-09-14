@@ -45,7 +45,8 @@
                 ("s-v" . yank)
                 ("s-c" . kill-ring-save)
                 ("s-x" . kill-region)
-                ("s-q" . save-buffers-kill-emacs)))
+                ("s-q" . save-buffers-kill-emacs)
+                ("s-s" . save-buffer)))
   (global-set-key (kbd (car item)) (cdr item)))
 
 ;; Don't intercept Japanese IME controls
