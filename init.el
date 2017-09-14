@@ -146,6 +146,7 @@
                (raise-frame (selected-frame)))))
 
 (use-package dired
+  :ensure nil
   :config
   ;; macOS ls doesn't support --dired
   (when (string= system-type "darwin")
@@ -163,6 +164,7 @@
   :config
   ;; Backlog link support in org-mode
   (use-package org-backlog
+    :ensure nil
     :load-path "org"))
 
 ;; Set magit shortcut
