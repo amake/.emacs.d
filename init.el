@@ -210,10 +210,6 @@
   (setq enable-recursive-minibuffers t)
   (ivy-mode))
 
-(use-package neotree
-  :commands neotree-toggle
-  :bind ("<f8>" . neotree-toggle))
-
 (use-package web-mode
   :mode "\\.html?\\'")
 
