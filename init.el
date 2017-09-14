@@ -239,5 +239,8 @@
     :config
     (counsel-projectile-on)))
 
+(use-package scala-mode
+  :defer t)
+
 (provide 'init)
 ;;; init.el ends here
