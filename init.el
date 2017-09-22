@@ -237,5 +237,8 @@
 (use-package scala-mode
   :defer t)
 
+(use-package typescript-mode
+  :defer t)
+
 (provide 'init)
 ;;; init.el ends here
