@@ -240,5 +240,11 @@
 (use-package typescript-mode
   :defer t)
 
+(use-package groovy-mode
+  :defer t
+  :config
+  (add-hook 'groovy-mode-hook (lambda ()
+                                (local-unset-key (kbd "C-s")))))
+
 (provide 'init)
 ;;; init.el ends here
