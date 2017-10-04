@@ -246,5 +246,18 @@
   (add-hook 'groovy-mode-hook (lambda ()
                                 (local-unset-key (kbd "C-s")))))
 
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
+  :config
+
+  (use-package anaconda-mode
+    :config
+    (add-hook 'python-mode-hook 'anaconda-mode)
+    (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+
+  (use-package py-autopep8
+    :config
+    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
+
 (provide 'init)
 ;;; init.el ends here
