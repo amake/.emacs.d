@@ -173,7 +173,8 @@
   :diminish (smerge-mode auto-revert-mode)
   :bind ("C-x g" . magit-status)
   :config
-  (setq magit-diff-refine-hunk 'all))
+  (setq magit-diff-refine-hunk 'all)
+  (setq vc-handled-backends (delq 'Git vc-handled-backends)))
 
 ;; Use PCRE-style regex
 (use-package pcre2el
