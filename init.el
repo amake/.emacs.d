@@ -171,7 +171,9 @@
 ;; Set magit shortcut
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :config
+  (setq magit-diff-refine-hunk 'all))
 
 ;; Use PCRE-style regex
 (use-package pcre2el
