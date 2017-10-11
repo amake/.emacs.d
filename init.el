@@ -243,6 +243,9 @@
 (use-package typescript-mode
   :defer t)
 
+(use-package go-mode
+  :defer t)
+
 (use-package groovy-mode
   :defer t
   :config
