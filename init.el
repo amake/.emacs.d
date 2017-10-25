@@ -97,9 +97,7 @@
   (shell-command (concat "open " (buffer-file-name))))
 
 ;; Only on GUI
-(when window-system
-  ;; Restore session
-  (desktop-save-mode t)
+(when (display-graphic-p)
   ;; Disable C-z (suspend-frame) in GUI because it's pointless
   ;; and I keep hitting it.
   (global-unset-key (kbd "C-z"))
@@ -127,6 +125,12 @@
 (require 'bind-key)
 (package-install-selected-packages)
 (setq use-package-always-ensure t)
+
+(use-package desktop
+  :if (display-graphic-p)
+  :config
+  (desktop-save-mode t)
+  (setq desktop-auto-save-timeout 60))
 
 (use-package flyspell
   :config
