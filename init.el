@@ -240,6 +240,9 @@
 (use-package scala-mode
   :defer t)
 
+(use-package play-routes-mode
+  :mode "\\.routes\\'")
+
 (use-package typescript-mode
   :defer t)
 
