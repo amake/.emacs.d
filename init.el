@@ -129,8 +129,7 @@
 (use-package desktop
   :if (display-graphic-p)
   :config
-  (desktop-save-mode t)
-  (setq desktop-auto-save-timeout 60))
+  (desktop-save-mode t))
 
 (use-package flyspell
   :config
