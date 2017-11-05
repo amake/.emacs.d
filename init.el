@@ -247,7 +247,9 @@
   :mode "\\.routes\\'")
 
 (use-package typescript-mode
-  :defer t)
+  :defer t
+  :config
+  (setq typescript-indent-level 2))
 
 (use-package go-mode
   :defer t)
