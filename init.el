@@ -156,6 +156,12 @@
   (when (string= system-type "darwin")
     (setq dired-use-ls-dired nil)))
 
+(use-package browse-url
+  :bind ("C-c C-o" . browse-url-generic)
+  :config
+  (when (string= system-type "darwin")
+    (setq browse-url-generic-program "open")))
+
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :config
