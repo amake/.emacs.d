@@ -68,12 +68,45 @@
        ,@body
        (move-to-column ,tmp))))
 
+(defun move-lines-up ()
+  "Move the current line or region up by one line."
+  (interactive)
+  (save-current-buffer
+    (if (use-region-p)
+        (move-lines-impl t)
+      (move-line-up))))
+
+(defun move-lines-impl (&optional up)
+  "Move the current region up by one line.  Set UP to true to go up."
+  (let (deactivate-mark
+        (rstart (region-beginning))
+        (rend (region-end)))
+    (goto-char rstart)
+    (let ((start (line-beginning-position)))
+      (goto-char rend)
+      (let* ((end (if (= (current-column) 0)
+                         rend
+                         (line-beginning-position 2)))
+             (text (buffer-substring start end)))
+        (delete-region start end)
+        (forward-line (if up -1 1))
+        (push-mark)
+        (insert text)))))
+
 (defun move-line-up ()
   "Swap the current line with the previous one."
   (interactive)
   (save-column
    (transpose-lines 1)
    (forward-line -2)))
+
+(defun move-lines-down ()
+  "Move the current line or region down by one line."
+  (interactive)
+  (save-current-buffer
+    (if (use-region-p)
+        (move-lines-impl)
+      (move-line-down))))
 
 (defun move-line-down ()
   "Swap the current line with the next one."
@@ -83,8 +116,8 @@
    (transpose-lines 1)
    (forward-line -1)))
 
-(global-set-key (kbd "M-<up>") 'move-line-up)
-(global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key (kbd "M-<up>") 'move-lines-up)
+(global-set-key (kbd "M-<down>") 'move-lines-down)
 
 (defun open-pwd ()
   "Open the current working directory in the Finder."
