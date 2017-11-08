@@ -220,6 +220,7 @@
 
 (use-package git-gutter-fringe+
   :if (display-graphic-p)
+  :diminish git-gutter+-mode
   :config
   (global-git-gutter+-mode))
 
