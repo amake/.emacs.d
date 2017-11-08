@@ -170,7 +170,7 @@
   (add-hook 'text-mode-hook 'flyspell-mode))
 
 (use-package ediff
-  :if window-system
+  :if (display-graphic-p)
   :config
   ;; https://www.ogre.com/node/446
   (add-hook 'ediff-before-setup-hook
