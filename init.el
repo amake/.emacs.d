@@ -76,13 +76,15 @@
 ;; Bootstrap use-package
 ;; http://cachestocaches.com/2015/8/getting-started-use-package/
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  (unless (string= (user-login-name) "root")
+    (package-refresh-contents)
+    (package-install 'use-package)))
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
 (require 'bind-key)
-(package-install-selected-packages)
+(unless (string= (user-login-name) "root")
+  (package-install-selected-packages))
 (setq use-package-always-ensure t)
 
 (use-package amk-edit
