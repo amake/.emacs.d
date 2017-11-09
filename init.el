@@ -254,5 +254,12 @@
     :config
     (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
 
+(use-package hideshow
+  :diminish hs-minor-mode
+  :bind ("C-c \\" . hs-toggle-hiding)
+  :config
+  (add-to-list 'hs-special-modes-alist '(sh-mode "{" "}" "#" nil nil))
+  (add-hook 'prog-mode-hook 'hs-minor-mode))
+
 (provide 'init)
 ;;; init.el ends here
