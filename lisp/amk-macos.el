@@ -15,5 +15,10 @@
   (interactive)
   (shell-command (concat "open " (buffer-file-name))))
 
+(defun open-terminal ()
+  "Open a macOS Terminal window in the pwd."
+  (interactive)
+  (shell-command "open -a Terminal ."))
+
 (provide 'amk-macos)
 ;;; amk-macos.el ends here
