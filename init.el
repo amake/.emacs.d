@@ -55,16 +55,6 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(defun open-pwd ()
-  "Open the current working directory in the Finder."
-  (interactive)
-  (shell-command "open ."))
-
-(defun open-file ()
-  "Open the current file in the default app."
-  (interactive)
-  (shell-command (concat "open " (buffer-file-name))))
-
 ;; Only on GUI
 (when (display-graphic-p)
   ;; Disable C-z (suspend-frame) in GUI because it's pointless
@@ -100,6 +90,10 @@
   :load-path "lisp"
   :bind (("M-<up>" . move-lines-up)
          ("M-<down>" . move-lines-down)))
+
+(use-package amk-macos
+  :ensure nil
+  :load-path "lisp")
 
 (use-package desktop
   :if (display-graphic-p)
