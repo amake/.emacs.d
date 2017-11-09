@@ -17,13 +17,9 @@
 ;; Set Japanese second so that Japanese glyphs override Chinese
 ;; when both charsets cover the same codepoints.
 (when (fboundp 'set-fontset-font)
-  (set-fontset-font
-   t
-   'chinese-gbk
+  (set-fontset-font t 'chinese-gbk
    (font-spec :family "Noto Sans CJK SC"))
-  (set-fontset-font
-   t
-   'japanese-jisx0213.2004-1
+  (set-fontset-font t 'japanese-jisx0213.2004-1
    (font-spec :family "Source Han Code JP")))
 (dolist (item '(("Source Han Code JP" . 1.25)
                 ("Noto Sans CJK SC" . 1.25)))
