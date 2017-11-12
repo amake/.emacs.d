@@ -263,5 +263,8 @@
   (add-to-list 'hs-special-modes-alist '(sh-mode "{" "}" "#" nil nil))
   (add-hook 'prog-mode-hook 'hs-minor-mode))
 
+(use-package direx
+  :bind ("C-x C-j" . direx:jump-to-directory))
+
 (provide 'init)
 ;;; init.el ends here
