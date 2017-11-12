@@ -156,11 +156,11 @@
   (setq magit-diff-refine-hunk 'all)
   (setq vc-handled-backends (delq 'Git vc-handled-backends)))
 
-(use-package git-gutter-fringe+
+(use-package git-gutter-fringe
   :if (display-graphic-p)
-  :diminish git-gutter+-mode
+  :diminish git-gutter-mode
   :config
-  (global-git-gutter+-mode))
+  (global-git-gutter-mode))
 
 ;; Use PCRE-style regex
 (use-package pcre2el
