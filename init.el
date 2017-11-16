@@ -100,7 +100,10 @@
 (use-package desktop
   :if (display-graphic-p)
   :config
-  (desktop-save-mode t))
+  (desktop-save-mode t)
+  (add-hook 'auto-save-hook '(lambda ()
+                               (if (eq (desktop-owner) (emacs-pid))
+                                   (desktop-save desktop-dirname)))))
 
 (use-package flyspell
   :config
