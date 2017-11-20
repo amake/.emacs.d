@@ -33,6 +33,14 @@
 (setq custom-file "~/.emacs.d/custom-file.el")
 (load custom-file)
 
+(defvar amk-code-directory nil "Where I keep my programming projects.")
+
+(defvar local-custom-file "~/.emacs.d/init-local.el"
+  "A local version of CUSTOM-FILE for settings that should \
+not be synced across machines.")
+(when (file-exists-p local-custom-file)
+  (load local-custom-file))
+
 ;; Make some emacs-app-mac keys match vanilla Emacs.app
 (dolist (item '(("s-u" . revert-buffer)
                 ("s-n" . make-frame)
