@@ -165,7 +165,9 @@ not be synced across machines.")
   :bind ("C-x g" . magit-status)
   :config
   (setq magit-diff-refine-hunk 'all)
-  (setq vc-handled-backends (delq 'Git vc-handled-backends)))
+  (setq vc-handled-backends (delq 'Git vc-handled-backends))
+  (when (file-exists-p amk-code-directory)
+    (add-to-list 'magit-repository-directories (cons amk-code-directory 1))))
 
 (use-package git-gutter-fringe
   :if (display-graphic-p)
