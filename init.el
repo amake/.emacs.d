@@ -97,6 +97,12 @@ not be synced across machines.")
 
 (use-package use-package-ensure-system-package)
 
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
+  :config
+  ;; Ensure emacs shell has regular shell environment
+  (exec-path-from-shell-initialize))
+
 (use-package amk-edit
   :ensure nil
   :load-path "lisp"
@@ -145,12 +151,6 @@ not be synced across machines.")
   :config
   (when (string= system-type "darwin")
     (setq browse-url-generic-program "open")))
-
-(use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
-  :config
-  ;; Ensure emacs shell has regular shell environment
-  (exec-path-from-shell-initialize))
 
 (use-package org
   :ensure org-plus-contrib
