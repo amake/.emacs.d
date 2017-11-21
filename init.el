@@ -122,6 +122,7 @@ not be synced across machines.")
                                    (desktop-save desktop-dirname)))))
 
 (use-package flyspell
+  :ensure-system-package aspell
   :config
   ;;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
   (add-hook 'text-mode-hook 'flyspell-mode))
