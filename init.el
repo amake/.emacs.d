@@ -117,9 +117,9 @@ not be synced across machines.")
   :if (display-graphic-p)
   :config
   (desktop-save-mode t)
-  (add-hook 'auto-save-hook '(lambda ()
-                               (if (eq (desktop-owner) (emacs-pid))
-                                   (desktop-save desktop-dirname)))))
+  (add-hook 'auto-save-hook (lambda ()
+                              (if (eq (desktop-owner) (emacs-pid))
+                                  (desktop-save desktop-dirname)))))
 
 (use-package flyspell
   :ensure-system-package aspell
@@ -136,9 +136,9 @@ not be synced across machines.")
   (add-hook 'ediff-quit-hook
             'delete-frame)
   (add-hook 'ediff-startup-hook
-            '(lambda ()
-               (set-frame-size (selected-frame) 175 55)
-               (raise-frame (selected-frame)))))
+            (lambda ()
+              (set-frame-size (selected-frame) 175 55)
+              (raise-frame (selected-frame)))))
 
 (use-package dired
   :ensure nil
