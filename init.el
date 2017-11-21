@@ -192,7 +192,10 @@ not be synced across machines.")
   ;; Set alternate key masked by flycheck
   (add-hook 'org-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c C-.") 'org-time-stamp-inactive))))
+            (local-set-key (kbd "C-c C-.") 'org-time-stamp-inactive)))
+  (add-hook 'scss-mode-hook (lambda ()
+                              (unless (executable-find "scss")
+                               (async-shell-command "gem install sass")))))
 
 (use-package ivy
   :ensure counsel
