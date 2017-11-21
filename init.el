@@ -95,6 +95,8 @@ not be synced across machines.")
   (package-install-selected-packages))
 (setq use-package-always-ensure t)
 
+(use-package use-package-ensure-system-package)
+
 (use-package amk-edit
   :ensure nil
   :load-path "lisp"
