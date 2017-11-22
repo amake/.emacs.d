@@ -166,9 +166,10 @@ not be synced across machines.")
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
   :bind ("C-x g" . magit-status)
+  :custom
+  (magit-diff-refine-hunk 'all "Always show character-level diffs")
+  (vc-handled-backends (delq 'Git vc-handled-backends) "Don't use VC for git")
   :config
-  (setq magit-diff-refine-hunk 'all)
-  (setq vc-handled-backends (delq 'Git vc-handled-backends))
   (when (and amk-code-directory
              (file-exists-p amk-code-directory))
     (add-to-list 'magit-repository-directories (cons amk-code-directory 1))))
@@ -217,9 +218,10 @@ not be synced across machines.")
          ("C-S-o" . counsel-rhythmbox)
          :map read-expression-map
          ("C-r" . counsel-expression-history))
+  :custom
+  (ivy-use-virtual-buffers t)
+  (enable-recursive-minibuffers t)
   :config
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
   (ivy-mode))
 
 (use-package web-mode
