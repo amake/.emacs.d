@@ -4,6 +4,13 @@
 
 ;;; Code:
 
+;; Speed-up by temporarily disabling GC
+;; See https://github.com/nilcons/emacs-use-package-fast
+(setq gc-cons-threshold 64000000)
+(add-hook 'after-init-hook (lambda ()
+                             ;; restore after startup
+                             (setq gc-cons-threshold 800000)))
+
 ;; Increase default font size.
 (set-face-attribute 'default nil :height 180 :family "Menlo")
 
