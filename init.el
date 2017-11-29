@@ -122,30 +122,26 @@ not be synced across machines.")
 
 (use-package desktop
   :if (display-graphic-p)
-  :config
-  (desktop-save-mode t)
-  (add-hook 'auto-save-hook (lambda ()
+  :hook (auto-save-hook . (lambda ()
                               (if (eq (desktop-owner) (emacs-pid))
-                                  (desktop-save desktop-dirname)))))
+                                  (desktop-save desktop-dirname))))
+  :config
+  (desktop-save-mode t))
 
 (use-package flyspell
   :ensure-system-package aspell
-  :config
-  ;;(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-  (add-hook 'text-mode-hook 'flyspell-mode))
+  :hook ((text-mode-hook . flyspell-mode)
+         ;; (prog-mode-hook . flyspell-prog-mode)
+         ))
 
 (use-package ediff
   :if (display-graphic-p)
-  :config
   ;; https://www.ogre.com/node/446
-  (add-hook 'ediff-before-setup-hook
-            'make-frame)
-  (add-hook 'ediff-quit-hook
-            'delete-frame)
-  (add-hook 'ediff-startup-hook
-            (lambda ()
-              (set-frame-size (selected-frame) 175 55)
-              (raise-frame (selected-frame)))))
+  :hook ((ediff-before-setup-hook . make-frame)
+         (ediff-quit-hook . delete-frame)
+         (ediff-startup-hook . (lambda ()
+                                 (set-frame-size (selected-frame) 175 55)
+                                 (raise-frame (selected-frame))))))
 
 (use-package dired
   :ensure nil
@@ -195,15 +191,15 @@ not be synced across machines.")
 
 ;; On-the-fly linting
 (use-package flycheck
-  :config
-  (global-flycheck-mode)
   ;; Set alternate key masked by flycheck
-  (add-hook 'org-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c C-.") 'org-time-stamp-inactive)))
-  (add-hook 'scss-mode-hook (lambda ()
-                              (unless (executable-find "scss")
+  :hook ((org-mode-hook . (lambda ()
+                            (local-set-key (kbd "C-c C-.")
+                                           'org-time-stamp-inactive)))
+         (scss-mode-hook . (lambda ()
+                             (unless (executable-find "scss")
                                (async-shell-command "gem install sass")))))
+  :config
+  (global-flycheck-mode))
 
 (use-package ivy
   :ensure counsel
@@ -238,8 +234,7 @@ not be synced across machines.")
   :bind ("C-=" . er/expand-region))
 
 (use-package dired-collapse
-  :config
-  (add-hook 'dired-mode-hook 'dired-collapse-mode))
+  :hook (dired-mode-hook . dired-collapse-mode))
 
 (use-package dash-at-point
   :bind ("C-c d" . dash-at-point))
@@ -268,29 +263,26 @@ not be synced across machines.")
 
 (use-package groovy-mode
   :defer t
-  :config
-  (add-hook 'groovy-mode-hook (lambda ()
-                                (local-unset-key (kbd "C-s")))))
+  :hook (groovy-mode-hook . (lambda ()
+                              (local-unset-key (kbd "C-s")))))
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
   :config
 
   (use-package anaconda-mode
-    :config
-    (add-hook 'python-mode-hook 'anaconda-mode)
-    (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+    :hook ((python-mode-hook . anaconda-mode)
+           (python-mode-hook . anaconda-eldoc-mode)))
 
   (use-package py-autopep8
-    :config
-    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)))
+    :hook (python-mode-hook . py-autopep8-enable-on-save)))
 
 (use-package hideshow
   :diminish hs-minor-mode
   :bind ("C-c \\" . hs-toggle-hiding)
+  :hook (prog-mode-hook . hs-minor-mode)
   :config
-  (add-to-list 'hs-special-modes-alist '(sh-mode "{" "}" "#" nil nil))
-  (add-hook 'prog-mode-hook 'hs-minor-mode))
+  (add-to-list 'hs-special-modes-alist '(sh-mode "{" "}" "#" nil nil)))
 
 (use-package direx
   :bind ("C-x C-j" . direx:jump-to-directory))
