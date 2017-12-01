@@ -122,26 +122,26 @@ not be synced across machines.")
 
 (use-package desktop
   :if (display-graphic-p)
-  :hook (auto-save-hook . (lambda ()
-                              (if (eq (desktop-owner) (emacs-pid))
-                                  (desktop-save desktop-dirname))))
+  :hook (auto-save . (lambda ()
+                       (if (eq (desktop-owner) (emacs-pid))
+                           (desktop-save desktop-dirname))))
   :config
   (desktop-save-mode t))
 
 (use-package flyspell
   :ensure-system-package aspell
-  :hook ((text-mode-hook . flyspell-mode)
-         ;; (prog-mode-hook . flyspell-prog-mode)
+  :hook ((text-mode . flyspell-mode)
+         ;; (prog-mode . flyspell-prog-mode)
          ))
 
 (use-package ediff
   :if (display-graphic-p)
   ;; https://www.ogre.com/node/446
-  :hook ((ediff-before-setup-hook . make-frame)
-         (ediff-quit-hook . delete-frame)
-         (ediff-startup-hook . (lambda ()
-                                 (set-frame-size (selected-frame) 175 55)
-                                 (raise-frame (selected-frame))))))
+  :hook ((ediff-before-setup . make-frame)
+         (ediff-quit . delete-frame)
+         (ediff-startup . (lambda ()
+                            (set-frame-size (selected-frame) 175 55)
+                            (raise-frame (selected-frame))))))
 
 (use-package dired
   :ensure nil
@@ -192,12 +192,12 @@ not be synced across machines.")
 ;; On-the-fly linting
 (use-package flycheck
   ;; Set alternate key masked by flycheck
-  :hook ((org-mode-hook . (lambda ()
-                            (local-set-key (kbd "C-c C-.")
-                                           'org-time-stamp-inactive)))
-         (scss-mode-hook . (lambda ()
-                             (unless (executable-find "scss")
-                               (async-shell-command "gem install sass")))))
+  :hook ((org-mode . (lambda ()
+                       (local-set-key (kbd "C-c C-.")
+                                      'org-time-stamp-inactive)))
+         (scss-mode . (lambda ()
+                        (unless (executable-find "scss")
+                          (async-shell-command "gem install sass")))))
   :config
   (global-flycheck-mode))
 
@@ -234,7 +234,7 @@ not be synced across machines.")
   :bind ("C-=" . er/expand-region))
 
 (use-package dired-collapse
-  :hook (dired-mode-hook . dired-collapse-mode))
+  :hook (dired-mode . dired-collapse-mode))
 
 (use-package dash-at-point
   :bind ("C-c d" . dash-at-point))
@@ -263,24 +263,24 @@ not be synced across machines.")
 
 (use-package groovy-mode
   :defer t
-  :hook (groovy-mode-hook . (lambda ()
-                              (local-unset-key (kbd "C-s")))))
+  :hook (groovy-mode . (lambda ()
+                         (local-unset-key (kbd "C-s")))))
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
   :config
 
   (use-package anaconda-mode
-    :hook ((python-mode-hook . anaconda-mode)
-           (python-mode-hook . anaconda-eldoc-mode)))
+    :hook ((python-mode . anaconda-mode)
+           (python-mode . anaconda-eldoc-mode)))
 
   (use-package py-autopep8
-    :hook (python-mode-hook . py-autopep8-enable-on-save)))
+    :hook (python-mode . py-autopep8-enable-on-save)))
 
 (use-package hideshow
   :diminish hs-minor-mode
   :bind ("C-c \\" . hs-toggle-hiding)
-  :hook (prog-mode-hook . hs-minor-mode)
+  :hook (prog-mode . hs-minor-mode)
   :config
   (add-to-list 'hs-special-modes-alist '(sh-mode "{" "}" "#" nil nil)))
 
