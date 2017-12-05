@@ -98,10 +98,10 @@ not be synced across machines.")
     (package-install 'use-package)))
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
 (unless (string= (user-login-name) "root")
   (package-install-selected-packages))
+(require 'diminish)
+(require 'bind-key)
 (setq use-package-always-ensure t)
 
 (use-package use-package-ensure-system-package)
