@@ -100,10 +100,10 @@ not be synced across machines.")
   (require 'use-package))
 (unless (string= (user-login-name) "root")
   (package-install-selected-packages))
-(require 'diminish)
-(require 'bind-key)
 (setq use-package-always-ensure t)
 
+(use-package diminish)
+(use-package bind-key)
 (use-package use-package-ensure-system-package)
 
 (use-package exec-path-from-shell
