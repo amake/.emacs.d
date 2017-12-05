@@ -124,9 +124,9 @@ not be synced across machines.")
 
 (use-package desktop
   :if (display-graphic-p)
-  :hook (auto-save . (lambda ()
-                       (if (eq (desktop-owner) (emacs-pid))
-                           (desktop-save desktop-dirname))))
+  :hook (auto-save-mode . (lambda ()
+                            (if (eq (desktop-owner) (emacs-pid))
+                                (desktop-save desktop-dirname))))
   :config
   (desktop-save-mode t))
 
