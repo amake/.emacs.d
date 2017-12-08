@@ -244,6 +244,7 @@ not be synced across machines.")
 
 (use-package projectile
   :diminish projectile-mode
+  :ensure-system-package (ag . "sudo port install the_silver_searcher")
   :config
   (projectile-mode)
   (use-package counsel-projectile
