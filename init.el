@@ -132,7 +132,7 @@ not be synced across machines.")
   (desktop-save-mode t))
 
 (use-package flyspell
-  :ensure-system-package aspell
+  :ensure-system-package (aspell . "sudo port install aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
          ;; (prog-mode . flyspell-prog-mode)
          ))
