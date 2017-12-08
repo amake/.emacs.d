@@ -207,6 +207,7 @@ not be synced across machines.")
 (use-package ivy
   :ensure counsel
   :diminish ivy-mode
+  :ensure-system-package (ag . "sudo port install the_silver_searcher")
   :bind (("C-s" . swiper)
          ("C-c C-r" . ivy-resume)
          ("<f6>" . ivy-resume)
