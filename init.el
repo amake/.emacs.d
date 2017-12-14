@@ -44,12 +44,6 @@
 
 (defvar amk-code-directory nil "Where I keep my programming projects.")
 
-(defvar local-custom-file "~/.emacs.d/init-local.el"
-  "A local version of CUSTOM-FILE for settings that should \
-not be synced across machines.")
-(when (file-exists-p local-custom-file)
-  (load local-custom-file))
-
 ;; Make some emacs-app-mac keys match vanilla Emacs.app
 (dolist (item '(("s-u" . revert-buffer)
                 ("s-n" . make-frame)
@@ -105,6 +99,12 @@ not be synced across machines.")
 (use-package diminish)
 (use-package bind-key)
 (use-package use-package-ensure-system-package)
+
+(defvar local-custom-file "~/.emacs.d/init-local.el"
+  "A local version of CUSTOM-FILE for settings that should \
+not be synced across machines.")
+(when (file-exists-p local-custom-file)
+  (load local-custom-file))
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
