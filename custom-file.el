@@ -12,7 +12,6 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(fill-column 80)
- '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
  '(mac-command-modifier (quote super))

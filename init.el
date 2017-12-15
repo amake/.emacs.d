@@ -68,6 +68,7 @@
 
 ;; Only on GUI
 (when (display-graphic-p)
+  (global-linum-mode)
   ;; Disable C-z (suspend-frame) in GUI because it's pointless
   ;; and I keep hitting it.
   (global-unset-key (kbd "C-z"))
