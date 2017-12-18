@@ -13,12 +13,16 @@
 (defun open-file ()
   "Open the current file in the default app."
   (interactive)
-  (shell-command (concat "open " (buffer-file-name))))
+  (if (buffer-file-name)
+      (shell-command (concat "open " (buffer-file-name)))
+    (error "Buffer is not associated with a file")))
 
 (defun reveal-file ()
   "Reveal the current file in the Finder."
   (interactive)
-  (shell-command (concat "open -R " (buffer-file-name))))
+  (if (buffer-file-name)
+      (shell-command (concat "open -R " (buffer-file-name)))
+    (error "Buffer is not associated with a file")))
 
 (defun open-terminal ()
   "Open a macOS Terminal window in the pwd."
