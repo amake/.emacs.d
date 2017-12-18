@@ -15,6 +15,11 @@
   (interactive)
   (shell-command (concat "open " (buffer-file-name))))
 
+(defun reveal-file ()
+  "Reveal the current file in the Finder."
+  (interactive)
+  (shell-command (concat "open -R " (buffer-file-name))))
+
 (defun open-terminal ()
   "Open a macOS Terminal window in the pwd."
   (interactive)
