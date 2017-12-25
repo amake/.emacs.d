@@ -251,7 +251,7 @@ not be synced across machines.")
   (projectile-mode)
   (use-package counsel-projectile
     :config
-    (counsel-projectile-on)))
+    (counsel-projectile-mode)))
 
 (use-package scala-mode
   :defer t)
