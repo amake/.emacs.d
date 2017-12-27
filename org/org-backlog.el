@@ -10,7 +10,7 @@
 
 (defvar backlog-link-template "https://%s.backlog.jp/view/%s")
 
-(org-add-link-type "b" 'org-backlog-open)
+(org-link-set-parameters "b" :follow 'org-backlog-open)
 
 (defcustom org-backlog-team nil
   "The Backlog team to use when opening links."
