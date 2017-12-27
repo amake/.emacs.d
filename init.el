@@ -39,6 +39,12 @@
 ;; ０１２３４|あいうえお|
 ;; 月光下，一|颗很小的蛋|躺在一个叶子上
 
+(setq-default fill-column 80
+              indent-tabs-mode nil
+              tab-width 4
+              mac-command-modifier 'super
+              mac-option-modifier 'meta)
+
 (setq custom-file "~/.emacs.d/custom-file.el")
 (load custom-file)
 
@@ -143,6 +149,9 @@ not be synced across machines.")
 
 (use-package ediff
   :if (display-graphic-p)
+  :custom
+  (ediff-split-window-function 'split-window-horizontally)
+  (ediff-window-setup-function 'ediff-setup-windows-plain)
   ;; https://www.ogre.com/node/446
   :hook ((ediff-before-setup . make-frame)
          (ediff-quit . delete-frame)
@@ -157,6 +166,16 @@ not be synced across machines.")
   (when (string= system-type "darwin")
     (setq dired-use-ls-dired nil)))
 
+(use-package nxml-mode
+  :ensure nil
+  :custom
+  (nxml-child-indent 4))
+
+(use-package js
+  :ensure nil
+  :custom
+  (js-indent-level 2))
+
 (use-package browse-url
   :bind ("C-c C-o" . browse-url-generic)
   :config
@@ -166,7 +185,12 @@ not be synced across machines.")
 (use-package org
   :ensure org-plus-contrib
   :bind ("C-c a" . org-agenda)
+  :custom
+  (org-enforce-todo-checkbox-dependencies t)
+  (org-enforce-todo-dependencies t)
+  (org-startup-truncated nil "Wrap lines in org-mode")
   :config
+  (add-to-list 'org-agenda-files "~/Documents/org/agenda/")
   ;; Backlog link support in org-mode
   (use-package org-backlog
     :ensure nil
@@ -278,6 +302,8 @@ not be synced across machines.")
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
+  :custom
+  (python-shell-font-lock-enable nil "Improve text printing speed in Python shell")
   :config
 
   (use-package anaconda-mode
@@ -296,6 +322,12 @@ not be synced across machines.")
 
 (use-package dockerfile-mode
   :defer t)
+
+(use-package markdown-mode
+  :defer t
+  :custom
+  (markdown-command "multimarkdown")
+  :ensure-system-package multimarkdown)
 
 (provide 'init)
 ;;; init.el ends here

@@ -9,28 +9,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ediff-split-window-function (quote split-window-horizontally))
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(fill-column 80)
- '(indent-tabs-mode nil)
- '(js-indent-level 2)
- '(mac-command-modifier (quote super))
- '(mac-option-modifier (quote meta))
- '(markdown-command "multimarkdown")
- '(neo-theme (quote arrow))
- '(ns-pop-up-frames nil)
- '(nxml-child-indent 4)
- '(org-agenda-files (quote ("~/Documents/org/agenda/")))
- '(org-backlog-team "rxdev")
- '(org-enforce-todo-checkbox-dependencies t)
- '(org-enforce-todo-dependencies t)
- '(org-startup-truncated nil nil nil "Wrap lines in org-mode")
  '(package-selected-packages
    (quote
-    (dockerfile-mode diminish use-package-ensure-system-package git-gutter-fringe play-routes-mode go-mode anaconda-mode py-autopep8 typescript-mode scala-mode counsel-projectile projectile dash-at-point dired-collapse expand-region graphviz-dot-mode groovy-mode counsel web-mode markdown-mode use-package flycheck pcre2el org-plus-contrib magit exec-path-from-shell)))
- '(python-shell-font-lock-enable nil nil nil "Improve text printing speed in Python shell")
- '(sgml-basic-offset 4)
- '(tab-width 4))
+    (dockerfile-mode diminish use-package-ensure-system-package git-gutter-fringe play-routes-mode go-mode anaconda-mode py-autopep8 typescript-mode scala-mode counsel-projectile projectile dash-at-point dired-collapse expand-region graphviz-dot-mode groovy-mode counsel web-mode markdown-mode use-package flycheck pcre2el org-plus-contrib magit exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
