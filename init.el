@@ -294,9 +294,6 @@ not be synced across machines.")
   :config
   (add-to-list 'hs-special-modes-alist '(sh-mode "{" "}" "#" nil nil)))
 
-(use-package direx
-  :bind ("C-x C-j" . direx:jump-to-directory))
-
 (use-package dockerfile-mode
   :defer t)
 
