@@ -297,5 +297,8 @@ not be synced across machines.")
 (use-package direx
   :bind ("C-x C-j" . direx:jump-to-directory))
 
+(use-package dockerfile-mode
+  :defer t)
+
 (provide 'init)
 ;;; init.el ends here
