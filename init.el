@@ -323,6 +323,9 @@ not be synced across machines.")
 (use-package dockerfile-mode
   :defer t)
 
+(use-package docker-compose-mode
+  :defer t)
+
 (use-package markdown-mode
   :defer t
   :custom
