@@ -117,7 +117,10 @@ not be synced across machines.")
   :ensure nil
   :load-path "lisp"
   :bind (("M-<up>" . move-lines-up)
-         ("M-<down>" . move-lines-down)))
+         ("M-<down>" . move-lines-down)
+         ;; For use on CLI
+         ("ESC <up>" . move-lines-up)
+         ("ESC <down>" . move-lines-down)))
 
 (use-package amk-macos
   :ensure nil
