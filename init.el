@@ -332,5 +332,9 @@ not be synced across machines.")
   (markdown-command "multimarkdown")
   :ensure-system-package multimarkdown)
 
+(use-package dumb-jump
+  :config
+  (dumb-jump-mode))
+
 (provide 'init)
 ;;; init.el ends here
