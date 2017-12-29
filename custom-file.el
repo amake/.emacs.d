@@ -1,4 +1,4 @@
-;;; package --- Summary
+;;; custom-file.el --- The emacs custom-file
 
 ;;; Commentary:
 

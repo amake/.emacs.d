@@ -1,5 +1,4 @@
-;; -*- lexical-binding: t -*-
-;;; package --- Summary
+;;; init.el --- My emacs setup -*- lexical-binding: t -*-
 
 ;;; Commentary:
 

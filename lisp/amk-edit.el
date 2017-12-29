@@ -1,5 +1,4 @@
-;;; package --- Summary:
-;;; Custom editing commands
+;;; amk-edit.el --- Custom editing commands
 
 ;;; Commentary:
 

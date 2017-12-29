@@ -1,5 +1,4 @@
-;;; package --- Summary:
-;;; Custom commands with macOS-specific functionality
+;;; amk-macos.el --- macOS-specific functions
 
 ;;; Commentary:
 
