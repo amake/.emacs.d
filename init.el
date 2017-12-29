@@ -206,7 +206,7 @@ not be synced across machines.")
   :config
   (when (and amk-code-directory
              (file-exists-p amk-code-directory))
-    (add-to-list 'magit-repository-directories `(,amk-code-directory 1))))
+    (add-to-list 'magit-repository-directories `(,amk-code-directory . 1))))
 
 (use-package git-gutter-fringe
   :if (display-graphic-p)
