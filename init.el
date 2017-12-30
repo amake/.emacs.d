@@ -16,7 +16,7 @@
 (set-face-attribute 'default nil :height 180 :family "Menlo")
 
 ;; Fancy operator ligatures with Fira Code
-(when (fboundp 'mac-auto-operator-composition-mode)
+(when (fboundp #'mac-auto-operator-composition-mode)
   (set-face-attribute 'default nil :family "Fira Code")
   (mac-auto-operator-composition-mode))
 
@@ -24,7 +24,7 @@
 ;; but *only* if in a graphical context.
 ;; Set Japanese second so that Japanese glyphs override Chinese
 ;; when both charsets cover the same codepoints.
-(when (fboundp 'set-fontset-font)
+(when (fboundp #'set-fontset-font)
   (set-fontset-font t 'chinese-gbk
                     (font-spec :family "Noto Sans CJK SC"))
   (set-fontset-font t 'japanese-jisx0213.2004-1
@@ -69,7 +69,7 @@
 (show-paren-mode)
 (column-number-mode)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;; Only on GUI
 (when (display-graphic-p)
@@ -149,8 +149,8 @@ not be synced across machines.")
 (use-package ediff
   :if (display-graphic-p)
   :custom
-  (ediff-split-window-function 'split-window-horizontally)
-  (ediff-window-setup-function 'ediff-setup-windows-plain)
+  (ediff-split-window-function #'split-window-horizontally)
+  (ediff-window-setup-function #'ediff-setup-windows-plain)
   ;; https://www.ogre.com/node/446
   :hook ((ediff-before-setup . make-frame)
          (ediff-quit . delete-frame)
@@ -225,7 +225,7 @@ not be synced across machines.")
   ;; Set alternate key masked by flycheck
   :hook ((org-mode . (lambda ()
                        (local-set-key (kbd "C-c C-.")
-                                      'org-time-stamp-inactive)))
+                                      #'org-time-stamp-inactive)))
          (scss-mode . (lambda ()
                         (unless (executable-find "scss")
                           (async-shell-command "gem install sass")))))
