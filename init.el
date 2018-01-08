@@ -16,7 +16,8 @@
 (set-face-attribute 'default nil :height 180 :family "Menlo")
 
 ;; Fancy operator ligatures with Fira Code
-(when (fboundp #'mac-auto-operator-composition-mode)
+(defvar amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
+(when amk-use-fancy-ligatures
   (set-face-attribute 'default nil :family "Fira Code")
   (mac-auto-operator-composition-mode))
 
@@ -190,6 +191,8 @@ not be synced across machines.")
   (org-startup-truncated nil "Wrap lines in org-mode")
   :config
   (add-to-list 'org-agenda-files "~/Documents/org/agenda/")
+  (when amk-use-fancy-ligatures
+    (set-face-attribute 'org-table nil :family "Fira Mono"))
   ;; Backlog link support in org-mode
   (use-package org-backlog
     :ensure nil
