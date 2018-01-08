@@ -18,6 +18,7 @@
 ;; Fancy operator ligatures with Fira Code
 (defvar amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
 (when amk-use-fancy-ligatures
+  ;; Fira Code: https://github.com/tonsky/FiraCode
   (set-face-attribute 'default nil :family "Fira Code")
   (mac-auto-operator-composition-mode))
 
@@ -27,8 +28,10 @@
 ;; when both charsets cover the same codepoints.
 (when (fboundp #'set-fontset-font)
   (set-fontset-font t 'chinese-gbk
+                    ;; Noto Sans CJK: https://www.google.com/get/noto/help/cjk/
                     (font-spec :family "Noto Sans CJK SC"))
   (set-fontset-font t 'japanese-jisx0213.2004-1
+                    ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
                     (font-spec :family "Source Han Code JP")))
 (dolist (item '(("Source Han Code JP" . 1.25)
                 ("Noto Sans CJK SC" . 1.25)))
@@ -192,6 +195,7 @@ not be synced across machines.")
   :config
   (add-to-list 'org-agenda-files "~/Documents/org/agenda/")
   (when amk-use-fancy-ligatures
+    ;; Fira Mono: https://github.com/mozilla/Fira
     (set-face-attribute 'org-table nil :family "Fira Mono"))
   ;; Backlog link support in org-mode
   (use-package org-backlog
