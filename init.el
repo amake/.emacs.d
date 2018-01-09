@@ -190,7 +190,7 @@ not be synced across machines.")
   :custom
   (org-enforce-todo-checkbox-dependencies t)
   (org-enforce-todo-dependencies t)
-  (org-startup-truncated nil "Wrap lines in org-mode")
+  (org-startup-truncated nil "Wrap lines")
   (org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
@@ -226,7 +226,6 @@ not be synced across machines.")
   ;; pdfview link support
   (use-package org-pdfview))
 
-;; Set magit shortcut
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
   :bind (("C-x g" . magit-status)
