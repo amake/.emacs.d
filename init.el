@@ -203,7 +203,14 @@ not be synced across machines.")
   ;; Backlog link support in org-mode
   (use-package org-backlog
     :ensure nil
-    :load-path "org"))
+    :load-path "org")
+  ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
+  (add-to-list 'org-capture-templates
+               `("p" "Protocol" entry (file+headline ,(concat org-directory "notes.org") "Inbox")
+                 "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
+  (add-to-list 'org-capture-templates
+               `("L" "Protocol Link" entry (file+headline ,(concat org-directory "notes.org") "Inbox")
+                 "* %? [[%:link][%:description]] \nCaptured On: %U")))
 
 ;; Set magit shortcut
 (use-package magit
