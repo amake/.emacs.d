@@ -187,7 +187,6 @@ not be synced across machines.")
 
 (use-package org
   :ensure org-plus-contrib
-  :bind ("C-c a" . org-agenda)
   :custom
   (org-enforce-todo-checkbox-dependencies t)
   (org-enforce-todo-dependencies t)
@@ -196,10 +195,16 @@ not be synced across machines.")
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   :config
-  (add-to-list 'org-agenda-files (concat (file-name-as-directory org-directory) "agenda"))
   (when amk-use-fancy-ligatures
     ;; Fira Mono: https://github.com/mozilla/Fira
     (set-face-attribute 'org-table nil :family "Fira Mono"))
+  (use-package org-agenda
+    :ensure nil
+    :bind ("C-c a" . org-agenda)
+    :config
+    (let ((amk-agenda-files (concat (file-name-as-directory org-directory) "agenda")))
+      (make-directory amk-agenda-files t)
+      (add-to-list 'org-agenda-files amk-agenda-files)))
   (use-package org-capture
     :ensure nil
     :bind ("C-c c" . org-capture)
