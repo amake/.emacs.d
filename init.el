@@ -203,10 +203,10 @@ not be synced across machines.")
     (set-face-attribute 'org-table nil :family "Fira Mono"))
   ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
   (add-to-list 'org-capture-templates
-               `("p" "Protocol" entry (file+headline ,(concat org-directory "notes.org") "Inbox")
+               `("p" "Protocol" entry (file+headline "" "Inbox")
                  "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
   (add-to-list 'org-capture-templates
-               `("L" "Protocol Link" entry (file+headline ,(concat org-directory "notes.org") "Inbox")
+               `("L" "Protocol Link" entry (file+headline "" "Inbox")
                  "* %? [[%:link][%:description]] \nCaptured On: %U"))
   ;; Backlog link support
   (use-package org-backlog
