@@ -357,8 +357,10 @@ not be synced across machines.")
 
 (use-package pdf-tools
   :defer t
-  :ensure-system-package ((pdfinfo . "sudo port install poppler")
-                          (automake))
+  :ensure-system-package (automake
+                          autoconf
+                          (pkg-config . "sudo port install pkgconfig")
+                          (pdfinfo . "sudo port install poppler"))
   :hook (pdf-view-mode . (lambda () (linum-mode -1)))
   :config
   (pdf-tools-install))
