@@ -365,5 +365,14 @@ not be synced across machines.")
   :config
   (pdf-tools-install))
 
+(use-package paredit
+  :diminish paredit-mode
+  :hook ((emacs-lisp-mode . paredit-mode)
+         (eval-expression-minibuffer-setup . paredit-mode)
+         (ielm-mode . paredit-mode)
+         (lisp-mode . paredit-mode)
+         (lisp-interaction-mode . paredit-mode)
+         (scheme-mode . paredit-mode)))
+
 (provide 'init)
 ;;; init.el ends here
