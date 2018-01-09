@@ -195,6 +195,7 @@ not be synced across machines.")
   (org-startup-truncated nil "Wrap lines in org-mode")
   (org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
                          "Default template")
+  (org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
   :config
   (add-to-list 'org-agenda-files (concat (file-name-as-directory org-directory) "agenda"))
   (when amk-use-fancy-ligatures
