@@ -187,14 +187,11 @@ not be synced across machines.")
 
 (use-package org
   :ensure org-plus-contrib
-  :bind (("C-c a" . org-agenda)
-         ("C-c c" . org-capture))
+  :bind ("C-c a" . org-agenda)
   :custom
   (org-enforce-todo-checkbox-dependencies t)
   (org-enforce-todo-dependencies t)
   (org-startup-truncated nil "Wrap lines in org-mode")
-  (org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
-                         "Default template")
   (org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
@@ -203,13 +200,20 @@ not be synced across machines.")
   (when amk-use-fancy-ligatures
     ;; Fira Mono: https://github.com/mozilla/Fira
     (set-face-attribute 'org-table nil :family "Fira Mono"))
-  ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
-  (add-to-list 'org-capture-templates
-               `("p" "Protocol" entry (file+headline "" "Inbox")
-                 "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
-  (add-to-list 'org-capture-templates
-               `("L" "Protocol Link" entry (file+headline "" "Inbox")
-                 "* %? [[%:link][%:description]] \nCaptured On: %U"))
+  (use-package org-capture
+    :ensure nil
+    :bind ("C-c c" . org-capture)
+    :config
+    ;; Default template, not offered when custom templates are defined
+    (add-to-list 'org-capture-templates
+                 '("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
+    ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
+    (add-to-list 'org-capture-templates
+                 '("p" "Protocol" entry (file+headline "" "Inbox")
+                   "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
+    (add-to-list 'org-capture-templates
+                 '("L" "Protocol Link" entry (file+headline "" "Inbox")
+                   "* %? [[%:link][%:description]] \nCaptured On: %U")))
   ;; Backlog link support
   (use-package org-backlog
     :ensure nil
