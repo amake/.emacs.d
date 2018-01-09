@@ -187,11 +187,14 @@ not be synced across machines.")
 
 (use-package org
   :ensure org-plus-contrib
-  :bind ("C-c a" . org-agenda)
+  :bind (("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
   :custom
   (org-enforce-todo-checkbox-dependencies t)
   (org-enforce-todo-dependencies t)
   (org-startup-truncated nil "Wrap lines in org-mode")
+  (org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
+                         "Default template")
   :config
   (add-to-list 'org-agenda-files (concat (file-name-as-directory org-directory) "agenda"))
   (when amk-use-fancy-ligatures
