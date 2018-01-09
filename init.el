@@ -193,7 +193,7 @@ not be synced across machines.")
   (org-enforce-todo-dependencies t)
   (org-startup-truncated nil "Wrap lines in org-mode")
   :config
-  (add-to-list 'org-agenda-files "~/Documents/org/agenda/")
+  (add-to-list 'org-agenda-files (concat (file-name-as-directory org-directory) "agenda"))
   (when amk-use-fancy-ligatures
     ;; Fira Mono: https://github.com/mozilla/Fira
     (set-face-attribute 'org-table nil :family "Fira Mono"))
