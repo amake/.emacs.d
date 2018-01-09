@@ -196,6 +196,7 @@ not be synced across machines.")
   (org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
                          "Default template")
   (org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
+  (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   :config
   (add-to-list 'org-agenda-files (concat (file-name-as-directory org-directory) "agenda"))
