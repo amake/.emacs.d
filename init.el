@@ -201,17 +201,19 @@ not be synced across machines.")
   (when amk-use-fancy-ligatures
     ;; Fira Mono: https://github.com/mozilla/Fira
     (set-face-attribute 'org-table nil :family "Fira Mono"))
-  ;; Backlog link support in org-mode
-  (use-package org-backlog
-    :ensure nil
-    :load-path "org")
   ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
   (add-to-list 'org-capture-templates
                `("p" "Protocol" entry (file+headline ,(concat org-directory "notes.org") "Inbox")
                  "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
   (add-to-list 'org-capture-templates
                `("L" "Protocol Link" entry (file+headline ,(concat org-directory "notes.org") "Inbox")
-                 "* %? [[%:link][%:description]] \nCaptured On: %U")))
+                 "* %? [[%:link][%:description]] \nCaptured On: %U"))
+  ;; Backlog link support
+  (use-package org-backlog
+    :ensure nil
+    :load-path "org")
+  ;; pdfview link support
+  (use-package org-pdfview))
 
 ;; Set magit shortcut
 (use-package magit
