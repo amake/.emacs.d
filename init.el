@@ -353,5 +353,13 @@ not be synced across machines.")
   :config
   (dumb-jump-mode))
 
+(use-package pdf-tools
+  :defer t
+  :ensure-system-package ((pdfinfo . "sudo port install poppler")
+                          (automake))
+  :hook (pdf-view-mode . (lambda () (linum-mode -1)))
+  :config
+  (pdf-tools-install))
+
 (provide 'init)
 ;;; init.el ends here
