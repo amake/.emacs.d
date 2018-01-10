@@ -222,7 +222,7 @@ not be synced across machines.")
   ;; Backlog link support
   (use-package org-backlog
     :ensure nil
-    :load-path "org")
+    :load-path "lisp/backlog")
   ;; pdfview link support
   (use-package org-pdfview))
 
