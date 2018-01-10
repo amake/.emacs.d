@@ -1,0 +1,3 @@
+- Abbreviation link: b:ABC-1234
+- Regular link: [[b:ABC-1234][ABC-1234]]
+- Plain text: ABC-1234
