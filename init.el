@@ -389,5 +389,8 @@ not be synced across machines.")
          (lisp-interaction-mode . paredit-mode)
          (scheme-mode . paredit-mode)))
 
+(use-package swift-mode
+  :defer t)
+
 (provide 'init)
 ;;; init.el ends here
