@@ -206,6 +206,7 @@ not be synced across machines.")
   (use-package org-agenda
     :ensure nil
     :bind ("C-c a" . org-agenda)
+    :hook (org-agenda-mode . (lambda () (linum-mode -1)))
     :config
     (let ((amk-agenda-files (concat (file-name-as-directory org-directory) "agenda")))
       (make-directory amk-agenda-files t)
