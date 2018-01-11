@@ -201,8 +201,9 @@ not be synced across machines.")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   :config
   (when amk-use-fancy-ligatures
-    ;; Fira Mono: https://github.com/mozilla/Fira
-    (set-face-attribute 'org-table nil :family "Fira Mono"))
+    ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
+    ;; some reason, but Menlo seems to be OK.
+    (set-face-attribute 'org-table nil :family "Menlo"))
   (use-package org-agenda
     :ensure nil
     :bind ("C-c a" . org-agenda)
