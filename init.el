@@ -236,7 +236,7 @@ not be synced across machines.")
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
   :bind (("C-x g" . magit-status)
-         ("C-c l" . magit-log-buffer-file))
+         ("C-c l" . magit-log-buffer-file-popup))
   :custom
   (magit-diff-refine-hunk 'all "Always show character-level diffs")
   (vc-handled-backends (delq 'Git vc-handled-backends) "Don't use VC for git")
