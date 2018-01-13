@@ -394,5 +394,8 @@ not be synced across machines.")
 (use-package swift-mode
   :defer t)
 
+(use-package free-keys
+  :commands free-keys)
+
 (provide 'init)
 ;;; init.el ends here
