@@ -184,8 +184,12 @@ not be synced across machines.")
   :custom
   (js-indent-level 2))
 
+(defun browse-backlog-issue-or-generic ()
+  "Browse the Backlog issue at point or fall back to generic URL browsing."
+  (unless (browse-backlog-issue-at-point) (browse-url-generic)))
+
 (use-package browse-url
-  :bind ("C-c C-o" . browse-url-generic)
+  :bind ("C-c C-o" . #'browse-backlog-issue-or-url-generic)
   :config
   (when (string= system-type "darwin")
     (setq browse-url-generic-program "open")))
