@@ -207,7 +207,9 @@ not be synced across machines.")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   :hook (org-mode . (lambda () (setq-local amk-browse-fallback-action #'org-open-at-point)))
   :bind (;; Redefine here to override org-mode-map local definition
-         ("C-c C-o" . amk-multibrowse))
+         ("C-c C-o" . amk-multibrowse)
+         ;; Alternate mapping to avoid override by Flycheck
+         ("C-c C-." . org-time-stamp-inactive))
   :config
   (when amk-use-fancy-ligatures
     ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
@@ -269,10 +271,7 @@ not be synced across machines.")
 
 ;; On-the-fly linting
 (use-package flycheck
-  :hook ((org-mode . (lambda ()
-                       (local-set-key)
-                       ))
-         (scss-mode . (lambda ()
+  :hook ((scss-mode . (lambda ()
                         (unless (executable-find "scss")
                           (async-shell-command "gem install sass")))))
   :config
