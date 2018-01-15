@@ -135,6 +135,13 @@ not be synced across machines.")
   :ensure nil
   :load-path "lisp")
 
+(use-package amk-browse
+  :ensure nil
+  :load-path "lisp"
+  :bind ("C-c C-o" . #'amk-multibrowse)
+  :config
+  (add-to-list 'amk-browse-alist '(backlog-issue-p . browse-backlog-issue)))
+
 (use-package backlog
   :ensure nil
   :load-path "lisp/backlog"
@@ -184,12 +191,7 @@ not be synced across machines.")
   :custom
   (js-indent-level 2))
 
-(defun browse-backlog-issue-or-generic ()
-  "Browse the Backlog issue at point or fall back to generic URL browsing."
-  (unless (browse-backlog-issue-at-point) (browse-url-generic)))
-
 (use-package browse-url
-  :bind ("C-c C-o" . #'browse-backlog-issue-or-url-generic)
   :config
   (when (string= system-type "darwin")
     (setq browse-url-generic-program "open")))
@@ -203,6 +205,9 @@ not be synced across machines.")
   (org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
+  :hook (org-mode . (lambda () (setq-local amk-browse-fallback-action #'org-open-at-point)))
+  :bind (;; Redefine here to override org-mode-map local definition
+         ("C-c C-o" . amk-multibrowse))
   :config
   (when amk-use-fancy-ligatures
     ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
@@ -264,10 +269,9 @@ not be synced across machines.")
 
 ;; On-the-fly linting
 (use-package flycheck
-  ;; Set alternate key masked by flycheck
   :hook ((org-mode . (lambda ()
-                       (local-set-key (kbd "C-c C-.")
-                                      #'org-time-stamp-inactive)))
+                       (local-set-key)
+                       ))
          (scss-mode . (lambda ()
                         (unless (executable-find "scss")
                           (async-shell-command "gem install sass")))))
@@ -394,7 +398,9 @@ not be synced across machines.")
          (ielm-mode . paredit-mode)
          (lisp-mode . paredit-mode)
          (lisp-interaction-mode . paredit-mode)
-         (scheme-mode . paredit-mode)))
+         (scheme-mode . paredit-mode))
+  :bind (("M-S-<down>" . move-lines-down)
+         ("M-S-<up>" . move-lines-up)))
 
 (use-package swift-mode
   :defer t)
