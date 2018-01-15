@@ -27,7 +27,7 @@
 (defun browse-backlog-issue-at-point ()
   "Browse the Backlog issue at point, if any."
   (interactive)
-  (let ((sym (symbol-name (symbol-at-point))))
+  (let ((sym (thing-at-point 'symbol t)))
     (if (backlog-issue-p sym)
         (browse-backlog-issue sym))))
 
