@@ -6,7 +6,7 @@
 
 (require 'thingatpt)
 
-(defvar backlog-link-template "https://%s.backlog.jp/view/%s")
+(defconst backlog-link-template "https://%s.backlog.jp/view/%s")
 
 (defcustom backlog-team nil
   "The Backlog team to use when opening links."
