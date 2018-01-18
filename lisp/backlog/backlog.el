@@ -32,15 +32,35 @@
   (backlog-recent-issues-async
    nil
    (lambda (issues)
-     (let* ((descs (mapcar (lambda (item) (backlog-issue-short-desc (alist-get 'issue item))) issues))
+     (let* ((descs (mapcar (lambda (item)
+                             (backlog-issue-short-desc (backlog-issue-key-and-summary (alist-get 'issue item))))
+                           issues))
             (selection (completing-read "Issue:" descs)))
        (insert selection)))))
 
-(defun backlog-issue-short-desc (issue)
-  "Extract a short description from a raw ISSUE, in the format `KEY SUMMARY`."
+(defun backlog-browse-recent-issue ()
+  "Retrieve your own recently viewed issues asynchronously and prompt to open in an external browser."
+  (interactive)
+  (backlog-recent-issues-async
+   nil
+   (lambda (issues)
+     (let* ((desc-key-alist (mapcar (lambda (item)
+                                      (let ((kns (backlog-issue-key-and-summary (alist-get 'issue item))))
+                                        `(,(backlog-issue-short-desc kns) . ,(car kns))))
+                                    issues))
+            (descs (mapcar (lambda (issue) (car issue)) desc-key-alist))
+            (selection (completing-read "Issue:" descs)))
+       (browse-backlog-issue (cdr (assoc selection desc-key-alist)))))))
+
+(defun backlog-issue-key-and-summary (issue)
+  "Extract a short description from a raw ISSUE, in the format `(KEY . SUMMARY)`."
   (let ((key (alist-get 'issueKey issue))
         (summary (alist-get 'summary issue)))
-    (decode-coding-string (format "%s %s" key summary) 'utf-8)))
+    `(,(decode-coding-string key 'utf-8) .  ,(decode-coding-string summary 'utf-8))))
+
+(defun backlog-issue-short-desc (kns)
+  "Format a key-and-summary cons KNS as a string."
+  (format "%s %s" (car kns) (cdr kns)))
 
 (defun backlog-recent-issues-async (user callback)
   "Retrieve USER's recently viewed issues asynchronously and \
