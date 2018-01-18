@@ -64,7 +64,9 @@ process with CALLBACK.  If USER is nil, `myself` is used."
 
 (defun browse-backlog-issue (issue)
   "Open Backlog issue with key ISSUE."
-  (browse-url (backlog-make-link issue)))
+  (if issue
+      (browse-url (backlog-make-link issue))
+    (error "Issue was nil")))
 
 (defun backlog-make-link (issue)
   "Create a Backlog URL for issue ISSUE."
