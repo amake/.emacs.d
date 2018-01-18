@@ -412,5 +412,7 @@ not be synced across machines.")
 (use-package free-keys
   :commands free-keys)
 
+(use-package request)
+
 (provide 'init)
 ;;; init.el ends here
