@@ -27,7 +27,7 @@
   (format backlog-api-template backlog-team (or action "")))
 
 (defun backlog-insert-recent-issue ()
-  "Retrieve your own recently viewed issues asynchronously and prompt to insert into buffer."
+  "Select a recently viewed issue to insert into buffer."
   (interactive)
   (backlog-recent-issues-async
    nil
@@ -39,7 +39,7 @@
        (insert selection)))))
 
 (defun backlog-browse-recent-issue ()
-  "Retrieve your own recently viewed issues asynchronously and prompt to open in an external browser."
+  "Select a recently viewed issue to open in an external browser."
   (interactive)
   (backlog-recent-issues-async
    nil
