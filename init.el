@@ -147,6 +147,7 @@ not be synced across machines.")
 (use-package backlog
   :ensure nil
   :load-path "lisp/backlog"
+  :after request
   :bind ("C-c C-b" . #'browse-backlog-issue-at-point))
 
 (use-package desktop
