@@ -1,5 +1,7 @@
 ;;; org-backlog.el --- Support for links to Backlog issues
 
+;; Package-Requires: (org backlog)
+
 ;;; Commentary:
 
 ;;; Code:

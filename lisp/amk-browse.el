@@ -1,5 +1,7 @@
 ;;; amk-browse.el --- Custom browsing commands
 
+;; Package-Requires: (thingatpt cl-lib)
+
 ;;; Commentary:
 
 ;;; Code:

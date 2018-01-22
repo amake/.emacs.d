@@ -1,7 +1,8 @@
 ;;; backlog.el --- Functions for working with Backlog -*- lexical-binding: t -*-
 
+;; Package-Requires: (request thingatpt cl-lib)
+
 ;;; Commentary:
-;; Requires request package (MELPA)
 
 ;;; Code:
 
