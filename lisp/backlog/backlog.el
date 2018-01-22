@@ -65,20 +65,22 @@
 (defun backlog-recent-issues-async (user callback)
   "Retrieve USER's recently viewed issues asynchronously and \
 process with CALLBACK.  If USER is nil, `myself` is used."
-  (let* ((usr (or user "myself"))
-         (endpoint (format "users/%s/recentlyViewedIssues" usr)))
-    (request
-     (backlog-api-url endpoint)
-     :params `(("apiKey" . ,backlog-api-key))
-     :parser 'json-read
-     :success
-     (cl-function (lambda (&key data &allow-other-keys)
-                    (condition-case err
-                        (funcall callback data)
-                      (error (message "Callback error: %s" err)))))
-     :error
-     (cl-function (lambda (&key data &allow-other-keys)
-                    (error "Request error: %s" data))))))
+  (if backlog-api-key
+      (let* ((usr (or user "myself"))
+             (endpoint (format "users/%s/recentlyViewedIssues" usr)))
+        (request
+         (backlog-api-url endpoint)
+         :params `(("apiKey" . ,backlog-api-key))
+         :parser 'json-read
+         :success
+         (cl-function (lambda (&key data &allow-other-keys)
+                        (condition-case err
+                            (funcall callback data)
+                          (error (message "Callback error: %s" err)))))
+         :error
+         (cl-function (lambda (&key data &allow-other-keys)
+                        (error "Request error: %s" data)))))
+    (error "No value set for backlog-api-key")))
 
 ;; External browser functions
 
