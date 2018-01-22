@@ -51,6 +51,9 @@
                                     issues))
             (descs (mapcar (lambda (issue) (car issue)) desc-key-alist))
             (selection (completing-read "Issue:" descs)))
+       ;; TODO: Change this to prompt for action to perform on selected issue,
+       ;; e.g. insert key+desc, insert key only, open in browser, etc.
+       ;; Maybe use magit-popup for UI: https://magit.vc/manual/magit-popup/
        (browse-backlog-issue (cdr (assoc selection desc-key-alist)))))))
 
 (defun backlog-issue-key-and-summary (issue)
