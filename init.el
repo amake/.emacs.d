@@ -309,8 +309,8 @@ not be synced across machines.")
          ("C-c k" . counsel-ag)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
-         :map read-expression-map
-         ("C-r" . counsel-expression-history))
+         :map minibuffer-local-map
+         ("C-r" . counsel-minibuffer-history))
   :custom
   (ivy-use-virtual-buffers t)
   (enable-recursive-minibuffers t)
