@@ -390,6 +390,8 @@ not be synced across machines.")
   :ensure-system-package multimarkdown)
 
 (use-package dumb-jump
+  :custom
+  (dumb-jump-selector 'ivy)
   :config
   (dumb-jump-mode))
 
