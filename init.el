@@ -346,8 +346,8 @@ not be synced across machines.")
 
 (use-package typescript-mode
   :defer t
-  :config
-  (setq typescript-indent-level 2))
+  :custom
+  (typescript-indent-level 2))
 
 (use-package go-mode
   :defer t)
