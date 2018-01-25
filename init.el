@@ -428,8 +428,8 @@ not be synced across machines.")
            ;;--regex-typescript=/^[ \t]*export[ \t]+(var|let|const)[ \t]+([a-zA-Z0-9_$]+)/\2/v,variables/
            (:type "variable" :supports ("ag" "grep" "rg" "git-grep") :language "typescript"
                   :regex "export\\s+(var|let|const)\\s+JJJ\\b"
-                  :tests ("export var test" "let test" "const test")
-                  :not ("var testnot"))
+                  :tests ("export var test" "export let test" "export const test")
+                  :not ("export var testnot"))
            ;; --regex-typescript=/^[ \t]*(var|let|const)[ \t]+([a-zA-Z0-9_$]+)[ \t]*=[ \t]*function[ \t]*[*]?[ \t]*\(\)/\2/v,varlambdas/
            (:type "variable" :supports ("ag" "grep" "rg" "git-grep") :language "typescript"
                   :regex "(var|let|const)\\s+JJJ\\s*=\\s*function\\s*\\*?\\s*\\\(\\\)"
