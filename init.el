@@ -395,7 +395,7 @@ not be synced across machines.")
   :config
   (dumb-jump-mode)
   (mapc (lambda (item) (add-to-list 'dumb-jump-language-file-exts item))
-        '((:language "typescript" :ext "ts" :agtype "ts" :rgtype nil)
+        '((:language "typescript" :ext "ts" :agtype "ts" :rgtype "ts")
           (:language "typescript" :ext "tsx" :agtype "ts" :rgtype "ts")))
   (mapc (lambda (item) (add-to-list 'dumb-jump-language-comments item))
         '((:comment "//" :language "typescript")))
@@ -452,7 +452,7 @@ not be synced across machines.")
                  :tests ("type test" "export type test")
                  :not ("type testnot"))
           ;; --regex-typescript=/^[ \t]*(export[ \t]+)?enum[ \t]+([a-zA-Z0-9_$]+)/\2/e,enums/
-          (:type "enum" :supports ("ag" "grep" "rg" "git-grep") :language "typescript"
+          (:type "type" :supports ("ag" "grep" "rg" "git-grep") :language "typescript"
                  :regex "(export\\s+)?enum\\s+JJJ\\b"
                  :tests ("enum test" "export enum test")
                  :not ("enum testnot"))
