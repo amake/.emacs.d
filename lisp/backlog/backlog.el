@@ -54,25 +54,35 @@
   "Format a key-and-summary cons KNS as a string."
   (format "%s %s" (car kns) (cdr kns)))
 
+(defun backlog-request (&rest args)
+  "Forward ARGS to `request` with some Backlog-specific stuff."
+  (if backlog-api-key
+      (let* ((params-kwd-idx (cl-position :params args))
+             (old-params (if params-kwd-idx
+                             (nth (+ 1 params-kwd-idx) args)))
+             (new-params (append old-params `(("apiKey" . ,backlog-api-key)))))
+        (if params-kwd-idx
+            (setf (nth (+ 1 params-kwd-idx) args) new-params)
+          (nconc args `(:params ,new-params)))
+        (apply #'request args))
+    (error "No value set for backlog-api-key")))
+
 (defun backlog-recent-issues-async (user callback)
   "Retrieve USER's recently viewed issues asynchronously and \
 process with CALLBACK.  If USER is nil, `myself` is used."
-  (if backlog-api-key
-      (let* ((usr (or user "myself"))
-             (endpoint (format "users/%s/recentlyViewedIssues" usr)))
-        (request
-         (backlog-api-url endpoint)
-         :params `(("apiKey" . ,backlog-api-key))
-         :parser 'json-read
-         :success
-         (cl-function (lambda (&key data &allow-other-keys)
-                        (condition-case err
-                            (funcall callback data)
-                          (error (message "Callback error: %s" err)))))
-         :error
-         (cl-function (lambda (&key data &allow-other-keys)
-                        (error "Request error: %s" data)))))
-    (error "No value set for backlog-api-key")))
+  (let* ((usr (or user "myself"))
+         (endpoint (format "users/%s/recentlyViewedIssues" usr)))
+    (backlog-request
+     (backlog-api-url endpoint)
+     :parser 'json-read
+     :success
+     (cl-function (lambda (&key data &allow-other-keys)
+                    (condition-case err
+                        (funcall callback data)
+                      (error (message "Callback error: %s" err)))))
+     :error
+     (cl-function (lambda (&key data &allow-other-keys)
+                    (error "Request error: %s" data))))))
 
 ;; External browser functions
 
