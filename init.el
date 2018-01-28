@@ -283,12 +283,6 @@ not be synced across machines.")
   :config
   (global-flycheck-mode))
 
-(require 'thingatpt)
-(defun amk-counsel-git-grep-symbol-at-point ()
-  "Call counsel-git-grep with symbol at point."
-  (interactive)
-  (counsel-git-grep nil (thing-at-point 'symbol t)))
-
 (use-package ivy
   :ensure counsel
   :diminish ivy-mode
@@ -305,7 +299,6 @@ not be synced across machines.")
          ("<f2> u" . counsel-unicode-char)
          ("C-c g" . counsel-git)
          ("C-c j" . counsel-git-grep)
-         ("C-c C-j" . amk-counsel-git-grep-symbol-at-point)
          ("C-c k" . counsel-ag)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
