@@ -72,6 +72,7 @@
 
 (show-paren-mode)
 (column-number-mode)
+(electric-pair-mode)
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
