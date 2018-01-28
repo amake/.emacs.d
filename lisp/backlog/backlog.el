@@ -1,6 +1,6 @@
 ;;; backlog.el --- Functions for working with Backlog -*- lexical-binding: t -*-
 
-;; Package-Requires: (request thingatpt cl-lib)
+;; Package-Requires: (request thingatpt cl-lib ivy)
 
 ;;; Commentary:
 
@@ -9,6 +9,7 @@
 (require 'thingatpt)
 (require 'request)
 (require 'cl-lib)
+(require 'ivy)
 
 (defconst backlog-link-template "https://%s.backlog.jp/view/%s")
 (defconst backlog-api-template "https://%s.backlog.jp/api/v2/%s")
@@ -27,34 +28,21 @@
   "Get the Backlog API endpoint for an ACTION."
   (format backlog-api-template backlog-team (or action "")))
 
-(defun backlog-insert-recent-issue ()
-  "Select a recently viewed issue to insert into buffer."
+(defun backlog-recent-issues ()
+  "Select from among recent issues.  Default action is to insert key+summary into buffer."
   (interactive)
   (backlog-recent-issues-async
    nil
    (lambda (issues)
-     (let* ((descs (mapcar (lambda (item)
-                             (backlog-issue-short-desc (backlog-issue-key-and-summary (alist-get 'issue item))))
-                           issues))
-            (selection (completing-read "Issue:" descs)))
-       (insert selection)))))
-
-(defun backlog-browse-recent-issue ()
-  "Select a recently viewed issue to open in an external browser."
-  (interactive)
-  (backlog-recent-issues-async
-   nil
-   (lambda (issues)
-     (let* ((desc-key-alist (mapcar (lambda (item)
-                                      (let ((kns (backlog-issue-key-and-summary (alist-get 'issue item))))
-                                        `(,(backlog-issue-short-desc kns) . ,(car kns))))
-                                    issues))
-            (descs (mapcar (lambda (issue) (car issue)) desc-key-alist))
-            (selection (completing-read "Issue:" descs)))
-       ;; TODO: Change this to prompt for action to perform on selected issue,
-       ;; e.g. insert key+desc, insert key only, open in browser, etc.
-       ;; Maybe use magit-popup for UI: https://magit.vc/manual/magit-popup/
-       (browse-backlog-issue (cdr (assoc selection desc-key-alist)))))))
+     (let (ivy--actions-list ;; Set to nil temporarily to suppress default ivy actions
+           (desc-kns-alist (mapcar (lambda (item)
+                                     (let ((kns (backlog-issue-key-and-summary (alist-get 'issue item))))
+                                       `(,(backlog-issue-short-desc kns) . ,kns)))
+                                   issues)))
+       (ivy-read "Issue:" desc-kns-alist
+                 :action '(1 ("o" (lambda (x) (with-ivy-window (insert (car x)))) "insert key+summary")
+                             ("i" (lambda (x) (with-ivy-window (insert (cadr x)))) "insert key")
+                             ("b" (lambda (x) (browse-backlog-issue (cadr x))) "browse issue")))))))
 
 (defun backlog-issue-key-and-summary (issue)
   "Extract a short description from a raw ISSUE, in the format `(KEY . SUMMARY)`."
