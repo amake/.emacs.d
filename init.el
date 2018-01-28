@@ -298,7 +298,7 @@ not be synced across machines.")
          ("<f2> i" . counsel-info-lookup-symbol)
          ("<f2> u" . counsel-unicode-char)
          ("C-c g" . counsel-git)
-         ("C-c j" . counsel-git-grep)
+         ;; ("C-c j" . counsel-git-grep)
          ("C-c k" . counsel-ag)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
@@ -325,6 +325,7 @@ not be synced across machines.")
 (use-package projectile
   :diminish projectile-mode
   :ensure-system-package (ag . "sudo port install the_silver_searcher")
+  :bind (("C-c j" . counsel-projectile-ag))
   :config
   (projectile-mode)
   (use-package counsel-projectile
