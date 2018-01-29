@@ -288,6 +288,7 @@ not be synced across machines.")
   :ensure counsel
   :diminish ivy-mode
   :ensure-system-package (ag . "sudo port install the_silver_searcher")
+  :ensure-system-package (rg . "sudo port install ripgrep")
   :bind (("C-s" . swiper)
          ("C-c C-r" . ivy-resume)
          ("<f6>" . ivy-resume)
@@ -300,7 +301,8 @@ not be synced across machines.")
          ("<f2> u" . counsel-unicode-char)
          ("C-c g" . counsel-git)
          ;; ("C-c j" . counsel-git-grep)
-         ("C-c k" . counsel-ag)
+         ;; ("C-c k" . counsel-ag)
+         ("C-c k" . counsel-rg)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
          :map minibuffer-local-map
@@ -326,7 +328,8 @@ not be synced across machines.")
 (use-package projectile
   :diminish projectile-mode
   :ensure-system-package (ag . "sudo port install the_silver_searcher")
-  :bind (("C-c j" . counsel-projectile-ag))
+  :ensure-system-package (rg . "sudo port install ripgrep")
+  :bind (("C-c j" . counsel-projectile-rg))
   :config
   (projectile-mode)
   (use-package counsel-projectile
