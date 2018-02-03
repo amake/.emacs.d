@@ -66,6 +66,7 @@
   "Retrieve USER's recently viewed issues asynchronously and \
 process with CALLBACK.  If USER is nil, `myself` is used."
   (let* ((usr (or user "myself"))
+         ;; https://developer.nulab-inc.com/ja/docs/backlog/api/2/get-list-of-recently-viewed-issues/
          (endpoint (format "users/%s/recentlyViewedIssues" usr)))
     (backlog-request
      (backlog-api-url endpoint)
