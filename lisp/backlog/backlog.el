@@ -54,17 +54,12 @@
   "Format a key-and-summary cons KNS as a string."
   (format "%s %s" (car kns) (cdr kns)))
 
-(defun backlog-request (&rest args)
-  "Forward ARGS to `request` with some Backlog-specific stuff."
+(defun backlog-request (url &rest args)
+  "Forward URL and ARGS to `request` with some Backlog-specific stuff."
   (if backlog-api-key
-      (let* ((params-kwd-idx (cl-position :params args))
-             (old-params (if params-kwd-idx
-                             (nth (+ 1 params-kwd-idx) args)))
-             (new-params (append old-params `(("apiKey" . ,backlog-api-key)))))
-        (if params-kwd-idx
-            (setf (nth (+ 1 params-kwd-idx) args) new-params)
-          (nconc args `(:params ,new-params)))
-        (apply #'request args))
+      (let ((params (plist-get args :params)))
+        (push `("apiKey" . ,backlog-api-key) params)
+        (apply #'request url (plist-put args :params params)))
     (error "No value set for backlog-api-key")))
 
 (defun backlog-recent-issues-async (user callback)
