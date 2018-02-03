@@ -54,12 +54,22 @@
   "Format a key-and-summary cons KNS as a string."
   (format "%s %s" (car kns) (cdr kns)))
 
-(defun backlog-request (url &rest args)
-  "Forward URL and ARGS to `request` with some Backlog-specific stuff."
+(defun backlog-request (url callback &rest args)
+  "Forward URL to `request` while setting the result CALLBACKs \
+and API key in addition to optional ARGS."
   (if backlog-api-key
       (let ((params (plist-get args :params)))
         (push `("apiKey" . ,backlog-api-key) params)
-        (apply #'request url (plist-put args :params params)))
+        (mapc (lambda (x) (setq args (plist-put args (car x) (cdr x))))
+              `((:params . ,params)
+                (:parser . json-read)
+                (:success . ,(cl-function (lambda (&key data &allow-other-keys)
+                                            (condition-case err
+                                                (funcall callback data)
+                                              (error (message "Callback error: %s" err))))))
+                (:error . ,(cl-function (lambda (&key data &allow-other-keys)
+                                          (error "Request error: %s" data))))))
+        (apply #'request url args))
     (error "No value set for backlog-api-key")))
 
 (defun backlog-recent-issues-async (user callback)
@@ -67,18 +77,9 @@
 process with CALLBACK.  If USER is nil, `myself` is used."
   (let* ((usr (or user "myself"))
          ;; https://developer.nulab-inc.com/ja/docs/backlog/api/2/get-list-of-recently-viewed-issues/
-         (endpoint (format "users/%s/recentlyViewedIssues" usr)))
-    (backlog-request
-     (backlog-api-url endpoint)
-     :parser 'json-read
-     :success
-     (cl-function (lambda (&key data &allow-other-keys)
-                    (condition-case err
-                        (funcall callback data)
-                      (error (message "Callback error: %s" err)))))
-     :error
-     (cl-function (lambda (&key data &allow-other-keys)
-                    (error "Request error: %s" data))))))
+         (endpoint (format "users/%s/recentlyViewedIssues" usr))
+         (url (backlog-api-url endpoint)))
+    (backlog-request url callback)))
 
 ;; External browser functions
 
