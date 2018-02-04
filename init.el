@@ -76,6 +76,14 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
+(defun save-buffer-no-hook (&optional arg)
+  "Save buffer without invoking `before-save-hook', in case \
+I want to save without deleting trailing whitespace.  ARG is as
+with `save-buffer'."
+  (interactive "p")
+  (let (before-save-hook)
+    (save-buffer arg)))
+
 ;; Only on GUI
 (when (display-graphic-p)
   (global-linum-mode)
