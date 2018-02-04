@@ -177,14 +177,9 @@ not be synced across machines.")
 (use-package ediff
   :if (display-graphic-p)
   :custom
-  (ediff-split-window-function #'split-window-horizontally)
-  (ediff-window-setup-function #'ediff-setup-windows-plain)
   ;; https://www.ogre.com/node/446
-  :hook ((ediff-before-setup . make-frame)
-         (ediff-quit . delete-frame)
-         (ediff-startup . (lambda ()
-                            (set-frame-size (selected-frame) 175 55)
-                            (raise-frame (selected-frame))))))
+  (ediff-split-window-function #'split-window-horizontally)
+  (ediff-window-setup-function #'ediff-setup-windows-plain))
 
 (use-package dired
   :ensure nil
