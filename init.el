@@ -338,6 +338,7 @@ not be synced across machines.")
   :config
   (projectile-mode)
   (use-package counsel-projectile
+    :custom ((counsel-projectile-switch-project-action #'projectile-vc))
     :config
     (counsel-projectile-mode)))
 
