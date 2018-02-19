@@ -333,10 +333,13 @@ not be synced across machines.")
 (defun rename-buffer-with-project ()
   "Set the buffer name from the current Projectile project."
   (projectile-reset-cached-project-name)
-  (let ((buff (replace-regexp-in-string "<\d+>$" "" (buffer-name)))
-        (proj (projectile-project-name)))
-    (if (not (string= proj "-"))
-        (rename-buffer (format "%s<%s>" buff proj) t))))
+  (let ((proj (projectile-project-name)))
+    (let* ((remove-regex "\\(<[^>]+>\\)+$")
+           (buff (replace-regexp-in-string remove-regex "" (buffer-name)))
+           (repl (if (string= proj "-")
+                     buff
+                   (format "%s<%s>" buff proj))))
+      (rename-buffer repl t))))
 
 (use-package projectile
   :diminish projectile-mode

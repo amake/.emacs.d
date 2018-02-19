@@ -9,6 +9,7 @@
         emacs_eval '(projectile-reset-cached-project-root) (projectile-project-root)'
     }
     function gen_prompt() {
+        emacs_eval '(rename-buffer-with-project)' &> /dev/null
         project=$(emacs_project_name | tr -d '"\n')
         if [[ "$project" = '-' ]]; then
             PS1="\h:\W$ "
