@@ -330,11 +330,20 @@ not be synced across machines.")
 (use-package dash-at-point
   :bind ("C-c d" . dash-at-point))
 
+(defun rename-buffer-with-project ()
+  "Set the buffer name from the current Projectile project."
+  (projectile-reset-cached-project-name)
+  (let ((buff (replace-regexp-in-string "<\d+>$" "" (buffer-name)))
+        (proj (projectile-project-name)))
+    (if (not (string= proj "-"))
+        (rename-buffer (format "%s<%s>" buff proj) t))))
+
 (use-package projectile
   :diminish projectile-mode
   :ensure-system-package (ag . "sudo port install the_silver_searcher")
   :ensure-system-package (rg . "sudo port install ripgrep")
   :bind (("C-c j" . counsel-projectile-rg))
+  :hook (shell-mode . rename-buffer-with-project)
   :config
   (projectile-mode)
   (use-package counsel-projectile
