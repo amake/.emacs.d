@@ -159,6 +159,14 @@ not be synced across machines.")
   :after (request ivy)
   :bind ("C-c C-b" . #'browse-backlog-issue-at-point))
 
+(use-package shfmt
+  :ensure nil
+  :load-path "lisp"
+  :ensure-system-package shfmt
+  :custom
+  (shfmt-arguments "-i 4")
+  :hook (sh-mode . shfmt-enable-on-save))
+
 (use-package desktop
   :if (display-graphic-p)
   :demand t
