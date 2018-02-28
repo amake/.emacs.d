@@ -161,7 +161,7 @@ not be synced across machines.")
 
 (use-package shfmt
   :ensure nil
-  :load-path "lisp"
+  :load-path "lisp/shfmt"
   :ensure-system-package shfmt
   :custom
   (shfmt-arguments "-i 4")
@@ -298,7 +298,7 @@ not be synced across machines.")
   (global-flycheck-mode)
   (use-package flycheck-shfmt
     :ensure nil
-    :load-path "lisp"
+    :load-path "lisp/shfmt"
     :config
     (flycheck-shfmt-setup)))
 
