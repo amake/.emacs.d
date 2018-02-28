@@ -1,5 +1,7 @@
 ;;; shfmt.el --- Autoformat shell scripts -*- lexical-binding: t -*-
 
+;; Shell script autoformatting using shfmt; see https://github.com/mvdan/sh
+
 ;;; Commentary:
 
 ;;; Code:
