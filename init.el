@@ -180,7 +180,9 @@ not be synced across machines.")
   :ensure-system-package (aspell . "sudo port install aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
          ;; (prog-mode . flyspell-prog-mode)
-         ))
+         )
+  :config
+  (flycheck-shfmt-setup))
 
 (use-package ediff
   :if (display-graphic-p)
