@@ -30,12 +30,13 @@
              (error-buffer-name "*Shfmt Errors*")
              (error-buffer (get-buffer-create error-buffer-name))
              (coding-system-for-write buffer-file-coding-system)
-             (coding-system-for-read buffer-file-coding-system))
+             (coding-system-for-read buffer-file-coding-system)
+             (show-errors (not (flycheck-shfmt-in-use-p))))
         (if (zerop (shell-command-on-region
                     start end
                     (shfmt-build-command)
                     (current-buffer) t
-                    error-buffer t))
+                    error-buffer show-errors))
             (progn
               (goto-char prev-point)
               (set-window-start nil prev-window-start)
@@ -60,6 +61,12 @@
   "Autoformat the current buffer."
   (interactive)
   (shfmt-region (point-min) (point-max)))
+
+(defun flycheck-shfmt-in-use-p ()
+  "Return non-nil if flycheck-shfmt is in use in the current buffer."
+  (let ((fun 'flycheck-may-use-checker))
+    (when (functionp fun)
+      (funcall fun 'sh-shfmt))))
 
 (provide 'shfmt)
 
