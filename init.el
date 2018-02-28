@@ -180,9 +180,7 @@ not be synced across machines.")
   :ensure-system-package (aspell . "sudo port install aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
          ;; (prog-mode . flyspell-prog-mode)
-         )
-  :config
-  (flycheck-shfmt-setup))
+         ))
 
 (use-package ediff
   :if (display-graphic-p)
@@ -297,7 +295,12 @@ not be synced across machines.")
                         (unless (executable-find "scss")
                           (async-shell-command "gem install sass")))))
   :config
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  (use-package flycheck-shfmt
+    :ensure nil
+    :load-path "lisp"
+    :config
+    (flycheck-shfmt-setup)))
 
 (use-package ivy
   :ensure counsel
