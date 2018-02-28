@@ -38,6 +38,18 @@
               (goto-char prev-point)
               (set-window-start nil prev-window-start)
               (kill-buffer error-buffer))
+          ;; 1. `shell-command-on-region' with replacement first deletes the
+          ;; buffer contents. This deletion goes into the `buffer-undo-list'.
+          ;;
+          ;; 2. At this point the command has returned failure, so nothing will
+          ;; be put back into the buffer. Thus we undo the deletion.
+          ;;
+          ;; 3. However, simply undoing will also undo the last edit before this
+          ;; function was run. To prevent that, first we run `undo-boundary'.
+          ;;
+          ;; TODO: Why in the world does it work to call `undo-boundary' here
+          ;; instead of before the replacement?
+          (undo-boundary)
           (undo)
           (error (format "shfmt: An error occurred when executing `%s'" shfmt-executable))))
     (error (format "shfmt: executable `%s' not found" shfmt-executable))))
