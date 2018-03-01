@@ -14,7 +14,8 @@
   "A shell script syntax checker using shfmt.
 
 See URL `https://github.com/mvdan/sh'."
-  :command ("shfmt")
+  :command ("shfmt"
+            (eval (flycheck-shfmt-get-parser-opts)))
   :standard-input t
   :error-patterns
   ((error line-start
@@ -24,6 +25,12 @@ See URL `https://github.com/mvdan/sh'."
   :modes sh-mode
   :predicate (lambda () (memq sh-shell '(bash sh mksh)))
   :next-checkers ((warning . sh-shellcheck)))
+
+(defun flycheck-shfmt-get-parser-opts ()
+  "Get the appropriate parser options for the current buffer."
+  (cond ((eq sh-shell 'bash) '("--ln" "bash"))
+        ((eq sh-shell 'mksh) '("--ln" "mksh"))
+        ((eq sh-shell 'sh) '("--ln" "posix"))))
 
 (defun flycheck-shfmt-setup ()
   "Set up the flycheck-shfmt checker."
