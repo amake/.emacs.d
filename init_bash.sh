@@ -1,3 +1,4 @@
+# -*- sh-shell: bash; -*-
 {
     function emacs_eval() {
         emacsclient --eval "(with-current-buffer (window-buffer) $@)"
