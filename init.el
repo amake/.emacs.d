@@ -176,6 +176,13 @@ not be synced across machines.")
   :config
   (desktop-save-mode t))
 
+(use-package image-mode
+  :ensure nil
+  :config
+  (use-package image-dimensions-minor-mode
+    :ensure nil
+    :load-path "lisp/wiki"))
+
 (use-package flyspell
   :ensure-system-package (aspell . "sudo port install aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
