@@ -19,8 +19,8 @@ See URL `https://github.com/mvdan/sh'."
   :standard-input t
   :error-patterns
   ((error line-start
-          ;; line:column: message
-          line ":" column ":" (zero-or-more " ") (message)
+          ;; filename:line:column: message
+          "<standard input>:" line ":" column ":" (zero-or-more " ") (message)
           line-end))
   :modes sh-mode
   :predicate (lambda () (memq sh-shell '(bash sh mksh)))
