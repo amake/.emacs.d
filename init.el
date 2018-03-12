@@ -542,5 +542,13 @@ not be synced across machines.")
   :config
   (require 'vlf-setup))
 
+(use-package company
+  :diminish company-mode
+  :hook (after-init . global-company-mode)
+  :config
+  (use-package company-quickhelp
+    :config
+    (company-quickhelp-mode)))
+
 (provide 'init)
 ;;; init.el ends here
