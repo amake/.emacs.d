@@ -546,5 +546,9 @@ not be synced across machines.")
     :config
     (company-quickhelp-mode)))
 
+(use-package rainbow-mode
+  :diminish rainbow-mode
+  :hook (prog-mode . rainbow-mode))
+
 (provide 'init)
 ;;; init.el ends here
