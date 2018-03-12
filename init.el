@@ -309,25 +309,17 @@ not be synced across machines.")
     :config
     (flycheck-shfmt-setup)))
 
-(use-package ivy
-  :ensure counsel
-  :diminish ivy-mode
+(use-package counsel
+  :diminish (ivy-mode counsel-mode)
   :ensure-system-package
   ((ag . "sudo port install the_silver_searcher")
    (rg . "sudo port install ripgrep"))
   :bind (("C-s" . swiper)
          ("C-c C-r" . ivy-resume)
          ("<f6>" . ivy-resume)
-         ("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)
-         ("<f1> f" . counsel-describe-function)
-         ("<f1> v" . counsel-describe-variable)
          ("<f1> l" . counsel-find-library)
-         ("<f2> i" . counsel-info-lookup-symbol)
          ("<f2> u" . counsel-unicode-char)
          ("C-c g" . counsel-git)
-         ;; ("C-c j" . counsel-git-grep)
-         ;; ("C-c k" . counsel-ag)
          ("C-c k" . counsel-rg)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
@@ -337,7 +329,8 @@ not be synced across machines.")
   (ivy-use-virtual-buffers t)
   (enable-recursive-minibuffers t)
   :config
-  (ivy-mode))
+  (ivy-mode)
+  (counsel-mode))
 
 (use-package web-mode
   :mode "\\.html?\\'")
