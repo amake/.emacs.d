@@ -529,7 +529,7 @@ not be synced across machines.")
 (use-package request)
 
 (use-package rainbow-delimiters
-  :hook ((prog-mode . rainbow-delimiters-mode)))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package vlf ;; View Large Files
   :config
