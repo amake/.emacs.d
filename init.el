@@ -538,6 +538,9 @@ not be synced across machines.")
 (use-package company
   :diminish company-mode
   :hook (after-init . global-company-mode)
+  :bind (:map company-active-map
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous))
   :config
   (use-package company-quickhelp
     :config
