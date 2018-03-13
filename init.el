@@ -333,7 +333,8 @@ not be synced across machines.")
   (counsel-mode))
 
 (use-package web-mode
-  :mode "\\.html?\\'")
+  :mode ("\\.html?\\'"
+         "\\.erb\\'"))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
