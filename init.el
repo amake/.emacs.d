@@ -551,5 +551,10 @@ not be synced across machines.")
   :diminish rainbow-mode
   :hook (prog-mode . rainbow-mode))
 
+(use-package auto-sudoedit
+  :diminish auto-sudoedit-mode
+  :config
+  (auto-sudoedit-mode 1))
+
 (provide 'init)
 ;;; init.el ends here
