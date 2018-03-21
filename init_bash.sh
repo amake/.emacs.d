@@ -10,6 +10,7 @@
         emacs_eval '(projectile-project-root)'
     }
     function gen_prompt() {
+        emacs_eval "(cd \"$PWD\")" &>/dev/null
         # This resets the project name
         emacs_eval '(rename-buffer-with-project)' &>/dev/null
         project=$(emacs_project_name | tr -d '"\n')

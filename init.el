@@ -176,6 +176,11 @@ not be synced across machines.")
   :config
   (desktop-save-mode t))
 
+(use-package shell
+  :ensure nil
+  :hook (shell-mode . (lambda ()
+                        (shell-dirtrack-mode 0))))
+
 (use-package image-mode
   :ensure nil
   :config
