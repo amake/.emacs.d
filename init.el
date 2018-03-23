@@ -560,21 +560,16 @@ not be synced across machines.")
   :hook (prog-mode . rainbow-mode))
 
 (defun emacs-internal-file-p (path)
-  "Return non-nil if PATH represents a file that is part of the Emacs \
-installation.
-
-Requires `EMACS_HOME' envar to be set; otherwise it always returns nil."
-  (let ((emacs-home (getenv "EMACS_HOME")))
-    (when emacs-home
-      (let ((emacs-root (expand-file-name (concat (file-name-as-directory emacs-home) ".."))))
-        (string-prefix-p emacs-root path)))))
+  "Return non-nil if PATH represents a file that might be part of the Emacs installation."
+  (let ((invocation-directory-parent (expand-file-name (concat invocation-directory ".."))))
+    (string-prefix-p invocation-directory-parent path)))
 
 (use-package auto-sudoedit
   :diminish auto-sudoedit-mode
   :config
   (auto-sudoedit-mode 1)
   (defun auto-sudoedit-skip-if-internal (old-function &rest args)
-    (unless (emacs-internal-file-p (buffer-file-name))
+    (unless (emacs-internal-file-p (auto-sudoedit-current-path))
       (apply old-function args)))
   (advice-add #'auto-sudoedit :around #'auto-sudoedit-skip-if-internal))
 
