@@ -564,5 +564,8 @@ not be synced across machines.")
   :config
   (auto-sudoedit-mode 1))
 
+(use-package hide-lines
+  :defer t)
+
 (provide 'init)
 ;;; init.el ends here
