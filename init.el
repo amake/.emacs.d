@@ -211,7 +211,10 @@ not be synced across machines.")
 (use-package nxml-mode
   :ensure nil
   :custom
-  (nxml-child-indent 4))
+  (nxml-child-indent 4)
+  :config
+  (put 'nxml-child-indent 'safe-local-variable #'integerp)
+  (put 'nxml-attribute-indent 'safe-local-variable #'integerp))
 
 (use-package js
   :ensure nil
