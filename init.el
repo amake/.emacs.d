@@ -568,7 +568,7 @@ not be synced across machines.")
   :diminish auto-sudoedit-mode
   :config
   (auto-sudoedit-mode 1)
-  (defun auto-sudoedit-skip-if-internal (old-function &rest args)
+  (defun auto-sudoedit--skip-if-internal (old-function &rest args)
     (unless (or
              (emacs-internal-file-p (auto-sudoedit-current-path))
              ;; auto-sudoedit depends on `f' so it should be safe to use here.
@@ -576,7 +576,7 @@ not be synced across machines.")
              ;; https://github.com/ncaq/auto-sudoedit/pull/3
              (f-traverse-upwards #'f-writable? (auto-sudoedit-current-path)))
       (apply old-function args)))
-  (advice-add #'auto-sudoedit :around #'auto-sudoedit-skip-if-internal))
+  (advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal))
 
 (use-package hide-lines
   :defer t)
