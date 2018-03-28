@@ -569,7 +569,12 @@ not be synced across machines.")
   :config
   (auto-sudoedit-mode 1)
   (defun auto-sudoedit-skip-if-internal (old-function &rest args)
-    (unless (emacs-internal-file-p (auto-sudoedit-current-path))
+    (unless (or
+             (emacs-internal-file-p (auto-sudoedit-current-path))
+             ;; auto-sudoedit depends on `f' so it should be safe to use here.
+             ;; Remove this check when/if upstream fixes:
+             ;; https://github.com/ncaq/auto-sudoedit/pull/3
+             (f-traverse-upwards #'f-writable? (auto-sudoedit-current-path)))
       (apply old-function args)))
   (advice-add #'auto-sudoedit :around #'auto-sudoedit-skip-if-internal))
 
