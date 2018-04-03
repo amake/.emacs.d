@@ -588,5 +588,9 @@ not be synced across machines.")
 (use-package hide-lines
   :defer t)
 
+(use-package flycheck-gradle
+  :config
+  (flycheck-gradle-setup))
+
 (provide 'init)
 ;;; init.el ends here
