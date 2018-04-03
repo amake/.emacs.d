@@ -590,6 +590,18 @@ not be synced across machines.")
 
 (use-package flycheck-gradle
   :config
+  ;; Remove this after upstreaming
+  (defun flycheck-gradle-java-compile->compile ()
+    "Target gradle compile for java."
+    (let ((cmd (if (and
+                    buffer-file-name
+                    (string-match-p "test" buffer-file-name))
+                   "compileTestJava"
+                 "compileJava")))
+      (if (flycheck-has-current-errors-p 'error)
+          `(,cmd)
+        `("clean" ,cmd))))
+  (setq flycheck-gradle-java-compile-function #'flycheck-gradle-java-compile->compile)
   (put 'flycheck-gradle-java-compile-function 'safe-local-variable #'functionp)
   (flycheck-gradle-setup))
 
