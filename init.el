@@ -590,6 +590,7 @@ not be synced across machines.")
 
 (use-package flycheck-gradle
   :config
+  (put 'flycheck-gradle-java-compile-function 'safe-local-variable #'functionp)
   (flycheck-gradle-setup))
 
 (provide 'init)
