@@ -379,8 +379,9 @@ not be synced across machines.")
   (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
   (projectile-mode)
   (use-package counsel-projectile
-    :custom ((counsel-projectile-switch-project-action #'projectile-vc))
     :config
+    (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
+                                      '((default "v")))
     (counsel-projectile-mode)))
 
 (use-package scala-mode
