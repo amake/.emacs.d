@@ -595,5 +595,8 @@ not be synced across machines.")
   (put 'flycheck-gradle-java-compile-function 'safe-local-variable #'functionp)
   (flycheck-gradle-setup))
 
+(use-package apache-mode
+  :mode "envvars\\'")
+
 (provide 'init)
 ;;; init.el ends here
