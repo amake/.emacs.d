@@ -444,9 +444,12 @@ not be synced across machines.")
   (dumb-jump-mode)
   (mapc (lambda (item) (add-to-list 'dumb-jump-language-file-exts item))
         '((:language "typescript" :ext "ts" :agtype "ts" :rgtype "ts")
-          (:language "typescript" :ext "tsx" :agtype "ts" :rgtype "ts")))
+          (:language "typescript" :ext "tsx" :agtype "ts" :rgtype "ts")
+          (:language "groovy" :ext "groovy" :agtype "groovy" :rgtype "groovy")
+          (:language "groovy" :ext "gradle" :agtype "groovy" :rgtype "groovy")))
   (mapc (lambda (item) (add-to-list 'dumb-jump-language-comments item))
-        '((:comment "//" :language "typescript")))
+        '((:comment "//" :language "typescript")
+          (:comment "//" :language "groovy")))
   (mapc (lambda (item) (add-to-list 'dumb-jump-find-rules item))
         ;; Rules translated from link below, except where noted
         ;; https://github.com/jacktasia/dumb-jump/issues/97#issuecomment-346441412
@@ -514,7 +517,22 @@ not be synced across machines.")
           (:type "function" :supports ("ag" "grep" "rg" "git-grep") :language "typescript"
                  :regex "\\bJJJ\\s*\\(.*\\{"
                  :tests ("test() {" "test(foo: bar) {")
-                 :not ("testnot() {")))))
+                 :not ("testnot() {"))
+          ;; groovy (literally the same regexes as c#, but differents tests)
+          (:type "function" :supports ("ag" "rg") :language "groovy"
+                 :regex "^\\s*(?:[^=\\W]+\\s+){1,3}JJJ\\s*\\\("
+                 :tests ("int test()" "int test(param)" "static int test()" "static int test(param)"
+                         "public static MyType test()" "private virtual SomeType test(param)" "static int test()")
+                 :not ("test()" "testnot()" "blah = new test()"))
+
+          (:type "variable" :supports ("ag" "grep" "rg" "git-grep") :language "groovy"
+                 :regex "\\s*\\bJJJ\\s*=[^=\\n)]+" :tests ("int test = 1234") :not ("if test == 1234:" "int nottest = 44"))
+
+          (:type "type" :supports ("ag" "grep" "rg" "git-grep") :language "groovy"
+                 :regex "(class|interface)\\s*JJJ\\b"
+                 :tests ("class test:" "public class test implements Something")
+                 :not ("class testnot:" "public class testnot implements Something"))
+          )))
 
 (use-package pdf-tools
   :defer t
