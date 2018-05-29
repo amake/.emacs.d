@@ -281,6 +281,7 @@ not be synced across machines.")
          ("C-x M-g" . magit-dispatch-popup)
          ("C-c l" . magit-log-buffer-file-popup)
          ("C-c b" . magit-blame-popup))
+  :hook (magit-mode . (lambda () (display-line-numbers-mode -1)))
   :custom
   (magit-diff-refine-hunk 'all "Always show character-level diffs")
   (vc-handled-backends (delq 'Git vc-handled-backends) "Don't use VC for git")
