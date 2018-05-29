@@ -371,6 +371,7 @@ not be synced across machines.")
   :bind (("C-c j" . counsel-projectile-rg)
          ("C-c g" . counsel-projectile-find-file))
   :hook (shell-mode . rename-buffer-with-project)
+  :demand t
   :config
   (defun counsel-projectile-rg--no-tramp (old-function &rest args)
     (if (tramp-tramp-file-p (or (buffer-file-name)
