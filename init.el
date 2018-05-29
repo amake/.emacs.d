@@ -87,7 +87,7 @@ with `save-buffer'."
 
 ;; Only on GUI
 (when (display-graphic-p)
-  (global-linum-mode)
+  (global-display-line-numbers-mode)
   ;; Disable C-z (suspend-frame) in GUI because it's pointless
   ;; and I keep hitting it.
   (global-unset-key (kbd "C-z"))
@@ -249,7 +249,7 @@ not be synced across machines.")
   (use-package org-agenda
     :ensure nil
     :bind ("C-c a" . org-agenda)
-    :hook (org-agenda-mode . (lambda () (linum-mode -1)))
+    :hook (org-agenda-mode . (lambda () (display-line-numbers-mode -1)))
     :config
     (let ((amk-agenda-files (concat (file-name-as-directory org-directory) "agenda")))
       (make-directory amk-agenda-files t)
@@ -541,7 +541,6 @@ not be synced across machines.")
                           autoconf
                           (pkg-config . "sudo port install pkgconfig")
                           (pdfinfo . "sudo port install poppler"))
-  :hook (pdf-view-mode . (lambda () (linum-mode -1)))
   :config
   (pdf-tools-install))
 
