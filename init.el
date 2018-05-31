@@ -87,7 +87,9 @@ with `save-buffer'."
 
 ;; Only on GUI
 (when (display-graphic-p)
-  (global-display-line-numbers-mode)
+  (if (fboundp #'global-display-line-numbers-mode)
+      (global-display-line-numbers-mode) ; emacs 26 and later
+    (global-linum-mode))
   ;; Disable C-z (suspend-frame) in GUI because it's pointless
   ;; and I keep hitting it.
   (global-unset-key (kbd "C-z"))
