@@ -283,6 +283,8 @@ not be synced across machines.")
          ("C-x M-g" . magit-dispatch-popup)
          ("C-c l" . magit-log-buffer-file-popup)
          ("C-c b" . magit-blame-popup))
+  ;; Remove hook after PR accepted upstream:
+  ;; https://github.com/magit/magit/pull/3464
   :hook (magit-mode . (lambda () (display-line-numbers-mode -1)))
   :custom
   (magit-diff-refine-hunk 'all "Always show character-level diffs")
