@@ -418,7 +418,7 @@ not be synced across machines.")
            (python-mode . anaconda-eldoc-mode)))
 
   (use-package py-autopep8
-    :ensure-system-package (autopep8 . "sudo port install py27-autopep8")
+    :ensure-system-package (autopep8 . "sudo port install py36-autopep8")
     :hook (python-mode . py-autopep8-enable-on-save)))
 
 (use-package hideshow
