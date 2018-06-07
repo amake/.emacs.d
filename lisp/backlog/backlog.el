@@ -16,11 +16,13 @@
 
 (defcustom backlog-api-key nil
   "Backlog API key to use for API calls."
-  :group 'backlog)
+  :group 'backlog
+  :type '(string))
 
 (defcustom backlog-team nil
   "The Backlog team to use when opening links."
-  :group 'backlog)
+  :group 'backlog
+  :type '(string))
 
 ;; Backlog REST API functions
 

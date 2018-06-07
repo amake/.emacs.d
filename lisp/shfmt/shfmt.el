@@ -7,10 +7,12 @@
 ;;; Code:
 
 (defcustom shfmt-executable "shfmt" "The executable to run when autoformatting."
-  :group 'shfmt)
+  :group 'shfmt
+  :type '(string))
 
 (defcustom shfmt-arguments "" "The args to supply to `shfmt-executable' when autoformatting."
-  :group 'shfmt)
+  :group 'shfmt
+  :type '(string))
 
 (defun shfmt-build-command ()
   "Build the command to execute when autoformatting."

@@ -15,12 +15,14 @@
 Each item is a cons cell, where the car is a predicate to test
 the browse token against, and the cdr is the browsing action to
 be called against the function if the predicate returns t."
-  :group 'amk-browse)
+  :group 'amk-browse
+  :type '(string))
 
 (defcustom amk-browse-fallback-action #'browse-url-at-point
   "The fallback browse action to perform if no predicates in \
 `amk-browse-alist` match."
-  :group 'amk-browse)
+  :group 'amk-browse
+  :type '(function))
 
 (defun amk-multibrowse ()
   "Browse the symbol at point."
