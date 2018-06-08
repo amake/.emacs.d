@@ -320,6 +320,10 @@ not be synced across machines.")
     :config
     (flycheck-shfmt-setup)))
 
+(use-package octave
+  :ensure nil
+  :mode (("\\.m\\'" . octave-mode)))
+
 (use-package counsel
   :diminish (ivy-mode counsel-mode)
   :ensure-system-package
