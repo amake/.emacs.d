@@ -547,6 +547,7 @@ not be synced across machines.")
                           autoconf
                           (pkg-config . "sudo port install pkgconfig")
                           (pdfinfo . "sudo port install poppler"))
+  :hook (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
   :config
   (pdf-tools-install))
 
