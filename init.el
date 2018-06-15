@@ -322,7 +322,10 @@ not be synced across machines.")
 
 (use-package octave
   :ensure nil
-  :mode (("\\.m\\'" . octave-mode)))
+  :mode (("\\.m\\'" . octave-mode))
+  :custom (octave-block-offset 4)
+  :config
+  (put 'octave-block-offset 'safe-local-variable #'integerp))
 
 (use-package counsel
   :diminish (ivy-mode counsel-mode)
