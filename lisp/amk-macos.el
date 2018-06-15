@@ -7,7 +7,10 @@
 (defun open-pwd ()
   "Open the current working directory in the Finder."
   (interactive)
-  (shell-command "open ."))
+  (let ((cmd (if (buffer-file-name)
+                 (concat "open -R " buffer-file-name)
+               "open .")))
+    (shell-command cmd)))
 
 (defun open-file ()
   "Open the current file in the default app."
