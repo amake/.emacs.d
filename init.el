@@ -622,5 +622,13 @@ not be synced across machines.")
 (use-package apache-mode
   :mode "envvars\\'")
 
+(use-package helpful
+  :bind (("C-h f" . #'helpful-callable)
+         ("C-h v" . #'helpful-variable)
+         ("C-h k" . #'helpful-key)
+         ("C-c C-d" . #'helpful-at-point)
+         ("C-h F" . #'helpful-function)
+         ("C-h C" . #'helpful-command)))
+
 (provide 'init)
 ;;; init.el ends here
