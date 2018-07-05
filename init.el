@@ -27,7 +27,7 @@
 ;; Set Japanese second so that Japanese glyphs override Chinese
 ;; when both charsets cover the same codepoints.
 (when (fboundp #'set-fontset-font)
-  (set-fontset-font t 'chinese-gbk
+  (set-fontset-font t 'han
                     ;; Noto Sans CJK: https://www.google.com/get/noto/help/cjk/
                     (font-spec :family "Noto Sans CJK SC"))
   (set-fontset-font t 'japanese-jisx0213.2004-1
