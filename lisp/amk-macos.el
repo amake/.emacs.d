@@ -7,8 +7,8 @@
 (defun open-pwd ()
   "Open the current working directory in the Finder."
   (interactive)
-  (let ((cmd (if (buffer-file-name)
-                 (concat "open -R " buffer-file-name)
+  (let ((cmd (if buffer-file-name
+                 (format "open -R '%s'" buffer-file-name)
                "open .")))
     (shell-command cmd)))
 
@@ -16,7 +16,7 @@
   "Open the current file in the default app."
   (interactive)
   (if (buffer-file-name)
-      (shell-command (concat "open " (buffer-file-name)))
+      (shell-command (format "open '%s'" buffer-file-name))
     (error "Buffer is not associated with a file")))
 
 (defun reveal-file ()
