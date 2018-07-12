@@ -381,8 +381,9 @@ not be synced across machines.")
          ("C-c g" . counsel-projectile-find-file))
   :hook (shell-mode . rename-buffer-with-project)
   :custom
-  (projectile-mode-line '(:eval (format " ‹%s›"
-                                        (projectile-project-name))))
+  (projectile-mode-line '(:eval (when buffer-file-name
+                                  (format " ‹%s›"
+                                          (projectile-project-name)))))
   :config
   (defun counsel-projectile-rg--no-tramp (old-function &rest args)
     (if (tramp-tramp-file-p (or (buffer-file-name)
