@@ -12,7 +12,8 @@
 
 (defcustom shfmt-arguments "" "The args to supply to `shfmt-executable' when autoformatting."
   :group 'shfmt
-  :type '(string))
+  :type '(string)
+  :safe #'stringp)
 
 (defun shfmt-build-command ()
   "Build the command to execute when autoformatting."
