@@ -373,14 +373,16 @@ not be synced across machines.")
     (rename-buffer repl t)))
 
 (use-package projectile
-  :diminish projectile-mode
+  :demand t
   :ensure-system-package
   ((ag . "sudo port install the_silver_searcher")
    (rg . "sudo port install ripgrep"))
   :bind (("C-c j" . counsel-projectile-rg)
          ("C-c g" . counsel-projectile-find-file))
   :hook (shell-mode . rename-buffer-with-project)
-  :demand t
+  :custom
+  (projectile-mode-line '(:eval (format " ‹%s›"
+                                        (projectile-project-name))))
   :config
   (defun counsel-projectile-rg--no-tramp (old-function &rest args)
     (if (tramp-tramp-file-p (or (buffer-file-name)
