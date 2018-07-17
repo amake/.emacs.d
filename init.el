@@ -440,6 +440,11 @@ not be synced across machines.")
     :ensure-system-package (autopep8 . "sudo port install py36-autopep8")
     :hook (python-mode . py-autopep8-enable-on-save)))
 
+(use-package company-anaconda
+  :after (company anaconda-mode)
+  :config
+  (add-to-list 'company-backends 'company-anaconda))
+
 (use-package hideshow
   :diminish hs-minor-mode
   :bind ("C-c \\" . hs-toggle-hiding)
