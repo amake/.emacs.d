@@ -186,6 +186,7 @@ not be synced across machines.")
 
 (use-package image-mode
   :ensure nil
+  :hook (image-mode . (lambda () (display-line-numbers-mode -1)))
   :config
   (use-package image-dimensions-minor-mode
     :ensure nil
