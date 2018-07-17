@@ -431,11 +431,10 @@ not be synced across machines.")
   :custom
   (python-shell-font-lock-enable nil "Improve text printing speed in Python shell")
   :config
-
   (use-package anaconda-mode
     :hook ((python-mode . anaconda-mode)
-           (python-mode . anaconda-eldoc-mode)))
-
+           (python-mode . anaconda-eldoc-mode))
+    :ensure-system-package (easy_install-3.7 . "sudo port install py37-setuptools"))
   (use-package py-autopep8
     :ensure-system-package (autopep8 . "sudo port install py36-autopep8")
     :hook (python-mode . py-autopep8-enable-on-save)))
