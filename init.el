@@ -436,6 +436,7 @@ not be synced across machines.")
            (python-mode . anaconda-eldoc-mode))
     :ensure-system-package (easy_install-3.7 . "sudo port install py37-setuptools"))
   (use-package py-autopep8
+    ;; TODO: Update to py37-autopep8 when available
     :ensure-system-package (autopep8 . "sudo port install py36-autopep8")
     :hook (python-mode . py-autopep8-enable-on-save)))
 
