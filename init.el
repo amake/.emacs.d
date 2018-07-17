@@ -428,8 +428,6 @@ not be synced across machines.")
 (use-package python
   :mode ("\\.py\\'" . python-mode)
   :ensure-system-package (python3 . "sudo port install python37")
-  :custom
-  (python-shell-font-lock-enable nil "Improve text printing speed in Python shell")
   :config
   (use-package anaconda-mode
     :hook ((python-mode . anaconda-mode)
