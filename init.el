@@ -347,7 +347,15 @@ not be synced across machines.")
   (enable-recursive-minibuffers t)
   :config
   (ivy-mode)
-  (counsel-mode))
+  (counsel-mode)
+  (use-package all-the-icons-ivy
+    :config
+    (all-the-icons-ivy-setup)
+    (mapc (lambda (item) (add-to-list 'all-the-icons-mode-icon-alist item))
+          '((sh-mode all-the-icons-alltheicon "terminal" :face all-the-icons-purple)
+            (conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
+            (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
+            (Info-mode all-the-icons-material "info_outline")))))
 
 (use-package web-mode
   :mode ("\\.html?\\'"
