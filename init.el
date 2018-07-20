@@ -604,6 +604,8 @@ not be synced across machines.")
   :bind (:map company-active-map
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous))
+  :custom
+  (company-idle-delay 0.1)
   :config
   (use-package company-quickhelp
     :config
