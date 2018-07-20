@@ -357,7 +357,8 @@ not be synced across machines.")
             (conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
             (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
             (Info-mode all-the-icons-material "info_outline")
-            (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)))))
+            (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)
+            (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)))))
 
 (use-package web-mode
   :mode ("\\.html?\\'"
