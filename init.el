@@ -358,7 +358,8 @@ not be synced across machines.")
             (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
             (Info-mode all-the-icons-material "info_outline")
             (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)
-            (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)))))
+            (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)
+            (sql-mode all-the-icons-fileicon "sqlite" :face all-the-icons-blue-alt)))))
 
 (use-package web-mode
   :mode ("\\.html?\\'"
