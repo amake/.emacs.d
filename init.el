@@ -621,13 +621,19 @@ not be synced across machines.")
   (let ((invocation-directory-parent (expand-file-name (concat invocation-directory ".."))))
     (string-prefix-p invocation-directory-parent path)))
 
+(defun python-system-file-p (path)
+  "Return non-nil if PATH represents a file that might be part of a Python system installation."
+  (string-match-p ".*/Python.framework/.*" path))
+
 (use-package auto-sudoedit
   :diminish auto-sudoedit-mode
   :config
   (auto-sudoedit-mode 1)
   (defun auto-sudoedit--skip-if-internal (old-function &rest args)
-    (unless (emacs-internal-file-p (auto-sudoedit-current-path))
-      (apply old-function args)))
+    (let ((path (auto-sudoedit-current-path)))
+      (unless (or (emacs-internal-file-p path)
+                  (python-system-file-p path))
+       (apply old-function args))))
   (advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal))
 
 (use-package hide-lines
