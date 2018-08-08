@@ -393,10 +393,12 @@ not be synced across machines.")
   :bind (("C-c j" . counsel-projectile-rg)
          ("C-c g" . counsel-projectile-find-file))
   :hook (shell-mode . rename-buffer-with-project)
+  :bind-keymap ("C-c p" . projectile-command-map)
   :custom
   (projectile-mode-line '(:eval (when buffer-file-name
                                   (format " ‹%s›"
                                           (projectile-project-name)))))
+  (projectile-keymap-prefix "C-c p" "Deprecated; remove when counsel-projectile is updated")
   :config
   (defun counsel-projectile-rg--no-tramp (old-function &rest args)
     (if (tramp-tramp-file-p (or (buffer-file-name)
