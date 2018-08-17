@@ -411,7 +411,8 @@ not be synced across machines.")
     :config
     (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                       '((default "v")))
-    (counsel-projectile-mode)))
+    (counsel-projectile-mode))
+  (use-package ripgrep))
 
 (use-package scala-mode
   :defer t)
