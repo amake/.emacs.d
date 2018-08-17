@@ -360,7 +360,8 @@ not be synced across machines.")
             (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)
             (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)
             (sql-mode all-the-icons-fileicon "sqlite" :face all-the-icons-blue-alt)
-            (package-menu-mode all-the-icons-octicon "package" :face all-the-icons-dyellow)))))
+            (package-menu-mode all-the-icons-octicon "package" :face all-the-icons-dyellow)
+            (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)))))
 
 (use-package web-mode
   :mode ("\\.html?\\'"
