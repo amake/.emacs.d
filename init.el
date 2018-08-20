@@ -394,8 +394,6 @@ not be synced across machines.")
   :ensure-system-package
   ((ag . "sudo port install the_silver_searcher")
    (rg . "sudo port install ripgrep"))
-  :bind (("C-c j" . counsel-projectile-rg)
-         ("C-c g" . counsel-projectile-find-file))
   :hook (shell-mode . rename-buffer-with-project)
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom
@@ -404,15 +402,17 @@ not be synced across machines.")
                                           (projectile-project-name)))))
   (projectile-keymap-prefix "C-c p" "Deprecated; remove when counsel-projectile is updated")
   :config
-  (defun counsel-projectile-rg--no-tramp (old-function &rest args)
-    (if (tramp-tramp-file-p (or (buffer-file-name)
-                                list-buffers-directory))
-        (message "counsel-projectile-rg doesn't work over tramp")
-      (apply old-function args)))
-  (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
   (projectile-mode)
   (use-package counsel-projectile
+    :bind (("C-c j" . counsel-projectile-rg)
+           ("C-c g" . counsel-projectile-find-file))
     :config
+    (defun counsel-projectile-rg--no-tramp (old-function &rest args)
+      (if (tramp-tramp-file-p (or (buffer-file-name)
+                                  list-buffers-directory))
+          (message "counsel-projectile-rg doesn't work over tramp")
+        (apply old-function args)))
+    (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
     (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                       '((default "v")))
     (counsel-projectile-mode))
