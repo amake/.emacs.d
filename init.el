@@ -413,11 +413,6 @@ not be synced across machines.")
           (message "counsel-projectile-rg doesn't work over tramp")
         (apply old-function args)))
     (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
-    ;; Restore ignore VCS functionality; remove after issue fixed upstream:
-    ;; https://github.com/ericdanan/counsel-projectile/issues/96
-    (defun counsel-projectile-rg--ignore-vcs (old-function &rest args)
-      (apply old-function `(,(concat (car args) " --ignore-vcs"))))
-    (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--ignore-vcs)
     (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                       '((default "v")))
     (counsel-projectile-mode))
