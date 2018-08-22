@@ -404,6 +404,7 @@ not be synced across machines.")
   :config
   (projectile-mode)
   (use-package counsel-projectile
+    :demand t
     :bind (("C-c j" . counsel-projectile-rg)
            ("C-c g" . counsel-projectile-find-file))
     :config
