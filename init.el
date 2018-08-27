@@ -400,7 +400,7 @@ not be synced across machines.")
   (projectile-mode-line '(:eval (when buffer-file-name
                                   (format " ‹%s›"
                                           (projectile-project-name)))))
-  (projectile-keymap-prefix "C-c p" "Deprecated; remove when counsel-projectile is updated")
+  (projectile-keymap-prefix (kbd "C-c p") "Deprecated; remove when counsel-projectile is updated")
   :config
   (projectile-mode)
   (use-package counsel-projectile
