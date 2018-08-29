@@ -193,7 +193,7 @@ not be synced across machines.")
     :load-path "lisp/wiki"))
 
 (use-package flyspell
-  :ensure-system-package (aspell . "sudo port install aspell-dict-en")
+  :ensure-system-package (aspell . "sudo port install aspell aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
          ;; (prog-mode . flyspell-prog-mode)
          ))
