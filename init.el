@@ -350,6 +350,7 @@ not be synced across machines.")
   (ivy-mode)
   (counsel-mode)
   (use-package all-the-icons-ivy
+    :if (display-graphic-p)
     :config
     (all-the-icons-ivy-setup)
     (mapc (lambda (item) (add-to-list 'all-the-icons-mode-icon-alist item))
