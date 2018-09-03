@@ -184,6 +184,10 @@ not be synced across machines.")
   :hook (shell-mode . (lambda ()
                         (shell-dirtrack-mode 0))))
 
+(use-package auto-revert
+  :ensure nil
+  :mode (("\\.log\\'" . auto-revert-tail-mode)))
+
 (use-package image-mode
   :ensure nil
   :hook (image-mode . (lambda () (display-line-numbers-mode -1)))
