@@ -665,5 +665,8 @@ not be synced across machines.")
          ("C-h F" . #'helpful-function)
          ("C-h C" . #'helpful-command)))
 
+(use-package blimp
+  :hook (image-mode . blimp-mode))
+
 (provide 'init)
 ;;; init.el ends here
