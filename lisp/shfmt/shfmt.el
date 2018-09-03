@@ -32,8 +32,10 @@
   "Autoformat the region defined by START and END."
   (interactive)
   (if (executable-find shfmt-executable)
-      (let ((shfmt-cmd (shfmt-build-command)))
-        (shfmt--replace-region start end shfmt-cmd))
+      (let ((args (split-string shfmt-arguments " ")))
+        (if (member "-d" args)
+            (shfmt--patch-region start end args)
+          (shfmt--replace-region start end (shfmt-build-command))))
     (error (format "shfmt: executable `%s' not found" shfmt-executable))))
 
 (defun shfmt--replace-region (start end cmd)
@@ -74,6 +76,8 @@
   (let* ((patch-buffer-name "*Shfmt Patch*")
          (patch-buffer (get-buffer-create patch-buffer-name))
          (call-process-args `(,start ,end ,shfmt-executable ,nil ,patch-buffer ,t ,@args)))
+    (with-current-buffer patch-buffer
+      (erase-buffer))
     (if (= 1 (apply #'call-process-region call-process-args))
         (save-excursion
           (shfmt--apply-patch patch-buffer start end (current-buffer))
