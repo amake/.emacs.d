@@ -78,7 +78,7 @@
          (call-process-args `(,start ,end ,shfmt-executable ,nil ,patch-buffer ,t ,@args)))
     (with-current-buffer patch-buffer
       (erase-buffer))
-    (if (= 1 (apply #'call-process-region call-process-args))
+    (when (= 1 (apply #'call-process-region call-process-args))
         (save-excursion
           (shfmt--apply-patch patch-buffer start end (current-buffer))
           (kill-buffer patch-buffer)))))
