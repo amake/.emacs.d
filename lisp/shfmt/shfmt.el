@@ -2,6 +2,8 @@
 
 ;; Shell script autoformatting using shfmt; see https://github.com/mvdan/sh
 
+;; Package-Requires: (cl-lib)
+
 ;;; Commentary:
 
 ;;; Code:
@@ -14,6 +16,8 @@
   :group 'shfmt
   :type '(string)
   :safe #'stringp)
+
+(defvar shfmt--debug nil)
 
 (defun shfmt-build-command ()
   "Build the command to execute when autoformatting."
@@ -28,37 +32,96 @@
   "Autoformat the region defined by START and END."
   (interactive)
   (if (executable-find shfmt-executable)
-      (let* ((prev-point (point))
-             (prev-window-start (window-start))
-             (error-buffer-name "*Shfmt Errors*")
-             (error-buffer (get-buffer-create error-buffer-name))
-             (coding-system-for-write buffer-file-coding-system)
-             (coding-system-for-read buffer-file-coding-system)
-             (show-errors (not (flycheck-shfmt-in-use-p))))
-        (if (zerop (shell-command-on-region
-                    start end
-                    (shfmt-build-command)
-                    (current-buffer) t
-                    error-buffer show-errors))
-            (progn
-              (goto-char prev-point)
-              (set-window-start nil prev-window-start)
-              (kill-buffer error-buffer))
-          ;; 1. `shell-command-on-region' with replacement first deletes the
-          ;; buffer contents. This deletion goes into the `buffer-undo-list'.
-          ;;
-          ;; 2. At this point the command has returned failure, so nothing will
-          ;; be put back into the buffer. Thus we undo the deletion.
-          ;;
-          ;; 3. However, simply undoing will also undo the last edit before this
-          ;; function was run. To prevent that, first we run `undo-boundary'.
-          ;;
-          ;; TODO: Why in the world does it work to call `undo-boundary' here
-          ;; instead of before the replacement?
-          (undo-boundary)
-          (undo)
-          (error (format "shfmt: An error occurred when executing `%s'" shfmt-executable))))
+      (let ((shfmt-cmd (shfmt-build-command)))
+        (shfmt--replace-region start end shfmt-cmd))
     (error (format "shfmt: executable `%s' not found" shfmt-executable))))
+
+(defun shfmt--replace-region (start end cmd)
+  "Replace region from START to END with the result of executing CMD."
+  (let* ((prev-point (point))
+         (prev-window-start (window-start))
+         (error-buffer-name "*Shfmt Errors*")
+         (error-buffer (get-buffer-create error-buffer-name))
+         (coding-system-for-write buffer-file-coding-system)
+         (coding-system-for-read buffer-file-coding-system)
+         (show-errors (not (flycheck-shfmt-in-use-p))))
+    (if (zerop (shell-command-on-region
+                start end
+                cmd
+                (current-buffer) t
+                error-buffer show-errors))
+        (progn
+          (goto-char prev-point)
+          (set-window-start nil prev-window-start)
+          (kill-buffer error-buffer))
+      ;; 1. `shell-command-on-region' with replacement first deletes the
+      ;; buffer contents. This deletion goes into the `buffer-undo-list'.
+      ;;
+      ;; 2. At this point the command has returned failure, so nothing will
+      ;; be put back into the buffer. Thus we undo the deletion.
+      ;;
+      ;; 3. However, simply undoing will also undo the last edit before this
+      ;; function was run. To prevent that, first we run `undo-boundary'.
+      ;;
+      ;; TODO: Why in the world does it work to call `undo-boundary' here
+      ;; instead of before the replacement?
+      (undo-boundary)
+      (undo)
+      (error (format "shfmt: An error occurred when executing `%s'" shfmt-executable)))))
+
+(defun shfmt--patch-region (start end args)
+  "Patch the region from START to END with the diff obtained by executing shfmt with ARGS."
+  (let* ((patch-buffer-name "*Shfmt Patch*")
+         (patch-buffer (get-buffer-create patch-buffer-name))
+         (call-process-args `(,start ,end ,shfmt-executable ,nil ,patch-buffer ,t ,@args)))
+    (if (= 1 (apply #'call-process-region call-process-args))
+        (save-excursion
+          (shfmt--apply-patch patch-buffer start end (current-buffer))
+          (kill-buffer patch-buffer)))))
+
+(defun shfmt--apply-patch (patch-buffer start end target-buffer)
+  "Apply patch in PATCH-BUFFER to region from START to END in TARGET-BUFFER."
+  (with-current-buffer patch-buffer
+    (goto-char 0)
+    (cl-labels ((current-line ()
+                              (buffer-substring-no-properties
+                               (+ 1 (line-beginning-position))
+                               (line-beginning-position 2))))
+      (while (re-search-forward "^@@ -\\([0-9]+\\),\\([0-9]+\\)" nil t)
+       (let* ((hunk-start (string-to-number (match-string 1)))
+              (hunk-start-adj (+ start hunk-start))
+              (hunk-end (string-to-number (match-string 2)))
+              (hunk-end-adj (+ end hunk-end))
+              (offset -1))
+         (message "Found hunk: %s" (match-string 0))
+         (while (progn
+                  (forward-line 1)
+                  (cond ((looking-at "^ ")
+                         (if shfmt--debug
+                             (message "Context line"))
+                         (setq offset (+ offset 1)))
+                        ((looking-at "^\\+")
+                         (let ((add-line (current-line)))
+                           (if shfmt--debug
+                               (message "Add line at %d: %s"
+                                        (+ offset (- hunk-start-adj (line-number-at-pos)))
+                                        add-line))
+                           (with-current-buffer target-buffer
+                             (let ((add-line-num (+ offset (- hunk-start-adj (line-number-at-pos)))))
+                               (forward-line add-line-num)
+                               (insert add-line)))
+                           t))
+                        ((looking-at "^\\-")
+                         (let ((del-line (current-line)))
+                           (if shfmt--debug
+                               (message "Delete line at %d: %s"
+                                        (+ offset (- hunk-start-adj (line-number-at-pos)))
+                                        del-line))
+                           (with-current-buffer target-buffer
+                             (let ((del-line-num (+ offset (- hunk-start-adj (line-number-at-pos)))))
+                               (forward-line del-line-num)
+                               (delete-region (line-beginning-position) (line-beginning-position 2))))
+                           t))))))))))
 
 (defun shfmt-buffer ()
   "Autoformat the current buffer."
