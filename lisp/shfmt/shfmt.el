@@ -97,7 +97,8 @@
               (hunk-end (string-to-number (match-string 2)))
               (hunk-end-adj (+ end hunk-end))
               (offset -1))
-         (message "Found hunk: %s" (match-string 0))
+         (if shfmt--debug
+             (message "Found hunk: %s" (match-string 0)))
          (while (progn
                   (forward-line 1)
                   (cond ((looking-at "^ ")
