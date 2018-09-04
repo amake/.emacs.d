@@ -75,16 +75,18 @@
   "Patch the region from START to END with the diff obtained by executing shfmt with ARGS."
   (let* ((patch-buffer-name "*Shfmt Patch*")
          (patch-buffer (get-buffer-create patch-buffer-name))
+         (start-line (line-number-at-pos start))
+         (end-line (line-number-at-pos end))
          (call-process-args `(,start ,end ,shfmt-executable ,nil ,patch-buffer ,t ,@args)))
     (with-current-buffer patch-buffer
       (erase-buffer))
     (when (= 1 (apply #'call-process-region call-process-args))
         (save-excursion
-          (shfmt--apply-patch patch-buffer start end (current-buffer))
+          (shfmt--apply-patch patch-buffer start-line end-line (current-buffer))
           (kill-buffer patch-buffer)))))
 
-(defun shfmt--apply-patch (patch-buffer start end target-buffer)
-  "Apply patch in PATCH-BUFFER to region from START to END in TARGET-BUFFER."
+(defun shfmt--apply-patch (patch-buffer start-line end-line target-buffer)
+  "Apply patch in PATCH-BUFFER to region from START-LINE to END-LINE in TARGET-BUFFER."
   (with-current-buffer patch-buffer
     (goto-char 0)
     (cl-labels ((current-line ()
@@ -93,10 +95,8 @@
                                (line-beginning-position 2))))
       (while (re-search-forward "^@@ -\\([0-9]+\\),\\([0-9]+\\)" nil t)
        (let* ((hunk-start (string-to-number (match-string 1)))
-              (hunk-start-adj (+ start hunk-start))
-              (hunk-end (string-to-number (match-string 2)))
-              (hunk-end-adj (+ end hunk-end))
-              (offset -1))
+              (hunk-start-adj (+ start-line hunk-start -1))
+              (offset 0))
          (if shfmt--debug
              (message "Found hunk: %s" (match-string 0)))
          (while (progn
@@ -104,23 +104,24 @@
                   (cond ((looking-at "^ ")
                          (if shfmt--debug
                              (message "Context line"))
-                         (setq offset (+ offset 1)))
+                         (setq offset (1+ offset)))
                         ((looking-at "^\\+")
                          (let ((add-line (current-line)))
                            (if shfmt--debug
                                (message "Add line at %d: %s"
-                                        (+ offset (- hunk-start-adj (line-number-at-pos)))
+                                        (+ offset hunk-start-adj)
                                         add-line))
                            (with-current-buffer target-buffer
                              (let ((add-line-num (+ offset (- hunk-start-adj (line-number-at-pos)))))
                                (forward-line add-line-num)
                                (insert add-line)))
+                           (setq offset (1+ offset))
                            t))
                         ((looking-at "^\\-")
                          (let ((del-line (current-line)))
                            (if shfmt--debug
                                (message "Delete line at %d: %s"
-                                        (+ offset (- hunk-start-adj (line-number-at-pos)))
+                                        (+ offset hunk-start-adj)
                                         del-line))
                            (with-current-buffer target-buffer
                              (let ((del-line-num (+ offset (- hunk-start-adj (line-number-at-pos)))))
