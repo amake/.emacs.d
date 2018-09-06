@@ -465,8 +465,9 @@ not be synced across machines.")
 
 (use-package company-anaconda
   :after (company anaconda-mode)
-  :config
-  (add-to-list 'company-backends 'company-anaconda))
+  :hook (anaconda-mode . (lambda ()
+                           (make-local-variable 'company-backends)
+                           (add-to-list 'company-backends 'company-anaconda))))
 
 (use-package hideshow
   :diminish hs-minor-mode
