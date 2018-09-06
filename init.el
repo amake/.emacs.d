@@ -435,7 +435,9 @@ not be synced across machines.")
   (typescript-indent-level 2))
 
 (use-package go-mode
-  :defer t)
+  :defer t
+  :hook (go-mode . (lambda ()
+                     (add-hook 'before-save-hook #'gofmt-before-save nil t))))
 
 (use-package groovy-mode
   :defer t
