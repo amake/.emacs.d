@@ -190,11 +190,12 @@ not be synced across machines.")
 
 (use-package image-mode
   :ensure nil
-  :hook (image-mode . (lambda () (display-line-numbers-mode -1)))
-  :config
-  (use-package image-dimensions-minor-mode
-    :ensure nil
-    :load-path "lisp/wiki"))
+  :hook (image-mode . (lambda () (display-line-numbers-mode -1))))
+
+(use-package image-dimensions-minor-mode
+  :ensure nil
+  :after image-mode
+  :load-path "lisp/wiki")
 
 (use-package flyspell
   :ensure-system-package (aspell . "sudo port install aspell aspell-dict-en")
@@ -252,35 +253,43 @@ not be synced across machines.")
   (when amk-use-fancy-ligatures
     ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
     ;; some reason, but Menlo seems to be OK.
-    (set-face-attribute 'org-table nil :family "Menlo"))
-  (use-package org-agenda
-    :ensure nil
-    :bind ("C-c a" . org-agenda)
-    :hook (org-agenda-mode . (lambda () (display-line-numbers-mode -1)))
-    :config
-    (let ((amk-agenda-files (concat (file-name-as-directory org-directory) "agenda")))
-      (make-directory amk-agenda-files t)
-      (add-to-list 'org-agenda-files amk-agenda-files)))
-  (use-package org-capture
-    :ensure nil
-    :bind ("C-c c" . org-capture)
-    :config
-    ;; Default template, not offered when custom templates are defined
-    (add-to-list 'org-capture-templates
-                 '("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
-    ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
-    (add-to-list 'org-capture-templates
-                 '("p" "Protocol" entry (file+headline "" "Inbox")
-                   "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
-    (add-to-list 'org-capture-templates
-                 '("L" "Protocol Link" entry (file+headline "" "Inbox")
-                   "* %? [[%:link][%:description]] \nCaptured On: %U")))
-  ;; Backlog link support
-  (use-package org-backlog
-    :ensure nil
-    :load-path "lisp/backlog")
-  ;; pdfview link support
-  (use-package org-pdfview))
+    (set-face-attribute 'org-table nil :family "Menlo")))
+
+(use-package org-agenda
+  :ensure nil
+  :after org
+  :bind ("C-c a" . org-agenda)
+  :hook (org-agenda-mode . (lambda () (display-line-numbers-mode -1)))
+  :config
+  (let ((amk-agenda-files (concat (file-name-as-directory org-directory) "agenda")))
+    (make-directory amk-agenda-files t)
+    (add-to-list 'org-agenda-files amk-agenda-files)))
+
+(use-package org-capture
+  :ensure nil
+  :after org
+  :bind ("C-c c" . org-capture)
+  :config
+  ;; Default template, not offered when custom templates are defined
+  (add-to-list 'org-capture-templates
+               '("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a"))
+  ;; Templates for Firefox extension: https://github.com/sprig/org-capture-extension
+  (add-to-list 'org-capture-templates
+               '("p" "Protocol" entry (file+headline "" "Inbox")
+                 "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"))
+  (add-to-list 'org-capture-templates
+               '("L" "Protocol Link" entry (file+headline "" "Inbox")
+                 "* %? [[%:link][%:description]] \nCaptured On: %U")))
+
+;; Backlog link support
+(use-package org-backlog
+  :ensure nil
+  :after org
+  :load-path "lisp/backlog")
+
+;; pdfview link support
+(use-package org-pdfview
+  :after org)
 
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
@@ -295,10 +304,12 @@ not be synced across machines.")
   (global-magit-file-mode)
   (when (and amk-code-directory
              (file-exists-p amk-code-directory))
-    (add-to-list 'magit-repository-directories `(,amk-code-directory . 1)))
-  (use-package magit-svn
-    ;;Do `git config --add magit.extension svn` to enable in repository
-    ))
+    (add-to-list 'magit-repository-directories `(,amk-code-directory . 1))))
+
+(use-package magit-svn
+  :after magit
+  ;;Do `git config --add magit.extension svn` to enable in repository
+  )
 
 (use-package git-gutter-fringe
   :if (display-graphic-p)
@@ -318,12 +329,14 @@ not be synced across machines.")
                         (unless (executable-find "scss")
                           (async-shell-command "gem install sass")))))
   :config
-  (global-flycheck-mode)
-  (use-package flycheck-shfmt
-    :ensure nil
-    :load-path "lisp/shfmt"
-    :config
-    (flycheck-shfmt-setup)))
+  (global-flycheck-mode))
+
+(use-package flycheck-shfmt
+  :ensure nil
+  :after flycheck
+  :load-path "lisp/shfmt"
+  :config
+  (flycheck-shfmt-setup))
 
 (use-package octave
   :ensure nil
@@ -352,24 +365,26 @@ not be synced across machines.")
   (enable-recursive-minibuffers t)
   :config
   (ivy-mode)
-  (counsel-mode)
-  (use-package all-the-icons-ivy
-    :if (display-graphic-p)
-    :config
-    (all-the-icons-ivy-setup)
-    (mapc (lambda (item) (add-to-list 'all-the-icons-mode-icon-alist item))
-          '((sh-mode all-the-icons-alltheicon "terminal" :face all-the-icons-purple)
-            (conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
-            (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
-            (Info-mode all-the-icons-material "info_outline")
-            (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)
-            (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)
-            (sql-mode all-the-icons-fileicon "sqlite" :face all-the-icons-blue-alt)
-            (package-menu-mode all-the-icons-octicon "package" :face all-the-icons-dyellow)
-            (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)))
-    (mapc (lambda (item) (add-to-list 'all-the-icons-icon-alist item))
-          '(("\\.gradle$" all-the-icons-fileicon "gradle" :face all-the-icons-green)
-            ("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)))))
+  (counsel-mode))
+
+(use-package all-the-icons-ivy
+  :if (display-graphic-p)
+  :after counsel
+  :config
+  (all-the-icons-ivy-setup)
+  (mapc (lambda (item) (add-to-list 'all-the-icons-mode-icon-alist item))
+        '((sh-mode all-the-icons-alltheicon "terminal" :face all-the-icons-purple)
+          (conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
+          (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
+          (Info-mode all-the-icons-material "info_outline")
+          (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)
+          (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)
+          (sql-mode all-the-icons-fileicon "sqlite" :face all-the-icons-blue-alt)
+          (package-menu-mode all-the-icons-octicon "package" :face all-the-icons-dyellow)
+          (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)))
+  (mapc (lambda (item) (add-to-list 'all-the-icons-icon-alist item))
+        '(("\\.gradle$" all-the-icons-fileicon "gradle" :face all-the-icons-green)
+          ("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt))))
 
 (use-package web-mode
   :mode ("\\.html?\\'"
@@ -406,22 +421,26 @@ not be synced across machines.")
                                   (format " ‹%s›"
                                           (projectile-project-name)))))
   :config
-  (projectile-mode)
-  (use-package counsel-projectile
-    :demand t
-    :bind (("C-c j" . counsel-projectile-rg)
-           ("C-c g" . counsel-projectile-find-file))
-    :config
-    (defun counsel-projectile-rg--no-tramp (old-function &rest args)
-      (if (tramp-tramp-file-p (or (buffer-file-name)
-                                  list-buffers-directory))
-          (message "counsel-projectile-rg doesn't work over tramp")
-        (apply old-function args)))
-    (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
-    (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
-                                      '((default "v")))
-    (counsel-projectile-mode))
-  (use-package ripgrep))
+  (projectile-mode))
+
+(use-package counsel-projectile
+  :demand t
+  :after (counsel projectile)
+  :bind (("C-c j" . counsel-projectile-rg)
+         ("C-c g" . counsel-projectile-find-file))
+  :config
+  (defun counsel-projectile-rg--no-tramp (old-function &rest args)
+    (if (tramp-tramp-file-p (or (buffer-file-name)
+                                list-buffers-directory))
+        (message "counsel-projectile-rg doesn't work over tramp")
+      (apply old-function args)))
+  (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
+  (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
+                                    '((default "v")))
+  (counsel-projectile-mode))
+
+(use-package ripgrep
+  :after projectile)
 
 (use-package scala-mode
   :defer t)
@@ -453,15 +472,18 @@ not be synced across machines.")
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
-  :ensure-system-package (python3 . "sudo port install python37")
-  :config
-  (use-package anaconda-mode
-    :hook ((python-mode . anaconda-mode)
-           (python-mode . anaconda-eldoc-mode))
-    :ensure-system-package (easy_install-3.7 . "sudo port install py37-setuptools"))
-  (use-package py-autopep8
-    :ensure-system-package (autopep8 . "sudo port install py37-autopep8")
-    :hook (python-mode . py-autopep8-enable-on-save)))
+  :ensure-system-package (python3 . "sudo port install python37"))
+
+(use-package anaconda-mode
+  :after python
+  :hook ((python-mode . anaconda-mode)
+         (python-mode . anaconda-eldoc-mode))
+  :ensure-system-package (easy_install-3.7 . "sudo port install py37-setuptools"))
+
+(use-package py-autopep8
+  :after python
+  :ensure-system-package (autopep8 . "sudo port install py37-autopep8")
+  :hook (python-mode . py-autopep8-enable-on-save))
 
 (use-package company-anaconda
   :after (company anaconda-mode)
@@ -628,11 +650,12 @@ not be synced across machines.")
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous))
   :custom
-  (company-idle-delay 0.1)
+  (company-idle-delay 0.1))
+
+(use-package company-quickhelp
+  :after company
   :config
-  (use-package company-quickhelp
-    :config
-    (company-quickhelp-mode)))
+  (company-quickhelp-mode))
 
 (use-package rainbow-mode
   :diminish rainbow-mode
