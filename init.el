@@ -673,6 +673,10 @@ not be synced across machines.")
   "Return non-nil if PATH represents a file that might be part of a Python system installation."
   (string-match-p ".*/Python.framework/.*" path))
 
+(defun go-system-file-p (path)
+  "Return non-nil if PATH represents a file that might be part of a Go system installation."
+  (string-match-p ".*/go/src/.*" path))
+
 (use-package auto-sudoedit
   :diminish auto-sudoedit-mode
   :config
@@ -680,7 +684,8 @@ not be synced across machines.")
   (defun auto-sudoedit--skip-if-internal (old-function &rest args)
     (let ((path (auto-sudoedit-current-path)))
       (unless (or (emacs-internal-file-p path)
-                  (python-system-file-p path))
+                  (python-system-file-p path)
+                  (go-system-file-p path))
        (apply old-function args))))
   (advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal))
 
