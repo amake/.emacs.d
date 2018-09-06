@@ -439,6 +439,13 @@ not be synced across machines.")
   :hook (go-mode . (lambda ()
                      (add-hook 'before-save-hook #'gofmt-before-save nil t))))
 
+(use-package company-go
+  :after (company go-mode)
+  :hook (go-mode . (lambda ()
+                     (make-local-variable 'company-backends)
+                     (add-to-list 'company-backends 'company-go)))
+  :ensure-system-package (gocode . "go get github.com/mdempsky/gocode"))
+
 (use-package groovy-mode
   :defer t
   :hook (groovy-mode . (lambda ()
