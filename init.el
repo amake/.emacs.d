@@ -459,7 +459,8 @@ not be synced across machines.")
               ("M-." . godef-jump))
   :hook (go-mode . (lambda ()
                      (add-hook 'before-save-hook #'gofmt-before-save nil t)))
-  :ensure-system-package (godef . "go get github.com/rogpeppe/godef"))
+  :ensure-system-package ((go . "sudo port install go")
+                          (godef . "go get github.com/rogpeppe/godef")))
 
 (use-package company-go
   :after (company go-mode)
