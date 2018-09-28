@@ -418,6 +418,7 @@ not be synced across machines.")
   :hook (shell-mode . rename-buffer-with-project)
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom
+  (projectile-mode-line-lighter "")
   (projectile-mode-line-fn (lambda ()
                              (when buffer-file-name
                                (format " ‹%s›"
