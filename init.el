@@ -346,6 +346,7 @@ not be synced across machines.")
   (put 'octave-block-offset 'safe-local-variable #'integerp))
 
 (use-package counsel
+  :demand t
   :diminish (ivy-mode counsel-mode)
   :ensure-system-package
   ((ag . "sudo port install the_silver_searcher")
