@@ -433,10 +433,20 @@ not be synced across machines.")
          ("C-c g" . counsel-projectile-find-file))
   :config
   (defun counsel-projectile-rg--no-tramp (old-function &rest args)
-    (if (tramp-tramp-file-p (or (buffer-file-name)
-                                list-buffers-directory))
-        (message "counsel-projectile-rg doesn't work over tramp")
-      (apply old-function args)))
+    (let ((path (or (buffer-file-name)
+                    list-buffers-directory)))
+      (if (tramp-tramp-file-p path)
+          (let* ((vec (tramp-dissect-file-name default-directory))
+                 (host (tramp-file-name-host vec))
+                 (local (tramp-file-name-localname vec)))
+            (if (string= host (system-name))
+                ;; If it's a tramp buffer BUT the file is a local one (using
+                ;; tramp for sudo) then we can still make things work by
+                ;; pretending for this invocation that we aren't in tramp.
+                (let ((default-directory local))
+                  (apply old-function args))
+              (message "counsel-projectile-rg doesn't work over tramp")))
+       (apply old-function args))))
   (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
   (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                     '((default "v")))
