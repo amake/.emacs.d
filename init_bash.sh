@@ -17,8 +17,6 @@
         if [[ "$project" == '-' ]]; then
             PS1="\h:\W$ "
         else
-            # Manually reset project root
-            emacs_eval '(projectile-reset-cached-project-root)' &>/dev/null
             root=$(emacs_project_root | tr -d '"\n')
             if [[ "$PWD/" == "$root" ]]; then
                 PS1="[$project]$ "

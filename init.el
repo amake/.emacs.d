@@ -402,7 +402,6 @@ not be synced across machines.")
 
 (defun rename-buffer-with-project ()
   "Set the buffer name from the current Projectile project."
-  (projectile-reset-cached-project-name)
   (let* ((proj (projectile-project-name))
          (buff (replace-regexp-in-string "\\(<[^>]+>\\)+$" "" (buffer-name)))
          (repl (if (string= proj "-")
