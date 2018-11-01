@@ -98,7 +98,7 @@
     (goto-char 0)
     (cl-labels ((current-line ()
                               (buffer-substring-no-properties
-                               (+ 1 (line-beginning-position))
+                               (1+ (line-beginning-position))
                                (line-beginning-position 2))))
       (while (re-search-forward "^@@ -\\([0-9]+\\),\\([0-9]+\\)" nil t)
        (let* ((hunk-start (string-to-number (match-string 1)))
