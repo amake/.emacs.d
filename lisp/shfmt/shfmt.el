@@ -19,9 +19,16 @@
 
 (defvar shfmt--debug nil)
 
+(defun shfmt-build-argument-list ()
+  "Build a list of arguments to `shfmt-executable' based on \
+`shfmt-arguments' and user settings."
+  (let ((indent (when (boundp 'sh-basic-offset)
+                  `("-i" ,(number-to-string sh-basic-offset)))))
+    `(,@indent ,@(split-string shfmt-arguments))))
+
 (defun shfmt-build-command ()
   "Build the command to execute when autoformatting."
-  (mapconcat #'identity `(,shfmt-executable ,shfmt-arguments) " "))
+  (mapconcat #'identity `(,shfmt-executable ,@(shfmt-build-argument-list)) " "))
 
 (defun shfmt-enable-on-save ()
   "Pre-save hook for running shfmt."
@@ -32,7 +39,7 @@
   "Autoformat the region defined by START and END."
   (interactive)
   (if (executable-find shfmt-executable)
-      (let ((args (split-string shfmt-arguments " ")))
+      (let ((args (shfmt-build-argument-list)))
         (if (member "-d" args)
             (shfmt--patch-region start end args)
           (shfmt--replace-region start end (shfmt-build-command))))
