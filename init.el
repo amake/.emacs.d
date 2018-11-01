@@ -167,7 +167,7 @@ not be synced across machines.")
   :load-path "lisp/shfmt"
   :ensure-system-package shfmt
   :custom
-  (shfmt-arguments "-i 4 -d")
+  (shfmt-arguments "-d")
   :hook (sh-mode . shfmt-enable-on-save))
 
 (use-package desktop
