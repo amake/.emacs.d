@@ -33,12 +33,27 @@
   :init-value nil
   :lighter image-dimensions-minor-mode-dimensions
   (when (not image-dimensions-minor-mode-dimensions)
-    (let ((image (image-get-display-property)))
+    (image-dimensions-update-lighter)))
+
+(defun image-dimensions-get-dimensions ()
+  "Obtain the size in pixels of the image."
+  (let ((image (image-get-display-property)))
       (when image
-        (setq image-dimensions-minor-mode-dimensions
-              (cl-destructuring-bind (width . height)
-                  (image-size image :pixels)
-                (format " (%dx%d)" width height)))))))
+        (image-size image :pixels))))
+
+(defun image-dimensions-get-size-string ()
+  "Generate the size string to be displayed in the lighter."
+  (let ((dimensions (image-dimensions-get-dimensions)))
+    (when dimensions
+      (cl-destructuring-bind (width . height)
+          dimensions
+        (format " (%dx%d)" width height)))))
+
+(defun image-dimensions-update-lighter (&rest args)
+  "Update the lighter string.  Ignore ARGS."
+  (let ((dimensions (image-dimensions-get-size-string)))
+     (when dimensions
+       (setq image-dimensions-minor-mode-dimensions dimensions))))
 
 (add-hook 'image-mode-hook #'image-dimensions-minor-mode)
 
