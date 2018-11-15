@@ -194,8 +194,10 @@ not be synced across machines.")
 
 (use-package image-dimensions-minor-mode
   :ensure nil
-  :after image-mode
-  :load-path "lisp/wiki")
+  :after (image-mode blimp)
+  :load-path "lisp/wiki"
+  :config
+  (advice-add #'eimp-replace-image :after #'image-dimensions-update-lighter))
 
 (use-package flyspell
   :ensure-system-package (aspell . "sudo port install aspell aspell-dict-en")
