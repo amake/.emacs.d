@@ -1,15 +1,13 @@
-;;; image-dimensions-minor-mode.el
+;;; image-dimensions-minor-mode.el --- Display image dimensions in mode line -*- lexical-binding: t -*-
 ;;
-;; Display the image dimensions in the mode line, when viewing an image.
-;;
-;; Author: Phil S.
+;; Author: Phil S., Aaron Madlon-Kay
 ;;
 ;; Compatibility: GNU Emacs 24.3
 ;;
 ;; Installation:
 ;; (eval-after-load 'image-mode '(require 'image-dimensions-minor-mode))
 
-;; Commentary:
+;;; Commentary:
 ;;
 ;; To also see this information in the frame title, your `frame-title-format'
 ;; variable might be something like the following:
@@ -20,6 +18,8 @@
 ;;         (dired-directory
 ;;          (:eval (concat (buffer-name) " (Emacs) " dired-directory))
 ;;          ("%b (Emacs)"))))
+
+;;; Code:
 
 (eval-when-compile (require 'cl-macs))
 
@@ -40,6 +40,7 @@
                   (image-size image :pixels)
                 (format " (%dx%d)" width height)))))))
 
-(add-hook 'image-mode-hook 'image-dimensions-minor-mode)
+(add-hook 'image-mode-hook #'image-dimensions-minor-mode)
 
 (provide 'image-dimensions-minor-mode)
+;;; image-dimensions-minor-mode.el ends here
