@@ -724,6 +724,8 @@ not be synced across machines.")
          ("C-h C" . #'helpful-command)))
 
 (use-package blimp
+  :custom
+  (eimp-enable-undo t)
   :hook (image-mode . blimp-mode))
 
 (provide 'init)
