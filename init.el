@@ -731,7 +731,14 @@ not be synced across machines.")
   (eimp-enable-undo t)
   :hook (image-mode . blimp-mode))
 
+(use-package flutter
+  :ensure nil
+  :load-path "lisp/flutter")
+
 (use-package dart-mode
+  :after flutter
+  :bind (:map dart-mode-map
+              ("C-M-x" . #'flutter-run-or-hot-reload))
   :custom
   (dart-format-on-save t)
   (dart-enable-analysis-server t)
