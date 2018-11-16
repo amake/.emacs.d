@@ -384,7 +384,8 @@ not be synced across machines.")
           (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)
           (sql-mode all-the-icons-fileicon "sqlite" :face all-the-icons-blue-alt)
           (package-menu-mode all-the-icons-octicon "package" :face all-the-icons-dyellow)
-          (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)))
+          (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)
+          (dart-mode all-the-icons-faicon "location-arrow" :face all-the-icons-blue-alt)))
   (mapc (lambda (item) (add-to-list 'all-the-icons-icon-alist item))
         '(("\\.gradle$" all-the-icons-fileicon "gradle" :face all-the-icons-green)
           ("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt))))
@@ -729,6 +730,12 @@ not be synced across machines.")
   :custom
   (eimp-enable-undo t)
   :hook (image-mode . blimp-mode))
+
+(use-package dart-mode
+  :custom
+  (dart-format-on-save t)
+  (dart-enable-analysis-server t)
+  (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/"))
 
 (provide 'init)
 ;;; init.el ends here
