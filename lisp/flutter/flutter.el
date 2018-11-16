@@ -31,28 +31,28 @@
   (nconc (make-sparse-keymap) comint-mode-map)
   "Basic mode map for `flutter-run'.")
 
-(defun flutter--make-interactive-function (key name)
-  "Generate a definition for function with NAME to send KEY to a `flutter` process."
-  `(defun ,name ()
-     (interactive)
-     (flutter--send-command ,key)))
+(defmacro flutter--make-interactive-function (key name)
+  "Define a function NAME prefixed with 'flutter-' that sends KEY to the `flutter` process."
+  (let ((funcname (intern (concat "flutter-" (symbol-name name)))))
+    `(defun ,funcname ()
+       ,(format "Send key '%s' to inferior flutter to invoke '%s' function." key name)
+       (interactive)
+       (flutter--send-command ,key))))
 
 (defmacro flutter-register-key (key name)
   "Register a KEY press with associated NAME recognized by \
 `flutter` in interactive mode.  A function `flutter-NAME' will \
 be created that sends the key to the `flutter` process."
-  (let ((tmpname (make-symbol "fn-name")))
-    `(let ((,tmpname (intern (concat "flutter-" (symbol-name ,name))))
-           (func ,(flutter--make-interactive-function key tmpname)))
-       (define-key flutter-mode-map ,key func)
-       (message "Defined %s" ,tmpname))))
+  `(let ((func (flutter--make-interactive-function ,key ,name)))
+    (define-key flutter-mode-map ,key func)))
 
-(macroexpand '(flutter-register-key "r" blah))
-(flutter-register-key "r" blah)
-(dolist (item flutter-interactive-keys-alist)
-  (let ((key (car item))
-        (name (cdr item)))
-    (flutter-register-key key name)))
+(defmacro flutter-register-keys (key-alist)
+  "Call `flutter-register-key' on all (key . name) pairs in KEY-ALIST."
+  `(progn ,@(mapcar (lambda (item)
+                      `(flutter-register-key ,(car item) ,(cdr item)))
+                    (eval key-alist))))
+
+(flutter-register-keys flutter-interactive-keys-alist)
 
 (defun flutter-build-command ()
   "Build flutter command to execute."
