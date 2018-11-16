@@ -737,5 +737,14 @@ not be synced across machines.")
   (dart-enable-analysis-server t)
   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/"))
 
+(use-package flutter
+  :ensure nil
+  :load-path "lisp/flutter"
+  :after dart-mode
+  :bind (:map dart-mode-map
+              ("C-M-x" . #'flutter-run-or-hot-reload))
+  :custom
+  (flutter-sdk-path "/Applications/flutter/"))
+
 (provide 'init)
 ;;; init.el ends here
