@@ -60,7 +60,7 @@ be created that sends the key to the `flutter` process."
 
 (defun flutter-get-project-root ()
   "Find the root of the current project."
-  (locate-dominating-file (pwd) "pubspec.yaml"))
+  (locate-dominating-file default-directory "pubspec.yaml"))
 
 (defmacro flutter--from-project-root (&rest body)
   "Execute BODY with the `default-directory' set to the project root."
