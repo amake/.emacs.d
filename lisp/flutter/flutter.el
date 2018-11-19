@@ -56,7 +56,8 @@ be created that sends the key to the `flutter` process."
 
 (defun flutter-build-command ()
   "Build flutter command to execute."
-  (concat (or flutter-sdk-path "") "flutter"))
+  (let ((bin (when flutter-sdk-path (concat flutter-sdk-path "bin/"))))
+    (concat (or bin "") "flutter")))
 
 (defun flutter-get-project-root ()
   "Find the root of the current project."
