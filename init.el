@@ -422,9 +422,9 @@ not be synced across machines.")
   :custom
   (projectile-mode-line-prefix "")
   (projectile-mode-line-function (lambda ()
-                             (when buffer-file-name
-                               (format " ‹%s›"
-                                       (projectile-project-name)))))
+                                   (when buffer-file-name
+                                     (format " ‹%s›"
+                                             (projectile-project-name)))))
   :config
   (projectile-mode))
 
@@ -448,7 +448,7 @@ not be synced across machines.")
                 (let ((default-directory local))
                   (apply old-function args))
               (message "counsel-projectile-rg doesn't work over tramp")))
-       (apply old-function args))))
+        (apply old-function args))))
   (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
   (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                     '((default "v")))
@@ -702,7 +702,7 @@ not be synced across machines.")
       (unless (or (emacs-internal-file-p path)
                   (python-system-file-p path)
                   (go-system-file-p path))
-       (apply old-function args))))
+        (apply old-function args))))
   (advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal))
 
 (use-package hide-lines
