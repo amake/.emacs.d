@@ -72,3 +72,5 @@ semanticdb
 /init-local.el
 /bookmarks
 /projectile.cache
+*.sqlite
+/request

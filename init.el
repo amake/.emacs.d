@@ -313,6 +313,15 @@ not be synced across machines.")
   ;;Do `git config --add magit.extension svn` to enable in repository
   )
 
+(use-package forge)
+
+(use-package auth-source
+  :ensure nil
+  :config
+  (when (string= system-type "darwin")
+    (add-to-list 'auth-sources 'macos-keychain-internet)
+    (add-to-list 'auth-sources 'macos-keychain-generic)))
+
 (use-package git-gutter-fringe
   :if (display-graphic-p)
   :diminish git-gutter-mode
