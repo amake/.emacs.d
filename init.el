@@ -313,7 +313,17 @@ not be synced across machines.")
   ;;Do `git config --add magit.extension svn` to enable in repository
   )
 
-(use-package forge)
+(use-package forge
+  ;; To store GitHub token in macOS keychain per `auth-source' config below:
+  ;; 0. Create token at https://github.com/settings/tokens
+  ;; 1. Open Keychain Access
+  ;; 2. Create new password item
+  ;; 3. Make sure it's recognized as an Internet password by entering
+  ;;    https://api.github.com for the Keychain Item Name
+  ;; 4. Use $username^forge as Account Name
+  ;; 5. Enter token as password and save
+  ;; 6. Test with `security find-internet-password -g -s api.github.com -a $username^forge'
+  )
 
 (use-package auth-source
   :ensure nil
