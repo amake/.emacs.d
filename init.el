@@ -765,5 +765,10 @@ not be synced across machines.")
   :custom
   (flutter-sdk-path "/Applications/flutter/"))
 
+(use-package which-key
+  :diminish which-key-mode
+  :config
+  (which-key-mode))
+
 (provide 'init)
 ;;; init.el ends here
