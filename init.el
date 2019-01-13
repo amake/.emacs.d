@@ -765,6 +765,9 @@ not be synced across machines.")
 (use-package flutter
   :ensure nil
   :load-path "lisp/flutter"
+  :ensure-system-package ((pod . "gem install cocoapods")
+                          (ideviceinstaller . "sudo port install ideviceinstaller-devel")
+                          (ios-deploy . "sudo port install ios-deploy"))
   :after dart-mode
   :bind (:map dart-mode-map
               ("C-M-x" . #'flutter-run-or-hot-reload))
