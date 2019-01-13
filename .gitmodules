@@ -1,0 +1,3 @@
+[submodule "lisp/flutter"]
+	path = lisp/flutter
+	url = https://github.com/amake/flutter.el.git
