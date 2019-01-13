@@ -352,6 +352,11 @@ not be synced across machines.")
   :config
   (global-flycheck-mode))
 
+(use-package flycheck-package
+  :after flycheck
+  :config
+  (flycheck-package-setup))
+
 (use-package flycheck-shfmt
   :ensure nil
   :after flycheck
