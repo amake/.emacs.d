@@ -780,6 +780,7 @@ not be synced across machines.")
 (use-package lsp-java
   :after (projectile lsp-mode)
   :hook (java-mode . lsp)
+  :demand t
   :config
   (add-to-list 'projectile-project-root-files-bottom-up "build.gradle")
   (add-to-list 'projectile-project-root-files-bottom-up "pom.xml"))
