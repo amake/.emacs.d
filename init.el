@@ -782,10 +782,13 @@ not be synced across machines.")
   :after (company lsp-mode))
 
 (use-package dart-mode
+  :hook (dart-mode . lsp)
+  :after (lsp projectile)
+  :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
   :custom
   (dart-format-on-save t)
-  (dart-enable-analysis-server t)
-  (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/"))
+  (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml"))
 
 (use-package flutter
   :ensure nil
