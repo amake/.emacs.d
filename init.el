@@ -411,7 +411,8 @@ not be synced across machines.")
           (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)
           (dart-mode all-the-icons-faicon "location-arrow" :face all-the-icons-blue-alt)
           (flycheck-error-list-mode all-the-icons-material "error_outline" :face all-the-icons-red)
-          (tex-mode all-the-icons-fileicon "tex" :face all-the-icons-dyellow)))
+          (tex-mode all-the-icons-fileicon "tex" :face all-the-icons-dyellow)
+          (kotlin-mode all-the-icons-fileicon "kotlin" :face all-the-icons-blue)))
   (mapc (lambda (item) (add-to-list 'all-the-icons-icon-alist item))
         '(("\\.gradle$" all-the-icons-fileicon "gradle" :face all-the-icons-green)
           ("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt))))
@@ -806,6 +807,13 @@ not be synced across machines.")
   :diminish which-key-mode
   :config
   (which-key-mode))
+
+(use-package kotlin-mode
+  :ensure-system-package ktlint)
+
+(use-package flycheck-kotlin
+  :config
+  (flycheck-kotlin-setup))
 
 (provide 'init)
 ;;; init.el ends here
