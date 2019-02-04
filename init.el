@@ -696,7 +696,9 @@ not be synced across machines.")
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous))
   :custom
-  (company-idle-delay 0.1))
+  (company-idle-delay 0.1)
+  (company-dabbrev-downcase nil)
+  (company-dabbrev-ignore-case t))
 
 (use-package company-quickhelp
   :after company
