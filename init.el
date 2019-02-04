@@ -219,6 +219,9 @@ not be synced across machines.")
   (when (string= system-type "darwin")
     (setq dired-use-ls-dired nil)))
 
+(use-package dired-x
+  :ensure nil)
+
 (use-package nxml-mode
   :ensure nil
   :custom
