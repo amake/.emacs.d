@@ -735,13 +735,6 @@ not be synced across machines.")
 (use-package hide-lines
   :defer t)
 
-(use-package flycheck-gradle
-  :custom
-  (flycheck-gradle-java-compile-function #'flycheck-gradle-java-compile->compile)
-  :config
-  (put 'flycheck-gradle-java-compile-function 'safe-local-variable #'functionp)
-  (flycheck-gradle-setup))
-
 (use-package apache-mode
   :mode "envvars\\'")
 
