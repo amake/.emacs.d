@@ -757,6 +757,30 @@ not be synced across machines.")
   (eimp-enable-undo t)
   :hook (image-mode . blimp-mode))
 
+(use-package lsp-mode
+  :commands lsp
+  :diminish (lsp-mode . "LSP")
+  :hook (lsp-mode . (lambda ()
+                      (setq-local company-idle-delay 0.5))))
+
+(use-package lsp-ui
+  :commands lsp-ui
+  :after lsp-mode
+  :custom
+  (lsp-prefer-flymake nil)
+  :custom-face
+  ;; Default faces assume a dark theme for some reason, and are completely
+  ;; unusable with the default theme
+  (lsp-ui-sideline-current-symbol ((t :foreground "brown"
+                                      :weight ultra-bold
+                                      :box (:line-width -1 :color "brown")
+                                      :height 0.99)))
+  (lsp-ui-sideline-code-action ((t :foreground "orange"))))
+
+(use-package company-lsp
+  :commands company-lsp
+  :after (company lsp-mode))
+
 (use-package dart-mode
   :custom
   (dart-format-on-save t)

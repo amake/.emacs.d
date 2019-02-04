@@ -74,3 +74,4 @@ semanticdb
 /projectile.cache
 *.sqlite
 /request
+/.lsp-session-v*
