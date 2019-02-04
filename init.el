@@ -775,6 +775,13 @@ not be synced across machines.")
   :commands company-lsp
   :after (company lsp-mode))
 
+(use-package lsp-java
+  :after (projectile lsp-mode)
+  :hook (java-mode . lsp)
+  :config
+  (add-to-list 'projectile-project-root-files-bottom-up "build.gradle")
+  (add-to-list 'projectile-project-root-files-bottom-up "pom.xml"))
+
 (use-package dart-mode
   :hook (dart-mode . lsp)
   :after (lsp projectile)

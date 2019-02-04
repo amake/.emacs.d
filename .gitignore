@@ -75,3 +75,5 @@ semanticdb
 *.sqlite
 /request
 /.lsp-session-v*
+/eclipse.jdt.ls
+/workspace
