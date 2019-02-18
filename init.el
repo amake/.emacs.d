@@ -530,6 +530,8 @@ not be synced across machines.")
   :ensure-system-package (autopep8 . "sudo port install py37-autopep8")
   :hook (python-mode . py-autopep8-enable-on-save))
 
+(use-package pyvenv
+  :commands (pyvenv-activate pyvenv-workon))
 
 (use-package hideshow
   :diminish hs-minor-mode
