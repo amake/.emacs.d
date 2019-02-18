@@ -313,7 +313,7 @@ not be synced across machines.")
 
 (use-package magit-svn
   :after magit
-  ;;Do `git config --add magit.extension svn` to enable in repository
+  ;; Do `git config --add magit.extension svn` to enable in repository
   )
 
 (use-package forge
