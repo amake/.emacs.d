@@ -77,3 +77,4 @@ semanticdb
 /.lsp-session-v*
 /eclipse.jdt.ls
 /workspace
+/transient
