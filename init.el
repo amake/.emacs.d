@@ -521,24 +521,15 @@ not be synced across machines.")
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
-  :ensure-system-package (python3 . "sudo port install python37"))
-
-(use-package anaconda-mode
-  :after python
-  :hook ((python-mode . anaconda-mode)
-         (python-mode . anaconda-eldoc-mode))
-  :ensure-system-package (easy_install-3.7 . "sudo port install py37-setuptools"))
+  :hook (python-mode . lsp)
+  :ensure-system-package ((python3 . "sudo port install python37")
+                          (pyls . "sudo port install py37-language-server")))
 
 (use-package py-autopep8
   :after python
   :ensure-system-package (autopep8 . "sudo port install py37-autopep8")
   :hook (python-mode . py-autopep8-enable-on-save))
 
-(use-package company-anaconda
-  :after (company anaconda-mode)
-  :hook (anaconda-mode . (lambda ()
-                           (make-local-variable 'company-backends)
-                           (add-to-list 'company-backends 'company-anaconda))))
 
 (use-package hideshow
   :diminish hs-minor-mode
