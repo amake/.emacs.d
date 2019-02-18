@@ -352,11 +352,12 @@ not be synced across machines.")
 
 ;; On-the-fly linting
 (use-package flycheck
-  :hook ((scss-mode . (lambda ()
-                        (unless (executable-find "scss")
-                          (async-shell-command "gem install sass")))))
   :config
   (global-flycheck-mode))
+
+(use-package css-mode
+  :ensure nil
+  :ensure-system-package (scss . "gem install sass"))
 
 (use-package flycheck-package
   :after flycheck
