@@ -506,17 +506,12 @@ not be synced across machines.")
   :defer t
   :bind (:map go-mode-map
               ("M-." . godef-jump))
-  :hook (go-mode . (lambda ()
-                     (add-hook 'before-save-hook #'gofmt-before-save nil t)))
+  :hook ((go-mode . (lambda ()
+                      (add-hook 'before-save-hook #'gofmt-before-save nil t)))
+         (go-mode . lsp))
   :ensure-system-package (go
-                          (godef . "go get github.com/rogpeppe/godef")))
-
-(use-package company-go
-  :after (company go-mode)
-  :hook (go-mode . (lambda ()
-                     (make-local-variable 'company-backends)
-                     (add-to-list 'company-backends 'company-go)))
-  :ensure-system-package (gocode . "go get github.com/mdempsky/gocode"))
+                          (godef . "go get github.com/rogpeppe/godef")
+                          (bingo . "go get github.com/saibing/bingo")))
 
 (use-package groovy-mode
   :defer t
