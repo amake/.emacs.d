@@ -504,13 +504,10 @@ not be synced across machines.")
 
 (use-package go-mode
   :defer t
-  :bind (:map go-mode-map
-              ("M-." . godef-jump))
   :hook ((go-mode . (lambda ()
                       (add-hook 'before-save-hook #'gofmt-before-save nil t)))
          (go-mode . lsp))
   :ensure-system-package (go
-                          (godef . "go get github.com/rogpeppe/godef")
                           (bingo . "go get github.com/saibing/bingo")))
 
 (use-package groovy-mode
