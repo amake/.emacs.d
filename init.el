@@ -382,8 +382,8 @@ not be synced across machines.")
   :demand t
   :diminish (ivy-mode counsel-mode)
   :ensure-system-package
-  ((ag . "sudo port install the_silver_searcher")
-   (rg . "sudo port install ripgrep"))
+  ((ag . the_silver_searcher)
+   (rg . ripgrep))
   :bind (("C-s" . swiper)
          ("C-c C-r" . ivy-resume)
          ("<f6>" . ivy-resume)
@@ -449,8 +449,8 @@ not be synced across machines.")
 (use-package projectile
   :demand t
   :ensure-system-package
-  ((ag . "sudo port install the_silver_searcher")
-   (rg . "sudo port install ripgrep"))
+  ((ag . the_silver_searcher)
+   (rg . ripgrep))
   :hook (shell-mode . rename-buffer-with-project)
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom
@@ -518,12 +518,12 @@ not be synced across machines.")
 (use-package python
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp)
-  :ensure-system-package ((python3 . "sudo port install python37")
-                          (pyls . "sudo port install py37-language-server")))
+  :ensure-system-package ((python3 . python37)
+                          (pyls . py37-language-server)))
 
 (use-package py-autopep8
   :after python
-  :ensure-system-package (autopep8 . "sudo port install py37-autopep8")
+  :ensure-system-package (autopep8 . py37-autopep8)
   :hook (python-mode . py-autopep8-enable-on-save))
 
 (use-package pyvenv
@@ -649,8 +649,8 @@ not be synced across machines.")
   :defer t
   :ensure-system-package (automake
                           autoconf
-                          (pkg-config . "sudo port install pkgconfig")
-                          (pdfinfo . "sudo port install poppler"))
+                          (pkg-config . pkgconfig)
+                          (pdfinfo . poppler))
   :hook (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
   :config
   (pdf-tools-install))
@@ -786,8 +786,8 @@ not be synced across machines.")
   :ensure nil
   :load-path "lisp/flutter"
   :ensure-system-package ((pod . "gem install cocoapods")
-                          (ideviceinstaller . "sudo port install ideviceinstaller-devel")
-                          (ios-deploy . "sudo port install ios-deploy"))
+                          (ideviceinstaller . ideviceinstaller-devel)
+                          ios-deploy)
   :after dart-mode
   :bind (:map dart-mode-map
               ("C-M-x" . #'flutter-run-or-hot-reload))
