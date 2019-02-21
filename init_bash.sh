@@ -25,6 +25,8 @@
             fi
         fi
     }
-    PROMPT_COMMAND="gen_prompt"
+    if [ -z "$SSH_CLIENT" ]; then
+        PROMPT_COMMAND="gen_prompt"
+    fi
 } &>/dev/null
 echo
