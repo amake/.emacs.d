@@ -16,7 +16,7 @@
 (set-face-attribute 'default nil :height 180 :family "Menlo")
 
 ;; Fancy operator ligatures with Fira Code
-(defvar amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
+(defconst amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
 (when amk-use-fancy-ligatures
   ;; Fira Code: https://github.com/tonsky/FiraCode
   (set-face-attribute 'default nil :family "Fira Code")
@@ -121,7 +121,7 @@ with `save-buffer'."
 (use-package bind-key)
 (use-package use-package-ensure-system-package)
 
-(defvar local-custom-file "~/.emacs.d/init-local.el"
+(defconst local-custom-file "~/.emacs.d/init-local.el"
   "A local version of CUSTOM-FILE for settings that should \
 not be synced across machines.")
 (when (file-exists-p local-custom-file)
