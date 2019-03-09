@@ -675,7 +675,7 @@ not be synced across machines.")
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package vlf ;; View Large Files
+(use-package vlf ; View Large Files
   :config
   (require 'vlf-setup))
 
