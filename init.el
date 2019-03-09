@@ -296,7 +296,7 @@ not be synced across machines.")
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
   :bind (("C-x g" . magit-status)
-         ("C-x M-g" . magit-dispatch-popup)
+         ("C-x M-g" . magit-dispatch)
          ("C-c l" . magit-log-buffer-file-popup)
          ("C-c b" . magit-blame-popup))
   :custom
