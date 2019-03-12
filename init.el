@@ -797,10 +797,10 @@ not be synced across machines.")
   :config
   (which-key-mode))
 
-(use-package kotlin-mode
-  :ensure-system-package ktlint)
+(use-package kotlin-mode)
 
 (use-package flycheck-kotlin
+  :ensure-system-package ktlint
   :config
   (flycheck-kotlin-setup))
 
