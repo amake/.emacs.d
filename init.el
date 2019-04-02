@@ -778,7 +778,9 @@ not be synced across machines.")
   :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
   :custom
   (dart-format-on-save t)
-  (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/"))
+  (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
+  :config
+  (put 'dart-formatter-line-length 'safe-local-variable #'integerp))
 
 (use-package flutter
   :ensure nil
