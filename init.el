@@ -772,8 +772,22 @@ not be synced across machines.")
   :hook (java-mode . lsp)
   :demand t)
 
+(defun scale-text-to-fit (width)
+  "Scale text down if window is narrower than WIDTH."
+  (if (< (window-body-width) width)
+      (text-scale-set -0.5)
+    (text-scale-set 0)))
+
+(defun dart-scale-text-to-fit ()
+  "Adjust text scale to fit for Dart files."
+  (let ((fun (lambda (&optional _)
+               (scale-text-to-fit dart-formatter-line-length))))
+    (add-hook 'hack-local-variables-hook fun nil t)
+    (add-hook 'window-size-change-functions fun nil t)))
+
 (use-package dart-mode
-  :hook (dart-mode . lsp)
+  :hook ((dart-mode . lsp)
+         (dart-mode . dart-scale-text-to-fit))
   :after lsp
   :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
   :custom
