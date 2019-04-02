@@ -774,9 +774,9 @@ not be synced across machines.")
 
 (defun scale-text-to-fit (width)
   "Scale text down if window is narrower than WIDTH."
-  (if (< (window-body-width) width)
-      (text-scale-set -0.5)
-    (text-scale-set 0)))
+  (let ((scale (if (< (window-body-width) width) -0.5 0)))
+    (unless (= scale text-scale-mode-amount)
+      (text-scale-set scale))))
 
 (defun dart-scale-text-to-fit ()
   "Adjust text scale to fit for Dart files."
