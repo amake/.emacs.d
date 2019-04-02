@@ -772,18 +772,21 @@ not be synced across machines.")
   :hook (java-mode . lsp)
   :demand t)
 
-(defun scale-text-to-fit (width)
-  "Scale text down if window is narrower than WIDTH."
-  (let ((scale (if (< (window-body-width) width) -0.5 0)))
-    (unless (= scale text-scale-mode-amount)
-      (text-scale-set scale))))
 
-(defun dart-scale-text-to-fit ()
-  "Adjust text scale to fit for Dart files."
-  (let ((fun (lambda (&optional _)
-               (scale-text-to-fit dart-formatter-line-length))))
-    (add-hook 'hack-local-variables-hook fun nil t)
-    (add-hook 'window-size-change-functions fun nil t)))
+(use-package face-remap
+  :ensure nil
+  :config
+  (defun scale-text-to-fit (width)
+   "Scale text down if window is narrower than WIDTH."
+   (let ((scale (if (< (window-body-width) width) -0.5 0)))
+     (unless (= scale text-scale-mode-amount)
+       (text-scale-set scale))))
+  (defmacro scale-text-to-fit-setup (width)
+    "Set hooks to call `scale-text-to-fit' when appropriate."
+    `(let ((fun (lambda (&optional _)
+                  (scale-text-to-fit ,width))))
+       (add-hook 'hack-local-variables-hook fun nil t)
+       (add-hook 'window-size-change-functions fun nil t))))
 
 (use-package dart-mode
   :hook ((dart-mode . lsp)
@@ -794,7 +797,10 @@ not be synced across machines.")
   (dart-format-on-save t)
   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
   :config
-  (put 'dart-formatter-line-length 'safe-local-variable #'integerp))
+  (put 'dart-formatter-line-length 'safe-local-variable #'integerp)
+  (defun dart-scale-text-to-fit ()
+    "Adjust text scale to fit for Dart files."
+    (scale-text-to-fit-setup dart-formatter-line-length)))
 
 (use-package flutter
   :ensure nil
