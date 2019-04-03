@@ -11,7 +11,18 @@
 
 ;;; Commentary:
 
-;; Automatically scale text to fit the current window width.
+;; Automatically scale text to fit the current window width.  This is useful for
+;; e.g. source code buffers that are autoformatted with a particular maximum
+;; line length:
+;;
+;;   (defun foolang-scale-to-fit-setup ()
+;;     (scale-to-fit-setup 80))
+;;   (add-hook 'foolang-mode-hook #'foolang-scale-to-fit-setup)
+;;
+;; Minimum and maximum scales can be set globally with `scale-to-fit-min-scale'
+;; and `scale-to-fit-max-scale', or locally as arguments to
+;; `scale-to-fit-setup'.  By default the maximum scale is 0, i.e. zooming beyond
+;; the default size is disabled.
 
 ;;; Code:
 
