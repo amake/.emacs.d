@@ -776,13 +776,16 @@ not be synced across machines.")
 (use-package face-remap
   :ensure nil
   :config
+  (defun calculate-text-scale-to-fit (width)
+    "Calculate the appropriate text scale value to fit WIDTH."
+    (let ((curr-width (- (window-body-width)
+                         (line-number-display-width))))
+      (log (/ curr-width (float width))
+           text-scale-mode-step)))
   (defun scale-text-to-fit (width shrink-only)
    "Scale text down if window is narrower than WIDTH. If
 SHRINK-ONLY is non-nil, do not enlarge text beyond scale 0."
-   (let* ((curr-width (- (window-body-width)
-                         (line-number-display-width)))
-          (raw-scale (log (/ curr-width (float width))
-                      text-scale-mode-step))
+   (let* ((raw-scale (calculate-text-scale-to-fit width))
           (scale (if (and shrink-only (> raw-scale 0))
                                0
                              raw-scale)))
