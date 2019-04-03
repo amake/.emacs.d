@@ -5,7 +5,7 @@
 ;; Author: Aaron Madlon-Kay
 ;; Version: 0.1.0
 ;; URL: https://github.com/amake/.emacs.d
-;; Package-Requires: ((emacs "24") face-remap)
+;; Package-Requires: ((emacs "24.3") face-remap)
 
 ;; This file is not part of GNU Emacs.
 
@@ -17,30 +17,50 @@
 
 (require 'face-remap)
 
-(defun scale-to-fit-calculate-scale (width)
-  "Calculate the appropriate text scale value to fit WIDTH."
-  (let ((curr-width (- (window-body-width)
-                       (line-number-display-width))))
-    (log (/ curr-width (float width))
-         text-scale-mode-step)))
+(defconst scale-to-fit--debug nil)
 
-(defun scale-to-fit (width shrink-only)
-  "Scale text down if window is narrower than WIDTH.
+(defcustom scale-to-fit-min-scale -2 "Minimum scale for fitting."
+  :type 'number
+  :safe #'numberp
+  :group 'scale-to-fit)
+
+(defcustom scale-to-fit-max-scale 0 "Maximum scale for fitting."
+  :type 'number
+  :safe #'numberp
+  :group 'scale-to-fit)
+
+(defun scale-to-fit--current-width ()
+  "Calculate the effective width of the screen in columns."
+  (- (window-body-width)
+     (line-number-display-width)))
+
+(defun scale-to-fit--calculate-scale (width)
+  "Calculate the appropriate text scale value to fit WIDTH columns."
+  (log (/ (scale-to-fit--current-width) (float width))
+       text-scale-mode-step))
+
+(defun scale-to-fit (width)
+  "Scale text down if window is narrower than WIDTH columns.
 If SHRINK-ONLY is non-nil, do not enlarge text beyond scale 0."
-  (let* ((raw-scale (scale-to-fit-calculate-scale width))
-         (scale (if (and shrink-only (> raw-scale 0))
-                    0
-                  raw-scale)))
-    ;; (message "Scaling text: curr-width: %d, target: %d, scale: %f"
-    ;;          curr-width width scale)
+  (let* ((raw-scale (scale-to-fit--calculate-scale width))
+         (scale (min (max raw-scale scale-to-fit-min-scale) scale-to-fit-max-scale)))
+    (when scale-to-fit--debug
+      (message "Scaling text: curr-width: %d, target: %d, raw scale: %f, adjusted scale: %f"
+               (scale-to-fit--current-width) width raw-scale scale))
     (unless (or (= scale text-scale-mode-amount))
       (text-scale-set scale))))
 
-(defmacro scale-to-fit-setup (width shrink-only)
+(defmacro scale-to-fit-setup (width &optional min max)
   "Set hooks to call `scale-text-to-fit' when appropriate.
-WIDTH and SHRINK-ONLY are per `scale-text-to-fit'."
+
+WIDTH should evaluate to the target width in columns.
+MIN and MAX are buffer-local values for `scale-to-fit-min-scale' and `scale-to-fit-max-scale'."
   `(let ((fun (lambda (&optional _)
-                (scale-to-fit ,width ,shrink-only))))
+                (scale-to-fit ,width))))
+     (when ,min
+       (setq-local scale-to-fit-min-scale ,min))
+     (when ,max
+       (setq-local scale-to-fit-max-scale ,max))
      (add-hook 'hack-local-variables-hook fun nil t)
      (add-hook 'window-size-change-functions fun nil t)))
 

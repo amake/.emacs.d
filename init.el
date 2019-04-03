@@ -788,7 +788,7 @@ not be synced across machines.")
   (put 'dart-formatter-line-length 'safe-local-variable #'integerp)
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
-    (scale-to-fit-setup dart-formatter-line-length t)))
+    (scale-to-fit-setup dart-formatter-line-length -2 0)))
 
 (use-package flutter
   :ensure nil
