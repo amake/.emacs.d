@@ -167,6 +167,10 @@ not be synced across machines.")
   (shfmt-arguments "-d")
   :hook (sh-mode . shfmt-enable-on-save))
 
+(use-package scale-to-fit
+  :ensure nil
+  :load-path "lisp")
+
 (use-package desktop
   :if (display-graphic-p)
   :demand t
@@ -772,38 +776,10 @@ not be synced across machines.")
   :hook (java-mode . lsp)
   :demand t)
 
-
-(use-package face-remap
-  :ensure nil
-  :config
-  (defun calculate-text-scale-to-fit (width)
-    "Calculate the appropriate text scale value to fit WIDTH."
-    (let ((curr-width (- (window-body-width)
-                         (line-number-display-width))))
-      (log (/ curr-width (float width))
-           text-scale-mode-step)))
-  (defun scale-text-to-fit (width shrink-only)
-   "Scale text down if window is narrower than WIDTH. If
-SHRINK-ONLY is non-nil, do not enlarge text beyond scale 0."
-   (let* ((raw-scale (calculate-text-scale-to-fit width))
-          (scale (if (and shrink-only (> raw-scale 0))
-                               0
-                             raw-scale)))
-     ;; (message "Scaling text: curr-width: %d, target: %d, scale: %f"
-     ;;          curr-width width scale)
-     (unless (or (= scale text-scale-mode-amount))
-       (text-scale-set scale))))
-  (defmacro scale-text-to-fit-setup (width shrink-only)
-    "Set hooks to call `scale-text-to-fit' when appropriate."
-    `(let ((fun (lambda (&optional _)
-                  (scale-text-to-fit ,width ,shrink-only))))
-       (add-hook 'hack-local-variables-hook fun nil t)
-       (add-hook 'window-size-change-functions fun nil t))))
-
 (use-package dart-mode
   :hook ((dart-mode . lsp)
          (dart-mode . dart-scale-text-to-fit))
-  :after lsp
+  :after (lsp scale-to-fit)
   :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
   :custom
   (dart-format-on-save t)
@@ -812,7 +788,7 @@ SHRINK-ONLY is non-nil, do not enlarge text beyond scale 0."
   (put 'dart-formatter-line-length 'safe-local-variable #'integerp)
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
-    (scale-text-to-fit-setup dart-formatter-line-length t)))
+    (scale-to-fit-setup dart-formatter-line-length t)))
 
 (use-package flutter
   :ensure nil
