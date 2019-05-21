@@ -750,6 +750,8 @@ not be synced across machines.")
 (use-package lsp-mode
   :commands lsp
   :diminish (lsp-mode . "LSP")
+  :custom
+  (lsp-enable-snippet nil)
   :hook (lsp-mode . (lambda ()
                       (setq-local company-idle-delay 0.5))))
 
