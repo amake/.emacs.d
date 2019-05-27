@@ -28,13 +28,13 @@
 ;; when both charsets cover the same codepoints.
 (when (fboundp #'set-fontset-font)
   (set-fontset-font t 'han
-                    ;; Noto Sans CJK: https://www.google.com/get/noto/help/cjk/
-                    (font-spec :family "Noto Sans CJK SC"))
+                    ;; Source Han Mono SC: https://github.com/adobe-fonts/source-han-mono
+                    (font-spec :family "Source Han Mono SC"))
   (set-fontset-font t 'japanese-jisx0213.2004-1
                     ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
                     (font-spec :family "Source Han Code JP")))
 (dolist (item '(("Source Han Code JP" . 1.25)
-                ("Noto Sans CJK SC" . 1.25)))
+                ("Source Han Mono SC" . 1.25)))
   (add-to-list 'face-font-rescale-alist item))
 
 ;; Font scale test:
