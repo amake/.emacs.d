@@ -127,8 +127,12 @@ not be synced across machines.")
 (when (file-exists-p local-custom-file)
   (load local-custom-file))
 
+(defun macosp ()
+  "Return non-nil if the OS is macOS."
+  (string= system-type "darwin"))
+
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
+  :if (macosp)
   :config
   ;; Ensure emacs shell has regular shell environment
   (exec-path-from-shell-initialize))
@@ -217,7 +221,7 @@ not be synced across machines.")
   :ensure nil
   :config
   ;; macOS ls doesn't support --dired
-  (when (string= system-type "darwin")
+  (when (macosp)
     (setq dired-use-ls-dired nil)))
 
 (use-package dired-x
@@ -238,7 +242,7 @@ not be synced across machines.")
 
 (use-package browse-url
   :config
-  (when (string= system-type "darwin")
+  (when (macosp)
     (setq browse-url-generic-program "open")))
 
 (use-package org
@@ -335,7 +339,7 @@ not be synced across machines.")
 (use-package auth-source
   :ensure nil
   :config
-  (when (string= system-type "darwin")
+  (when (macosp)
     (add-to-list 'auth-sources 'macos-keychain-internet)
     (add-to-list 'auth-sources 'macos-keychain-generic)))
 
