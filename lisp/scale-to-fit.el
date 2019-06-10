@@ -43,7 +43,7 @@
 (defun scale-to-fit--current-width ()
   "Calculate the effective width of the screen in columns."
   (- (window-body-width)
-     (line-number-display-width)))
+     (line-number-display-width 'columns)))
 
 (defun scale-to-fit--calculate-scale (width)
   "Calculate the appropriate text scale value to fit WIDTH columns."
