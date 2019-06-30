@@ -382,6 +382,11 @@ not be synced across machines.")
   :config
   (put 'octave-block-offset 'safe-local-variable #'integerp))
 
+(use-package pascal
+  :ensure nil
+  :config
+  (put 'pascal-indent-level 'safe-local-variable #'integerp))
+
 (use-package counsel
   :demand t
   :diminish (ivy-mode counsel-mode)
