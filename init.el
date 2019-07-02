@@ -390,6 +390,7 @@ not be synced across machines.")
 
 (use-package pascal
   :ensure nil
+  :mode (("\\.iss\\'" . pascal-mode))
   :config
   (put 'pascal-indent-level 'safe-local-variable #'integerp))
 
