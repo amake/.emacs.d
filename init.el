@@ -381,6 +381,13 @@ not be synced across machines.")
   :config
   (flycheck-shfmt-setup))
 
+(use-package flycheck-innosetup
+  :ensure nil
+  :after flycheck
+  :load-path "lisp"
+  :config
+  (flycheck-innosetup-setup))
+
 (use-package octave
   :ensure nil
   :mode (("\\.m\\'" . octave-mode))
