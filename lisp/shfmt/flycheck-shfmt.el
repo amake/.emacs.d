@@ -9,6 +9,7 @@
 ;;; Code:
 
 (require 'flycheck)
+(require 'sh-script)
 
 (flycheck-define-checker sh-shfmt
   "A shell script syntax checker using shfmt.
