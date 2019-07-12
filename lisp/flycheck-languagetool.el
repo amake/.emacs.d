@@ -27,6 +27,23 @@
 
 (put 'flycheck-languagetool-mother-tongue 'safe-local-variable #'stringp)
 
+(defcustom flycheck-languagetool-disable-rules-alist nil
+  "A list of LanguageTool rules to disable.  Format is an alist
+of (MAJOR-MODE . (STRING ...)).  A MAJOR-MODE of t is used as a
+catch-all."
+  :group 'flycheck-languagetool
+  :type '(alist :key-type symbol :value-type (list string)))
+
+(put 'flycheck-languagetool-disable-rules-alist 'safe-local-variable
+     #'flycheck-languagetool--disable-rules-alist-valid-p)
+
+(defun flycheck-languagetool--disable-rules-alist-valid-p (alist)
+  "Check that ALIST is a valid list of disable rules."
+  (seq-every-p (lambda (item)
+                 (and (symbolp (car item))
+                      (seq-every-p #'stringp (cdr item))))
+               alist))
+
 (flycheck-define-checker languagetool
   "A LanguageTool natural language checker.
 
@@ -39,6 +56,9 @@ See URL `https://languagetool.org/'."
                     `("-m" ,flycheck-languagetool-mother-tongue)))
             (eval (when flycheck-languagetool-line-by-line
                     "--line-by-line"))
+            (eval (let ((disabled (flycheck-languagetool-get-disabled-rules)))
+                    (when disabled
+                      `("-d" ,(mapconcat #'identity disabled ",")))))
             "-")
   :standard-input t
   ;; Modes taken from flycheck-textlint-config
@@ -50,6 +70,11 @@ See URL `https://languagetool.org/'."
             ", Rule ID: " (id (one-or-more any)) "\n"
             "Message: " (message)
             line-end)))
+
+(defun flycheck-languagetool-get-disabled-rules ()
+  "Compute the disabled rules for the current mode."
+  (or (alist-get major-mode flycheck-languagetool-disable-rules-alist)
+      (alist-get t flycheck-languagetool-disable-rules-alist)))
 
 (defun flycheck-languagetool-setup ()
   "Set up the flycheck-languagetool checker."

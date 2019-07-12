@@ -395,6 +395,15 @@ not be synced across machines.")
   :load-path "lisp"
   :custom
   (flycheck-languagetool-mother-tongue "en-US")
+  (flycheck-languagetool-disable-rules-alist
+   '((markdown-mode
+      "WHITESPACE_RULE"
+      "WORD_CONTAINS_UNDERSCORE"
+      "COMMA_PARENTHESIS_WHITESPACE"
+      "EN_QUOTES"
+      "DASH_RULE")
+     (t
+      "WHITESPACE_RULE")))
   :config
   (flycheck-languagetool-setup))
 
