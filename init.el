@@ -388,6 +388,16 @@ not be synced across machines.")
   :config
   (flycheck-innosetup-setup))
 
+(use-package flycheck-languagetool
+  :ensure nil
+  :after flycheck
+  :ensure-system-package languagetool
+  :load-path "lisp"
+  :custom
+  (flycheck-languagetool-mother-tongue "en-US")
+  :config
+  (flycheck-languagetool-setup))
+
 (use-package octave
   :ensure nil
   :mode (("\\.m\\'" . octave-mode))
