@@ -812,7 +812,9 @@ not be synced across machines.")
 
 (use-package company-lsp
   :commands company-lsp
-  :after (company lsp-mode))
+  :after (company lsp-mode)
+  :custom
+  (company-lsp-cache-candidates 'auto))
 
 (use-package lsp-java
   :after lsp-mode
