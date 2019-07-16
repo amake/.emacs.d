@@ -791,6 +791,7 @@ not be synced across machines.")
 (use-package lsp-mode
   :commands lsp
   :diminish (lsp-mode . "LSP")
+  :bind ("C-c C-a" . #'lsp-execute-code-action)
   :custom
   (lsp-enable-snippet nil)
   :hook (lsp-mode . (lambda ()
