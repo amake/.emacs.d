@@ -64,6 +64,7 @@ See URL `https://languagetool.org/'."
   ;; Modes taken from flycheck-textlint-config
   :modes (text-mode markdown-mode gfm-mode message-mode adoc-mode
                     mhtml-mode latex-mode org-mode rst-mode)
+  :enabled (lambda () (< (count-lines 1 (point-max)) 1000))
   :error-patterns
   ((warning line-start
             (one-or-more digit) ".) Line " line ", column " column
