@@ -824,8 +824,7 @@ not be synced across machines.")
 
 (use-package dart-mode
   :hook ((dart-mode . lsp)
-         (dart-mode . dart-scale-text-to-fit)
-         (dart-mode . dart-organize-imports-on-save))
+         (dart-mode . dart-scale-text-to-fit))
   :after (lsp scale-to-fit)
   :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
   :custom
@@ -838,9 +837,7 @@ not be synced across machines.")
 works with Dart."
     (interactive)
     (lsp-send-execute-command "organize imports" `(,buffer-file-name)))
-  (defun dart-organize-imports-on-save ()
-    "Set up buffer to organize imports on save."
-    (add-hook 'before-save-hook #'dart-organize-imports nil t))
+  (advice-add #'dart-format :after #'dart-organize-imports)
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
     (scale-to-fit-setup dart-formatter-line-length -2 0)))
