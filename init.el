@@ -877,12 +877,5 @@ works with Dart."
                              (make-local-variable 'company-backends)
                              (add-to-list 'company-backends 'company-restclient))))
 
-(use-package highlight-indent-guides
-  :diminish highlight-indent-guides-mode
-  :hook (prog-mode . highlight-indent-guides-mode)
-  :custom
-  (highlight-indent-guides-method 'character)
-  (highlight-indent-guides-responsive 'stack))
-
 (provide 'init)
 ;;; init.el ends here
