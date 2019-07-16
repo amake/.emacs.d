@@ -44,6 +44,14 @@ catch-all."
                       (seq-every-p #'stringp (cdr item))))
                alist))
 
+(defcustom flycheck-languagetool-max-buffer-lines 1000
+  "The maximum size of a buffer, in lines, to run LanguageTool
+on.  Because LanguageTool is slow on large files."
+  :group 'flycheck-languagetool
+  :type 'integer)
+
+(put 'flycheck-languagetool-max-buffer-lines 'safe-local-variable #'integerp)
+
 (flycheck-define-checker languagetool
   "A LanguageTool natural language checker.
 
@@ -64,13 +72,18 @@ See URL `https://languagetool.org/'."
   ;; Modes taken from flycheck-textlint-config
   :modes (text-mode markdown-mode gfm-mode message-mode adoc-mode
                     mhtml-mode latex-mode org-mode rst-mode)
-  :enabled (lambda () (< (count-lines 1 (point-max)) 1000))
+  :enabled-p #'flycheck-languagetool--enabled-p
   :error-patterns
   ((warning line-start
             (one-or-more digit) ".) Line " line ", column " column
             ", Rule ID: " (id (one-or-more any)) "\n"
             "Message: " (message)
             line-end)))
+
+(defun flycheck-languagetool--enabled-p ()
+  "Return non-nil if flycheck-languagetool should be enabled in
+the current buffer."
+  (<= (count-lines 1 (point-max)) flycheck-languagetool-max-buffer-lines))
 
 (defun flycheck-languagetool-get-disabled-rules ()
   "Compute the disabled rules for the current mode."
