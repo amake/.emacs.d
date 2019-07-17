@@ -72,7 +72,7 @@ See URL `https://languagetool.org/'."
   ;; Modes taken from flycheck-textlint-config
   :modes (text-mode markdown-mode gfm-mode message-mode adoc-mode
                     mhtml-mode latex-mode org-mode rst-mode)
-  :enabled-p #'flycheck-languagetool--enabled-p
+  :enabled flycheck-languagetool--enabled-p
   :error-patterns
   ((warning line-start
             (one-or-more digit) ".) Line " line ", column " column
