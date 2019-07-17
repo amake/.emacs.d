@@ -78,7 +78,8 @@ See URL `https://languagetool.org/'."
             (one-or-more digit) ".) Line " line ", column " column
             ", Rule ID: " (id (one-or-more any)) "\n"
             "Message: " (message)
-            line-end)))
+            line-end))
+  :next-checkers (proselint textlint))
 
 (defun flycheck-languagetool--enabled-p ()
   "Return non-nil if flycheck-languagetool should be enabled in
