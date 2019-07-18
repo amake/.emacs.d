@@ -802,15 +802,7 @@ not be synced across machines.")
   :commands lsp-ui
   :after lsp-mode
   :custom
-  (lsp-prefer-flymake nil)
-  :custom-face
-  ;; Default faces assume a dark theme for some reason, and are completely
-  ;; unusable with the default theme
-  (lsp-ui-sideline-current-symbol ((t :foreground "brown"
-                                      :weight ultra-bold
-                                      :box (:line-width -1 :color "brown")
-                                      :height 0.99)))
-  (lsp-ui-sideline-code-action ((t :foreground "orange"))))
+  (lsp-prefer-flymake nil))
 
 (use-package company-lsp
   :commands company-lsp
