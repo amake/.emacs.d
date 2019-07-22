@@ -190,6 +190,10 @@ not be synced across machines.")
   :config
   (global-subword-mode))
 
+(use-package eldoc
+  :ensure nil
+  :diminish eldoc-mode)
+
 (use-package shell
   :ensure nil
   :hook (shell-mode . (lambda ()
