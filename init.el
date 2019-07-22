@@ -74,7 +74,6 @@
 (column-number-mode)
 (electric-pair-mode)
 (delete-selection-mode)
-(global-subword-mode)
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
@@ -184,6 +183,12 @@ not be synced across machines.")
                                 (desktop-save desktop-dirname))))
   :config
   (desktop-save-mode t))
+
+(use-package subword
+  :ensure nil
+  :diminish subword-mode
+  :config
+  (global-subword-mode))
 
 (use-package shell
   :ensure nil
