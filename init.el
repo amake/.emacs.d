@@ -74,6 +74,7 @@
 (column-number-mode)
 (electric-pair-mode)
 (delete-selection-mode)
+(global-subword-mode)
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
