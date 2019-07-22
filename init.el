@@ -46,7 +46,8 @@
               indent-tabs-mode nil
               tab-width 4
               mac-command-modifier 'super
-              mac-option-modifier 'meta)
+              mac-option-modifier 'meta
+              require-final-newline t)
 
 (setq custom-file "~/.emacs.d/custom-file.el")
 (load custom-file)
@@ -76,8 +77,6 @@
 (delete-selection-mode)
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
-
-(setq require-final-newline t)
 
 (defun save-buffer-no-hook (&optional arg)
   "Save buffer without invoking `before-save-hook', in case \
