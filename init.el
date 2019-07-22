@@ -77,6 +77,8 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
+(setq require-final-newline t)
+
 (defun save-buffer-no-hook (&optional arg)
   "Save buffer without invoking `before-save-hook', in case \
 I want to save without deleting trailing whitespace.  ARG is as
