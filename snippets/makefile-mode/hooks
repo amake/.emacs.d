@@ -1,0 +1,10 @@
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+HOOKS := \$(filter-out %~,\$(wildcard hooks/*))
+GIT_DIR := \$(shell git rev-parse --git-dir)
+
+.PHONY: hooks ## Install helpful git hooks
+hooks: \$(foreach _,\$(HOOKS),\$(GIT_DIR)/hooks/\$(notdir \$(_)))
+
+\$(GIT_DIR)/hooks/%: hooks/%
+	ln -s \$(PWD)/\$(<) \$(@)
