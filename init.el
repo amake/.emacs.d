@@ -805,8 +805,6 @@ not be synced across machines.")
   :diminish (lsp-mode . "LSP")
   :bind (:map lsp-mode-map
               ("C-c C-a" . #'lsp-execute-code-action))
-  :custom
-  (lsp-enable-snippet nil)
   :hook (lsp-mode . (lambda ()
                       (setq-local company-idle-delay 0.5))))
 
@@ -878,6 +876,12 @@ works with Dart."
   :hook (restclient-mode . (lambda ()
                              (make-local-variable 'company-backends)
                              (add-to-list 'company-backends 'company-restclient))))
+
+(use-package yasnippet
+  ;; Snippets in ~/.emacs.d/snippets by default
+  :diminish yas-minor-mode
+  :config
+  (yas-global-mode))
 
 (provide 'init)
 ;;; init.el ends here
