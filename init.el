@@ -857,6 +857,13 @@ works with Dart."
   :custom
   (flutter-sdk-path "/Applications/flutter/"))
 
+(use-package flutter-l10n-flycheck
+  :ensure nil
+  :load-path "lisp/flutter"
+  :after (flutter flycheck)
+  :config
+  (flutter-l10n-flycheck-setup))
+
 (use-package which-key
   :diminish which-key-mode
   :config
