@@ -4,6 +4,8 @@
 
 ;;; Code:
 
+(require 'subr-x)
+
 (defun open-pwd ()
   "Open the current working directory in the Finder."
   (interactive)
@@ -30,6 +32,13 @@
   "Open a macOS Terminal window in the pwd."
   (interactive)
   (shell-command "open -a Terminal ."))
+
+(defun touch ()
+  "Touch current buffer's file."
+  (interactive)
+  (when-let ((file (buffer-file-name)))
+    (shell-command (concat "touch " file))
+    (shell-command (concat "date -r " file))))
 
 (provide 'amk-macos)
 ;;; amk-macos.el ends here
