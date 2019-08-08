@@ -5,7 +5,7 @@
 ;; Author: Aaron Madlon-Kay
 ;; Version: 0.1.0
 ;; URL: https://github.com/amake/.emacs.d
-;; Package-Requires: ((emacs "24.3") face-remap)
+;; Package-Requires: ((emacs "24.3"))
 
 ;; This file is not part of GNU Emacs.
 
