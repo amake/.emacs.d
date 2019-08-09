@@ -331,12 +331,6 @@ not be synced across machines.")
   ;; Do `git config --add magit.extension svn` to enable in repository
   )
 
-(use-package magit-gitflow
-  :after magit
-  :diminish magit-gitflow-mode
-  :ensure-system-package (git-flow . git-flow-avh)
-  :hook (magit-mode . turn-on-magit-gitflow))
-
 (use-package forge
   ;; To store GitHub token in macOS keychain per `auth-source' config below:
   ;; 0. Create token at https://github.com/settings/tokens
