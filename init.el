@@ -821,6 +821,9 @@ not be synced across machines.")
   :demand t)
 
 (use-package dart-mode
+  ;; TODO: Remove pin when package split completes
+  ;; https://github.com/melpa/melpa/pull/6352
+  :pin melpa-stable
   :hook ((dart-mode . lsp)
          (dart-mode . dart-scale-text-to-fit))
   :after (lsp scale-to-fit)
