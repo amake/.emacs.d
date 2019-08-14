@@ -157,13 +157,13 @@ not be synced across machines.")
   :load-path "lisp"
   :bind ("C-c C-o" . #'amk-multibrowse)
   :config
-  (add-to-list 'amk-browse-alist '(backlog-issue-p . browse-backlog-issue)))
+  (add-to-list 'amk-browse-alist '(backlog-issue-p . backlog-browse-issue)))
 
 (use-package backlog
   :ensure nil
   :load-path "lisp/backlog"
   :after (request ivy)
-  :bind ("C-c C-b" . #'browse-backlog-issue-at-point))
+  :bind ("C-c C-b" . #'backlog-browse-issue-at-point))
 
 (use-package shfmt
   :ensure nil

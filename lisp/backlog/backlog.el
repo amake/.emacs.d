@@ -1,6 +1,6 @@
 ;;; backlog.el --- Functions for working with Backlog -*- lexical-binding: t -*-
 
-;; Package-Requires: (request thingatpt cl-lib ivy)
+;; Package-Requires: ((emacs "25") request thingatpt cl-lib ivy)
 
 ;;; Commentary:
 
@@ -85,7 +85,7 @@ process with CALLBACK.  If USER is nil, `myself` is used."
 
 ;; External browser functions
 
-(defun browse-backlog-issue (issue)
+(defun backlog-browse-issue (issue)
   "Open Backlog issue with key ISSUE."
   (if issue
       (browse-url (backlog-make-link issue))
@@ -99,7 +99,7 @@ process with CALLBACK.  If USER is nil, `myself` is used."
   "Return t if STRING appears to be a Backlog issue key."
   (if (string-match-p "^[a-z]+-[1-9][0-9]*$" string) t))
 
-(defun browse-backlog-issue-at-point ()
+(defun backlog-browse-issue-at-point ()
   "Browse the Backlog issue at point, if any."
   (interactive)
   (let ((sym (thing-at-point 'symbol t)))
