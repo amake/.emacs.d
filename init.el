@@ -165,13 +165,15 @@ not be synced across machines.")
   :after (request ivy)
   :bind ("C-c C-b" . #'backlog-browse-issue-at-point))
 
+(use-package reformatter)
+
 (use-package shfmt
   :ensure nil
   :load-path "lisp/shfmt"
+  :after reformatter
   :ensure-system-package shfmt
-  :custom
-  (shfmt-arguments "-d")
-  :hook (sh-mode . shfmt-enable-on-save))
+  :diminish shfmt-on-save-mode
+  :hook (sh-mode . shfmt-on-save-mode))
 
 (use-package scale-to-fit
   :ensure nil
