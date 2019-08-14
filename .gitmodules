@@ -1,3 +1,6 @@
 [submodule "lisp/flutter"]
 	path = lisp/flutter
 	url = https://github.com/amake/flutter.el.git
+[submodule "lisp/shfmt"]
+	path = lisp/shfmt
+	url = git@github.com:amake/shfmt.el.git
