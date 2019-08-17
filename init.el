@@ -823,27 +823,29 @@ not be synced across machines.")
   :demand t)
 
 (use-package dart-mode
-  ;; TODO: Remove pin when package split completes
-  ;; https://github.com/melpa/melpa/pull/6352
-  :pin melpa-stable
   :hook ((dart-mode . lsp)
          (dart-mode . dart-scale-text-to-fit))
-  :after (lsp scale-to-fit)
-  :ensure-system-package (dart_language_server . "pub global activate dart_language_server")
+  :after lsp
+  :ensure-system-package
+  (dart_language_server . "pub global activate dart_language_server"))
+
+(use-package dart-server
+  :after scale-to-fit
+  :hook (dart-mode . #'dart-server)
   :custom
-  (dart-format-on-save t)
+  (dart-server-format-on-save t)
   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
   :config
-  (put 'dart-formatter-line-length 'safe-local-variable #'integerp)
+  (put 'dart-server-formatter-line-length 'safe-local-variable #'integerp)
   (defun dart-organize-imports ()
     "A hacky replacement for `lsp-organize-imports' that actually
 works with Dart."
     (interactive)
     (lsp-send-execute-command "organize imports" `(,buffer-file-name)))
-  (advice-add #'dart-format :after #'dart-organize-imports)
+  (advice-add #'dart-server-format :after #'dart-organize-imports)
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
-    (scale-to-fit-setup dart-formatter-line-length -2 0)))
+    (scale-to-fit-setup dart-server-formatter-line-length -2 0)))
 
 (use-package flutter
   :ensure nil
