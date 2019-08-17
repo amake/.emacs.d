@@ -769,14 +769,17 @@ not be synced across machines.")
 (use-package auto-sudoedit
   :diminish auto-sudoedit-mode
   :config
-  (auto-sudoedit-mode 1)
+  ;; TODO: Restore global auto-sudoedit-mode when advice can be given again:
+  ;; https://github.com/ncaq/auto-sudoedit/pull/8
+  (auto-sudoedit-mode 0)
   (defun auto-sudoedit--skip-if-internal (old-function &rest args)
     (let ((path (auto-sudoedit-current-path)))
       (unless (or (emacs-internal-file-p path)
                   (python-system-file-p path)
                   (go-system-file-p path))
         (apply old-function args))))
-  (advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal))
+  ;;(advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal)
+  )
 
 (use-package hide-lines
   :defer t)
