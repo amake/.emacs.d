@@ -211,6 +211,10 @@ not be synced across machines.")
   :ensure nil
   :hook (image-mode . (lambda () (display-line-numbers-mode -1))))
 
+(use-package cus-edit
+  :ensure nil
+  :hook (Custom-mode . (lambda () (display-line-numbers-mode -1))))
+
 (use-package image-dimensions-minor-mode
   :ensure nil
   :after (image-mode blimp)
