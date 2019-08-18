@@ -30,6 +30,10 @@
 
 (defconst scale-to-fit--debug nil)
 
+(defgroup scale-to-fit nil
+  "Scale text to fit window"
+  :group 'convenience)
+
 (defcustom scale-to-fit-min-scale -2 "Minimum scale for fitting."
   :type 'number
   :safe #'numberp
