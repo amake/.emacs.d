@@ -838,7 +838,7 @@ not be synced across machines.")
 
 (use-package dart-server
   :after scale-to-fit
-  :hook (dart-mode . #'dart-server)
+  :hook (dart-mode . dart-server)
   :custom
   (dart-server-format-on-save t)
   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
