@@ -899,10 +899,14 @@ works with Dart."
 (use-package beacon
   :diminish beacon-mode
   :custom
-  (beacon-dont-blink-major-modes
-   (delq 'magit-status-mode beacon-dont-blink-major-modes))
+  (beacon-blink-duration 0.1)
+  (beacon-blink-delay 0.1)
   :config
-  (beacon-mode))
+  (beacon-mode)
+  ;; This variable isn't initialized yet at :custom eval time,
+  ;; so set it here
+  (setq beacon-dont-blink-major-modes
+   (delq 'magit-status-mode beacon-dont-blink-major-modes)))
 
 (provide 'init)
 ;;; init.el ends here
