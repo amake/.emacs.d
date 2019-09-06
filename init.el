@@ -896,5 +896,13 @@ works with Dart."
   :config
   (yas-global-mode))
 
+(use-package beacon
+  :diminish beacon-mode
+  :custom
+  (beacon-dont-blink-major-modes
+   (delq 'magit-status-mode beacon-dont-blink-major-modes))
+  :config
+  (beacon-mode))
+
 (provide 'init)
 ;;; init.el ends here
