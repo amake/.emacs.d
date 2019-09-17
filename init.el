@@ -807,7 +807,9 @@ not be synced across machines.")
   :bind (:map lsp-mode-map
               ("C-c C-a" . #'lsp-execute-code-action))
   :hook (lsp-mode . (lambda ()
-                      (setq-local company-idle-delay 0.5))))
+                      (setq-local company-idle-delay 0.5)))
+  :custom
+  (lsp-file-watch-threshold nil))
 
 (use-package lsp-ui
   :commands lsp-ui
