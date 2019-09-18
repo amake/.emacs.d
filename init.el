@@ -829,15 +829,15 @@ not be synced across machines.")
   :demand t)
 
 (use-package dart-mode
-  :hook ((dart-mode . lsp)
-         (dart-mode . dart-scale-text-to-fit))
+  :hook (dart-mode . lsp)
   :after lsp
   :ensure-system-package
   (dart_language_server . "pub global activate dart_language_server"))
 
 (use-package dart-server
   :after scale-to-fit
-  :hook (dart-mode . dart-server)
+  :hook ((dart-mode . dart-server)
+         (dart-mode . dart-scale-text-to-fit))
   :custom
   (dart-server-format-on-save t)
   (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
