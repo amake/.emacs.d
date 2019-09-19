@@ -255,6 +255,7 @@ not be synced across machines.")
 
 (use-package js
   :ensure nil
+  :mode ("\\.arb\\'" . javascript-mode)
   :custom
   (js-indent-level 2))
 
