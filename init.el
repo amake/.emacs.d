@@ -563,7 +563,7 @@ not be synced across machines.")
   :defer t
   :hook ((go-mode . (lambda ()
                       (add-hook 'before-save-hook #'gofmt-before-save nil t)))
-         (go-mode . lsp))
+         (go-mode . lsp-deferred))
   :ensure-system-package (go
                           (bingo . "go get github.com/saibing/bingo")))
 
@@ -574,7 +574,7 @@ not be synced across machines.")
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
-  :hook (python-mode . lsp)
+  :hook (python-mode . lsp-deferred)
   :ensure-system-package ((python3 . python37)
                           (pyls . py37-language-server)))
 
@@ -826,11 +826,11 @@ not be synced across machines.")
 
 (use-package lsp-java
   :after lsp-mode
-  :hook (java-mode . lsp)
+  :hook (java-mode . lsp-deferred)
   :demand t)
 
 (use-package dart-mode
-  :hook (dart-mode . lsp)
+  :hook (dart-mode . lsp-deferred)
   :after lsp
   :ensure-system-package
   (dart_language_server . "pub global activate dart_language_server"))
