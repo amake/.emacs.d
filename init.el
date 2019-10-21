@@ -378,10 +378,6 @@ not be synced across machines.")
   :config
   (global-flycheck-mode))
 
-(use-package css-mode
-  :ensure nil
-  :ensure-system-package (scss . "gem install sass"))
-
 (use-package flycheck-package
   :after flycheck
   :config
@@ -419,6 +415,14 @@ not be synced across machines.")
       "WHITESPACE_RULE")))
   :config
   (flycheck-languagetool-setup))
+
+(use-package flycheck-sassc
+  :ensure nil
+  :after flycheck
+  :load-path "lisp"
+  :ensure-system-package sassc
+  :config
+  (flycheck-sassc-setup))
 
 (use-package octave
   :ensure nil
