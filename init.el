@@ -424,6 +424,15 @@ not be synced across machines.")
   :config
   (flycheck-sassc-setup))
 
+(use-package flycheck-dart-sass
+  :ensure nil
+  :after flycheck
+  :load-path "lisp"
+  :ensure-system-package ((pub . dart-sdk)
+                          (sass . "pub global activate sass"))
+  :config
+  (flycheck-dart-sass-setup))
+
 (use-package octave
   :ensure nil
   :mode (("\\.m\\'" . octave-mode))
