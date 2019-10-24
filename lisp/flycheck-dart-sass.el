@@ -14,7 +14,7 @@
   "A Sass syntax checker using dart-sass.
 
 See URL `https://sass-lang.com/dart-sass'."
-  :command ("sass" "--stdin" "--no-color")
+  :command ("dart-sass" "--stdin" "--no-color")
   :standard-input t
   :error-patterns
   ((error line-start

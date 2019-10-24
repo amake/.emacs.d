@@ -429,7 +429,7 @@ not be synced across machines.")
   :after flycheck
   :load-path "lisp"
   :ensure-system-package ((pub . dart-sdk)
-                          (sass . "pub global activate sass"))
+                          (dart-sass . "pub global activate sass"))
   :config
   (flycheck-dart-sass-setup))
 
