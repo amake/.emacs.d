@@ -924,5 +924,7 @@ works with Dart."
   (setq beacon-dont-blink-major-modes
    (delq 'magit-status-mode beacon-dont-blink-major-modes)))
 
+(use-package jq-mode)
+
 (provide 'init)
 ;;; init.el ends here
