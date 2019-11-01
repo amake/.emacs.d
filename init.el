@@ -840,7 +840,8 @@ not be synced across machines.")
 
 (use-package lsp-java
   :after lsp-mode
-  :hook (java-mode . lsp-deferred)
+  ;; Temporarily disabled for stability and performance issues
+  ;; :hook (java-mode . lsp-deferred)
   :demand t)
 
 (use-package dart-mode
