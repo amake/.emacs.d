@@ -462,6 +462,7 @@ not be synced across machines.")
          ("C-c k" . counsel-rg)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
+         ("C-c h" . counsel-git-log)
          :map minibuffer-local-map
          ("C-r" . counsel-minibuffer-history))
   :custom
