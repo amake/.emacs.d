@@ -47,7 +47,8 @@
               tab-width 4
               mac-command-modifier 'super
               mac-option-modifier 'meta
-              require-final-newline t)
+              require-final-newline t
+              save-interprogram-paste-before-kill t)
 
 (setq custom-file "~/.emacs.d/custom-file.el")
 (load custom-file)
