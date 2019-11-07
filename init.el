@@ -441,6 +441,17 @@ not be synced across machines.")
   :config
   (put 'octave-block-offset 'safe-local-variable #'integerp))
 
+(use-package cc-mode
+  :ensure nil
+  :config
+  (defun objective-c-file-p ()
+    (and buffer-file-name
+         (string= (file-name-extension buffer-file-name) "m")
+         (re-search-forward "@interface\\|@implementation"
+                            magic-mode-regexp-match-limit t)))
+  ;; Can't use use-package :magic because it only supports regexp
+  (add-to-list 'magic-mode-alist '(objective-c-file-p . objc-mode)))
+
 (use-package pascal
   :ensure nil
   :mode (("\\.iss\\'" . pascal-mode))
