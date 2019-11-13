@@ -941,5 +941,7 @@ works with Dart."
 
 (use-package jq-mode)
 
+(use-package cmake-mode)
+
 (provide 'init)
 ;;; init.el ends here
