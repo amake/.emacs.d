@@ -189,6 +189,12 @@ not be synced across machines.")
   :config
   (desktop-save-mode t))
 
+(use-package files
+  :ensure nil
+  :if (display-graphic-p)
+  :custom
+  (confirm-kill-emacs #'yes-or-no-p))
+
 (use-package subword
   :ensure nil
   :diminish subword-mode
