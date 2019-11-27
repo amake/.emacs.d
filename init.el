@@ -891,9 +891,7 @@ works with Dart."
 (use-package flutter
   :ensure nil
   :load-path "lisp/flutter"
-  :ensure-system-package ((pod . "gem install cocoapods")
-                          (ideviceinstaller . ideviceinstaller-devel)
-                          ios-deploy)
+  :ensure-system-package (pod . "gem install cocoapods")
   :after dart-mode
   :bind (:map dart-mode-map
               ("C-M-x" . #'flutter-run-or-hot-reload))
