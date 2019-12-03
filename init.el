@@ -254,11 +254,21 @@ not be synced across machines.")
 
 (use-package nxml-mode
   :ensure nil
+  :hook (nxml-mode . maven-file-setup)
   :custom
   (nxml-child-indent 4)
   :config
   (put 'nxml-child-indent 'safe-local-variable #'integerp)
-  (put 'nxml-attribute-indent 'safe-local-variable #'integerp))
+  (put 'nxml-attribute-indent 'safe-local-variable #'integerp)
+  (defun maven-file-p ()
+    (and buffer-file-name
+         (string= (file-name-extension buffer-file-name) "xml")
+         (save-excursion
+           (re-search-forward "xmlns=['\"]http://maven.apache.org/[^/]+/[^'\"]+['\"]"
+                              magic-mode-regexp-match-limit t))))
+  (defun maven-file-setup ()
+    (when (maven-file-p)
+      (setq-local nxml-child-indent 2))))
 
 (use-package js
   :ensure nil
