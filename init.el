@@ -608,7 +608,7 @@ not be synced across machines.")
                       (add-hook 'before-save-hook #'gofmt-before-save nil t)))
          (go-mode . lsp-deferred))
   :ensure-system-package (go
-                          (bingo . "go get github.com/saibing/bingo")))
+                          (gopls . "GO111MODULE=on go get golang.org/x/tools/gopls@latest")))
 
 (use-package groovy-mode
   :defer t
