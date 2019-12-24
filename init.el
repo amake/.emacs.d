@@ -392,8 +392,13 @@ not be synced across machines.")
 
 ;; On-the-fly linting
 (use-package flycheck
+  :hook (text-mode . amk-flycheck-disable-on-large-text)
   :config
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  (defun amk-flycheck-disable-on-large-text ()
+    (when (> (buffer-size) 500000)
+      (flycheck-mode -1)
+      (message "flycheck-mode disabled due to buffer size"))))
 
 (use-package flycheck-package
   :after flycheck
