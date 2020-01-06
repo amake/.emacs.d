@@ -969,7 +969,8 @@ works with Dart."
 (use-package cmake-mode)
 
 (use-package yaml-mode
-  :ensure-system-package (yaml-language-server . "sudo npm install -g yaml-language-server")
+  :ensure-system-package ((npm . npm6)
+                          (yaml-language-server . "sudo npm install -g yaml-language-server"))
   :hook (yaml-mode . lsp-deferred))
 
 (provide 'init)
