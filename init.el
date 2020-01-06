@@ -50,6 +50,11 @@
               require-final-newline t
               save-interprogram-paste-before-kill t)
 
+;; Workaround for failure when installing MacPorts packages via
+;; system-packages-install
+(unless (getenv "COLUMNS")
+  (setenv "COLUMNS" "80"))
+
 (setq custom-file "~/.emacs.d/custom-file.el")
 (load custom-file)
 
