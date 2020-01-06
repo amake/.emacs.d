@@ -440,7 +440,7 @@ not be synced across machines.")
       "DASH_RULE")
      (t
       "WHITESPACE_RULE")))
-  (flycheck-languagetool-line-by-line t)
+  (flycheck-languagetool-line-by-line nil)
   :config
   (flycheck-languagetool-setup))
 
