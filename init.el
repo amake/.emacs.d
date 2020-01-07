@@ -650,7 +650,12 @@ not be synced across machines.")
   :defer t)
 
 (use-package docker-compose-mode
-  :defer t)
+  :after lsp
+  :config
+  ;; Support lsp in docker-compose-mode with some hackery
+  (when-let* ((client (gethash 'yamlls lsp-clients))
+              (modes (lsp--client-major-modes client)))
+    (setf (lsp--client-major-modes client) `(,@modes docker-compose-mode))))
 
 (use-package markdown-mode
   :defer t
