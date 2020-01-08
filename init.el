@@ -893,7 +893,9 @@ not be synced across machines.")
                               (with-selected-frame frame
                                 (display-line-numbers-mode -1))))
   :custom
-  (lsp-prefer-flymake nil))
+  (lsp-prefer-flymake nil)
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-alignment 'window))
 
 (use-package company-lsp
   :commands company-lsp
