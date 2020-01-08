@@ -879,7 +879,12 @@ not be synced across machines.")
   :hook (lsp-mode . (lambda ()
                       (setq-local company-idle-delay 0.5)))
   :custom
-  (lsp-file-watch-threshold nil))
+  (lsp-file-watch-threshold nil)
+  :config
+  (defun amk-lsp-format-on-save ()
+    (add-hook 'before-save-hook #'lsp-format-buffer nil t))
+  (defun amk-lsp-organize-imports-on-save ()
+    (add-hook 'before-save-hook #'lsp-organize-imports nil t)))
 
 (use-package lsp-ui
   :commands lsp-ui
