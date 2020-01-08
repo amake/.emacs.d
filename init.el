@@ -487,9 +487,9 @@ not be synced across machines.")
 
 (use-package ruby-mode
   :ensure nil
+  :after lsp
   :hook ((ruby-mode . lsp-deferred)
-         (ruby-mode . (lambda ()
-                        (add-hook 'before-save-hook #'lsp-format-buffer nil t))))
+         (ruby-mode . amk-lsp-format-on-save))
   :ensure-system-package (solargraph . "gem install --user-install solargraph"))
 
 (use-package counsel
