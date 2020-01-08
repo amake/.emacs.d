@@ -889,6 +889,9 @@ not be synced across machines.")
 (use-package lsp-ui
   :commands lsp-ui
   :after lsp-mode
+  :hook (lsp-ui-doc-frame . (lambda (frame window)
+                              (with-selected-frame frame
+                                (display-line-numbers-mode -1))))
   :custom
   (lsp-prefer-flymake nil))
 
