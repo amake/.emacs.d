@@ -906,26 +906,14 @@ not be synced across machines.")
 
 (use-package dart-mode
   :hook (dart-mode . lsp-deferred)
-  :after lsp
+  :after (lsp scale-to-fit)
+  :hook ((dart-mode . amk-lsp-format-on-save)
+         (dart-mode . amk-lsp-organize-imports-on-save)
+         (dart-mode . dart-scale-text-to-fit))
   :ensure-system-package (dart . dart-sdk)
   :custom
-  (lsp-dart-sdk-dir "/opt/local/libexec/dart-sdk"))
-
-(use-package dart-server
-  :after scale-to-fit
-  :hook ((dart-mode . dart-server)
-         (dart-mode . dart-scale-text-to-fit))
-  :custom
-  (dart-server-format-on-save t)
-  (dart-sdk-path "/Applications/flutter/bin/cache/dart-sdk/")
+  (lsp-dart-sdk-dir "/opt/local/libexec/dart-sdk")
   :config
-  (put 'dart-server-formatter-line-length 'safe-local-variable #'integerp)
-  (defun dart-organize-imports ()
-    "A hacky replacement for `lsp-organize-imports' that actually
-works with Dart."
-    (interactive)
-    (lsp-send-execute-command "organize imports" `(,buffer-file-name)))
-  (advice-add #'dart-server-format :after #'dart-organize-imports)
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
     (scale-to-fit-setup dart-server-formatter-line-length -2 0)))
