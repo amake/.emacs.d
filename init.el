@@ -902,8 +902,9 @@ not be synced across machines.")
 (use-package dart-mode
   :hook (dart-mode . lsp-deferred)
   :after lsp
-  :ensure-system-package
-  (dart_language_server . "pub global activate dart_language_server"))
+  :ensure-system-package (dart . dart-sdk)
+  :custom
+  (lsp-dart-sdk-dir "/opt/local/libexec/dart-sdk"))
 
 (use-package dart-server
   :after scale-to-fit
