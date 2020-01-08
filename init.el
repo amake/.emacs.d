@@ -485,6 +485,11 @@ not be synced across machines.")
   :config
   (put 'pascal-indent-level 'safe-local-variable #'integerp))
 
+(use-package ruby-mode
+  :ensure nil
+  :hook (ruby-mode . lsp-deferred)
+  :ensure-system-package (solargraph . "gem install --user-install solargraph"))
+
 (use-package counsel
   :demand t
   :diminish (ivy-mode counsel-mode)
