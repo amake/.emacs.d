@@ -657,15 +657,7 @@ not be synced across machines.")
   :defer t)
 
 (use-package docker-compose-mode
-  :after (yaml-mode lsp)
-  :config
-  ;; Support lsp in docker-compose-mode with some hackery
-  (when-let* ((client (gethash 'yamlls lsp-clients))
-              (modes (lsp--client-major-modes client)))
-    (setf (lsp--client-major-modes client) `(,@modes docker-compose-mode))
-    (add-to-list
-     'lsp-language-id-configuration
-     '(docker-compose-mode . "spring-boot-properties-yaml"))))
+  :defer t)
 
 (use-package markdown-mode
   :defer t
@@ -884,7 +876,14 @@ not be synced across machines.")
   (defun amk-lsp-format-on-save ()
     (add-hook 'before-save-hook #'lsp-format-buffer nil t))
   (defun amk-lsp-organize-imports-on-save ()
-    (add-hook 'before-save-hook #'lsp-organize-imports nil t)))
+    (add-hook 'before-save-hook #'lsp-organize-imports nil t))
+  ;; Support lsp in docker-compose-mode with some hackery
+  (let* ((client (gethash 'yamlls lsp-clients))
+         (modes (lsp--client-major-modes client)))
+    (setf (lsp--client-major-modes client) `(,@modes docker-compose-mode))
+    (add-to-list
+     'lsp-language-id-configuration
+     '(docker-compose-mode . "spring-boot-properties-yaml"))))
 
 (use-package lsp-ui
   :commands lsp-ui
