@@ -655,7 +655,10 @@ not be synced across machines.")
   ;; Support lsp in docker-compose-mode with some hackery
   (when-let* ((client (gethash 'yamlls lsp-clients))
               (modes (lsp--client-major-modes client)))
-    (setf (lsp--client-major-modes client) `(,@modes docker-compose-mode))))
+    (setf (lsp--client-major-modes client) `(,@modes docker-compose-mode))
+    (add-to-list
+     'lsp-language-id-configuration
+     '(docker-compose-mode . "spring-boot-properties-yaml"))))
 
 (use-package markdown-mode
   :defer t
