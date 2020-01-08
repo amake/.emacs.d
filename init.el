@@ -988,5 +988,14 @@ works with Dart."
                           (yaml-language-server . "sudo npm install -g yaml-language-server"))
   :hook (yaml-mode . lsp-deferred))
 
+(use-package vue-mode
+  :diminish mmm-mode
+  :ensure-system-package ((npm . npm6)
+                          (vls . "sudo npm install -g vue-language-server"))
+  :hook ((vue-mode . lsp-deferred)
+         (vue-mode . flyspell-mode-off))
+  :config
+  (set-face-background 'mmm-default-submode-face nil))
+
 (provide 'init)
 ;;; init.el ends here
