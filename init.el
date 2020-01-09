@@ -425,6 +425,7 @@ not be synced across machines.")
   (flycheck-innosetup-setup))
 
 (use-package flycheck-languagetool
+  :disabled ; Results are too frequently garbage
   :ensure nil
   :after flycheck
   :ensure-system-package languagetool
