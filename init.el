@@ -505,7 +505,7 @@ not be synced across machines.")
          ("<f6>" . ivy-resume)
          ("<f1> l" . counsel-find-library)
          ("<f2> u" . counsel-unicode-char)
-         ("C-c k" . counsel-rg)
+         ("C-c k" . amk-counsel-rg-here)
          ("C-x l" . counsel-locate)
          ("C-S-o" . counsel-rhythmbox)
          ("C-c h" . counsel-git-log)
@@ -516,7 +516,11 @@ not be synced across machines.")
   (enable-recursive-minibuffers t)
   :config
   (ivy-mode)
-  (counsel-mode))
+  (counsel-mode)
+  (defun amk-counsel-rg-here ()
+    "Like `counsel-rg' but always searches from the cwd, not project root."
+    (interactive)
+    (counsel-rg nil default-directory)))
 
 (use-package all-the-icons-ivy
   :if (display-graphic-p)
