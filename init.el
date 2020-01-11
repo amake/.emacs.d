@@ -930,7 +930,7 @@ not be synced across machines.")
   :config
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
-    (scale-to-fit-setup dart-server-formatter-line-length -2 0)))
+    (scale-to-fit-setup 80 -2 0)))
 
 (use-package flutter
   :ensure nil
