@@ -548,7 +548,17 @@ not be synced across machines.")
 
 (use-package web-mode
   :mode ("\\.html?\\'"
-         "\\.erb\\'"))
+         "\\.erb\\'"
+         "\\.vue\\'")
+  :ensure-system-package ((npm . npm6)
+                          (vls . "sudo npm install -g vue-language-server"))
+  :hook (web-mode . (lambda ()
+                      (when (vue-file-p)
+                        (lsp-deferred))))
+  :config
+  (defun vue-file-p ()
+    (and buffer-file-name
+         (string= (file-name-extension buffer-file-name) "vue"))))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
@@ -983,15 +993,6 @@ not be synced across machines.")
   :ensure-system-package ((npm . npm6)
                           (yaml-language-server . "sudo npm install -g yaml-language-server"))
   :hook (yaml-mode . lsp-deferred))
-
-(use-package vue-mode
-  :diminish mmm-mode
-  :ensure-system-package ((npm . npm6)
-                          (vls . "sudo npm install -g vue-language-server"))
-  :hook ((vue-mode . lsp-deferred)
-         (vue-mode . flyspell-mode-off))
-  :config
-  (set-face-background 'mmm-default-submode-face nil))
 
 (use-package treemacs
   :hook (treemacs-mode . (lambda () (display-line-numbers-mode -1)))
