@@ -869,7 +869,7 @@ not be synced across machines.")
   :hook (image-mode . blimp-mode))
 
 (use-package lsp-mode
-  :commands lsp
+  :commands (lsp lsp-deferred)
   :diminish (lsp-mode . "LSP")
   :bind (:map lsp-mode-map
               ("C-c C-a" . #'lsp-execute-code-action))
