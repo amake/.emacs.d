@@ -883,18 +883,6 @@ not be synced across machines.")
   (defun amk-lsp-organize-imports-on-save ()
     (add-hook 'before-save-hook #'lsp-organize-imports nil t)))
 
-(use-package lsp-yaml
-  :ensure nil
-  :after lsp-mode
-  :config
-  ;; Support lsp in docker-compose-mode with some hackery
-  (let* ((client (gethash 'yamlls lsp-clients))
-         (modes (lsp--client-major-modes client)))
-    (setf (lsp--client-major-modes client) `(,@modes docker-compose-mode))
-    (add-to-list
-     'lsp-language-id-configuration
-     '(docker-compose-mode . "spring-boot-properties-yaml"))))
-
 (use-package lsp-ui
   :commands lsp-ui
   :after lsp-mode
