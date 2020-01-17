@@ -631,6 +631,9 @@ not be synced across machines.")
 
 (use-package typescript-mode
   :defer t
+  :ensure-system-package ((npm . npm6)
+                          (typescript-language-server . "sudo npm install -g typescript-language-server"))
+  :hook (typescript-mode . lsp-deferred)
   :custom
   (typescript-indent-level 2))
 
