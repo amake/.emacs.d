@@ -277,7 +277,10 @@ not be synced across machines.")
 
 (use-package js
   :ensure nil
-  :mode ("\\.arb\\'" . javascript-mode)
+  :mode ("\\.arb\\'" . js-mode)
+  :ensure-system-package ((npm . npm6)
+                          (typescript-language-server . "sudo npm install -g typescript-language-server"))
+  :hook (js-mode . lsp-deferred)
   :custom
   (js-indent-level 2))
 
