@@ -290,6 +290,7 @@ not be synced across machines.")
     (setq browse-url-generic-program "open")))
 
 (use-package org
+  :ensure org-plus-contrib
   :custom
   (org-enforce-todo-checkbox-dependencies t)
   (org-enforce-todo-dependencies t)
