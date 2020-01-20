@@ -335,6 +335,9 @@ not be synced across machines.")
                '("L" "Protocol Link" entry (file+headline "" "Inbox")
                  "* %? [[%:link][%:description]] \nCaptured On: %U")))
 
+(use-package org-tempo
+  :ensure nil)
+
 ;; Backlog link support
 (use-package org-backlog
   :ensure nil
