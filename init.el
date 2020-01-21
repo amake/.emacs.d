@@ -308,8 +308,11 @@ not be synced across machines.")
     ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
     ;; some reason, but Menlo seems to be OK.
     (set-face-attribute 'org-table nil :family "Menlo"))
-  (add-to-list 'org-babel-load-languages '(ruby . t))
-  (add-to-list 'org-babel-load-languages '(shell . t)))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   `(,@org-babel-load-languages
+     (ruby . t)
+     (shell . t))))
 
 (use-package org-agenda
   :ensure nil
