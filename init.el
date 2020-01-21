@@ -344,7 +344,8 @@ not be synced across machines.")
                  "* %? [[%:link][%:description]] \nCaptured On: %U")))
 
 (use-package org-tempo
-  :ensure nil)
+  :ensure nil
+  :after org)
 
 ;; Backlog link support
 (use-package org-backlog
