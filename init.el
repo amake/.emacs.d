@@ -498,6 +498,8 @@ not be synced across machines.")
   :after lsp
   :hook ((ruby-mode . lsp-deferred)
          (ruby-mode . amk-lsp-format-on-save))
+  :custom
+  (ruby-insert-encoding-magic-comment nil "Not needed in Ruby 2")
   :ensure-system-package (solargraph . "gem install --user-install solargraph"))
 
 (use-package counsel
