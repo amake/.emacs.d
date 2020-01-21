@@ -309,6 +309,14 @@ not be synced across machines.")
     ;; some reason, but Menlo seems to be OK.
     (set-face-attribute 'org-table nil :family "Menlo")))
 
+(use-package ob-ruby
+  :after org
+  :ensure nil)
+
+(use-package ob-shell
+  :after org
+  :ensure nil)
+
 (use-package org-agenda
   :ensure nil
   :after org
