@@ -307,15 +307,9 @@ not be synced across machines.")
   (when amk-use-fancy-ligatures
     ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
     ;; some reason, but Menlo seems to be OK.
-    (set-face-attribute 'org-table nil :family "Menlo")))
-
-(use-package ob-ruby
-  :after org
-  :ensure nil)
-
-(use-package ob-shell
-  :after org
-  :ensure nil)
+    (set-face-attribute 'org-table nil :family "Menlo"))
+  (add-to-list 'org-babel-load-languages '(ruby . t))
+  (add-to-list 'org-babel-load-languages '(shell . t)))
 
 (use-package org-agenda
   :ensure nil
