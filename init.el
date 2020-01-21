@@ -1004,7 +1004,10 @@ not be synced across machines.")
 (use-package yaml-mode
   :ensure-system-package ((npm . npm6)
                           (yaml-language-server . "sudo npm install -g yaml-language-server"))
-  :hook (yaml-mode . lsp-deferred))
+  :hook ((yaml-mode . lsp-deferred)
+         (yaml-mode . flyspell-prog-mode))
+  :config
+  (remove-hook 'yaml-mode-hook #'flyspell-mode))
 
 (use-package treemacs
   :hook (treemacs-mode . (lambda () (display-line-numbers-mode -1)))
