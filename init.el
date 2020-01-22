@@ -341,6 +341,11 @@ not be synced across machines.")
                '("L" "Protocol Link" entry (file+headline "" "Inbox")
                  "* %? [[%:link][%:description]] \nCaptured On: %U")))
 
+(use-package ol
+  :ensure nil
+  :after org
+  :bind ("C-c l" . org-store-link))
+
 (use-package org-tempo
   :ensure nil
   :after org)
