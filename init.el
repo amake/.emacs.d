@@ -27,13 +27,17 @@
 ;; Set Japanese second so that Japanese glyphs override Chinese
 ;; when both charsets cover the same codepoints.
 (when (fboundp #'set-fontset-font)
+  ;; Source Han Mono: https://github.com/adobe-fonts/source-han-mono
+  (set-fontset-font t 'hangul
+                    (font-spec :family "Source Han Mono K"))
   (set-fontset-font t 'han
-                    ;; Source Han Mono SC: https://github.com/adobe-fonts/source-han-mono
                     (font-spec :family "Source Han Mono SC"))
+  ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
   (set-fontset-font t 'japanese-jisx0213.2004-1
-                    ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
                     (font-spec :family "Source Han Code JP")))
-(dolist (item '(("Source Han Code JP" . 1.25)
+(dolist (item '(("Source Han Mono K" . 1.25)
+                ("Source Han Mono JP" . 1.25)
+                ("Source Han Code JP" . 1.25)
                 ("Source Han Mono SC" . 1.25)))
   (add-to-list 'face-font-rescale-alist item))
 
@@ -41,6 +45,7 @@
 ;; 0123456789|ABCDEFGHIJ|
 ;; ０１２３４|あいうえお|
 ;; 月光下，一|颗很小的蛋|躺在一个叶子上
+;; 안녕, 세상|안녕, 세상|안녕, 세상
 
 (setq-default fill-column 80
               indent-tabs-mode nil
