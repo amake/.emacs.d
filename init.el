@@ -298,6 +298,7 @@ not be synced across machines.")
   (org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
+  (org-src-tab-acts-natively t)
   :hook (org-mode . (lambda () (setq-local amk-browse-fallback-action #'org-open-at-point)))
   :bind (;; Redefine here to override org-mode-map local definition
          ("C-c C-o" . amk-multibrowse)
