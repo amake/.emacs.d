@@ -160,6 +160,7 @@ not be synced across machines.")
 
 (use-package amk-browse
   :ensure nil
+  :disabled
   :load-path "lisp"
   :bind ("C-c C-o" . #'amk-multibrowse)
   :config
@@ -167,6 +168,7 @@ not be synced across machines.")
 
 (use-package backlog
   :ensure nil
+  :disabled
   :load-path "lisp/backlog"
   :after (request ivy)
   :bind ("C-c C-b" . #'backlog-browse-issue-at-point))
@@ -299,9 +301,7 @@ not be synced across machines.")
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (org-src-tab-acts-natively t)
-  :hook (org-mode . (lambda () (setq-local amk-browse-fallback-action #'org-open-at-point)))
-  :bind (;; Redefine here to override org-mode-map local definition
-         ("C-c C-o" . amk-multibrowse)
+  :bind (
          ;; Alternate mapping to avoid override by Flycheck
          ("C-c C-." . org-time-stamp-inactive))
   :config
