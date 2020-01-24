@@ -317,8 +317,9 @@ not be synced across machines.")
   (org-babel-do-load-languages
    'org-babel-load-languages
    `(,@org-babel-load-languages
-     (ruby . t)
-     (shell . t))))
+     (shell . t)
+     (python . t)
+     (ruby . t))))
 
 (use-package org-agenda
   :ensure nil
