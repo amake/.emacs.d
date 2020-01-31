@@ -318,6 +318,7 @@ not be synced across machines.")
    'org-babel-load-languages
    `(,@org-babel-load-languages
      (shell . t)
+     (dot . t)
      (python . t)
      (ruby . t))))
 
