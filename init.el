@@ -193,6 +193,12 @@ not be synced across machines.")
   :ensure nil
   :load-path "lisp")
 
+(use-package emoji-github
+  :ensure nil
+  :load-path "lisp"
+  :config
+  (global-prettify-symbols-mode))
+
 (use-package desktop
   :if (display-graphic-p)
   :demand t
