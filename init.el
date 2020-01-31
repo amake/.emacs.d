@@ -196,6 +196,8 @@ not be synced across machines.")
 (use-package emoji-github
   :ensure nil
   :load-path "lisp"
+  :after magit
+  :hook (magit-status-mode . emoji-github-enable)
   :config
   (global-prettify-symbols-mode))
 
