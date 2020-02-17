@@ -338,9 +338,10 @@ not be synced across machines.")
   :bind ("C-c a" . org-agenda)
   :hook (org-agenda-mode . (lambda () (display-line-numbers-mode -1)))
   :config
-  (let ((amk-agenda-files (concat (file-name-as-directory org-directory) "agenda")))
-    (make-directory amk-agenda-files t)
-    (add-to-list 'org-agenda-files amk-agenda-files)))
+  (let ((amk-agenda-path (concat (file-name-as-directory org-directory) "agenda")))
+    (unless (file-directory-p amk-agenda-path)
+      (make-directory amk-agenda-path t))
+    (add-to-list 'org-agenda-files amk-agenda-path)))
 
 (use-package org-capture
   :ensure nil
