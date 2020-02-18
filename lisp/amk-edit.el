@@ -72,5 +72,11 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defun split-buffer-chars-by-line ()
+  "Split the buffer so that each char past point is on its own line."
+  (interactive)
+  (while (re-search-forward "\\(.\\)" nil t)
+    (replace-match "\\1\n")))
+
 (provide 'amk-edit)
 ;;; amk-edit.el ends here
