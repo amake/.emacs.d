@@ -72,11 +72,16 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
-(defun split-buffer-chars-by-line ()
-  "Split the buffer so that each char past point is on its own line."
-  (interactive)
+(defun split-buffer-chars (&optional delimiter)
+  "Split the buffer so that each char past point is separated by DELIMITER.
+
+By default DELIMITER is a line feed (\\n).  Invoke with a prefix
+to be prompted for the delimiter."
+  (interactive (list (if (consp current-prefix-arg)
+                         (read-string "Delimiter: ")
+                       "\n")))
   (while (re-search-forward "\\(.\\)" nil t)
-    (replace-match "\\1\n")))
+    (replace-match (format "\\1%s" delimiter))))
 
 (provide 'amk-edit)
 ;;; amk-edit.el ends here
