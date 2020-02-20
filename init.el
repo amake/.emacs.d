@@ -534,7 +534,24 @@ not be synced across machines.")
 
 (use-package ruby-test-mode
   :after ruby-mode
-  :hook (ruby-mode . ruby-test-mode))
+  :hook (ruby-mode . ruby-test-mode)
+  :config
+  (defun ruby-test-rails-p (filename)
+    "Return non-nil if FILENAME is part of a Ruby-on-Rails project."
+    (ruby-test-rails-root filename))
+  (defun ruby-test-rails-command (filename &optional line-number)
+    "Return command to run test in FILENAME at LINE-NUMBER with Rails test runner."
+    (let ((line-part (if line-number
+                         (format ":%d" line-number)
+                       "")))
+      (format "bundle exec rails test -v %s%s" filename line-part)))
+  (defun ruby-test--command-with-rails (old-func &rest args)
+    "Advise `ruby-test-command' to support the Ruby-on-Rails test runner."
+    (let ((filename (car args)))
+      (if (ruby-test-rails-p filename)
+          (apply #'ruby-test-rails-command args)
+        (apply old-func args))))
+  (advice-add #'ruby-test-command :around #'ruby-test--command-with-rails))
 
 (use-package counsel
   :demand t
