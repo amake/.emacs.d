@@ -532,6 +532,10 @@ not be synced across machines.")
   (ruby-insert-encoding-magic-comment nil "Not needed in Ruby 2")
   :ensure-system-package (solargraph . "gem install --user-install solargraph"))
 
+(use-package ruby-test-mode
+  :after ruby-mode
+  :hook (ruby-mode . ruby-test-mode))
+
 (use-package counsel
   :demand t
   :diminish (ivy-mode counsel-mode)
