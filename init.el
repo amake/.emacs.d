@@ -544,7 +544,7 @@ not be synced across machines.")
     (let ((line-part (if line-number
                          (format ":%d" line-number)
                        "")))
-      (format "bundle exec rails test -v %s%s" filename line-part)))
+      (format "PAGER=cat bundle exec rails test -v %s%s" filename line-part)))
   (defun ruby-test--command-with-rails (old-func &rest args)
     "Advise `ruby-test-command' to support the Ruby-on-Rails test runner."
     (let ((filename (car args)))
