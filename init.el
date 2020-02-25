@@ -556,9 +556,7 @@ not be synced across machines.")
 (use-package counsel
   :demand t
   :diminish (ivy-mode counsel-mode)
-  :ensure-system-package
-  ((ag . the_silver_searcher)
-   (rg . ripgrep))
+  :ensure-system-package (rg . ripgrep)
   :bind (("C-s" . swiper)
          ("C-r" . swiper-backward)
          ("C-c C-r" . ivy-resume)
@@ -640,9 +638,7 @@ not be synced across machines.")
 
 (use-package projectile
   :demand t
-  :ensure-system-package
-  ((ag . the_silver_searcher)
-   (rg . ripgrep))
+  :ensure-system-package (rg . ripgrep)
   :hook (shell-mode . rename-buffer-with-project)
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom
