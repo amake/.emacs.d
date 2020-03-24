@@ -4,13 +4,12 @@
 
 ;;; Code:
 
-;; Speed-up by temporarily disabling GC
-;; See https://github.com/nilcons/emacs-use-package-fast
-(let ((orig gc-cons-threshold))
-  (setq gc-cons-threshold (* orig 80))
-  (add-hook 'after-init-hook (lambda ()
-                               ;; restore after startup
-                               (setq gc-cons-threshold orig))))
+;; Increase for better lsp-mode performance; see
+;; https://github.com/emacs-lsp/lsp-mode#performance
+(setq gc-cons-threshold 100000000)
+(when (boundp 'read-process-output-max)
+  ;; New in Emacs 27
+  (setq read-process-output-max (* 1024 1024)))
 
 ;; Increase default font size.
 (set-face-attribute 'default nil :height 180 :family "Menlo")
