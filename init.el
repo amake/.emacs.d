@@ -27,17 +27,24 @@
 ;; when both charsets cover the same codepoints.
 (when (fboundp #'set-fontset-font)
   ;; Source Han Mono: https://github.com/adobe-fonts/source-han-mono
-  (set-fontset-font t 'hangul
-                    (font-spec :family "Source Han Mono K"))
-  (set-fontset-font t 'han
-                    (font-spec :family "Source Han Mono SC"))
   ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
-  (set-fontset-font t 'japanese-jisx0213.2004-1
-                    (font-spec :family "Source Han Code JP")))
+  (dolist (item '((hangul . "Source Han Mono K")
+                  (han . "Source Han Mono SC")
+                  (japanese-jisx0213.2004-1 . "Source Han Code JP")
+                  (cyrillic . "Noto Sans Mono")
+                  (greek . "Noto Sans Mono")
+                  (hebrew . "Noto Sans Hebrew")
+                  (thai . "Noto Sans Thai")
+                  (arabic . "Noto Sans Arabic")))
+    (set-fontset-font t (car item)
+                      (font-spec :family (cdr item)))))
 (dolist (item '(("Source Han Mono K" . 1.25)
                 ("Source Han Mono JP" . 1.25)
                 ("Source Han Code JP" . 1.25)
-                ("Source Han Mono SC" . 1.25)))
+                ("Source Han Mono SC" . 1.25)
+                ("Noto Sans Thai" . 1.25)
+                ("Noto Sans Hebrew" . 1.2)
+                ("Noto Sans Arabic" . 1.7)))
   (add-to-list 'face-font-rescale-alist item))
 
 ;; Font scale test:
