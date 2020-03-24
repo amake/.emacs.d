@@ -293,7 +293,6 @@ not be synced across machines.")
 
 (use-package js
   :ensure nil
-  :mode ("\\.arb\\'" . js-mode)
   :ensure-system-package ((npm . npm6)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
   :hook (js-mode . lsp-deferred)
@@ -1072,6 +1071,13 @@ not be synced across machines.")
 
 (use-package treemacs-projectile
   :after (treemacs projectile))
+
+(use-package json-mode
+  :after lsp-mode
+  :mode ("\\.arb\\'" . js-mode)
+  :ensure-system-package ((npm . npm6)
+                          (vscode-json-languageserver . "sudo npm install -g vscode-json-languageserver"))
+  :hook (json-mode . lsp-deferred))
 
 (provide 'init)
 ;;; init.el ends here
