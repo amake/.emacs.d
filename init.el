@@ -546,7 +546,7 @@ not be synced across machines.")
 
 (use-package ruby-mode
   :ensure nil
-  :after lsp
+  :after lsp-mode
   :hook ((ruby-mode . lsp-deferred)
          (ruby-mode . amk-lsp-format-on-save))
   :custom
@@ -996,7 +996,7 @@ not be synced across machines.")
 
 (use-package dart-mode
   :hook (dart-mode . lsp-deferred)
-  :after (lsp scale-to-fit)
+  :after (lsp-mode scale-to-fit)
   :hook ((dart-mode . amk-lsp-format-on-save)
          (dart-mode . amk-lsp-organize-imports-on-save)
          (dart-mode . dart-scale-text-to-fit))
@@ -1089,7 +1089,7 @@ not be synced across machines.")
               ("S" . treemacs-switch-workspace)))
 
 (use-package lsp-treemacs
-  :after (treemacs lsp))
+  :after (treemacs lsp-mode))
 
 (use-package treemacs-projectile
   :after (treemacs projectile))
