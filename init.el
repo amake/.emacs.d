@@ -996,10 +996,14 @@ not be synced across machines.")
 
 (use-package dart-mode
   :after (lsp-mode scale-to-fit)
+  :diminish flutter-test-mode
   :hook ((dart-mode . lsp-deferred)
          (dart-mode . amk-lsp-format-on-save)
          (dart-mode . amk-lsp-organize-imports-on-save)
-         (dart-mode . dart-scale-text-to-fit))
+         (dart-mode . dart-scale-text-to-fit)
+         (dart-mode . (lambda ()
+                        (when (flutter-test-file-p)
+                          (flutter-test-mode)))))
   :ensure-system-package (dart . dart-sdk)
   :custom
   (lsp-dart-sdk-dir "/opt/local/libexec/dart-sdk")
