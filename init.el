@@ -995,9 +995,9 @@ not be synced across machines.")
   :demand t)
 
 (use-package dart-mode
-  :hook (dart-mode . lsp-deferred)
   :after (lsp-mode scale-to-fit)
-  :hook ((dart-mode . amk-lsp-format-on-save)
+  :hook ((dart-mode . lsp-deferred)
+         (dart-mode . amk-lsp-format-on-save)
          (dart-mode . amk-lsp-organize-imports-on-save)
          (dart-mode . dart-scale-text-to-fit))
   :ensure-system-package (dart . dart-sdk)
