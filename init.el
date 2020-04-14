@@ -995,7 +995,7 @@ not be synced across machines.")
   :demand t)
 
 (use-package dart-mode
-  :after (lsp-mode scale-to-fit)
+  :after (lsp-dart scale-to-fit)
   :diminish flutter-test-mode
   :hook ((dart-mode . lsp-deferred)
          (dart-mode . amk-lsp-format-on-save)
@@ -1009,6 +1009,9 @@ not be synced across machines.")
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
     (scale-to-fit-setup 80 -2 0)))
+
+(use-package lsp-dart
+  :after lsp-mode)
 
 (use-package flutter
   :ensure nil
