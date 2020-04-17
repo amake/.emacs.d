@@ -965,6 +965,7 @@ not be synced across machines.")
                       (setq-local company-idle-delay 0.5)))
   :custom
   (lsp-file-watch-threshold nil)
+  (lsp-solargraph-multi-root nil)
   :config
   (defun amk-lsp-format-on-save ()
     (add-hook 'before-save-hook #'lsp-format-buffer nil t))
