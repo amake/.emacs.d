@@ -1005,7 +1005,7 @@ not be synced across machines.")
          (dart-mode . flutter-test-mode))
   :ensure-system-package (dart . dart-sdk)
   :custom
-  (lsp-dart-sdk-dir "/opt/local/libexec/dart-sdk")
+  (lsp-dart-sdk-dir "/Applications/flutter/bin/cache/dart-sdk/")
   :config
   (defun dart-scale-text-to-fit ()
     "Adjust text scale to fit for Dart files."
