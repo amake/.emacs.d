@@ -983,12 +983,6 @@ not be synced across machines.")
   (lsp-ui-doc-position 'top)
   (lsp-ui-doc-alignment 'window))
 
-(use-package company-lsp
-  :commands company-lsp
-  :after (company lsp-mode)
-  :custom
-  (company-lsp-cache-candidates 'auto))
-
 (use-package lsp-java
   :after lsp-mode
   ;; Temporarily disabled for stability and performance issues
