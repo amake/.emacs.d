@@ -981,7 +981,9 @@ not be synced across machines.")
   :custom
   (lsp-prefer-flymake nil)
   (lsp-ui-doc-position 'top)
-  (lsp-ui-doc-alignment 'window))
+  (lsp-ui-doc-alignment 'window)
+  :config
+  (lsp-ui-doc--delete-frame))
 
 (use-package lsp-java
   :after lsp-mode
