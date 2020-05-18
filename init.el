@@ -555,7 +555,6 @@ not be synced across machines.")
 
 (use-package ruby-test-mode
   :after ruby-mode
-  :hook (ruby-mode . ruby-test-mode)
   :diminish ruby-test-mode
   :config
   (defun ruby-test-rails-p (filename)
