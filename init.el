@@ -18,7 +18,8 @@
 (defconst amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
 (when amk-use-fancy-ligatures
   ;; Fira Code: https://github.com/tonsky/FiraCode
-  (set-face-attribute 'default nil :family "Fira Code")
+  ;; Iosevka: https://typeof.net/Iosevka/
+  (set-face-attribute 'default nil :family "Iosevka") ; Or "Fira Code"
   (mac-auto-operator-composition-mode))
 
 ;; Set decent default fonts for Japanese and Chinese,
@@ -28,9 +29,10 @@
 (when (fboundp #'set-fontset-font)
   ;; Source Han Mono: https://github.com/adobe-fonts/source-han-mono
   ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
-  (dolist (item '((hangul . "Source Han Mono K")
-                  (han . "Source Han Mono SC")
-                  (japanese-jisx0213.2004-1 . "Source Han Code JP")
+  ;; Sarasa Gothic: https://github.com/be5invis/Sarasa-Gothic
+  (dolist (item '((hangul . "Sarasa Gothic K") ; Or "Source Han Mono K"
+                  (han . "Sarasa Gothic SC") ; Or "Source Han Mono SC"
+                  (japanese-jisx0213.2004-1 . "Sarasa Gothic J") ; Or "Source Han Code JP"
                   (cyrillic . "Noto Sans Mono")
                   (greek . "Noto Sans Mono")
                   (hebrew . "Noto Sans Hebrew")
