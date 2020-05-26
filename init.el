@@ -405,7 +405,7 @@ not be synced across machines.")
   :load-path "lisp/backlog")
 
 ;; pdfview link support
-(use-package org-pdfview
+(use-package org-pdftools
   :after org)
 
 (use-package magit
