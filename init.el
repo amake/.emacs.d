@@ -44,7 +44,8 @@
                   (malayalam . "Noto Sans Malayalam")
                   (gurmukhi . "Noto Sans Gurmukhi")
                   (tamil . "Noto Sans Tamil")
-                  (telugu . "Noto Sans Telugu")))
+                  (telugu . "Noto Sans Telugu")
+                  (khmer . "Noto Sans Khmer")))
     (set-fontset-font t (car item)
                       (font-spec :family (cdr item)))))
 (dolist (item '(("Source Han Mono K" . 1.25)
@@ -60,7 +61,8 @@
                 ("Noto Sans Malayalam" . 0.85)
                 ("Noto Sans Gurmukhi" . 1.35)
                 ("Noto Sans Tamil" . 0.9)
-                ("Noto Sans Telugu" . 1.15)))
+                ("Noto Sans Telugu" . 1.15)
+                ("Noto Sans Khmer" . 1.25)))
   (add-to-list 'face-font-rescale-alist item))
 
 ;; Font scale test:
