@@ -5,7 +5,7 @@
 ;;; Code:
 
 ;; Increase for better lsp-mode performance; see
-;; https://github.com/emacs-lsp/lsp-mode#performance
+;; https://emacs-lsp.github.io/lsp-mode/page/performance/
 (setq gc-cons-threshold 100000000)
 (when (boundp 'read-process-output-max)
   ;; New in Emacs 27
