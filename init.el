@@ -141,7 +141,8 @@ with `save-buffer'."
                          ("melpa" . "https://melpa.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")))
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 
 ;; Bootstrap use-package
 ;; http://cachestocaches.com/2015/8/getting-started-use-package/
