@@ -227,6 +227,7 @@ not be synced across machines.")
   (global-prettify-symbols-mode))
 
 (use-package desktop
+  :ensure nil
   :if (display-graphic-p)
   :demand t
   :hook (auto-save-mode . (lambda ()
@@ -276,12 +277,14 @@ not be synced across machines.")
   (advice-add #'eimp-replace-image :after #'image-dimensions-update-lighter))
 
 (use-package flyspell
+  :ensure nil
   :ensure-system-package (aspell . "sudo port install aspell aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
          ;; (prog-mode . flyspell-prog-mode)
          ))
 
 (use-package ediff
+  :ensure nil
   :if (display-graphic-p)
   :custom
   ;; https://www.ogre.com/node/446
@@ -326,6 +329,7 @@ not be synced across machines.")
   (js-indent-level 2))
 
 (use-package browse-url
+  :ensure nil
   :config
   (when (macosp)
     (setq browse-url-generic-program "open")))
@@ -732,6 +736,7 @@ not be synced across machines.")
                          (local-unset-key (kbd "C-s")))))
 
 (use-package python
+  :ensure nil
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp-deferred)
   :ensure-system-package ((python3 . python37)
@@ -746,6 +751,7 @@ not be synced across machines.")
   :commands (pyvenv-activate pyvenv-workon))
 
 (use-package hideshow
+  :ensure nil
   :diminish hs-minor-mode
   :bind ("C-c \\" . hs-toggle-hiding)
   :hook (prog-mode . hs-minor-mode)
