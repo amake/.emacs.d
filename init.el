@@ -1002,6 +1002,11 @@ not be synced across machines.")
   :config
   (lsp-ui-doc--delete-frame))
 
+(use-package lsp-ivy
+  :after lsp-mode
+  :bind (:map lsp-mode-map
+              ("C-c s" . #'lsp-ivy-workspace-symbol)))
+
 (use-package lsp-java
   :after lsp-mode
   ;; Temporarily disabled for stability and performance issues
