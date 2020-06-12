@@ -179,11 +179,11 @@ not be synced across machines.")
 (use-package amk-edit
   :ensure nil
   :load-path "lisp"
-  :bind (("M-<up>" . move-lines-up)
-         ("M-<down>" . move-lines-down)
+  :bind (("M-<up>" . amk-edit-move-lines-up)
+         ("M-<down>" . amk-edit-move-lines-down)
          ;; For use on CLI
-         ("ESC <up>" . move-lines-up)
-         ("ESC <down>" . move-lines-down)))
+         ("ESC <up>" . amk-edit-move-lines-up)
+         ("ESC <down>" . amk-edit-move-lines-down)))
 
 (use-package amk-mac
   :ensure nil

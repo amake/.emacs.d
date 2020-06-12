@@ -1,27 +1,35 @@
 ;;; amk-edit.el --- Custom editing commands
 
+;; Copyright (C) 2017-2020 Aaron Madlon-Kay
+
+;; Author: Aaron Madlon-Kay
+;; Version: 0.1.0
+;; URL: https://github.com/amake/.emacs.d
+;; Package-Requires: ((emacs "24"))
+
 ;;; Commentary:
+
+;; Custom editing commands, including Eclipse-like line moving; see
+;; https://www.emacswiki.org/emacs/MoveLine
 
 ;;; Code:
 
-;; Eclipse-like line moving
-;; https://www.emacswiki.org/emacs/MoveLine
-(defmacro save-column (&rest body)
+(defmacro amk-edit--save-column (&rest body)
   "Note current column, do BODY, then restore column."
   (let ((tmp (make-symbol "col")))
     `(let ((,tmp (current-column)))
        ,@body
        (move-to-column ,tmp))))
 
-(defun move-lines-up ()
+(defun amk-edit-move-lines-up ()
   "Move the current line or region up by one line."
   (interactive)
   (save-current-buffer
     (if (use-region-p)
-        (move-lines-impl t)
-      (move-line-up))))
+        (amk-edit--move-lines-impl t)
+      (amk-edit-move-line-up))))
 
-(defun move-lines-impl (&optional up)
+(defun amk-edit--move-lines-impl (&optional up)
   "Move the current region up by one line.  Set UP to true to go up."
   (let (deactivate-mark
         (rstart (region-beginning))
@@ -38,30 +46,30 @@
         (push-mark)
         (insert text)))))
 
-(defun move-line-up ()
+(defun amk-edit-move-line-up ()
   "Swap the current line with the previous one."
   (interactive)
-  (save-column
+  (amk-edit--save-column
    (transpose-lines 1)
    (forward-line -2)))
 
-(defun move-lines-down ()
+(defun amk-edit-move-lines-down ()
   "Move the current line or region down by one line."
   (interactive)
   (save-current-buffer
     (if (use-region-p)
-        (move-lines-impl)
-      (move-line-down))))
+        (amk-edit--move-lines-impl)
+      (amk-edit-move-line-down))))
 
-(defun move-line-down ()
+(defun amk-edit-move-line-down ()
   "Swap the current line with the next one."
   (interactive)
-  (save-column
+  (amk-edit--save-column
    (forward-line 1)
    (transpose-lines 1)
    (forward-line -1)))
 
-(defun copy-file-name-to-clipboard ()
+(defun amk-edit-copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
   ;; https://stackoverflow.com/a/9414763/448068
   (interactive)
@@ -72,7 +80,7 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
-(defun split-buffer-chars (&optional delimiter)
+(defun amk-edit-split-buffer-chars (&optional delimiter)
   "Split the buffer so that each char past point is separated by DELIMITER.
 
 By default DELIMITER is a line feed (\\n).  Invoke with a prefix
