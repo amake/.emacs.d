@@ -992,14 +992,19 @@ not be synced across machines.")
 (use-package lsp-ui
   :commands lsp-ui
   :after lsp-mode
-  :hook (lsp-ui-doc-frame . (lambda (frame _window)
-                              (with-selected-frame frame
-                                (display-line-numbers-mode -1))))
+  :hook (lsp-ui-doc-frame . amk-lsp-ui-doc-customize)
   :custom
   (lsp-prefer-flymake nil)
   (lsp-ui-doc-position 'top)
   (lsp-ui-doc-alignment 'window)
   :config
+  (defun amk-lsp-ui-doc-customize (frame _window)
+    (let ((foreground (frame-parameter (selected-frame) 'foreground-color)))
+      (with-selected-frame frame
+        (display-line-numbers-mode -1)
+        (set-foreground-color foreground))))
+  (advice-add #'amk-mac-set-appearance-mode :after (lambda (&rest _)
+                                                     (lsp-ui-doc--delete-frame)))
   (lsp-ui-doc--delete-frame))
 
 (use-package lsp-ivy
