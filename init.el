@@ -193,7 +193,7 @@ not be synced across machines.")
   :ensure nil
   :disabled
   :load-path "lisp"
-  :bind ("C-c C-o" . #'amk-multibrowse)
+  :bind ("C-c C-o" . #'amk-browse-multi)
   :config
   (add-to-list 'amk-browse-alist '(backlog-issue-p . backlog-browse-issue)))
 
