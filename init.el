@@ -33,8 +33,8 @@
   (dolist (item '((hangul . "Sarasa Gothic K") ; Or "Source Han Mono K"
                   (han . "Sarasa Gothic SC") ; Or "Source Han Mono SC"
                   (japanese-jisx0213.2004-1 . "Sarasa Gothic J") ; Or "Source Han Code JP"
-                  (cyrillic . "Noto Sans Mono")
-                  (greek . "Noto Sans Mono")
+                  ;; (cyrillic . "Noto Sans Mono")
+                  ;; (greek . "Noto Sans Mono")
                   (hebrew . "Noto Sans Hebrew")
                   (thai . "Noto Sans Thai")
                   (arabic . "Noto Sans Arabic")
@@ -52,16 +52,10 @@
                 ("Source Han Mono JP" . 1.25)
                 ("Source Han Code JP" . 1.25)
                 ("Source Han Mono SC" . 1.25)
-                ("Noto Sans Thai" . 1.25)
-                ("Noto Sans Hebrew" . 1.2)
-                ("Noto Sans Arabic" . 1.7)
+                ("Noto Sans Arabic" . 1.35)
                 ("Noto Sans Bengali" . 1.35)
-                ("Noto Sans Devanagari" . 1.55)
-                ("Noto Sans Kannada" . 1.15)
-                ("Noto Sans Malayalam" . 0.85)
-                ("Noto Sans Gurmukhi" . 1.35)
-                ("Noto Sans Tamil" . 0.9)
-                ("Noto Sans Telugu" . 1.15)
+                ("Noto Sans Devanagari" . 1.3)
+                ("Noto Sans Gurmukhi" . 1.15)
                 ("Noto Sans Khmer" . 1.25)))
   (add-to-list 'face-font-rescale-alist item))
 
@@ -350,10 +344,10 @@ not be synced across machines.")
          ;; Alternate mapping to avoid override by Flycheck
          ("C-c C-." . org-time-stamp-inactive))
   :config
-  (when amk-use-fancy-ligatures
-    ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
-    ;; some reason, but Menlo seems to be OK.
-    (set-face-attribute 'org-table nil :family "Menlo"))
+  ;; (when amk-use-fancy-ligatures
+  ;;   ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
+  ;;   ;; some reason, but Menlo seems to be OK.
+  ;;   (set-face-attribute 'org-table nil :family "Menlo"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    `(,@org-babel-load-languages
