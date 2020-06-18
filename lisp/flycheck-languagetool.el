@@ -28,9 +28,10 @@
 (put 'flycheck-languagetool-mother-tongue 'safe-local-variable #'stringp)
 
 (defcustom flycheck-languagetool-disable-rules-alist nil
-  "A list of LanguageTool rules to disable.  Format is an alist
-of (MAJOR-MODE . (STRING ...)).  A MAJOR-MODE of t is used as a
-catch-all."
+  "A list of LanguageTool rules to disable.
+
+Format is an alist of (MAJOR-MODE . (STRING ...)).  A MAJOR-MODE
+of t is used as a catch-all."
   :group 'flycheck-languagetool
   :type '(alist :key-type symbol :value-type (list string)))
 
@@ -45,8 +46,9 @@ catch-all."
                alist))
 
 (defcustom flycheck-languagetool-max-buffer-lines 1000
-  "The maximum size of a buffer, in lines, to run LanguageTool
-on.  Because LanguageTool is slow on large files."
+  "The maximum size (lines) of a buffer to run LanguageTool on.
+
+Because LanguageTool is slow on large files."
   :group 'flycheck-languagetool
   :type 'integer)
 
