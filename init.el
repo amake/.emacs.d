@@ -1002,8 +1002,10 @@ not be synced across machines.")
     (let ((foreground (frame-parameter (selected-frame) 'foreground-color)))
       (with-selected-frame frame
         (display-line-numbers-mode -1)
+        ;; lsp-ui overrides `after-make-frame-functions' so we have to fix up
+        ;; the appearance here
         (set-foreground-color foreground))))
-  (advice-add #'amk-mac-set-appearance-mode :after (lambda (&rest _)
+  (advice-add #'amk-mac-apply-appearance-mode :after (lambda (&rest _)
                                                      (lsp-ui-doc--delete-frame)))
   (lsp-ui-doc--delete-frame))
 

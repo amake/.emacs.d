@@ -49,12 +49,17 @@
     (shell-command (concat "touch " file))
     (shell-command (concat "date -r " file))))
 
-(defvar amk-mac-appearance-mode nil
-  "Mac appearance mode: 'light, 'dark, or nil (auto).")
+(defun amk-mac--set-default (symbol value)
+  "Set SYMBOL to VALUE."
+  (message "Symbol %s value %s" symbol value)
+  (cond ((eq symbol 'amk-mac-appearance-mode)
+         (amk-mac-apply-appearance-mode value)))
+  (set-default symbol value))
 
-(defun amk-mac-set-appearance-mode (mode)
-  "Set Mac appearance MODE (light, dark, auto) independently of system settings."
-  (setq amk-mac-appearance-mode mode)
+(defun amk-mac-apply-appearance-mode (mode)
+  "Set Mac appearance MODE (light, dark, auto) on FRAME.
+
+If FRAME is nil then apply to all frames in `frame-list'."
   (cond ((eq mode 'light)
          (setq frame-background-mode 'light)
          (set-background-color "white")
@@ -69,6 +74,16 @@
          (set-foreground-color "mac:textColor")))
   (mapc #'frame-set-background-mode (frame-list)))
 
+(defcustom amk-mac-appearance-mode nil
+  "Mac appearance mode: 'light, 'dark, or nil (auto).
+
+Programmatically set with `amk-mac-set-appearance-mode'."
+  :group 'amk-mac
+  :type '(choice (const :tag "Light Mode" light)
+                 (const :tag "Dark Mode" dark)
+                 (other :tag "Follow system" nil))
+  :set #'amk-mac--set-default)
+
 (defun amk-mac-toggle-appearance-mode ()
   "Toggle between light mode, dark mode, and automatic."
   (interactive)
@@ -76,8 +91,15 @@
          (next (cond ((eq mode 'light) 'dark)
                      ((eq mode 'dark) nil)
                      (t 'light))))
-    (amk-mac-set-appearance-mode next)
+    (amk-mac--set-default 'amk-mac-appearance-mode next)
     (message "%s" (or next "auto"))))
+
+(defun amk-mac--apply-appearance-mode-to-frame (frame)
+  "Apply current theme to supplied FRAME."
+  (with-selected-frame frame
+    (amk-mac-apply-appearance-mode amk-mac-appearance-mode)))
+
+(add-hook 'after-make-frame-functions #'amk-mac--apply-appearance-mode-to-frame)
 
 (provide 'amk-mac)
 ;;; amk-mac.el ends here
