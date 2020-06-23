@@ -51,7 +51,6 @@
 
 (defun amk-mac--set-default (symbol value)
   "Set SYMBOL to VALUE."
-  (message "Symbol %s value %s" symbol value)
   (cond ((eq symbol 'amk-mac-appearance-mode)
          (amk-mac-apply-appearance-mode value)))
   (set-default symbol value))
