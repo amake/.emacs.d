@@ -318,7 +318,8 @@ not be synced across machines.")
   :ensure nil
   :after lsp-mode
   :ensure-system-package ((npm . npm6)
-                          (typescript-language-server . "sudo npm install -g typescript-language-server"))
+                          (typescript-language-server . "sudo npm install -g typescript-language-server")
+                          (tsserver . "sudo npm install -g typescript"))
   :hook (js-mode . lsp-deferred)
   :custom
   (js-indent-level 2))
