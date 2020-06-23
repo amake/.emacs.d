@@ -15,6 +15,10 @@
 
 (require 'subr-x)
 
+(defgroup amk-mac nil
+  "Mac stuff"
+  :group 'convenience)
+
 (defun amk-mac-open-pwd ()
   "Open the current working directory in the Finder."
   (interactive)
