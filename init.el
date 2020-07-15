@@ -892,8 +892,8 @@ not be synced across machines.")
          (lisp-mode . paredit-mode)
          (lisp-interaction-mode . paredit-mode)
          (scheme-mode . paredit-mode))
-  :bind (("M-S-<down>" . move-lines-down)
-         ("M-S-<up>" . move-lines-up)))
+  :bind (("M-S-<down>" . amk-edit-move-lines-down)
+         ("M-S-<up>" . amk-edit-move-lines-up)))
 
 (use-package swift-mode
   :defer t)
