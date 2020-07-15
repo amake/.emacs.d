@@ -357,6 +357,17 @@ not be synced across machines.")
      (python . t)
      (ruby . t))))
 
+(use-package amk-ob-ruby
+  :ensure nil
+  :load-path "lisp")
+
+(use-package tramp
+  :ensure nil
+  :config
+  ;; Make Tramp respect the remote server's PATH setting, so we can pick up
+  ;; things like rbenv shims for remote Ruby execution via bundler
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
+
 (use-package org-agenda
   :ensure nil
   :after org
