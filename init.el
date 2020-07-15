@@ -368,6 +368,9 @@ not be synced across machines.")
   ;; things like rbenv shims for remote Ruby execution via bundler
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
+(use-package ob-async
+  :hook (ob-async-pre-execute-src-block . (lambda () (require 'amk-ob-ruby))))
+
 (use-package org-agenda
   :ensure nil
   :after org
