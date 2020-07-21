@@ -898,6 +898,13 @@ not be synced across machines.")
 (use-package swift-mode
   :defer t)
 
+(use-package lsp-sourcekit
+  :after lsp-mode
+  :hook (swift-mode . lsp-deferred)
+  :custom
+  (lsp-sourcekit-executable
+   "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"))
+
 (use-package free-keys
   :commands free-keys)
 
