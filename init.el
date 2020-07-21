@@ -781,7 +781,7 @@ not be synced across machines.")
   :custom
   (dumb-jump-selector 'ivy)
   :config
-  (dumb-jump-mode)
+  (add-to-list 'xref-backend-functions #'dumb-jump-xref-activate t)
   (mapc (lambda (item) (add-to-list 'dumb-jump-language-file-exts item))
         '((:language "typescript" :ext "ts" :agtype "ts" :rgtype "ts")
           (:language "typescript" :ext "tsx" :agtype "ts" :rgtype "ts")
