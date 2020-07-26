@@ -19,7 +19,7 @@
 (when amk-use-fancy-ligatures
   ;; Fira Code: https://github.com/tonsky/FiraCode
   ;; Iosevka: https://typeof.net/Iosevka/
-  (set-face-attribute 'default nil :family "PragmataPro") ; Or "Fira Code" or "Iosevka"
+  (set-face-attribute 'default nil :family "PragmataPro Liga") ; Or "Fira Code" or "Iosevka"
   (setq split-height-threshold 100)
   (mac-auto-operator-composition-mode))
 
