@@ -23,11 +23,11 @@
 ;;
 ;;   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 ;;
-;; Putting this code in its own feature was an attempt to get it to work nicely
-;; with ob-async (so it could be `require'd from the
-;; `ob-async-pre-execute-src-block-hook' and thus take effect in the forked
-;; process) but it doesn't seem to work.
-
+;; If using with `ob-async', you must arrange for this feature to be loaded in
+;; the worker process like so:
+;;
+;;   (add-hook 'ob-async-pre-execute-src-block-hook
+;;             (lambda () (require 'amk-ob-ruby)))
 
 ;;; Code:
 
