@@ -599,7 +599,20 @@ not be synced across machines.")
       (if (amk-ruby-test-rails-p filename)
           (apply #'amk-ruby-test-rails-command args)
         (apply old-func args))))
-  (advice-add #'ruby-test-command :around #'amk-ruby-test--command-with-rails))
+  (advice-add #'ruby-test-command :around #'amk-ruby-test--command-with-rails)
+  (defun amk-ruby-test-pretty-error-diffs (old-func &rest args)
+    "Make error diffs prettier."
+    (let ((exit-status (cadr args)))
+      (apply old-func args)
+      (when (> exit-status 0)
+        (diff-mode)
+        ;; Remove self
+        (advice-remove #'compilation-handle-exit #'amk-ruby-test-pretty-error-diffs))))
+  (defun amk-ruby-test-pretty-error-diffs-setup (old-func &rest args)
+    "Set up advice to enable pretty diffs when tests fail."
+    (advice-add #'compilation-handle-exit :around #'amk-ruby-test-pretty-error-diffs)
+    (apply old-func args))
+  (advice-add #'ruby-test-run-command :around #'amk-ruby-test-pretty-error-diffs-setup))
 
 (use-package counsel
   :demand t
