@@ -371,7 +371,14 @@ not be synced across machines.")
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
 (use-package ob-async
-  :hook (ob-async-pre-execute-src-block . (lambda () (require 'amk-ob-ruby))))
+  :hook (ob-async-pre-execute-src-block
+         .
+         ;; This can't be its own function because we'd have to redefine the
+         ;; function in the other process, too
+         (lambda ()
+           (require 'tramp)
+           (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+           (require 'amk-ob-ruby))))
 
 (use-package org-agenda
   :ensure nil
