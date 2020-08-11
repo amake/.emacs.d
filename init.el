@@ -11,10 +11,10 @@
   ;; New in Emacs 27
   (setq read-process-output-max (* 1024 1024)))
 
-;; Increase default font size.
-(set-face-attribute 'default nil :height 180 :family "Menlo")
+;; Set default font size and family.
+(set-face-attribute 'default nil :height 180 :family "PragmataPro")
 
-;; Fancy operator ligatures with Fira Code
+;; Fancy font when ligatures are available (Yamamoto Mitsuharu's Mac port)
 (defconst amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
 (when amk-use-fancy-ligatures
   ;; Fira Code: https://github.com/tonsky/FiraCode
@@ -347,10 +347,6 @@ not be synced across machines.")
          ;; Alternate mapping to avoid override by Flycheck
          ("C-c C-." . org-time-stamp-inactive))
   :config
-  ;; (when amk-use-fancy-ligatures
-  ;;   ;; Table spacing sometimes gets messed up with Fira Code and Fira Mono for
-  ;;   ;; some reason, but Menlo seems to be OK.
-  ;;   (set-face-attribute 'org-table nil :family "Menlo"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    `(,@org-babel-load-languages
