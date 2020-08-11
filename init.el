@@ -1021,7 +1021,8 @@ not be synced across machines.")
   (defun amk-lsp-disable-format-on-save ()
     (remove-hook 'before-save-hook #'amk-lsp-format-buffer-quick t))
   (defun amk-lsp-organize-imports-on-save ()
-    (add-hook 'before-save-hook #'lsp-organize-imports nil t)))
+    (add-hook 'before-save-hook #'lsp-organize-imports nil t))
+  (put 'lsp-solargraph-use-bundler 'safe-local-variable #'booleanp))
 
 (use-package lsp-ui
   :commands lsp-ui
