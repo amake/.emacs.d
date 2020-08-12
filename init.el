@@ -1005,8 +1005,6 @@ not be synced across machines.")
   :diminish (lsp-mode . "LSP")
   :bind (:map lsp-mode-map
               ("C-c C-a" . #'lsp-execute-code-action))
-  :hook (lsp-mode . (lambda ()
-                      (setq-local company-idle-delay 0.5)))
   :custom
   (lsp-file-watch-threshold nil)
   (lsp-solargraph-multi-root nil)
