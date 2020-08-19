@@ -837,7 +837,7 @@ See URL `http://batsov.com/rubocop/'."
   :custom
   (dumb-jump-selector 'ivy)
   :config
-  (add-to-list 'xref-backend-functions #'dumb-jump-xref-activate t)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   (mapc (lambda (item) (add-to-list 'dumb-jump-language-file-exts item))
         '((:language "typescript" :ext "ts" :agtype "ts" :rgtype "ts")
           (:language "typescript" :ext "tsx" :agtype "ts" :rgtype "ts")
