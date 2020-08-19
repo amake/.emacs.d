@@ -484,7 +484,45 @@ not be synced across machines.")
   (defun amk-flycheck-disable-on-large-text ()
     (when (> (buffer-size) 500000)
       (flycheck-mode -1)
-      (message "flycheck-mode disabled due to buffer size"))))
+      (message "flycheck-mode disabled due to buffer size")))
+  ;; Temporary fix; remove pending merge of
+  ;; https://github.com/flycheck/flycheck/pull/1793
+  (defun flycheck-ruby--filter-errors (errors)
+    "Filter Rubocop ERRORS attributed to dummy stdin filename."
+    (flycheck-remove-error-file-names
+     (flycheck--file-truename (expand-file-name "stdin"))
+     errors))
+  (flycheck-define-command-checker 'ruby-rubocop
+    "A Ruby syntax and style checker using the RuboCop tool.
+
+You need at least RuboCop 0.34 for this syntax checker.
+
+See URL `http://batsov.com/rubocop/'."
+    ;; ruby-standard is defined based on this checker
+    :command '("rubocop"
+               "--display-cop-names"
+               "--force-exclusion"
+               "--format" "emacs"
+               ;; Explicitly disable caching to prevent Rubocop 0.35.1 and earlier
+               ;; from caching standard input.  Later versions of Rubocop
+               ;; automatically disable caching with --stdin, see
+               ;; https://github.com/flycheck/flycheck/issues/844 and
+               ;; https://github.com/bbatsov/rubocop/issues/2576
+               "--cache" "false"
+               (config-file "--config" flycheck-rubocoprc)
+               (option-flag "--lint" flycheck-rubocop-lint-only)
+               ;; Rubocop takes the original file name as argument when reading
+               ;; from standard input, but it chokes when that name is the empty
+               ;; string, so fall back to "stdin" in order to handle buffers with
+               ;; no backing file (e.g. org-mode snippet buffers)
+               "--stdin" (eval (or (buffer-file-name) "stdin")))
+    :standard-input t
+    :working-directory #'flycheck-ruby--find-project-root
+    :error-patterns flycheck-ruby-rubocop-error-patterns
+    :error-filter #'flycheck-ruby--filter-errors
+    :modes '(enh-ruby-mode ruby-mode)
+    :next-checkers '((warning . ruby-reek)
+                     (warning . ruby-rubylint))))
 
 (use-package flycheck-package
   :after flycheck
