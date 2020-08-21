@@ -69,7 +69,7 @@
    (transpose-lines 1)
    (forward-line -1)))
 
-(defun amk-edit-copy-file-name-to-clipboard ()
+(defun amk-edit-kill-current-path ()
   "Copy the current buffer file name to the clipboard."
   ;; https://stackoverflow.com/a/9414763/448068
   (interactive)
