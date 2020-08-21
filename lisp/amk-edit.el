@@ -91,5 +91,25 @@ to be prompted for the delimiter."
   (while (re-search-forward "\\(.\\)" nil t)
     (replace-match (format "\\1%s" delimiter))))
 
+(defun amk-edit-unfill-paragraph (&optional region)
+  "Take a filled paragraph and unwrap the lines.
+This is the opposite of `fill-paragraph'.
+
+REGION is as in `fill-paragraph'."
+  (interactive "p")
+  (let ((fill-func (or
+                    (key-binding (kbd "M-q"))
+                    #'fill-paragraph))
+        (fill-column most-positive-fixnum)
+        (emacs-lisp-docstring-fill-column most-positive-fixnum))
+    (condition-case nil
+        ;; Assume `fill-paragraph' or workalike
+        (apply fill-func (list
+                          nil ; justify: always nil
+                          region))
+      (error
+       ;; Try calling without args
+       (apply fill-func nil)))))
+
 (provide 'amk-edit)
 ;;; amk-edit.el ends here
