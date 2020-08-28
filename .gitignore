@@ -79,3 +79,4 @@ semanticdb
 /workspace
 /transient
 /.cache
+/.dap-breakpoints
