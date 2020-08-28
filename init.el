@@ -73,7 +73,8 @@
               mac-command-modifier 'super
               mac-option-modifier 'meta
               require-final-newline t
-              save-interprogram-paste-before-kill t)
+              save-interprogram-paste-before-kill t
+              sentence-end-double-space nil)
 
 ;; Workaround for failure when installing MacPorts packages via
 ;; system-packages-install
