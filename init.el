@@ -344,6 +344,7 @@ not be synced across machines.")
   (org-directory "~/org")
   (org-default-notes-file (concat (file-name-as-directory org-directory) "notes.org"))
   (org-src-tab-acts-natively t)
+  (org-log-done 'time)
   :bind (
          ;; Alternate mapping to avoid override by Flycheck
          ("C-c C-." . org-time-stamp-inactive))
