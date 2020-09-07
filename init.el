@@ -993,7 +993,8 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package rainbow-mode
   :diminish rainbow-mode
-  :hook (prog-mode . rainbow-mode))
+  :hook ((prog-mode . rainbow-mode)
+         (conf-mode . rainbow-mode)))
 
 (defun emacs-internal-file-p (path)
   "Return non-nil if PATH represents a file that might be part of the Emacs installation."
