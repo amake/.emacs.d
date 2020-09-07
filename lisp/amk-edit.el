@@ -21,6 +21,7 @@
        ,@body
        (move-to-column ,tmp))))
 
+;;;###autoload
 (defun amk-edit-move-lines-up ()
   "Move the current line or region up by one line."
   (interactive)
@@ -46,6 +47,7 @@
         (push-mark)
         (insert text)))))
 
+;;;###autoload
 (defun amk-edit-move-line-up ()
   "Swap the current line with the previous one."
   (interactive)
@@ -53,6 +55,7 @@
    (transpose-lines 1)
    (forward-line -2)))
 
+;;;###autoload
 (defun amk-edit-move-lines-down ()
   "Move the current line or region down by one line."
   (interactive)
@@ -61,6 +64,7 @@
         (amk-edit--move-lines-impl)
       (amk-edit-move-line-down))))
 
+;;;###autoload
 (defun amk-edit-move-line-down ()
   "Swap the current line with the next one."
   (interactive)
@@ -69,6 +73,7 @@
    (transpose-lines 1)
    (forward-line -1)))
 
+;;;###autoload
 (defun amk-edit-kill-current-path ()
   "Copy the current buffer file name to the clipboard."
   ;; https://stackoverflow.com/a/9414763/448068
@@ -80,6 +85,7 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+;;;###autoload
 (defun amk-edit-split-buffer-chars (&optional delimiter)
   "Split the buffer so that each char past point is separated by DELIMITER.
 
@@ -91,6 +97,7 @@ to be prompted for the delimiter."
   (while (re-search-forward "\\(.\\)" nil t)
     (replace-match (format "\\1%s" delimiter))))
 
+;;;###autoload
 (defun amk-edit-unfill-paragraph (&optional region)
   "Take a filled paragraph and unwrap the lines.
 This is the opposite of `fill-paragraph'.
