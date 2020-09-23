@@ -1094,7 +1094,8 @@ See URL `http://batsov.com/rubocop/'."
   :after lsp-mode
   ;; Temporarily disabled for stability and performance issues
   ;; :hook (java-mode . lsp-deferred)
-  :demand t)
+  :demand t
+  :ensure-system-package (mvn . maven3))
 
 (use-package dart-mode
   :after (lsp-dart scale-to-fit)
