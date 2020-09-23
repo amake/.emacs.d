@@ -1095,7 +1095,10 @@ See URL `http://batsov.com/rubocop/'."
   ;; Temporarily disabled for stability and performance issues
   ;; :hook (java-mode . lsp-deferred)
   :demand t
-  :ensure-system-package (mvn . maven3))
+  :ensure-system-package ((mvn . maven3)
+                          ("/Library/Java/JavaVirtualMachines/openjdk11" . openjdk11))
+  :custom
+  (lsp-java-java-path "/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home/bin/java"))
 
 (use-package dart-mode
   :after (lsp-dart scale-to-fit)
