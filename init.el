@@ -585,6 +585,10 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (flycheck-dart-sass-setup))
 
+(use-package crdt
+  :ensure nil
+  :load-path "lisp/crdt")
+
 (use-package octave
   :ensure nil
   :mode (("\\.m\\'" . octave-mode))
