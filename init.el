@@ -441,11 +441,6 @@ not be synced across machines.")
              (file-exists-p amk-code-directory))
     (add-to-list 'magit-repository-directories `(,amk-code-directory . 1))))
 
-(use-package magit-svn
-  :after magit
-  ;; Do `git config --add magit.extension svn` to enable in repository
-  )
-
 (use-package forge
   ;; To store GitHub token in macOS keychain per `auth-source' config below:
   ;; 0. Create token at https://github.com/settings/tokens
@@ -588,13 +583,6 @@ See URL `http://batsov.com/rubocop/'."
 (use-package crdt
   :ensure nil
   :load-path "lisp/crdt")
-
-(use-package octave
-  :ensure nil
-  :mode (("\\.m\\'" . octave-mode))
-  :custom (octave-block-offset 4)
-  :config
-  (put 'octave-block-offset 'safe-local-variable #'integerp))
 
 (use-package cc-mode
   :ensure nil
@@ -778,15 +766,6 @@ See URL `http://batsov.com/rubocop/'."
   (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                     '((default "v")))
   (counsel-projectile-mode))
-
-(use-package ripgrep
-  :after projectile)
-
-(use-package scala-mode
-  :defer t)
-
-(use-package play-routes-mode
-  :mode "\\.routes\\'")
 
 (use-package typescript-mode
   :defer t
@@ -1042,11 +1021,6 @@ See URL `http://batsov.com/rubocop/'."
          ("C-h F" . #'helpful-function)
          ("C-h C" . #'helpful-command)))
 
-(use-package blimp
-  :custom
-  (eimp-enable-undo t)
-  :hook (image-mode . blimp-mode))
-
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :diminish (lsp-mode . "LSP")
@@ -1151,14 +1125,6 @@ See URL `http://batsov.com/rubocop/'."
   :ensure-system-package ktlint
   :config
   (flycheck-kotlin-setup))
-
-(use-package restclient)
-
-(use-package company-restclient
-  :after restclient
-  :hook (restclient-mode . (lambda ()
-                             (make-local-variable 'company-backends)
-                             (add-to-list 'company-backends 'company-restclient))))
 
 (use-package yasnippet
   ;; Snippets in ~/.emacs.d/snippets by default
