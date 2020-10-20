@@ -77,6 +77,6 @@ semanticdb
 /.lsp-session-v*
 /eclipse.jdt.ls
 /workspace
-/transient
+/transient/history.el
 /.cache
 /.dap-breakpoints
