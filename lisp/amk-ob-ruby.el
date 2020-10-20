@@ -12,10 +12,10 @@
 ;;; Commentary:
 
 ;; Allow customizing the Ruby executable in an org-babel source block by
-;; specifying the header argument ":cmd".  You can also put it in a drawer:
+;; specifying the header argument ":ruby".  You can also put it in a drawer:
 ;;
 ;;   :PROPERTIES:
-;;   :header-args:ruby: :cmd "bundle exec ruby"
+;;   :header-args:ruby: :ruby "bundle exec ruby"
 ;;   :end:
 ;;
 ;; If executing remotely, note that you will probably want to set up Tramp to
@@ -36,7 +36,7 @@
 (defun amk-ob-ruby-custom-command (old-func &rest args)
   "Advise `org-babel-execute:ruby' to allow customizing the Ruby command."
   (let* ((params (cadr args))
-         (cmd (cdr (assq :cmd params)))
+         (cmd (cdr (assq :ruby params)))
          (org-babel-ruby-command (or cmd org-babel-ruby-command)))
     (apply old-func args)))
 
