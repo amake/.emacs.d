@@ -29,6 +29,9 @@
 ;;   (add-hook 'ob-async-pre-execute-src-block-hook
 ;;             (lambda () (require 'amk-ob-ruby)))
 
+;; This package will be obsolete pending acceptance and release of this patch:
+;; https://orgmode.org/list/20201020084956.61337-1-aaron@madlon-kay.com/
+
 ;;; Code:
 
 (require 'ob-ruby)
