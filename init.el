@@ -614,6 +614,8 @@ See URL `http://batsov.com/rubocop/'."
   :after ruby-mode
   :diminish ruby-test-mode
   :config
+  ;; TODO: Remove advice pending merge of
+  ;; https://github.com/ruby-test-mode/ruby-test-mode/pull/59
   (defun amk-ruby-test-rails-p (filename)
     "Return non-nil if FILENAME is part of a Ruby-on-Rails project."
     (ruby-test-rails-root filename))
