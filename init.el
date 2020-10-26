@@ -446,9 +446,6 @@ not be synced across machines.")
   ;; 4. Use $username^forge as Account Name
   ;; 5. Enter token as password and save
   ;; 6. Test with `security find-internet-password -g -s api.github.com -a $username^forge'
-
-  ;; Do `git config --add forge.remote <remote>` to use something other than
-  ;; `origin` as the target remote
   )
 
 (use-package auth-source
