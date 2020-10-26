@@ -359,10 +359,6 @@ not be synced across machines.")
      (python . t)
      (ruby . t))))
 
-(use-package amk-ob-ruby
-  :ensure nil
-  :load-path "lisp")
-
 (use-package tramp
   :ensure nil
   :config
@@ -377,8 +373,7 @@ not be synced across machines.")
          ;; function in the other process, too
          (lambda ()
            (require 'tramp)
-           (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-           (require 'amk-ob-ruby))))
+           (add-to-list 'tramp-remote-path 'tramp-own-remote-path))))
 
 (use-package org-agenda
   :ensure nil
