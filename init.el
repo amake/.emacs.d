@@ -333,6 +333,10 @@ not be synced across machines.")
   (when (macosp)
     (setq browse-url-generic-program "open")))
 
+(use-package ob-passthrough
+  :ensure nil
+  :load-path "lisp")
+
 (use-package org
   :ensure org-plus-contrib
   :custom
@@ -357,7 +361,8 @@ not be synced across machines.")
      (shell . t)
      (dot . t)
      (python . t)
-     (ruby . t))))
+     (ruby . t)
+     (passthrough . t))))
 
 (use-package tramp
   :ensure nil
