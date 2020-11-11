@@ -457,6 +457,20 @@ not be synced across machines.")
     (add-to-list 'auth-sources 'macos-keychain-internet)
     (add-to-list 'auth-sources 'macos-keychain-generic)))
 
+(use-package gnus
+  :ensure nil
+  ;; To store Gmail auth info in macOS keychain per `auth-source' config above:
+  ;; 0. Generate application-specific password
+  ;; 1. Open Keychain Access
+  ;; 2. Create new password item
+  ;; 3. Make sure it's recognized as an Internet password by entering
+  ;;    https://imap.googlemail.com:993 for the Keychain Item Name
+  ;; 4. Use whatever as Account Name
+  ;; 5. Enter password and save
+  ;; 6. Test with `security find-internet-password -g -s imap.googlemail.com -P 993`
+  ;; 7. Repeat with https://smtp.googlemail.com:587
+  )
+
 (use-package git-gutter-fringe
   :if (display-graphic-p)
   :diminish git-gutter-mode
