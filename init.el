@@ -350,10 +350,12 @@ not be synced across machines.")
   (org-src-tab-acts-natively t)
   (org-log-done 'time)
   (org-preview-latex-default-process 'dvisvgm)
+  (org-startup-with-inline-images t)
   :ensure-system-package dvisvgm
   :bind (
          ;; Alternate mapping to avoid override by Flycheck
          ("C-c C-." . org-time-stamp-inactive))
+  :hook (org-babel-after-execute . org-redisplay-inline-images)
   :config
   (org-babel-do-load-languages
    'org-babel-load-languages
