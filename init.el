@@ -430,15 +430,10 @@ not be synced across machines.")
 
 (use-package magit
   :diminish (smerge-mode auto-revert-mode)
-  :bind (("C-x g" . magit-status)
-         ("C-x M-g" . magit-dispatch)
-         ("C-c L" . magit-log-buffer-file)
-         ("C-c B" . magit-blame))
   :custom
   (magit-diff-refine-hunk 'all "Always show character-level diffs")
   (vc-handled-backends (delq 'Git vc-handled-backends) "Don't use VC for git")
   :config
-  (global-magit-file-mode)
   (when (and amk-code-directory
              (file-exists-p amk-code-directory))
     (add-to-list 'magit-repository-directories `(,amk-code-directory . 1))))
