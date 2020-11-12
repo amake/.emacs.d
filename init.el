@@ -588,6 +588,13 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (flycheck-dart-sass-setup))
 
+(use-package flycheck-yard
+  :ensure nil
+  :after flycheck
+  :load-path "lisp"
+  :config
+  (flycheck-yard-setup))
+
 (use-package crdt
   :ensure nil
   :load-path "lisp/crdt")
