@@ -17,7 +17,8 @@
 
 See URL `https://yardoc.org/'."
   :command ("yard" "--no-stats" "--no-progress" "--no-cache"
-            "--output-dir" temporary-directory)
+            "--output-dir" temporary-directory
+            "--db" temporary-directory)
   :error-patterns
   ((error line-start "[warn]: In file `" (file-name) "':" line ":" (message) ":" line-end)
    ;; Note that this is the only pattern that uses `file-name`; the others are
