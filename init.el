@@ -12,7 +12,7 @@
   (setq read-process-output-max (* 1024 1024)))
 
 ;; Set default font size and family.
-(set-face-attribute 'default nil :height 180 :family "PragmataPro")
+(set-face-attribute 'default nil :height 180 :family "PragmataPro Liga")
 
 ;; Fancy font when ligatures are available (Yamamoto Mitsuharu's Mac port)
 (defconst amk-use-fancy-ligatures (fboundp #'mac-auto-operator-composition-mode))
