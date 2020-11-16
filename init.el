@@ -947,6 +947,8 @@ See URL `http://batsov.com/rubocop/'."
     (remove-hook 'before-save-hook #'amk-lsp-format-buffer-quick t))
   (defun amk-lsp-organize-imports-on-save ()
     (add-hook 'before-save-hook #'lsp-organize-imports nil t))
+  ;; TODO: Remove this pending upstream merge
+  ;; https://github.com/emacs-lsp/lsp-mode/pull/2332
   (put 'lsp-solargraph-use-bundler 'safe-local-variable #'booleanp))
 
 (use-package lsp-ui
