@@ -80,3 +80,4 @@ semanticdb
 /transient/history.el
 /.cache
 /.dap-breakpoints
+/eln-cache
