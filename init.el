@@ -939,10 +939,8 @@ See URL `http://batsov.com/rubocop/'."
   (lsp-solargraph-multi-root nil)
   :config
   (defun amk-lsp-format-buffer-quick ()
-    (let ((orig-timeout lsp-response-timeout))
-      (setq lsp-response-timeout 2)
-      (lsp-format-buffer)
-      (setq lsp-response-timeout orig-timeout)))
+    (let ((lsp-response-timeout 2))
+      (lsp-format-buffer)))
   (defun amk-lsp-format-on-save ()
     (add-hook 'before-save-hook #'amk-lsp-format-buffer-quick nil t))
   (defun amk-lsp-disable-format-on-save ()
