@@ -12,6 +12,9 @@
   (setq read-process-output-max (* 1024 1024)))
 
 ;; Set default font size and family.
+;;
+;; Disable font smoothing on Big Sur:
+;;   defaults -currentHost write -g AppleFontSmoothing -int 0
 (set-face-attribute 'default nil :height 180 :family "PragmataPro Liga")
 
 ;; Fancy font when ligatures are available (Yamamoto Mitsuharu's Mac port)
