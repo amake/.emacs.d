@@ -173,6 +173,9 @@ not be synced across machines.")
 (use-package exec-path-from-shell
   :if (macosp)
   :config
+  ;; NS port doesn't pick up LC_ALL, which causes encoding errors in e.g.
+  ;; org-babel execution.
+  (add-to-list 'exec-path-from-shell-variables "LC_ALL")
   ;; Ensure emacs shell has regular shell environment
   (exec-path-from-shell-initialize))
 
