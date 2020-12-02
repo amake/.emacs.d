@@ -246,6 +246,11 @@ not be synced across machines.")
   :custom
   (confirm-kill-emacs #'yes-or-no-p))
 
+(use-package lisp-mode
+  :ensure nil
+  :custom
+  (emacs-lisp-docstring-fill-column t))
+
 (use-package subword
   :ensure nil
   :diminish subword-mode
