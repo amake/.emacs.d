@@ -443,7 +443,6 @@ not be synced across machines.")
   :diminish (smerge-mode auto-revert-mode)
   :custom
   (magit-diff-refine-hunk 'all "Always show character-level diffs")
-  (vc-handled-backends (delq 'Git vc-handled-backends) "Don't use VC for git")
   :config
   (when (and amk-code-directory
              (file-exists-p amk-code-directory))
@@ -482,11 +481,28 @@ not be synced across machines.")
   ;; 7. Repeat with https://smtp.googlemail.com:587
   )
 
-(use-package git-gutter-fringe
-  :if (display-graphic-p)
-  :diminish git-gutter-mode
+(defun amk-face-amend-spec (face spec-entry)
+  "Append SPEC-ENTRY to FACE's spec."
+  (face-spec-set
+   face
+   ;; Custom spec item must come first in order to override default
+   (append spec-entry (face-default-spec face))))
+
+(use-package diff-hl
+  :hook ((dired-mode . diff-hl-dired-mode-unless-remote)
+         (magit-pre-refresh . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
   :config
-  (global-git-gutter-mode))
+  ;; We go through this rigamorole in order to override the dark-mode color
+  ;; only, leaving the light-mode color untouched
+  (amk-face-amend-spec
+   'diff-hl-change
+   '((((class color) (min-colors 88) (background dark)) :foreground "blue" :background "steelblue4")))
+  (amk-face-amend-spec
+   'diff-hl-delete
+   '((((class color) (min-colors 88) (background dark)) :background "red4")))
+  (diff-hl-flydiff-mode)
+  (global-diff-hl-mode))
 
 ;; Use PCRE-style regex
 (use-package pcre2el
