@@ -481,24 +481,15 @@ not be synced across machines.")
   ;; 7. Repeat with https://smtp.googlemail.com:587
   )
 
-(defun amk-face-amend-spec (face spec-entry)
-  "Append SPEC-ENTRY to FACE's spec."
-  (face-spec-set
-   face
-   ;; Custom spec item must come first in order to override default
-   (append spec-entry (face-default-spec face))))
-
 (use-package diff-hl
   :hook ((dired-mode . diff-hl-dired-mode-unless-remote)
          (magit-pre-refresh . diff-hl-magit-pre-refresh)
          (magit-post-refresh . diff-hl-magit-post-refresh))
   :config
-  ;; We go through this rigamorole in order to override the dark-mode color
-  ;; only, leaving the light-mode color untouched
-  (amk-face-amend-spec
+  (face-spec-set
    'diff-hl-change
    '((((class color) (min-colors 88) (background dark)) :foreground "blue" :background "steelblue4")))
-  (amk-face-amend-spec
+  (face-spec-set
    'diff-hl-delete
    '((((class color) (min-colors 88) (background dark)) :background "red4")))
   (diff-hl-flydiff-mode)
