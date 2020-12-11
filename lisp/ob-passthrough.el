@@ -21,5 +21,8 @@
 ;; json output is json
 (defalias 'org-babel-execute:json 'org-babel-execute:passthrough)
 
+;; XML output is XML
+(defalias 'org-babel-execute:xml 'org-babel-execute:passthrough)
+
 (provide 'ob-passthrough)
 ;;; ob-passthrough.el ends here
