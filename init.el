@@ -495,7 +495,6 @@ not be synced across machines.")
   (face-spec-set
    'diff-hl-insert
    '((((class color) (min-colors 88) (background dark)) :foreground "green" :background "forestgreen")))
-  (diff-hl-flydiff-mode)
   (global-diff-hl-mode))
 
 ;; Use PCRE-style regex
