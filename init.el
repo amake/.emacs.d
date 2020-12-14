@@ -645,6 +645,8 @@ See URL `http://batsov.com/rubocop/'."
   (ruby-insert-encoding-magic-comment nil "Not needed in Ruby 2")
   :ensure-system-package (solargraph . "gem install --user-install solargraph"))
 
+(use-package inf-ruby)
+
 (use-package ruby-test-mode
   :after ruby-mode
   :diminish ruby-test-mode
