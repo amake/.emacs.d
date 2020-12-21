@@ -200,6 +200,11 @@ not be synced across machines.")
   :config
   (add-to-list 'amk-browse-alist '(backlog-issue-p . backlog-browse-issue)))
 
+(use-package amk-org
+  :ensure nil
+  :load-path "lisp"
+  :after (amk-edit org))
+
 (use-package backlog
   :ensure nil
   :disabled
