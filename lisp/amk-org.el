@@ -21,6 +21,7 @@
 (defun amk-org-kill-subtree-as-markdown ()
   "Kill current Org subtree as Markdown-formatted text."
   (interactive)
+  (require 'ox-md)
   (let ((old-buf (get-buffer amk-org-markdown-export-buffer-name)))
     (when old-buf
       (kill-buffer old-buf)))
@@ -32,8 +33,7 @@
                     (markdown-mode)
                     (mark-whole-buffer)
                     (amk-edit-unfill-paragraph t)
-                    (kill-region (point-min) (point-max))))
-    (kill-buffer buf)))
+                    (kill-new (buffer-string))))))
 
 (provide 'amk-org)
 ;;; amk-org.el ends here
