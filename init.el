@@ -1115,5 +1115,8 @@ See URL `http://batsov.com/rubocop/'."
                           (vscode-json-languageserver . "sudo npm install -g vscode-json-languageserver"))
   :hook (json-mode . lsp-deferred))
 
+(use-package vterm
+  :ensure-system-package ("/opt/local/lib/libvterm.dylib" . libvterm))
+
 (provide 'init)
 ;;; init.el ends here
