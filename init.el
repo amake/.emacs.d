@@ -727,7 +727,7 @@ See URL `http://batsov.com/rubocop/'."
          "\\.erb\\'"
          "\\.vue\\'")
   :ensure-system-package ((npm . npm6)
-                          (vls . "sudo npm install -g vue-language-server"))
+                          (vls . "sudo npm install -g vls"))
   :hook (web-mode . (lambda ()
                       (when (vue-file-p)
                         (lsp-deferred))))
