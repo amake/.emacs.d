@@ -1116,7 +1116,8 @@ See URL `http://batsov.com/rubocop/'."
   :hook (json-mode . lsp-deferred))
 
 (use-package vterm
-  :ensure-system-package ("/opt/local/lib/libvterm.dylib" . libvterm))
+  :ensure-system-package ("/opt/local/lib/libvterm.dylib" . libvterm)
+  :custom (vterm-shell "/bin/zsh --login"))
 
 (provide 'init)
 ;;; init.el ends here
