@@ -1117,7 +1117,9 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package vterm
   :ensure-system-package ("/opt/local/lib/libvterm.dylib" . libvterm)
-  :custom (vterm-shell "/bin/zsh --login"))
+  :custom ((vterm-shell "/bin/zsh --login")
+           (vterm-buffer-name-string "vterm %s")
+           (vterm-always-compile-module t)))
 
 (provide 'init)
 ;;; init.el ends here
