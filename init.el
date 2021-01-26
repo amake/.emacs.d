@@ -1121,5 +1121,12 @@ See URL `http://batsov.com/rubocop/'."
            (vterm-buffer-name-string "vterm %s")
            (vterm-always-compile-module t)))
 
+(use-package csharp-mode
+  :after lsp-mode
+  ;; Omnisharp has errors with Emacs; see
+  ;; https://github.com/OmniSharp/omnisharp-roslyn/issues/1689
+  ;; :hook (csharp-mode . lsp-deferred)
+  )
+
 (provide 'init)
 ;;; init.el ends here
