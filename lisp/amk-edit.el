@@ -118,5 +118,12 @@ REGION is as in `fill-paragraph'."
        ;; Try calling without args
        (apply fill-func nil)))))
 
+;;;###autoload
+(defun amk-edit-shell-region (start end)
+  "Execute region from START to END in an inferior shell."
+  (interactive "r")
+  (when mark-active
+    (shell-command (buffer-substring-no-properties start end))))
+
 (provide 'amk-edit)
 ;;; amk-edit.el ends here
