@@ -189,6 +189,10 @@ not be synced across machines.")
          ("ESC <up>" . amk-edit-move-lines-up)
          ("ESC <down>" . amk-edit-move-lines-down)))
 
+(use-package amk-xml
+  :ensure nil
+  :load-path "lisp")
+
 (use-package amk-mac
   :ensure nil
   :load-path "lisp")
