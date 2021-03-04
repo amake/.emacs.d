@@ -125,5 +125,25 @@ REGION is as in `fill-paragraph'."
   (when mark-active
     (shell-command (buffer-substring-no-properties start end))))
 
+;;;###autoload
+(defun amk-edit-smarten-quotes (start end)
+  "Replace 'straight' quotes with 'smart' ones from START to END."
+  (interactive "r")
+  (save-excursion
+    (while (re-search-forward "\\(^\\|[[:blank:][:punct:]]\\)\\([\"']\\)" nil t)
+     (let* ((char (match-string 2))
+            (replacement (cond ((string= char "\"") "“")
+                               ((string= char "'") "‘"))))
+       (replace-match (format "\\1%s" replacement)))))
+  (save-excursion
+    (while (re-search-forward "\\([\"']\\)\\([[:blank:][:punct:]]\\|$\\)" nil t)
+     (let* ((char (match-string 1))
+            (replacement (cond ((string= char "\"") "”")
+                               ((string= char "'") "’"))))
+       (replace-match (format "%s\\2" replacement)))))
+  (save-excursion
+    (while (re-search-forward "\\([[:alpha:]]\\)'\\([[:alpha:]]\\)" nil t)
+      (replace-match "\\1’\\2"))))
+
 (provide 'amk-edit)
 ;;; amk-edit.el ends here
