@@ -39,11 +39,11 @@
   (dolist (item '((hangul . "Sarasa Gothic K") ; Or "Source Han Mono K"
                   (han . "Sarasa Gothic SC") ; Or "Source Han Mono SC"
                   (japanese-jisx0213.2004-1 . "Sarasa Gothic J") ; Or "Source Han Code JP"
-                  ;; (cyrillic . "Noto Sans Mono")
-                  ;; (greek . "Noto Sans Mono")
-                  (hebrew . "Noto Sans Hebrew")
+                  (cyrillic . "PragmataPro Liga")
+                  (greek . "PragmataPro Liga")
+                  (hebrew . "PragmataPro Liga")
                   (thai . "Noto Sans Thai")
-                  (arabic . "Noto Sans Arabic")
+                  (arabic . "PragmataPro Liga")
                   (bengali . "Noto Sans Bengali")
                   (devanagari . "Noto Sans Devanagari")
                   (kannada . "Noto Sans Kannada")
