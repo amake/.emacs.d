@@ -24,5 +24,8 @@
 ;; XML output is XML
 (defalias 'org-babel-execute:xml 'org-babel-execute:passthrough)
 
+;; CSV output is CSV
+(defalias 'org-babel-execute:csv 'org-babel-execute:passthrough)
+
 (provide 'ob-passthrough)
 ;;; ob-passthrough.el ends here
