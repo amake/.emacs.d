@@ -823,12 +823,12 @@ See URL `http://batsov.com/rubocop/'."
   :ensure nil
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp-deferred)
-  :ensure-system-package ((python3 . python38)
-                          (pyls . py38-language-server)))
+  :ensure-system-package ((python3 . python39)
+                          (pyls . py39-language-server)))
 
 (use-package py-autopep8
   :after python
-  :ensure-system-package (autopep8 . py38-autopep8)
+  :ensure-system-package (autopep8 . py39-autopep8)
   :hook (python-mode . py-autopep8-enable-on-save))
 
 (use-package pyvenv
