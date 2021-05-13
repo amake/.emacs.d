@@ -613,8 +613,7 @@ See URL `http://batsov.com/rubocop/'."
   :ensure nil
   :after flycheck
   :load-path "lisp"
-  :ensure-system-package ((pub . dart-sdk)
-                          (dart-sass . "pub global activate sass"))
+  :ensure-system-package (sass . dart-sass)
   :config
   (flycheck-dart-sass-setup))
 
