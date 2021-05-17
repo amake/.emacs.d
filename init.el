@@ -1132,5 +1132,7 @@ See URL `http://batsov.com/rubocop/'."
   ;; :hook (csharp-mode . lsp-deferred)
   )
 
+(use-package csv-mode)
+
 (provide 'init)
 ;;; init.el ends here
