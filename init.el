@@ -470,6 +470,9 @@ not be synced across machines.")
   ;; 6. Test with `security find-internet-password -g -s api.github.com -a $username^forge'
   )
 
+(use-package orgit-forge
+  :after (org forge))
+
 (use-package auth-source
   :ensure nil
   :config
