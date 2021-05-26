@@ -905,9 +905,6 @@ See URL `http://batsov.com/rubocop/'."
 (use-package company
   :diminish company-mode
   :hook (after-init . global-company-mode)
-  :bind (:map company-active-map
-              ("C-n" . company-select-next)
-              ("C-p" . company-select-previous))
   :custom
   (company-idle-delay 0.1)
   (company-dabbrev-downcase nil)
