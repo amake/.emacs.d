@@ -473,6 +473,8 @@ not be synced across machines.")
 (use-package orgit-forge
   :after (org forge))
 
+(use-package git-link)
+
 (use-package auth-source
   :ensure nil
   :config
