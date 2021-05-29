@@ -141,7 +141,7 @@ with `save-buffer'."
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/") ; ensure https
                          ("melpa" . "https://melpa.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")))
+                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 (when (< emacs-major-version 27)
   (package-initialize))
 
