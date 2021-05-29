@@ -359,7 +359,7 @@ not be synced across machines.")
   :load-path "lisp")
 
 (use-package org
-  :ensure org-plus-contrib
+  :ensure org-contrib
   :custom
   (org-enforce-todo-checkbox-dependencies t)
   (org-enforce-todo-dependencies t)
