@@ -31,7 +31,7 @@
   (expand-file-name (buffer-local-value 'default-directory buf)))
 
 (defun amk-vterm-for-project ()
-  "Open vterm for current projectile project."
+  "Open vterm for current Projectile project or CWD."
   (interactive)
   (let* ((proj-root (projectile-project-root)) ; appears guaranteed to be "expanded"
          (curr-dir (expand-file-name default-directory))
