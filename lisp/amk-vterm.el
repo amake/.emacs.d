@@ -17,21 +17,33 @@
 (require 'vterm)
 (require 'projectile)
 
+(defun amk-vterm--find-vterm-buf (predicate)
+  "Find an existing vterm-mode buffer matching PREDICATE."
+  (seq-find (lambda (buf)
+              (with-current-buffer buf
+                (and
+                 (eq major-mode 'vterm-mode)
+                 (funcall predicate buf))))
+            (buffer-list)))
+
+(defun amk-vterm--buf-default-dir (buf)
+  "Get expanded `default-directory' for BUF."
+  (expand-file-name (buffer-local-value 'default-directory buf)))
+
 (defun amk-vterm-for-project ()
-    "Open vterm for current projectile project."
-    (interactive)
-    (when-let ((proj-root (projectile-project-root)))
-      (let ((curr-vterm (seq-find (lambda (buf)
-                                    (with-current-buffer buf
-                                      (and
-                                       (eq major-mode 'vterm-mode)
-                                       (string= default-directory proj-root))))
-                                  (buffer-list))))
-        (switch-to-buffer
-         (or
-          curr-vterm
-          (let ((current-directory proj-root))
-            (vterm)))))))
+  "Open vterm for current projectile project."
+  (interactive)
+  (let* ((proj-root (projectile-project-root)) ; appears guaranteed to be "expanded"
+         (curr-dir (expand-file-name default-directory))
+         (curr-vterm (if proj-root
+                         (amk-vterm--find-vterm-buf
+                          (lambda (buf) (string-prefix-p proj-root (amk-vterm--buf-default-dir buf))))
+                       (amk-vterm--find-vterm-buf
+                        (lambda (buf) (string= curr-dir (amk-vterm--buf-default-dir buf)))))))
+    (switch-to-buffer
+     (or curr-vterm
+         (let ((default-directory (or proj-root curr-dir)))
+           (vterm))))))
 
 (provide 'amk-vterm)
 ;;; amk-vterm.el ends here
