@@ -1,0 +1,5 @@
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+BIN_DIR := \$(dir \$(abspath \$(firstword \$(MAKEFILE_LIST))))
+PATH := \$(BIN_DIR):\$(PATH)
+SHELL := /usr/bin/env PATH=\$(PATH) bash -euo pipefail
