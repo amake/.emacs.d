@@ -341,7 +341,7 @@ not be synced across machines.")
 (use-package js
   :ensure nil
   :after lsp-mode
-  :ensure-system-package ((npm . npm6)
+  :ensure-system-package ((npm . npm7)
                           (typescript-language-server . "sudo npm install -g typescript-language-server")
                           (tsserver . "sudo npm install -g typescript"))
   :hook (js-mode . lsp-deferred)
@@ -734,7 +734,7 @@ See URL `http://batsov.com/rubocop/'."
   :mode ("\\.html?\\'"
          "\\.erb\\'"
          "\\.vue\\'")
-  :ensure-system-package ((npm . npm6)
+  :ensure-system-package ((npm . npm7)
                           (vls . "sudo npm install -g vls"))
   :hook (web-mode . (lambda ()
                       (when (vue-file-p)
@@ -804,7 +804,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package typescript-mode
   :defer t
-  :ensure-system-package ((npm . npm6)
+  :ensure-system-package ((npm . npm7)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
   :hook (typescript-mode . lsp-deferred)
   :custom
@@ -1086,7 +1086,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package cmake-mode)
 
 (use-package yaml-mode
-  :ensure-system-package ((npm . npm6)
+  :ensure-system-package ((npm . npm7)
                           (yaml-language-server . "sudo npm install -g yaml-language-server"))
   :hook ((yaml-mode . lsp-deferred)
          (yaml-mode . flyspell-prog-mode))
@@ -1115,7 +1115,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package json-mode
   :after lsp-mode
   :mode ("\\.arb\\'" . js-mode)
-  :ensure-system-package ((npm . npm6)
+  :ensure-system-package ((npm . npm7)
                           (vscode-json-languageserver . "sudo npm install -g vscode-json-languageserver"))
   :hook (json-mode . lsp-deferred))
 
