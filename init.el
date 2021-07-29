@@ -323,6 +323,7 @@ not be synced across machines.")
 (use-package nxml-mode
   :ensure nil
   :hook (nxml-mode . maven-file-setup)
+  :mode (("\\.xaml\\'" . nxml-mode))
   :custom
   (nxml-child-indent 4)
   :config
