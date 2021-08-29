@@ -4,6 +4,3 @@
 [submodule "lisp/shfmt"]
 	path = lisp/shfmt
 	url = git@github.com:amake/shfmt.el.git
-[submodule "lisp/crdt"]
-	path = lisp/crdt
-	url = https://code.librehq.com/qhong/crdt.el.git

@@ -630,9 +630,7 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (flycheck-yard-setup))
 
-(use-package crdt
-  :ensure nil
-  :load-path "lisp/crdt")
+(use-package crdt)
 
 (use-package cc-mode
   :ensure nil
