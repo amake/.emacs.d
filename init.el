@@ -630,6 +630,14 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (flycheck-yard-setup))
 
+(use-package flycheck-committed
+  :ensure nil
+  :ensure-system-package committed
+  :after flycheck
+  :load-path "lisp"
+  :config
+  (flycheck-committed-setup))
+
 (use-package flycheck-commitlint
   :ensure nil
   :ensure-system-package ((npm . npm7)
