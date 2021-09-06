@@ -630,6 +630,15 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (flycheck-yard-setup))
 
+(use-package flycheck-commitlint
+  :ensure nil
+  :ensure-system-package ((npm . npm7)
+                          (commitlint . "sudo npm install -g @commitlint/cli @commitlint/config-conventional"))
+  :after flycheck
+  :load-path "lisp"
+  :config
+  (flycheck-commitlint-setup))
+
 (use-package crdt)
 
 (use-package cc-mode
