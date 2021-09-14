@@ -12,6 +12,7 @@
 
 (require 'flycheck)
 (require 'git-commit)
+(require 'vc-hooks)
 
 (defcustom flycheck-committed-config-file nil
   "A custom config file for committed."
@@ -28,7 +29,7 @@ See https://github.com/crate-ci/committed"
             (eval (when flycheck-committed-config-file
                     `("--config" ,flycheck-committed-config-file))))
   :standard-input t
-  :working-directory (lambda (_) (vc-find-root buffer-file-name ".git"))
+  :working-directory (lambda (_) (vc-find-root (buffer-file-name) ".git"))
   :error-patterns
   ((error line-start "-: error " (message) line-end))
   :error-filter flycheck-fill-empty-line-numbers
