@@ -28,7 +28,7 @@ See https://commitlint.js.org/"
             (eval (when flycheck-commitlint-config-file
                     `("--config" ,flycheck-commitlint-config-file))))
   :standard-input t
-  :working-directory flycheck-commitlint--find-root
+  :working-directory (lambda (_) (flycheck-commitlint--find-root))
   :error-patterns
   ((error line-start "✖" (zero-or-more blank) (message) "[" (id (one-or-more (not (in "]")))) "]" line-end))
   :error-filter flycheck-fill-empty-line-numbers
