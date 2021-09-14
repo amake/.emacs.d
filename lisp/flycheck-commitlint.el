@@ -12,6 +12,7 @@
 
 (require 'flycheck)
 (require 'git-commit)
+(require 'vc-hooks)
 
 (defcustom flycheck-commitlint-config-file nil
   "A custom config file for commitlint."
