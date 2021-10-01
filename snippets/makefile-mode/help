@@ -1,4 +1,4 @@
-# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# expand-env: ((yas-indent-line 'fixed))
 # --
 .PHONY: help
 help: ## Show this help text
