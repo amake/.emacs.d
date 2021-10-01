@@ -1,0 +1,15 @@
+# --
+@echo off
+
+do thing || goto :error
+
+goto :success
+
+:error
+echo Failed with error %errorlevel%
+pause
+exit /b %errorlevel%
+
+:success
+echo Success!
+pause
