@@ -16,6 +16,7 @@
 ;; Disable font smoothing on Big Sur:
 ;;   defaults -currentHost write -g AppleFontSmoothing -int 0
 (set-face-attribute 'default nil :height 180 :family "PragmataPro Liga")
+(set-face-attribute 'fixed-pitch nil :height 180 :family "PragmataPro Liga")
 (set-face-attribute 'variable-pitch nil :family "Neue Haas Grotesk Text Pro")
 
 ;; Fancy font when ligatures are available (Yamamoto Mitsuharu's Mac port)
