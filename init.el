@@ -374,6 +374,7 @@ not be synced across machines.")
   (org-log-done 'time)
   (org-preview-latex-default-process 'dvisvgm)
   (org-startup-with-inline-images t)
+  (org-adapt-indentation t)
   :ensure-system-package dvisvgm
   :bind (
          ;; Alternate mapping to avoid override by Flycheck
