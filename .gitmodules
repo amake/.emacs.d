@@ -4,3 +4,6 @@
 [submodule "lisp/shfmt"]
 	path = lisp/shfmt
 	url = git@github.com:amake/shfmt.el.git
+[submodule "hl-tags-mode"]
+	path = lisp/hl-tags-mode
+	url = https://github.com/amake/hl-tags-mode.git

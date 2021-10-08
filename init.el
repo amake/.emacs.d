@@ -241,6 +241,12 @@ not be synced across machines.")
   :config
   (global-prettify-symbols-mode))
 
+(use-package hl-tags-mode
+  :ensure nil
+  :load-path "lisp/hl-tags-mode"
+  :after nxml-mode
+  :hook (nxml-mode . hl-tags-mode))
+
 (use-package desktop
   :ensure nil
   :if (display-graphic-p)
