@@ -349,7 +349,7 @@ not be synced across machines.")
 (use-package js
   :ensure nil
   :after lsp-mode
-  :ensure-system-package ((npm . npm7)
+  :ensure-system-package ((npm . npm8)
                           (typescript-language-server . "sudo npm install -g typescript-language-server")
                           (tsserver . "sudo npm install -g typescript"))
   :hook (js-mode . lsp-deferred)
@@ -648,7 +648,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package flycheck-commitlint
   :ensure nil
-  :ensure-system-package ((npm . npm7)
+  :ensure-system-package ((npm . npm8)
                           (commitlint . "sudo npm install -g @commitlint/cli @commitlint/config-conventional"))
   :after flycheck
   :load-path "lisp"
@@ -758,7 +758,7 @@ See URL `http://batsov.com/rubocop/'."
   :mode ("\\.html?\\'"
          "\\.erb\\'"
          "\\.vue\\'")
-  :ensure-system-package ((npm . npm7)
+  :ensure-system-package ((npm . npm8)
                           (vls . "sudo npm install -g vls"))
   :hook (web-mode . (lambda ()
                       (when (vue-file-p)
@@ -828,7 +828,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package typescript-mode
   :defer t
-  :ensure-system-package ((npm . npm7)
+  :ensure-system-package ((npm . npm8)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
   :hook (typescript-mode . lsp-deferred)
   :custom
@@ -1110,7 +1110,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package cmake-mode)
 
 (use-package yaml-mode
-  :ensure-system-package ((npm . npm7)
+  :ensure-system-package ((npm . npm8)
                           (yaml-language-server . "sudo npm install -g yaml-language-server"))
   :hook ((yaml-mode . lsp-deferred)
          (yaml-mode . flyspell-prog-mode))
@@ -1139,7 +1139,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package json-mode
   :after lsp-mode
   :mode ("\\.arb\\'" . json-mode)
-  :ensure-system-package ((npm . npm7)
+  :ensure-system-package ((npm . npm8)
                           (vscode-json-languageserver . "sudo npm install -g vscode-json-languageserver"))
   :hook (json-mode . lsp-deferred))
 
