@@ -853,7 +853,7 @@ See URL `http://batsov.com/rubocop/'."
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp-deferred)
   :ensure-system-package ((python3 . python39)
-                          (pyls . py39-language-server)))
+                          (pylsp . py39-python-lsp-server)))
 
 (use-package py-autopep8
   :after python
