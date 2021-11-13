@@ -40,6 +40,7 @@
    | abc                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f524.png?v8                                     |
    | abcd                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f521.png?v8                                     |
    | accept                               | https://github.githubassets.com/images/icons/emoji/unicode/1f251.png?v8                                     |
+   | accordion                            | https://github.githubassets.com/images/icons/emoji/unicode/1fa97.png?v8                                     |
    | adhesive_bandage                     | https://github.githubassets.com/images/icons/emoji/unicode/1fa79.png?v8                                     |
    | adult                                | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1.png?v8                                     |
    | aerial_tramway                       | https://github.githubassets.com/images/icons/emoji/unicode/1f6a1.png?v8                                     |
@@ -54,6 +55,7 @@
    | ambulance                            | https://github.githubassets.com/images/icons/emoji/unicode/1f691.png?v8                                     |
    | american_samoa                       | https://github.githubassets.com/images/icons/emoji/unicode/1f1e6-1f1f8.png?v8                               |
    | amphora                              | https://github.githubassets.com/images/icons/emoji/unicode/1f3fa.png?v8                                     |
+   | anatomical_heart                     | https://github.githubassets.com/images/icons/emoji/unicode/1fac0.png?v8                                     |
    | anchor                               | https://github.githubassets.com/images/icons/emoji/unicode/2693.png?v8                                      |
    | andorra                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1e6-1f1e9.png?v8                               |
    | angel                                | https://github.githubassets.com/images/icons/emoji/unicode/1f47c.png?v8                                     |
@@ -153,16 +155,18 @@
    | beach_umbrella                       | https://github.githubassets.com/images/icons/emoji/unicode/1f3d6.png?v8                                     |
    | bear                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f43b.png?v8                                     |
    | bearded_person                       | https://github.githubassets.com/images/icons/emoji/unicode/1f9d4.png?v8                                     |
+   | beaver                               | https://github.githubassets.com/images/icons/emoji/unicode/1f9ab.png?v8                                     |
    | bed                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f6cf.png?v8                                     |
    | bee                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f41d.png?v8                                     |
    | beer                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f37a.png?v8                                     |
    | beers                                | https://github.githubassets.com/images/icons/emoji/unicode/1f37b.png?v8                                     |
-   | beetle                               | https://github.githubassets.com/images/icons/emoji/unicode/1f41e.png?v8                                     |
+   | beetle                               | https://github.githubassets.com/images/icons/emoji/unicode/1fab2.png?v8                                     |
    | beginner                             | https://github.githubassets.com/images/icons/emoji/unicode/1f530.png?v8                                     |
    | belarus                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1fe.png?v8                               |
    | belgium                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1ea.png?v8                               |
    | belize                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1ff.png?v8                               |
    | bell                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f514.png?v8                                     |
+   | bell_pepper                          | https://github.githubassets.com/images/icons/emoji/unicode/1fad1.png?v8                                     |
    | bellhop_bell                         | https://github.githubassets.com/images/icons/emoji/unicode/1f6ce.png?v8                                     |
    | benin                                | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1ef.png?v8                               |
    | bento                                | https://github.githubassets.com/images/icons/emoji/unicode/1f371.png?v8                                     |
@@ -178,6 +182,8 @@
    | biohazard                            | https://github.githubassets.com/images/icons/emoji/unicode/2623.png?v8                                      |
    | bird                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f426.png?v8                                     |
    | birthday                             | https://github.githubassets.com/images/icons/emoji/unicode/1f382.png?v8                                     |
+   | bison                                | https://github.githubassets.com/images/icons/emoji/unicode/1f9ac.png?v8                                     |
+   | black_cat                            | https://github.githubassets.com/images/icons/emoji/unicode/1f408-2b1b.png?v8                                |
    | black_circle                         | https://github.githubassets.com/images/icons/emoji/unicode/26ab.png?v8                                      |
    | black_flag                           | https://github.githubassets.com/images/icons/emoji/unicode/1f3f4.png?v8                                     |
    | black_heart                          | https://github.githubassets.com/images/icons/emoji/unicode/1f5a4.png?v8                                     |
@@ -198,6 +204,7 @@
    | blue_car                             | https://github.githubassets.com/images/icons/emoji/unicode/1f699.png?v8                                     |
    | blue_heart                           | https://github.githubassets.com/images/icons/emoji/unicode/1f499.png?v8                                     |
    | blue_square                          | https://github.githubassets.com/images/icons/emoji/unicode/1f7e6.png?v8                                     |
+   | blueberries                          | https://github.githubassets.com/images/icons/emoji/unicode/1fad0.png?v8                                     |
    | blush                                | https://github.githubassets.com/images/icons/emoji/unicode/1f60a.png?v8                                     |
    | boar                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f417.png?v8                                     |
    | boat                                 | https://github.githubassets.com/images/icons/emoji/unicode/26f5.png?v8                                      |
@@ -209,6 +216,7 @@
    | bookmark_tabs                        | https://github.githubassets.com/images/icons/emoji/unicode/1f4d1.png?v8                                     |
    | books                                | https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png?v8                                     |
    | boom                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8                                     |
+   | boomerang                            | https://github.githubassets.com/images/icons/emoji/unicode/1fa83.png?v8                                     |
    | boot                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f462.png?v8                                     |
    | bosnia_herzegovina                   | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1e6.png?v8                               |
    | botswana                             | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1fc.png?v8                               |
@@ -231,7 +239,7 @@
    | bread                                | https://github.githubassets.com/images/icons/emoji/unicode/1f35e.png?v8                                     |
    | breast_feeding                       | https://github.githubassets.com/images/icons/emoji/unicode/1f931.png?v8                                     |
    | bricks                               | https://github.githubassets.com/images/icons/emoji/unicode/1f9f1.png?v8                                     |
-   | bride_with_veil                      | https://github.githubassets.com/images/icons/emoji/unicode/1f470.png?v8                                     |
+   | bride_with_veil                      | https://github.githubassets.com/images/icons/emoji/unicode/1f470-2640.png?v8                                |
    | bridge_at_night                      | https://github.githubassets.com/images/icons/emoji/unicode/1f309.png?v8                                     |
    | briefcase                            | https://github.githubassets.com/images/icons/emoji/unicode/1f4bc.png?v8                                     |
    | british_indian_ocean_territory       | https://github.githubassets.com/images/icons/emoji/unicode/1f1ee-1f1f4.png?v8                               |
@@ -243,6 +251,8 @@
    | brown_heart                          | https://github.githubassets.com/images/icons/emoji/unicode/1f90e.png?v8                                     |
    | brown_square                         | https://github.githubassets.com/images/icons/emoji/unicode/1f7eb.png?v8                                     |
    | brunei                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1f3.png?v8                               |
+   | bubble_tea                           | https://github.githubassets.com/images/icons/emoji/unicode/1f9cb.png?v8                                     |
+   | bucket                               | https://github.githubassets.com/images/icons/emoji/unicode/1faa3.png?v8                                     |
    | bug                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png?v8                                     |
    | building_construction                | https://github.githubassets.com/images/icons/emoji/unicode/1f3d7.png?v8                                     |
    | bulb                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png?v8                                     |
@@ -286,6 +296,7 @@
    | card_index_dividers                  | https://github.githubassets.com/images/icons/emoji/unicode/1f5c2.png?v8                                     |
    | caribbean_netherlands                | https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1f6.png?v8                               |
    | carousel_horse                       | https://github.githubassets.com/images/icons/emoji/unicode/1f3a0.png?v8                                     |
+   | carpentry_saw                        | https://github.githubassets.com/images/icons/emoji/unicode/1fa9a.png?v8                                     |
    | carrot                               | https://github.githubassets.com/images/icons/emoji/unicode/1f955.png?v8                                     |
    | cartwheeling                         | https://github.githubassets.com/images/icons/emoji/unicode/1f938.png?v8                                     |
    | cat                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f431.png?v8                                     |
@@ -369,11 +380,13 @@
    | clubs                                | https://github.githubassets.com/images/icons/emoji/unicode/2663.png?v8                                      |
    | cn                                   | https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png?v8                               |
    | coat                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9e5.png?v8                                     |
+   | cockroach                            | https://github.githubassets.com/images/icons/emoji/unicode/1fab3.png?v8                                     |
    | cocktail                             | https://github.githubassets.com/images/icons/emoji/unicode/1f378.png?v8                                     |
    | coconut                              | https://github.githubassets.com/images/icons/emoji/unicode/1f965.png?v8                                     |
    | cocos_islands                        | https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1e8.png?v8                               |
    | coffee                               | https://github.githubassets.com/images/icons/emoji/unicode/2615.png?v8                                      |
    | coffin                               | https://github.githubassets.com/images/icons/emoji/unicode/26b0.png?v8                                      |
+   | coin                                 | https://github.githubassets.com/images/icons/emoji/unicode/1fa99.png?v8                                     |
    | cold_face                            | https://github.githubassets.com/images/icons/emoji/unicode/1f976.png?v8                                     |
    | cold_sweat                           | https://github.githubassets.com/images/icons/emoji/unicode/1f630.png?v8                                     |
    | collision                            | https://github.githubassets.com/images/icons/emoji/unicode/1f4a5.png?v8                                     |
@@ -480,6 +493,7 @@
    | diego_garcia                         | https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ec.png?v8                               |
    | disappointed                         | https://github.githubassets.com/images/icons/emoji/unicode/1f61e.png?v8                                     |
    | disappointed_relieved                | https://github.githubassets.com/images/icons/emoji/unicode/1f625.png?v8                                     |
+   | disguised_face                       | https://github.githubassets.com/images/icons/emoji/unicode/1f978.png?v8                                     |
    | diving_mask                          | https://github.githubassets.com/images/icons/emoji/unicode/1f93f.png?v8                                     |
    | diya_lamp                            | https://github.githubassets.com/images/icons/emoji/unicode/1fa94.png?v8                                     |
    | dizzy                                | https://github.githubassets.com/images/icons/emoji/unicode/1f4ab.png?v8                                     |
@@ -487,6 +501,7 @@
    | djibouti                             | https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ef.png?v8                               |
    | dna                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f9ec.png?v8                                     |
    | do_not_litter                        | https://github.githubassets.com/images/icons/emoji/unicode/1f6af.png?v8                                     |
+   | dodo                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9a4.png?v8                                     |
    | dog                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f436.png?v8                                     |
    | dog2                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f415.png?v8                                     |
    | dollar                               | https://github.githubassets.com/images/icons/emoji/unicode/1f4b5.png?v8                                     |
@@ -528,10 +543,11 @@
    | electric_plug                        | https://github.githubassets.com/images/icons/emoji/unicode/1f50c.png?v8                                     |
    | electron                             | https://github.githubassets.com/images/icons/emoji/electron.png?v8                                          |
    | elephant                             | https://github.githubassets.com/images/icons/emoji/unicode/1f418.png?v8                                     |
+   | elevator                             | https://github.githubassets.com/images/icons/emoji/unicode/1f6d7.png?v8                                     |
    | elf                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f9dd.png?v8                                     |
    | elf_man                              | https://github.githubassets.com/images/icons/emoji/unicode/1f9dd-2642.png?v8                                |
    | elf_woman                            | https://github.githubassets.com/images/icons/emoji/unicode/1f9dd-2640.png?v8                                |
-   | email                                | https://github.githubassets.com/images/icons/emoji/unicode/2709.png?v8                                      |
+   | email                                | https://github.githubassets.com/images/icons/emoji/unicode/1f4e7.png?v8                                     |
    | end                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f51a.png?v8                                     |
    | england                              | https://github.githubassets.com/images/icons/emoji/unicode/1f3f4-e0067-e0062-e0065-e006e-e0067-e007f.png?v8 |
    | envelope                             | https://github.githubassets.com/images/icons/emoji/unicode/2709.png?v8                                      |
@@ -554,7 +570,10 @@
    | eye_speech_bubble                    | https://github.githubassets.com/images/icons/emoji/unicode/1f441-1f5e8.png?v8                               |
    | eyeglasses                           | https://github.githubassets.com/images/icons/emoji/unicode/1f453.png?v8                                     |
    | eyes                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8                                     |
+   | face_exhaling                        | https://github.githubassets.com/images/icons/emoji/unicode/1f62e-1f4a8.png?v8                               |
+   | face_in_clouds                       | https://github.githubassets.com/images/icons/emoji/unicode/1f636-1f32b.png?v8                               |
    | face_with_head_bandage               | https://github.githubassets.com/images/icons/emoji/unicode/1f915.png?v8                                     |
+   | face_with_spiral_eyes                | https://github.githubassets.com/images/icons/emoji/unicode/1f635-1f4ab.png?v8                               |
    | face_with_thermometer                | https://github.githubassets.com/images/icons/emoji/unicode/1f912.png?v8                                     |
    | facepalm                             | https://github.githubassets.com/images/icons/emoji/unicode/1f926.png?v8                                     |
    | facepunch                            | https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png?v8                                     |
@@ -597,6 +616,7 @@
    | fast_forward                         | https://github.githubassets.com/images/icons/emoji/unicode/23e9.png?v8                                      |
    | fax                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f4e0.png?v8                                     |
    | fearful                              | https://github.githubassets.com/images/icons/emoji/unicode/1f628.png?v8                                     |
+   | feather                              | https://github.githubassets.com/images/icons/emoji/unicode/1fab6.png?v8                                     |
    | feelsgood                            | https://github.githubassets.com/images/icons/emoji/feelsgood.png?v8                                         |
    | feet                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f43e.png?v8                                     |
    | female_detective                     | https://github.githubassets.com/images/icons/emoji/unicode/1f575-2640.png?v8                                |
@@ -632,6 +652,7 @@
    | flamingo                             | https://github.githubassets.com/images/icons/emoji/unicode/1f9a9.png?v8                                     |
    | flashlight                           | https://github.githubassets.com/images/icons/emoji/unicode/1f526.png?v8                                     |
    | flat_shoe                            | https://github.githubassets.com/images/icons/emoji/unicode/1f97f.png?v8                                     |
+   | flatbread                            | https://github.githubassets.com/images/icons/emoji/unicode/1fad3.png?v8                                     |
    | fleur_de_lis                         | https://github.githubassets.com/images/icons/emoji/unicode/269c.png?v8                                      |
    | flight_arrival                       | https://github.githubassets.com/images/icons/emoji/unicode/1f6ec.png?v8                                     |
    | flight_departure                     | https://github.githubassets.com/images/icons/emoji/unicode/1f6eb.png?v8                                     |
@@ -639,10 +660,12 @@
    | floppy_disk                          | https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png?v8                                     |
    | flower_playing_cards                 | https://github.githubassets.com/images/icons/emoji/unicode/1f3b4.png?v8                                     |
    | flushed                              | https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8                                     |
+   | fly                                  | https://github.githubassets.com/images/icons/emoji/unicode/1fab0.png?v8                                     |
    | flying_disc                          | https://github.githubassets.com/images/icons/emoji/unicode/1f94f.png?v8                                     |
    | flying_saucer                        | https://github.githubassets.com/images/icons/emoji/unicode/1f6f8.png?v8                                     |
    | fog                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f32b.png?v8                                     |
    | foggy                                | https://github.githubassets.com/images/icons/emoji/unicode/1f301.png?v8                                     |
+   | fondue                               | https://github.githubassets.com/images/icons/emoji/unicode/1fad5.png?v8                                     |
    | foot                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9b6.png?v8                                     |
    | football                             | https://github.githubassets.com/images/icons/emoji/unicode/1f3c8.png?v8                                     |
    | footprints                           | https://github.githubassets.com/images/icons/emoji/unicode/1f463.png?v8                                     |
@@ -751,6 +774,7 @@
    | hatched_chick                        | https://github.githubassets.com/images/icons/emoji/unicode/1f425.png?v8                                     |
    | hatching_chick                       | https://github.githubassets.com/images/icons/emoji/unicode/1f423.png?v8                                     |
    | headphones                           | https://github.githubassets.com/images/icons/emoji/unicode/1f3a7.png?v8                                     |
+   | headstone                            | https://github.githubassets.com/images/icons/emoji/unicode/1faa6.png?v8                                     |
    | health_worker                        | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-2695.png?v8                                |
    | hear_no_evil                         | https://github.githubassets.com/images/icons/emoji/unicode/1f649.png?v8                                     |
    | heard_mcdonald_islands               | https://github.githubassets.com/images/icons/emoji/unicode/1f1ed-1f1f2.png?v8                               |
@@ -758,6 +782,7 @@
    | heart_decoration                     | https://github.githubassets.com/images/icons/emoji/unicode/1f49f.png?v8                                     |
    | heart_eyes                           | https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8                                     |
    | heart_eyes_cat                       | https://github.githubassets.com/images/icons/emoji/unicode/1f63b.png?v8                                     |
+   | heart_on_fire                        | https://github.githubassets.com/images/icons/emoji/unicode/2764-1f525.png?v8                                |
    | heartbeat                            | https://github.githubassets.com/images/icons/emoji/unicode/1f493.png?v8                                     |
    | heartpulse                           | https://github.githubassets.com/images/icons/emoji/unicode/1f497.png?v8                                     |
    | hearts                               | https://github.githubassets.com/images/icons/emoji/unicode/2665.png?v8                                      |
@@ -784,6 +809,7 @@
    | honey_pot                            | https://github.githubassets.com/images/icons/emoji/unicode/1f36f.png?v8                                     |
    | honeybee                             | https://github.githubassets.com/images/icons/emoji/unicode/1f41d.png?v8                                     |
    | hong_kong                            | https://github.githubassets.com/images/icons/emoji/unicode/1f1ed-1f1f0.png?v8                               |
+   | hook                                 | https://github.githubassets.com/images/icons/emoji/unicode/1fa9d.png?v8                                     |
    | horse                                | https://github.githubassets.com/images/icons/emoji/unicode/1f434.png?v8                                     |
    | horse_racing                         | https://github.githubassets.com/images/icons/emoji/unicode/1f3c7.png?v8                                     |
    | hospital                             | https://github.githubassets.com/images/icons/emoji/unicode/1f3e5.png?v8                                     |
@@ -801,6 +827,7 @@
    | hungary                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1ed-1f1fa.png?v8                               |
    | hurtrealbad                          | https://github.githubassets.com/images/icons/emoji/hurtrealbad.png?v8                                       |
    | hushed                               | https://github.githubassets.com/images/icons/emoji/unicode/1f62f.png?v8                                     |
+   | hut                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f6d6.png?v8                                     |
    | ice_cream                            | https://github.githubassets.com/images/icons/emoji/unicode/1f368.png?v8                                     |
    | ice_cube                             | https://github.githubassets.com/images/icons/emoji/unicode/1f9ca.png?v8                                     |
    | ice_hockey                           | https://github.githubassets.com/images/icons/emoji/unicode/1f3d2.png?v8                                     |
@@ -865,6 +892,7 @@
    | kneeling_person                      | https://github.githubassets.com/images/icons/emoji/unicode/1f9ce.png?v8                                     |
    | kneeling_woman                       | https://github.githubassets.com/images/icons/emoji/unicode/1f9ce-2640.png?v8                                |
    | knife                                | https://github.githubassets.com/images/icons/emoji/unicode/1f52a.png?v8                                     |
+   | knot                                 | https://github.githubassets.com/images/icons/emoji/unicode/1faa2.png?v8                                     |
    | koala                                | https://github.githubassets.com/images/icons/emoji/unicode/1f428.png?v8                                     |
    | koko                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f201.png?v8                                     |
    | kosovo                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1fd-1f1f0.png?v8                               |
@@ -874,6 +902,8 @@
    | lab_coat                             | https://github.githubassets.com/images/icons/emoji/unicode/1f97c.png?v8                                     |
    | label                                | https://github.githubassets.com/images/icons/emoji/unicode/1f3f7.png?v8                                     |
    | lacrosse                             | https://github.githubassets.com/images/icons/emoji/unicode/1f94d.png?v8                                     |
+   | ladder                               | https://github.githubassets.com/images/icons/emoji/unicode/1fa9c.png?v8                                     |
+   | lady_beetle                          | https://github.githubassets.com/images/icons/emoji/unicode/1f41e.png?v8                                     |
    | lantern                              | https://github.githubassets.com/images/icons/emoji/unicode/1f3ee.png?v8                                     |
    | laos                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f1f1-1f1e6.png?v8                               |
    | large_blue_circle                    | https://github.githubassets.com/images/icons/emoji/unicode/1f535.png?v8                                     |
@@ -914,6 +944,7 @@
    | lock                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f512.png?v8                                     |
    | lock_with_ink_pen                    | https://github.githubassets.com/images/icons/emoji/unicode/1f50f.png?v8                                     |
    | lollipop                             | https://github.githubassets.com/images/icons/emoji/unicode/1f36d.png?v8                                     |
+   | long_drum                            | https://github.githubassets.com/images/icons/emoji/unicode/1fa98.png?v8                                     |
    | loop                                 | https://github.githubassets.com/images/icons/emoji/unicode/27bf.png?v8                                      |
    | lotion_bottle                        | https://github.githubassets.com/images/icons/emoji/unicode/1f9f4.png?v8                                     |
    | lotus_position                       | https://github.githubassets.com/images/icons/emoji/unicode/1f9d8.png?v8                                     |
@@ -926,6 +957,7 @@
    | love_you_gesture                     | https://github.githubassets.com/images/icons/emoji/unicode/1f91f.png?v8                                     |
    | low_brightness                       | https://github.githubassets.com/images/icons/emoji/unicode/1f505.png?v8                                     |
    | luggage                              | https://github.githubassets.com/images/icons/emoji/unicode/1f9f3.png?v8                                     |
+   | lungs                                | https://github.githubassets.com/images/icons/emoji/unicode/1fac1.png?v8                                     |
    | luxembourg                           | https://github.githubassets.com/images/icons/emoji/unicode/1f1f1-1f1fa.png?v8                               |
    | lying_face                           | https://github.githubassets.com/images/icons/emoji/unicode/1f925.png?v8                                     |
    | m                                    | https://github.githubassets.com/images/icons/emoji/unicode/24c2.png?v8                                      |
@@ -937,6 +969,7 @@
    | mage                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9d9.png?v8                                     |
    | mage_man                             | https://github.githubassets.com/images/icons/emoji/unicode/1f9d9-2642.png?v8                                |
    | mage_woman                           | https://github.githubassets.com/images/icons/emoji/unicode/1f9d9-2640.png?v8                                |
+   | magic_wand                           | https://github.githubassets.com/images/icons/emoji/unicode/1fa84.png?v8                                     |
    | magnet                               | https://github.githubassets.com/images/icons/emoji/unicode/1f9f2.png?v8                                     |
    | mahjong                              | https://github.githubassets.com/images/icons/emoji/unicode/1f004.png?v8                                     |
    | mailbox                              | https://github.githubassets.com/images/icons/emoji/unicode/1f4eb.png?v8                                     |
@@ -950,20 +983,23 @@
    | male_sign                            | https://github.githubassets.com/images/icons/emoji/unicode/2642.png?v8                                      |
    | mali                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1f1.png?v8                               |
    | malta                                | https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1f9.png?v8                               |
+   | mammoth                              | https://github.githubassets.com/images/icons/emoji/unicode/1f9a3.png?v8                                     |
    | man                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f468.png?v8                                     |
    | man_artist                           | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f3a8.png?v8                               |
    | man_astronaut                        | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f680.png?v8                               |
+   | man_beard                            | https://github.githubassets.com/images/icons/emoji/unicode/1f9d4-2642.png?v8                                |
    | man_cartwheeling                     | https://github.githubassets.com/images/icons/emoji/unicode/1f938-2642.png?v8                                |
    | man_cook                             | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f373.png?v8                               |
    | man_dancing                          | https://github.githubassets.com/images/icons/emoji/unicode/1f57a.png?v8                                     |
    | man_facepalming                      | https://github.githubassets.com/images/icons/emoji/unicode/1f926-2642.png?v8                                |
    | man_factory_worker                   | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f3ed.png?v8                               |
    | man_farmer                           | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f33e.png?v8                               |
+   | man_feeding_baby                     | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f37c.png?v8                               |
    | man_firefighter                      | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f692.png?v8                               |
    | man_health_worker                    | https://github.githubassets.com/images/icons/emoji/unicode/1f468-2695.png?v8                                |
    | man_in_manual_wheelchair             | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f9bd.png?v8                               |
    | man_in_motorized_wheelchair          | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f9bc.png?v8                               |
-   | man_in_tuxedo                        | https://github.githubassets.com/images/icons/emoji/unicode/1f935.png?v8                                     |
+   | man_in_tuxedo                        | https://github.githubassets.com/images/icons/emoji/unicode/1f935-2642.png?v8                                |
    | man_judge                            | https://github.githubassets.com/images/icons/emoji/unicode/1f468-2696.png?v8                                |
    | man_juggling                         | https://github.githubassets.com/images/icons/emoji/unicode/1f939-2642.png?v8                                |
    | man_mechanic                         | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f527.png?v8                               |
@@ -980,6 +1016,7 @@
    | man_with_gua_pi_mao                  | https://github.githubassets.com/images/icons/emoji/unicode/1f472.png?v8                                     |
    | man_with_probing_cane                | https://github.githubassets.com/images/icons/emoji/unicode/1f468-1f9af.png?v8                               |
    | man_with_turban                      | https://github.githubassets.com/images/icons/emoji/unicode/1f473-2642.png?v8                                |
+   | man_with_veil                        | https://github.githubassets.com/images/icons/emoji/unicode/1f470-2642.png?v8                                |
    | mandarin                             | https://github.githubassets.com/images/icons/emoji/unicode/1f34a.png?v8                                     |
    | mango                                | https://github.githubassets.com/images/icons/emoji/unicode/1f96d.png?v8                                     |
    | mans_shoe                            | https://github.githubassets.com/images/icons/emoji/unicode/1f45e.png?v8                                     |
@@ -1008,6 +1045,7 @@
    | melon                                | https://github.githubassets.com/images/icons/emoji/unicode/1f348.png?v8                                     |
    | memo                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png?v8                                     |
    | men_wrestling                        | https://github.githubassets.com/images/icons/emoji/unicode/1f93c-2642.png?v8                                |
+   | mending_heart                        | https://github.githubassets.com/images/icons/emoji/unicode/2764-1fa79.png?v8                                |
    | menorah                              | https://github.githubassets.com/images/icons/emoji/unicode/1f54e.png?v8                                     |
    | mens                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f6b9.png?v8                                     |
    | mermaid                              | https://github.githubassets.com/images/icons/emoji/unicode/1f9dc-2640.png?v8                                |
@@ -1021,10 +1059,12 @@
    | microphone                           | https://github.githubassets.com/images/icons/emoji/unicode/1f3a4.png?v8                                     |
    | microscope                           | https://github.githubassets.com/images/icons/emoji/unicode/1f52c.png?v8                                     |
    | middle_finger                        | https://github.githubassets.com/images/icons/emoji/unicode/1f595.png?v8                                     |
+   | military_helmet                      | https://github.githubassets.com/images/icons/emoji/unicode/1fa96.png?v8                                     |
    | milk_glass                           | https://github.githubassets.com/images/icons/emoji/unicode/1f95b.png?v8                                     |
    | milky_way                            | https://github.githubassets.com/images/icons/emoji/unicode/1f30c.png?v8                                     |
    | minibus                              | https://github.githubassets.com/images/icons/emoji/unicode/1f690.png?v8                                     |
    | minidisc                             | https://github.githubassets.com/images/icons/emoji/unicode/1f4bd.png?v8                                     |
+   | mirror                               | https://github.githubassets.com/images/icons/emoji/unicode/1fa9e.png?v8                                     |
    | mobile_phone_off                     | https://github.githubassets.com/images/icons/emoji/unicode/1f4f4.png?v8                                     |
    | moldova                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1e9.png?v8                               |
    | monaco                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1e8.png?v8                               |
@@ -1059,6 +1099,7 @@
    | mountain_snow                        | https://github.githubassets.com/images/icons/emoji/unicode/1f3d4.png?v8                                     |
    | mouse                                | https://github.githubassets.com/images/icons/emoji/unicode/1f42d.png?v8                                     |
    | mouse2                               | https://github.githubassets.com/images/icons/emoji/unicode/1f401.png?v8                                     |
+   | mouse_trap                           | https://github.githubassets.com/images/icons/emoji/unicode/1faa4.png?v8                                     |
    | movie_camera                         | https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png?v8                                     |
    | moyai                                | https://github.githubassets.com/images/icons/emoji/unicode/1f5ff.png?v8                                     |
    | mozambique                           | https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1ff.png?v8                               |
@@ -1069,6 +1110,7 @@
    | musical_note                         | https://github.githubassets.com/images/icons/emoji/unicode/1f3b5.png?v8                                     |
    | musical_score                        | https://github.githubassets.com/images/icons/emoji/unicode/1f3bc.png?v8                                     |
    | mute                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f507.png?v8                                     |
+   | mx_claus                             | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f384.png?v8                               |
    | myanmar                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1f2-1f1f2.png?v8                               |
    | nail_care                            | https://github.githubassets.com/images/icons/emoji/unicode/1f485.png?v8                                     |
    | name_badge                           | https://github.githubassets.com/images/icons/emoji/unicode/1f4db.png?v8                                     |
@@ -1082,6 +1124,7 @@
    | negative_squared_cross_mark          | https://github.githubassets.com/images/icons/emoji/unicode/274e.png?v8                                      |
    | nepal                                | https://github.githubassets.com/images/icons/emoji/unicode/1f1f3-1f1f5.png?v8                               |
    | nerd_face                            | https://github.githubassets.com/images/icons/emoji/unicode/1f913.png?v8                                     |
+   | nesting_dolls                        | https://github.githubassets.com/images/icons/emoji/unicode/1fa86.png?v8                                     |
    | netherlands                          | https://github.githubassets.com/images/icons/emoji/unicode/1f1f3-1f1f1.png?v8                               |
    | neutral_face                         | https://github.githubassets.com/images/icons/emoji/unicode/1f610.png?v8                                     |
    | new                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f195.png?v8                                     |
@@ -1100,6 +1143,7 @@
    | nigeria                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1f3-1f1ec.png?v8                               |
    | night_with_stars                     | https://github.githubassets.com/images/icons/emoji/unicode/1f303.png?v8                                     |
    | nine                                 | https://github.githubassets.com/images/icons/emoji/unicode/0039-20e3.png?v8                                 |
+   | ninja                                | https://github.githubassets.com/images/icons/emoji/unicode/1f977.png?v8                                     |
    | niue                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f1f3-1f1fa.png?v8                               |
    | no_bell                              | https://github.githubassets.com/images/icons/emoji/unicode/1f515.png?v8                                     |
    | no_bicycles                          | https://github.githubassets.com/images/icons/emoji/unicode/1f6b3.png?v8                                     |
@@ -1140,6 +1184,7 @@
    | older_adult                          | https://github.githubassets.com/images/icons/emoji/unicode/1f9d3.png?v8                                     |
    | older_man                            | https://github.githubassets.com/images/icons/emoji/unicode/1f474.png?v8                                     |
    | older_woman                          | https://github.githubassets.com/images/icons/emoji/unicode/1f475.png?v8                                     |
+   | olive                                | https://github.githubassets.com/images/icons/emoji/unicode/1fad2.png?v8                                     |
    | om                                   | https://github.githubassets.com/images/icons/emoji/unicode/1f549.png?v8                                     |
    | oman                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f1f4-1f1f2.png?v8                               |
    | on                                   | https://github.githubassets.com/images/icons/emoji/unicode/1f51b.png?v8                                     |
@@ -1207,28 +1252,35 @@
    | penguin                              | https://github.githubassets.com/images/icons/emoji/unicode/1f427.png?v8                                     |
    | pensive                              | https://github.githubassets.com/images/icons/emoji/unicode/1f614.png?v8                                     |
    | people_holding_hands                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f91d-1f9d1.png?v8                         |
+   | people_hugging                       | https://github.githubassets.com/images/icons/emoji/unicode/1fac2.png?v8                                     |
    | performing_arts                      | https://github.githubassets.com/images/icons/emoji/unicode/1f3ad.png?v8                                     |
    | persevere                            | https://github.githubassets.com/images/icons/emoji/unicode/1f623.png?v8                                     |
    | person_bald                          | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9b2.png?v8                               |
    | person_curly_hair                    | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9b1.png?v8                               |
+   | person_feeding_baby                  | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f37c.png?v8                               |
    | person_fencing                       | https://github.githubassets.com/images/icons/emoji/unicode/1f93a.png?v8                                     |
    | person_in_manual_wheelchair          | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9bd.png?v8                               |
    | person_in_motorized_wheelchair       | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9bc.png?v8                               |
+   | person_in_tuxedo                     | https://github.githubassets.com/images/icons/emoji/unicode/1f935.png?v8                                     |
    | person_red_hair                      | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9b0.png?v8                               |
    | person_white_hair                    | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9b3.png?v8                               |
    | person_with_probing_cane             | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f9af.png?v8                               |
    | person_with_turban                   | https://github.githubassets.com/images/icons/emoji/unicode/1f473.png?v8                                     |
+   | person_with_veil                     | https://github.githubassets.com/images/icons/emoji/unicode/1f470.png?v8                                     |
    | peru                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f1f5-1f1ea.png?v8                               |
    | petri_dish                           | https://github.githubassets.com/images/icons/emoji/unicode/1f9eb.png?v8                                     |
    | philippines                          | https://github.githubassets.com/images/icons/emoji/unicode/1f1f5-1f1ed.png?v8                               |
    | phone                                | https://github.githubassets.com/images/icons/emoji/unicode/260e.png?v8                                      |
    | pick                                 | https://github.githubassets.com/images/icons/emoji/unicode/26cf.png?v8                                      |
+   | pickup_truck                         | https://github.githubassets.com/images/icons/emoji/unicode/1f6fb.png?v8                                     |
    | pie                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f967.png?v8                                     |
    | pig                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f437.png?v8                                     |
    | pig2                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f416.png?v8                                     |
    | pig_nose                             | https://github.githubassets.com/images/icons/emoji/unicode/1f43d.png?v8                                     |
    | pill                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f48a.png?v8                                     |
    | pilot                                | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-2708.png?v8                                |
+   | pinata                               | https://github.githubassets.com/images/icons/emoji/unicode/1fa85.png?v8                                     |
+   | pinched_fingers                      | https://github.githubassets.com/images/icons/emoji/unicode/1f90c.png?v8                                     |
    | pinching_hand                        | https://github.githubassets.com/images/icons/emoji/unicode/1f90f.png?v8                                     |
    | pineapple                            | https://github.githubassets.com/images/icons/emoji/unicode/1f34d.png?v8                                     |
    | ping_pong                            | https://github.githubassets.com/images/icons/emoji/unicode/1f3d3.png?v8                                     |
@@ -1236,16 +1288,19 @@
    | pisces                               | https://github.githubassets.com/images/icons/emoji/unicode/2653.png?v8                                      |
    | pitcairn_islands                     | https://github.githubassets.com/images/icons/emoji/unicode/1f1f5-1f1f3.png?v8                               |
    | pizza                                | https://github.githubassets.com/images/icons/emoji/unicode/1f355.png?v8                                     |
+   | placard                              | https://github.githubassets.com/images/icons/emoji/unicode/1faa7.png?v8                                     |
    | place_of_worship                     | https://github.githubassets.com/images/icons/emoji/unicode/1f6d0.png?v8                                     |
    | plate_with_cutlery                   | https://github.githubassets.com/images/icons/emoji/unicode/1f37d.png?v8                                     |
    | play_or_pause_button                 | https://github.githubassets.com/images/icons/emoji/unicode/23ef.png?v8                                      |
    | pleading_face                        | https://github.githubassets.com/images/icons/emoji/unicode/1f97a.png?v8                                     |
+   | plunger                              | https://github.githubassets.com/images/icons/emoji/unicode/1faa0.png?v8                                     |
    | point_down                           | https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8                                     |
    | point_left                           | https://github.githubassets.com/images/icons/emoji/unicode/1f448.png?v8                                     |
    | point_right                          | https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8                                     |
    | point_up                             | https://github.githubassets.com/images/icons/emoji/unicode/261d.png?v8                                      |
    | point_up_2                           | https://github.githubassets.com/images/icons/emoji/unicode/1f446.png?v8                                     |
    | poland                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1f5-1f1f1.png?v8                               |
+   | polar_bear                           | https://github.githubassets.com/images/icons/emoji/unicode/1f43b-2744.png?v8                                |
    | police_car                           | https://github.githubassets.com/images/icons/emoji/unicode/1f693.png?v8                                     |
    | police_officer                       | https://github.githubassets.com/images/icons/emoji/unicode/1f46e.png?v8                                     |
    | policeman                            | https://github.githubassets.com/images/icons/emoji/unicode/1f46e-2642.png?v8                                |
@@ -1259,6 +1314,7 @@
    | postbox                              | https://github.githubassets.com/images/icons/emoji/unicode/1f4ee.png?v8                                     |
    | potable_water                        | https://github.githubassets.com/images/icons/emoji/unicode/1f6b0.png?v8                                     |
    | potato                               | https://github.githubassets.com/images/icons/emoji/unicode/1f954.png?v8                                     |
+   | potted_plant                         | https://github.githubassets.com/images/icons/emoji/unicode/1fab4.png?v8                                     |
    | pouch                                | https://github.githubassets.com/images/icons/emoji/unicode/1f45d.png?v8                                     |
    | poultry_leg                          | https://github.githubassets.com/images/icons/emoji/unicode/1f357.png?v8                                     |
    | pound                                | https://github.githubassets.com/images/icons/emoji/unicode/1f4b7.png?v8                                     |
@@ -1345,11 +1401,13 @@
    | ring                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f48d.png?v8                                     |
    | ringed_planet                        | https://github.githubassets.com/images/icons/emoji/unicode/1fa90.png?v8                                     |
    | robot                                | https://github.githubassets.com/images/icons/emoji/unicode/1f916.png?v8                                     |
+   | rock                                 | https://github.githubassets.com/images/icons/emoji/unicode/1faa8.png?v8                                     |
    | rocket                               | https://github.githubassets.com/images/icons/emoji/unicode/1f680.png?v8                                     |
    | rofl                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f923.png?v8                                     |
    | roll_eyes                            | https://github.githubassets.com/images/icons/emoji/unicode/1f644.png?v8                                     |
    | roll_of_paper                        | https://github.githubassets.com/images/icons/emoji/unicode/1f9fb.png?v8                                     |
    | roller_coaster                       | https://github.githubassets.com/images/icons/emoji/unicode/1f3a2.png?v8                                     |
+   | roller_skate                         | https://github.githubassets.com/images/icons/emoji/unicode/1f6fc.png?v8                                     |
    | romania                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1f4.png?v8                               |
    | rooster                              | https://github.githubassets.com/images/icons/emoji/unicode/1f413.png?v8                                     |
    | rose                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f339.png?v8                                     |
@@ -1401,7 +1459,9 @@
    | scotland                             | https://github.githubassets.com/images/icons/emoji/unicode/1f3f4-e0067-e0062-e0073-e0063-e0074-e007f.png?v8 |
    | scream                               | https://github.githubassets.com/images/icons/emoji/unicode/1f631.png?v8                                     |
    | scream_cat                           | https://github.githubassets.com/images/icons/emoji/unicode/1f640.png?v8                                     |
+   | screwdriver                          | https://github.githubassets.com/images/icons/emoji/unicode/1fa9b.png?v8                                     |
    | scroll                               | https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8                                     |
+   | seal                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9ad.png?v8                                     |
    | seat                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f4ba.png?v8                                     |
    | secret                               | https://github.githubassets.com/images/icons/emoji/unicode/3299.png?v8                                      |
    | see_no_evil                          | https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8                                     |
@@ -1411,6 +1471,7 @@
    | serbia                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1f8.png?v8                               |
    | service_dog                          | https://github.githubassets.com/images/icons/emoji/unicode/1f415-1f9ba.png?v8                               |
    | seven                                | https://github.githubassets.com/images/icons/emoji/unicode/0037-20e3.png?v8                                 |
+   | sewing_needle                        | https://github.githubassets.com/images/icons/emoji/unicode/1faa1.png?v8                                     |
    | seychelles                           | https://github.githubassets.com/images/icons/emoji/unicode/1f1f8-1f1e8.png?v8                               |
    | shallow_pan_of_food                  | https://github.githubassets.com/images/icons/emoji/unicode/1f958.png?v8                                     |
    | shamrock                             | https://github.githubassets.com/images/icons/emoji/unicode/2618.png?v8                                      |
@@ -1464,6 +1525,7 @@
    | smile_cat                            | https://github.githubassets.com/images/icons/emoji/unicode/1f638.png?v8                                     |
    | smiley                               | https://github.githubassets.com/images/icons/emoji/unicode/1f603.png?v8                                     |
    | smiley_cat                           | https://github.githubassets.com/images/icons/emoji/unicode/1f63a.png?v8                                     |
+   | smiling_face_with_tear               | https://github.githubassets.com/images/icons/emoji/unicode/1f972.png?v8                                     |
    | smiling_face_with_three_hearts       | https://github.githubassets.com/images/icons/emoji/unicode/1f970.png?v8                                     |
    | smiling_imp                          | https://github.githubassets.com/images/icons/emoji/unicode/1f608.png?v8                                     |
    | smirk                                | https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8                                     |
@@ -1588,6 +1650,7 @@
    | taiwan                               | https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1fc.png?v8                               |
    | tajikistan                           | https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1ef.png?v8                               |
    | takeout_box                          | https://github.githubassets.com/images/icons/emoji/unicode/1f961.png?v8                                     |
+   | tamale                               | https://github.githubassets.com/images/icons/emoji/unicode/1fad4.png?v8                                     |
    | tanabata_tree                        | https://github.githubassets.com/images/icons/emoji/unicode/1f38b.png?v8                                     |
    | tangerine                            | https://github.githubassets.com/images/icons/emoji/unicode/1f34a.png?v8                                     |
    | tanzania                             | https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1ff.png?v8                               |
@@ -1595,6 +1658,7 @@
    | taxi                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f695.png?v8                                     |
    | tea                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f375.png?v8                                     |
    | teacher                              | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f3eb.png?v8                               |
+   | teapot                               | https://github.githubassets.com/images/icons/emoji/unicode/1fad6.png?v8                                     |
    | technologist                         | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1-1f4bb.png?v8                               |
    | teddy_bear                           | https://github.githubassets.com/images/icons/emoji/unicode/1f9f8.png?v8                                     |
    | telephone                            | https://github.githubassets.com/images/icons/emoji/unicode/260e.png?v8                                      |
@@ -1606,6 +1670,7 @@
    | thailand                             | https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1ed.png?v8                               |
    | thermometer                          | https://github.githubassets.com/images/icons/emoji/unicode/1f321.png?v8                                     |
    | thinking                             | https://github.githubassets.com/images/icons/emoji/unicode/1f914.png?v8                                     |
+   | thong_sandal                         | https://github.githubassets.com/images/icons/emoji/unicode/1fa74.png?v8                                     |
    | thought_balloon                      | https://github.githubassets.com/images/icons/emoji/unicode/1f4ad.png?v8                                     |
    | thread                               | https://github.githubassets.com/images/icons/emoji/unicode/1f9f5.png?v8                                     |
    | three                                | https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8                                 |
@@ -1631,6 +1696,7 @@
    | tongue                               | https://github.githubassets.com/images/icons/emoji/unicode/1f445.png?v8                                     |
    | toolbox                              | https://github.githubassets.com/images/icons/emoji/unicode/1f9f0.png?v8                                     |
    | tooth                                | https://github.githubassets.com/images/icons/emoji/unicode/1f9b7.png?v8                                     |
+   | toothbrush                           | https://github.githubassets.com/images/icons/emoji/unicode/1faa5.png?v8                                     |
    | top                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f51d.png?v8                                     |
    | tophat                               | https://github.githubassets.com/images/icons/emoji/unicode/1f3a9.png?v8                                     |
    | tornado                              | https://github.githubassets.com/images/icons/emoji/unicode/1f32a.png?v8                                     |
@@ -1641,6 +1707,8 @@
    | train                                | https://github.githubassets.com/images/icons/emoji/unicode/1f68b.png?v8                                     |
    | train2                               | https://github.githubassets.com/images/icons/emoji/unicode/1f686.png?v8                                     |
    | tram                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f68a.png?v8                                     |
+   | transgender_flag                     | https://github.githubassets.com/images/icons/emoji/unicode/1f3f3-26a7.png?v8                                |
+   | transgender_symbol                   | https://github.githubassets.com/images/icons/emoji/unicode/26a7.png?v8                                      |
    | triangular_flag_on_post              | https://github.githubassets.com/images/icons/emoji/unicode/1f6a9.png?v8                                     |
    | triangular_ruler                     | https://github.githubassets.com/images/icons/emoji/unicode/1f4d0.png?v8                                     |
    | trident                              | https://github.githubassets.com/images/icons/emoji/unicode/1f531.png?v8                                     |
@@ -1761,22 +1829,26 @@
    | wilted_flower                        | https://github.githubassets.com/images/icons/emoji/unicode/1f940.png?v8                                     |
    | wind_chime                           | https://github.githubassets.com/images/icons/emoji/unicode/1f390.png?v8                                     |
    | wind_face                            | https://github.githubassets.com/images/icons/emoji/unicode/1f32c.png?v8                                     |
+   | window                               | https://github.githubassets.com/images/icons/emoji/unicode/1fa9f.png?v8                                     |
    | wine_glass                           | https://github.githubassets.com/images/icons/emoji/unicode/1f377.png?v8                                     |
    | wink                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8                                     |
    | wolf                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f43a.png?v8                                     |
    | woman                                | https://github.githubassets.com/images/icons/emoji/unicode/1f469.png?v8                                     |
    | woman_artist                         | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a8.png?v8                               |
    | woman_astronaut                      | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f680.png?v8                               |
+   | woman_beard                          | https://github.githubassets.com/images/icons/emoji/unicode/1f9d4-2640.png?v8                                |
    | woman_cartwheeling                   | https://github.githubassets.com/images/icons/emoji/unicode/1f938-2640.png?v8                                |
    | woman_cook                           | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f373.png?v8                               |
    | woman_dancing                        | https://github.githubassets.com/images/icons/emoji/unicode/1f483.png?v8                                     |
    | woman_facepalming                    | https://github.githubassets.com/images/icons/emoji/unicode/1f926-2640.png?v8                                |
    | woman_factory_worker                 | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3ed.png?v8                               |
    | woman_farmer                         | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f33e.png?v8                               |
+   | woman_feeding_baby                   | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f37c.png?v8                               |
    | woman_firefighter                    | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f692.png?v8                               |
    | woman_health_worker                  | https://github.githubassets.com/images/icons/emoji/unicode/1f469-2695.png?v8                                |
    | woman_in_manual_wheelchair           | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f9bd.png?v8                               |
    | woman_in_motorized_wheelchair        | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f9bc.png?v8                               |
+   | woman_in_tuxedo                      | https://github.githubassets.com/images/icons/emoji/unicode/1f935-2640.png?v8                                |
    | woman_judge                          | https://github.githubassets.com/images/icons/emoji/unicode/1f469-2696.png?v8                                |
    | woman_juggling                       | https://github.githubassets.com/images/icons/emoji/unicode/1f939-2640.png?v8                                |
    | woman_mechanic                       | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f527.png?v8                               |
@@ -1793,12 +1865,15 @@
    | woman_with_headscarf                 | https://github.githubassets.com/images/icons/emoji/unicode/1f9d5.png?v8                                     |
    | woman_with_probing_cane              | https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f9af.png?v8                               |
    | woman_with_turban                    | https://github.githubassets.com/images/icons/emoji/unicode/1f473-2640.png?v8                                |
+   | woman_with_veil                      | https://github.githubassets.com/images/icons/emoji/unicode/1f470-2640.png?v8                                |
    | womans_clothes                       | https://github.githubassets.com/images/icons/emoji/unicode/1f45a.png?v8                                     |
    | womans_hat                           | https://github.githubassets.com/images/icons/emoji/unicode/1f452.png?v8                                     |
    | women_wrestling                      | https://github.githubassets.com/images/icons/emoji/unicode/1f93c-2640.png?v8                                |
    | womens                               | https://github.githubassets.com/images/icons/emoji/unicode/1f6ba.png?v8                                     |
+   | wood                                 | https://github.githubassets.com/images/icons/emoji/unicode/1fab5.png?v8                                     |
    | woozy_face                           | https://github.githubassets.com/images/icons/emoji/unicode/1f974.png?v8                                     |
    | world_map                            | https://github.githubassets.com/images/icons/emoji/unicode/1f5fa.png?v8                                     |
+   | worm                                 | https://github.githubassets.com/images/icons/emoji/unicode/1fab1.png?v8                                     |
    | worried                              | https://github.githubassets.com/images/icons/emoji/unicode/1f61f.png?v8                                     |
    | wrench                               | https://github.githubassets.com/images/icons/emoji/unicode/1f527.png?v8                                     |
    | wrestling                            | https://github.githubassets.com/images/icons/emoji/unicode/1f93c.png?v8                                     |
@@ -1871,6 +1946,7 @@
     (":abc:" . 128292)
     (":abcd:" . 128289)
     (":accept:" . 127569)
+    (":accordion:" . 129687)
     (":adhesive_bandage:" . 129657)
     (":adult:" . 129489)
     (":aerial_tramway:" . 128673)
@@ -1895,6 +1971,7 @@
      (Br . Bl)
      127480)
     (":amphora:" . 127994)
+    (":anatomical_heart:" . 129728)
     (":anchor:" . 9875)
     (":andorra:" 127462
      (Br . Bl)
@@ -2037,11 +2114,12 @@
     (":beach_umbrella:" . 127958)
     (":bear:" . 128059)
     (":bearded_person:" . 129492)
+    (":beaver:" . 129451)
     (":bed:" . 128719)
     (":bee:" . 128029)
     (":beer:" . 127866)
     (":beers:" . 127867)
-    (":beetle:" . 128030)
+    (":beetle:" . 129714)
     (":beginner:" . 128304)
     (":belarus:" 127463
      (Br . Bl)
@@ -2053,6 +2131,7 @@
      (Br . Bl)
      127487)
     (":bell:" . 128276)
+    (":bell_pepper:" . 129745)
     (":bellhop_bell:" . 128718)
     (":benin:" 127463
      (Br . Bl)
@@ -2078,6 +2157,10 @@
     (":biohazard:" . 9763)
     (":bird:" . 128038)
     (":birthday:" . 127874)
+    (":bison:" . 129452)
+    (":black_cat:" 128008
+     (Br . Bl)
+     11035)
     (":black_circle:" . 9899)
     (":black_flag:" . 127988)
     (":black_heart:" . 128420)
@@ -2104,6 +2187,7 @@
     (":blue_car:" . 128665)
     (":blue_heart:" . 128153)
     (":blue_square:" . 128998)
+    (":blueberries:" . 129744)
     (":blush:" . 128522)
     (":boar:" . 128023)
     (":boat:" . 9973)
@@ -2117,6 +2201,7 @@
     (":bookmark_tabs:" . 128209)
     (":books:" . 128218)
     (":boom:" . 128165)
+    (":boomerang:" . 129667)
     (":boot:" . 128098)
     (":bosnia_herzegovina:" 127463
      (Br . Bl)
@@ -2154,7 +2239,9 @@
     (":bread:" . 127838)
     (":breast_feeding:" . 129329)
     (":bricks:" . 129521)
-    (":bride_with_veil:" . 128112)
+    (":bride_with_veil:" 128112
+     (Br . Bl)
+     9792)
     (":bridge_at_night:" . 127753)
     (":briefcase:" . 128188)
     (":british_indian_ocean_territory:" 127470
@@ -2172,6 +2259,8 @@
     (":brunei:" 127463
      (Br . Bl)
      127475)
+    (":bubble_tea:" . 129483)
+    (":bucket:" . 129699)
     (":bug:" . 128027)
     (":building_construction:" . 127959)
     (":bulb:" . 128161)
@@ -2233,6 +2322,7 @@
      (Br . Bl)
      127478)
     (":carousel_horse:" . 127904)
+    (":carpentry_saw:" . 129690)
     (":carrot:" . 129365)
     (":cartwheeling:" . 129336)
     (":cat:" . 128049)
@@ -2336,6 +2426,7 @@
      (Br . Bl)
      127475)
     (":coat:" . 129509)
+    (":cockroach:" . 129715)
     (":cocktail:" . 127864)
     (":coconut:" . 129381)
     (":cocos_islands:" 127464
@@ -2343,6 +2434,7 @@
      127464)
     (":coffee:" . 9749)
     (":coffin:" . 9904)
+    (":coin:" . 129689)
     (":cold_face:" . 129398)
     (":cold_sweat:" . 128560)
     (":collision:" . 128165)
@@ -2527,6 +2619,7 @@
      127468)
     (":disappointed:" . 128542)
     (":disappointed_relieved:" . 128549)
+    (":disguised_face:" . 129400)
     (":diving_mask:" . 129343)
     (":diya_lamp:" . 129684)
     (":dizzy:" . 128171)
@@ -2536,6 +2629,7 @@
      127471)
     (":dna:" . 129516)
     (":do_not_litter:" . 128687)
+    (":dodo:" . 129444)
     (":dog:" . 128054)
     (":dog2:" . 128021)
     (":dollar:" . 128181)
@@ -2588,6 +2682,7 @@
      127483)
     (":electric_plug:" . 128268)
     (":elephant:" . 128024)
+    (":elevator:" . 128727)
     (":elf:" . 129501)
     (":elf_man:" 129501
      (Br . Bl)
@@ -2595,7 +2690,7 @@
     (":elf_woman:" 129501
      (Br . Bl)
      9792)
-    (":email:" . 9993)
+    (":email:" . 128231)
     (":end:" . 128282)
     (":england:" 127988
      (Br . Bl)
@@ -2646,7 +2741,16 @@
      128488)
     (":eyeglasses:" . 128083)
     (":eyes:" . 128064)
+    (":face_exhaling:" 128558
+     (Br . Bl)
+     128168)
+    (":face_in_clouds:" 128566
+     (Br . Bl)
+     127787)
     (":face_with_head_bandage:" . 129301)
+    (":face_with_spiral_eyes:" 128565
+     (Br . Bl)
+     128171)
     (":face_with_thermometer:" . 129298)
     (":facepalm:" . 129318)
     (":facepunch:" . 128074)
@@ -2811,6 +2915,7 @@
     (":fast_forward:" . 9193)
     (":fax:" . 128224)
     (":fearful:" . 128552)
+    (":feather:" . 129718)
     (":feet:" . 128062)
     (":female_detective:" 128373
      (Br . Bl)
@@ -2854,6 +2959,7 @@
     (":flamingo:" . 129449)
     (":flashlight:" . 128294)
     (":flat_shoe:" . 129407)
+    (":flatbread:" . 129747)
     (":fleur_de_lis:" . 9884)
     (":flight_arrival:" . 128748)
     (":flight_departure:" . 128747)
@@ -2861,10 +2967,12 @@
     (":floppy_disk:" . 128190)
     (":flower_playing_cards:" . 127924)
     (":flushed:" . 128563)
+    (":fly:" . 129712)
     (":flying_disc:" . 129359)
     (":flying_saucer:" . 128760)
     (":fog:" . 127787)
     (":foggy:" . 127745)
+    (":fondue:" . 129749)
     (":foot:" . 129462)
     (":football:" . 127944)
     (":footprints:" . 128099)
@@ -3037,6 +3145,7 @@
     (":hatched_chick:" . 128037)
     (":hatching_chick:" . 128035)
     (":headphones:" . 127911)
+    (":headstone:" . 129702)
     (":health_worker:" 129489
      (Br . Bl)
      9877)
@@ -3048,6 +3157,9 @@
     (":heart_decoration:" . 128159)
     (":heart_eyes:" . 128525)
     (":heart_eyes_cat:" . 128571)
+    (":heart_on_fire:" 10084
+     (Br . Bl)
+     128293)
     (":heartbeat:" . 128147)
     (":heartpulse:" . 128151)
     (":hearts:" . 9829)
@@ -3078,6 +3190,7 @@
     (":hong_kong:" 127469
      (Br . Bl)
      127472)
+    (":hook:" . 129693)
     (":horse:" . 128052)
     (":horse_racing:" . 127943)
     (":hospital:" . 127973)
@@ -3096,6 +3209,7 @@
      (Br . Bl)
      127482)
     (":hushed:" . 128559)
+    (":hut:" . 128726)
     (":ice_cream:" . 127848)
     (":ice_cube:" . 129482)
     (":ice_hockey:" . 127954)
@@ -3198,6 +3312,7 @@
      (Br . Bl)
      9792)
     (":knife:" . 128298)
+    (":knot:" . 129698)
     (":koala:" . 128040)
     (":koko:" . 127489)
     (":kosovo:" 127485
@@ -3215,6 +3330,8 @@
     (":lab_coat:" . 129404)
     (":label:" . 127991)
     (":lacrosse:" . 129357)
+    (":ladder:" . 129692)
+    (":lady_beetle:" . 128030)
     (":lantern:" . 127982)
     (":laos:" 127473
      (Br . Bl)
@@ -3271,6 +3388,7 @@
     (":lock:" . 128274)
     (":lock_with_ink_pen:" . 128271)
     (":lollipop:" . 127853)
+    (":long_drum:" . 129688)
     (":loop:" . 10175)
     (":lotion_bottle:" . 129524)
     (":lotus_position:" . 129496)
@@ -3287,6 +3405,7 @@
     (":love_you_gesture:" . 129311)
     (":low_brightness:" . 128261)
     (":luggage:" . 129523)
+    (":lungs:" . 129729)
     (":luxembourg:" 127473
      (Br . Bl)
      127482)
@@ -3310,6 +3429,7 @@
     (":mage_woman:" 129497
      (Br . Bl)
      9792)
+    (":magic_wand:" . 129668)
     (":magnet:" . 129522)
     (":mahjong:" . 126980)
     (":mailbox:" . 128235)
@@ -3335,6 +3455,7 @@
     (":malta:" 127474
      (Br . Bl)
      127481)
+    (":mammoth:" . 129443)
     (":man:" . 128104)
     (":man_artist:" 128104
      (Br . Bl)
@@ -3342,6 +3463,9 @@
     (":man_astronaut:" 128104
      (Br . Bl)
      128640)
+    (":man_beard:" 129492
+     (Br . Bl)
+     9794)
     (":man_cartwheeling:" 129336
      (Br . Bl)
      9794)
@@ -3358,6 +3482,9 @@
     (":man_farmer:" 128104
      (Br . Bl)
      127806)
+    (":man_feeding_baby:" 128104
+     (Br . Bl)
+     127868)
     (":man_firefighter:" 128104
      (Br . Bl)
      128658)
@@ -3370,7 +3497,9 @@
     (":man_in_motorized_wheelchair:" 128104
      (Br . Bl)
      129468)
-    (":man_in_tuxedo:" . 129333)
+    (":man_in_tuxedo:" 129333
+     (Br . Bl)
+     9794)
     (":man_judge:" 128104
      (Br . Bl)
      9878)
@@ -3415,6 +3544,9 @@
      (Br . Bl)
      129455)
     (":man_with_turban:" 128115
+     (Br . Bl)
+     9794)
+    (":man_with_veil:" 128112
      (Br . Bl)
      9794)
     (":mandarin:" . 127818)
@@ -3463,6 +3595,9 @@
     (":men_wrestling:" 129340
      (Br . Bl)
      9794)
+    (":mending_heart:" 10084
+     (Br . Bl)
+     129657)
     (":menorah:" . 128334)
     (":mens:" . 128697)
     (":mermaid:" 129500
@@ -3484,10 +3619,12 @@
     (":microphone:" . 127908)
     (":microscope:" . 128300)
     (":middle_finger:" . 128405)
+    (":military_helmet:" . 129686)
     (":milk_glass:" . 129371)
     (":milky_way:" . 127756)
     (":minibus:" . 128656)
     (":minidisc:" . 128189)
+    (":mirror:" . 129694)
     (":mobile_phone_off:" . 128244)
     (":moldova:" 127474
      (Br . Bl)
@@ -3538,6 +3675,7 @@
     (":mountain_snow:" . 127956)
     (":mouse:" . 128045)
     (":mouse2:" . 128001)
+    (":mouse_trap:" . 129700)
     (":movie_camera:" . 127909)
     (":moyai:" . 128511)
     (":mozambique:" 127474
@@ -3550,6 +3688,9 @@
     (":musical_note:" . 127925)
     (":musical_score:" . 127932)
     (":mute:" . 128263)
+    (":mx_claus:" 129489
+     (Br . Bl)
+     127876)
     (":myanmar:" 127474
      (Br . Bl)
      127474)
@@ -3570,6 +3711,7 @@
      (Br . Bl)
      127477)
     (":nerd_face:" . 129299)
+    (":nesting_dolls:" . 129670)
     (":netherlands:" 127475
      (Br . Bl)
      127473)
@@ -3606,6 +3748,7 @@
     (":nine:" 57
      (Br . Bl)
      8419)
+    (":ninja:" . 129399)
     (":niue:" 127475
      (Br . Bl)
      127482)
@@ -3665,6 +3808,7 @@
     (":older_adult:" . 129491)
     (":older_man:" . 128116)
     (":older_woman:" . 128117)
+    (":olive:" . 129746)
     (":om:" . 128329)
     (":oman:" 127476
      (Br . Bl)
@@ -3752,6 +3896,7 @@
      129309
      (Br . Bl)
      129489)
+    (":people_hugging:" . 129730)
     (":performing_arts:" . 127917)
     (":persevere:" . 128547)
     (":person_bald:" 129489
@@ -3760,6 +3905,9 @@
     (":person_curly_hair:" 129489
      (Br . Bl)
      129457)
+    (":person_feeding_baby:" 129489
+     (Br . Bl)
+     127868)
     (":person_fencing:" . 129338)
     (":person_in_manual_wheelchair:" 129489
      (Br . Bl)
@@ -3767,6 +3915,7 @@
     (":person_in_motorized_wheelchair:" 129489
      (Br . Bl)
      129468)
+    (":person_in_tuxedo:" . 129333)
     (":person_red_hair:" 129489
      (Br . Bl)
      129456)
@@ -3777,6 +3926,7 @@
      (Br . Bl)
      129455)
     (":person_with_turban:" . 128115)
+    (":person_with_veil:" . 128112)
     (":peru:" 127477
      (Br . Bl)
      127466)
@@ -3786,6 +3936,7 @@
      127469)
     (":phone:" . 9742)
     (":pick:" . 9935)
+    (":pickup_truck:" . 128763)
     (":pie:" . 129383)
     (":pig:" . 128055)
     (":pig2:" . 128022)
@@ -3794,6 +3945,8 @@
     (":pilot:" 129489
      (Br . Bl)
      9992)
+    (":pinata:" . 129669)
+    (":pinched_fingers:" . 129292)
     (":pinching_hand:" . 129295)
     (":pineapple:" . 127821)
     (":ping_pong:" . 127955)
@@ -3805,10 +3958,12 @@
      (Br . Bl)
      127475)
     (":pizza:" . 127829)
+    (":placard:" . 129703)
     (":place_of_worship:" . 128720)
     (":plate_with_cutlery:" . 127869)
     (":play_or_pause_button:" . 9199)
     (":pleading_face:" . 129402)
+    (":plunger:" . 129696)
     (":point_down:" . 128071)
     (":point_left:" . 128072)
     (":point_right:" . 128073)
@@ -3817,6 +3972,9 @@
     (":poland:" 127477
      (Br . Bl)
      127473)
+    (":polar_bear:" 128059
+     (Br . Bl)
+     10052)
     (":police_car:" . 128659)
     (":police_officer:" . 128110)
     (":policeman:" 128110
@@ -3836,6 +3994,7 @@
     (":postbox:" . 128238)
     (":potable_water:" . 128688)
     (":potato:" . 129364)
+    (":potted_plant:" . 129716)
     (":pouch:" . 128093)
     (":poultry_leg:" . 127831)
     (":pound:" . 128183)
@@ -3938,11 +4097,13 @@
     (":ring:" . 128141)
     (":ringed_planet:" . 129680)
     (":robot:" . 129302)
+    (":rock:" . 129704)
     (":rocket:" . 128640)
     (":rofl:" . 129315)
     (":roll_eyes:" . 128580)
     (":roll_of_paper:" . 129531)
     (":roller_coaster:" . 127906)
+    (":roller_skate:" . 128764)
     (":romania:" 127479
      (Br . Bl)
      127476)
@@ -4038,7 +4199,9 @@
      917631)
     (":scream:" . 128561)
     (":scream_cat:" . 128576)
+    (":screwdriver:" . 129691)
     (":scroll:" . 128220)
+    (":seal:" . 129453)
     (":seat:" . 128186)
     (":secret:" . 12953)
     (":see_no_evil:" . 128584)
@@ -4056,6 +4219,7 @@
     (":seven:" 55
      (Br . Bl)
      8419)
+    (":sewing_needle:" . 129697)
     (":seychelles:" 127480
      (Br . Bl)
      127464)
@@ -4124,6 +4288,7 @@
     (":smile_cat:" . 128568)
     (":smiley:" . 128515)
     (":smiley_cat:" . 128570)
+    (":smiling_face_with_tear:" . 129394)
     (":smiling_face_with_three_hearts:" . 129392)
     (":smiling_imp:" . 128520)
     (":smirk:" . 128527)
@@ -4313,6 +4478,7 @@
      (Br . Bl)
      127471)
     (":takeout_box:" . 129377)
+    (":tamale:" . 129748)
     (":tanabata_tree:" . 127883)
     (":tangerine:" . 127818)
     (":tanzania:" 127481
@@ -4324,6 +4490,7 @@
     (":teacher:" 129489
      (Br . Bl)
      127979)
+    (":teapot:" . 129750)
     (":technologist:" 129489
      (Br . Bl)
      128187)
@@ -4339,6 +4506,7 @@
      127469)
     (":thermometer:" . 127777)
     (":thinking:" . 129300)
+    (":thong_sandal:" . 129652)
     (":thought_balloon:" . 128173)
     (":thread:" . 129525)
     (":three:" 51
@@ -4378,6 +4546,7 @@
     (":tongue:" . 128069)
     (":toolbox:" . 129520)
     (":tooth:" . 129463)
+    (":toothbrush:" . 129701)
     (":top:" . 128285)
     (":tophat:" . 127913)
     (":tornado:" . 127786)
@@ -4390,6 +4559,10 @@
     (":train:" . 128651)
     (":train2:" . 128646)
     (":tram:" . 128650)
+    (":transgender_flag:" 127987
+     (Br . Bl)
+     9895)
+    (":transgender_symbol:" . 9895)
     (":triangular_flag_on_post:" . 128681)
     (":triangular_ruler:" . 128208)
     (":trident:" . 128305)
@@ -4583,6 +4756,7 @@
     (":wilted_flower:" . 129344)
     (":wind_chime:" . 127888)
     (":wind_face:" . 127788)
+    (":window:" . 129695)
     (":wine_glass:" . 127863)
     (":wink:" . 128521)
     (":wolf:" . 128058)
@@ -4593,6 +4767,9 @@
     (":woman_astronaut:" 128105
      (Br . Bl)
      128640)
+    (":woman_beard:" 129492
+     (Br . Bl)
+     9792)
     (":woman_cartwheeling:" 129336
      (Br . Bl)
      9792)
@@ -4609,6 +4786,9 @@
     (":woman_farmer:" 128105
      (Br . Bl)
      127806)
+    (":woman_feeding_baby:" 128105
+     (Br . Bl)
+     127868)
     (":woman_firefighter:" 128105
      (Br . Bl)
      128658)
@@ -4621,6 +4801,9 @@
     (":woman_in_motorized_wheelchair:" 128105
      (Br . Bl)
      129468)
+    (":woman_in_tuxedo:" 129333
+     (Br . Bl)
+     9792)
     (":woman_judge:" 128105
      (Br . Bl)
      9878)
@@ -4667,14 +4850,19 @@
     (":woman_with_turban:" 128115
      (Br . Bl)
      9792)
+    (":woman_with_veil:" 128112
+     (Br . Bl)
+     9792)
     (":womans_clothes:" . 128090)
     (":womans_hat:" . 128082)
     (":women_wrestling:" 129340
      (Br . Bl)
      9792)
     (":womens:" . 128698)
+    (":wood:" . 129717)
     (":woozy_face:" . 129396)
     (":world_map:" . 128506)
+    (":worm:" . 129713)
     (":worried:" . 128543)
     (":wrench:" . 128295)
     (":wrestling:" . 129340)

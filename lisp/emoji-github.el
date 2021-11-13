@@ -21,6 +21,7 @@
     (":abc:" . 128292)
     (":abcd:" . 128289)
     (":accept:" . 127569)
+    (":accordion:" . 129687)
     (":adhesive_bandage:" . 129657)
     (":adult:" . 129489)
     (":aerial_tramway:" . 128673)
@@ -45,6 +46,7 @@
      (Br . Bl)
      127480)
     (":amphora:" . 127994)
+    (":anatomical_heart:" . 129728)
     (":anchor:" . 9875)
     (":andorra:" 127462
      (Br . Bl)
@@ -187,11 +189,12 @@
     (":beach_umbrella:" . 127958)
     (":bear:" . 128059)
     (":bearded_person:" . 129492)
+    (":beaver:" . 129451)
     (":bed:" . 128719)
     (":bee:" . 128029)
     (":beer:" . 127866)
     (":beers:" . 127867)
-    (":beetle:" . 128030)
+    (":beetle:" . 129714)
     (":beginner:" . 128304)
     (":belarus:" 127463
      (Br . Bl)
@@ -203,6 +206,7 @@
      (Br . Bl)
      127487)
     (":bell:" . 128276)
+    (":bell_pepper:" . 129745)
     (":bellhop_bell:" . 128718)
     (":benin:" 127463
      (Br . Bl)
@@ -228,6 +232,10 @@
     (":biohazard:" . 9763)
     (":bird:" . 128038)
     (":birthday:" . 127874)
+    (":bison:" . 129452)
+    (":black_cat:" 128008
+     (Br . Bl)
+     11035)
     (":black_circle:" . 9899)
     (":black_flag:" . 127988)
     (":black_heart:" . 128420)
@@ -254,6 +262,7 @@
     (":blue_car:" . 128665)
     (":blue_heart:" . 128153)
     (":blue_square:" . 128998)
+    (":blueberries:" . 129744)
     (":blush:" . 128522)
     (":boar:" . 128023)
     (":boat:" . 9973)
@@ -267,6 +276,7 @@
     (":bookmark_tabs:" . 128209)
     (":books:" . 128218)
     (":boom:" . 128165)
+    (":boomerang:" . 129667)
     (":boot:" . 128098)
     (":bosnia_herzegovina:" 127463
      (Br . Bl)
@@ -304,7 +314,9 @@
     (":bread:" . 127838)
     (":breast_feeding:" . 129329)
     (":bricks:" . 129521)
-    (":bride_with_veil:" . 128112)
+    (":bride_with_veil:" 128112
+     (Br . Bl)
+     9792)
     (":bridge_at_night:" . 127753)
     (":briefcase:" . 128188)
     (":british_indian_ocean_territory:" 127470
@@ -322,6 +334,8 @@
     (":brunei:" 127463
      (Br . Bl)
      127475)
+    (":bubble_tea:" . 129483)
+    (":bucket:" . 129699)
     (":bug:" . 128027)
     (":building_construction:" . 127959)
     (":bulb:" . 128161)
@@ -383,6 +397,7 @@
      (Br . Bl)
      127478)
     (":carousel_horse:" . 127904)
+    (":carpentry_saw:" . 129690)
     (":carrot:" . 129365)
     (":cartwheeling:" . 129336)
     (":cat:" . 128049)
@@ -486,6 +501,7 @@
      (Br . Bl)
      127475)
     (":coat:" . 129509)
+    (":cockroach:" . 129715)
     (":cocktail:" . 127864)
     (":coconut:" . 129381)
     (":cocos_islands:" 127464
@@ -493,6 +509,7 @@
      127464)
     (":coffee:" . 9749)
     (":coffin:" . 9904)
+    (":coin:" . 129689)
     (":cold_face:" . 129398)
     (":cold_sweat:" . 128560)
     (":collision:" . 128165)
@@ -677,6 +694,7 @@
      127468)
     (":disappointed:" . 128542)
     (":disappointed_relieved:" . 128549)
+    (":disguised_face:" . 129400)
     (":diving_mask:" . 129343)
     (":diya_lamp:" . 129684)
     (":dizzy:" . 128171)
@@ -686,6 +704,7 @@
      127471)
     (":dna:" . 129516)
     (":do_not_litter:" . 128687)
+    (":dodo:" . 129444)
     (":dog:" . 128054)
     (":dog2:" . 128021)
     (":dollar:" . 128181)
@@ -738,6 +757,7 @@
      127483)
     (":electric_plug:" . 128268)
     (":elephant:" . 128024)
+    (":elevator:" . 128727)
     (":elf:" . 129501)
     (":elf_man:" 129501
      (Br . Bl)
@@ -745,7 +765,7 @@
     (":elf_woman:" 129501
      (Br . Bl)
      9792)
-    (":email:" . 9993)
+    (":email:" . 128231)
     (":end:" . 128282)
     (":england:" 127988
      (Br . Bl)
@@ -796,7 +816,16 @@
      128488)
     (":eyeglasses:" . 128083)
     (":eyes:" . 128064)
+    (":face_exhaling:" 128558
+     (Br . Bl)
+     128168)
+    (":face_in_clouds:" 128566
+     (Br . Bl)
+     127787)
     (":face_with_head_bandage:" . 129301)
+    (":face_with_spiral_eyes:" 128565
+     (Br . Bl)
+     128171)
     (":face_with_thermometer:" . 129298)
     (":facepalm:" . 129318)
     (":facepunch:" . 128074)
@@ -961,6 +990,7 @@
     (":fast_forward:" . 9193)
     (":fax:" . 128224)
     (":fearful:" . 128552)
+    (":feather:" . 129718)
     (":feet:" . 128062)
     (":female_detective:" 128373
      (Br . Bl)
@@ -1004,6 +1034,7 @@
     (":flamingo:" . 129449)
     (":flashlight:" . 128294)
     (":flat_shoe:" . 129407)
+    (":flatbread:" . 129747)
     (":fleur_de_lis:" . 9884)
     (":flight_arrival:" . 128748)
     (":flight_departure:" . 128747)
@@ -1011,10 +1042,12 @@
     (":floppy_disk:" . 128190)
     (":flower_playing_cards:" . 127924)
     (":flushed:" . 128563)
+    (":fly:" . 129712)
     (":flying_disc:" . 129359)
     (":flying_saucer:" . 128760)
     (":fog:" . 127787)
     (":foggy:" . 127745)
+    (":fondue:" . 129749)
     (":foot:" . 129462)
     (":football:" . 127944)
     (":footprints:" . 128099)
@@ -1187,6 +1220,7 @@
     (":hatched_chick:" . 128037)
     (":hatching_chick:" . 128035)
     (":headphones:" . 127911)
+    (":headstone:" . 129702)
     (":health_worker:" 129489
      (Br . Bl)
      9877)
@@ -1198,6 +1232,9 @@
     (":heart_decoration:" . 128159)
     (":heart_eyes:" . 128525)
     (":heart_eyes_cat:" . 128571)
+    (":heart_on_fire:" 10084
+     (Br . Bl)
+     128293)
     (":heartbeat:" . 128147)
     (":heartpulse:" . 128151)
     (":hearts:" . 9829)
@@ -1228,6 +1265,7 @@
     (":hong_kong:" 127469
      (Br . Bl)
      127472)
+    (":hook:" . 129693)
     (":horse:" . 128052)
     (":horse_racing:" . 127943)
     (":hospital:" . 127973)
@@ -1246,6 +1284,7 @@
      (Br . Bl)
      127482)
     (":hushed:" . 128559)
+    (":hut:" . 128726)
     (":ice_cream:" . 127848)
     (":ice_cube:" . 129482)
     (":ice_hockey:" . 127954)
@@ -1348,6 +1387,7 @@
      (Br . Bl)
      9792)
     (":knife:" . 128298)
+    (":knot:" . 129698)
     (":koala:" . 128040)
     (":koko:" . 127489)
     (":kosovo:" 127485
@@ -1365,6 +1405,8 @@
     (":lab_coat:" . 129404)
     (":label:" . 127991)
     (":lacrosse:" . 129357)
+    (":ladder:" . 129692)
+    (":lady_beetle:" . 128030)
     (":lantern:" . 127982)
     (":laos:" 127473
      (Br . Bl)
@@ -1421,6 +1463,7 @@
     (":lock:" . 128274)
     (":lock_with_ink_pen:" . 128271)
     (":lollipop:" . 127853)
+    (":long_drum:" . 129688)
     (":loop:" . 10175)
     (":lotion_bottle:" . 129524)
     (":lotus_position:" . 129496)
@@ -1437,6 +1480,7 @@
     (":love_you_gesture:" . 129311)
     (":low_brightness:" . 128261)
     (":luggage:" . 129523)
+    (":lungs:" . 129729)
     (":luxembourg:" 127473
      (Br . Bl)
      127482)
@@ -1460,6 +1504,7 @@
     (":mage_woman:" 129497
      (Br . Bl)
      9792)
+    (":magic_wand:" . 129668)
     (":magnet:" . 129522)
     (":mahjong:" . 126980)
     (":mailbox:" . 128235)
@@ -1485,6 +1530,7 @@
     (":malta:" 127474
      (Br . Bl)
      127481)
+    (":mammoth:" . 129443)
     (":man:" . 128104)
     (":man_artist:" 128104
      (Br . Bl)
@@ -1492,6 +1538,9 @@
     (":man_astronaut:" 128104
      (Br . Bl)
      128640)
+    (":man_beard:" 129492
+     (Br . Bl)
+     9794)
     (":man_cartwheeling:" 129336
      (Br . Bl)
      9794)
@@ -1508,6 +1557,9 @@
     (":man_farmer:" 128104
      (Br . Bl)
      127806)
+    (":man_feeding_baby:" 128104
+     (Br . Bl)
+     127868)
     (":man_firefighter:" 128104
      (Br . Bl)
      128658)
@@ -1520,7 +1572,9 @@
     (":man_in_motorized_wheelchair:" 128104
      (Br . Bl)
      129468)
-    (":man_in_tuxedo:" . 129333)
+    (":man_in_tuxedo:" 129333
+     (Br . Bl)
+     9794)
     (":man_judge:" 128104
      (Br . Bl)
      9878)
@@ -1565,6 +1619,9 @@
      (Br . Bl)
      129455)
     (":man_with_turban:" 128115
+     (Br . Bl)
+     9794)
+    (":man_with_veil:" 128112
      (Br . Bl)
      9794)
     (":mandarin:" . 127818)
@@ -1613,6 +1670,9 @@
     (":men_wrestling:" 129340
      (Br . Bl)
      9794)
+    (":mending_heart:" 10084
+     (Br . Bl)
+     129657)
     (":menorah:" . 128334)
     (":mens:" . 128697)
     (":mermaid:" 129500
@@ -1634,10 +1694,12 @@
     (":microphone:" . 127908)
     (":microscope:" . 128300)
     (":middle_finger:" . 128405)
+    (":military_helmet:" . 129686)
     (":milk_glass:" . 129371)
     (":milky_way:" . 127756)
     (":minibus:" . 128656)
     (":minidisc:" . 128189)
+    (":mirror:" . 129694)
     (":mobile_phone_off:" . 128244)
     (":moldova:" 127474
      (Br . Bl)
@@ -1688,6 +1750,7 @@
     (":mountain_snow:" . 127956)
     (":mouse:" . 128045)
     (":mouse2:" . 128001)
+    (":mouse_trap:" . 129700)
     (":movie_camera:" . 127909)
     (":moyai:" . 128511)
     (":mozambique:" 127474
@@ -1700,6 +1763,9 @@
     (":musical_note:" . 127925)
     (":musical_score:" . 127932)
     (":mute:" . 128263)
+    (":mx_claus:" 129489
+     (Br . Bl)
+     127876)
     (":myanmar:" 127474
      (Br . Bl)
      127474)
@@ -1720,6 +1786,7 @@
      (Br . Bl)
      127477)
     (":nerd_face:" . 129299)
+    (":nesting_dolls:" . 129670)
     (":netherlands:" 127475
      (Br . Bl)
      127473)
@@ -1756,6 +1823,7 @@
     (":nine:" 57
      (Br . Bl)
      8419)
+    (":ninja:" . 129399)
     (":niue:" 127475
      (Br . Bl)
      127482)
@@ -1815,6 +1883,7 @@
     (":older_adult:" . 129491)
     (":older_man:" . 128116)
     (":older_woman:" . 128117)
+    (":olive:" . 129746)
     (":om:" . 128329)
     (":oman:" 127476
      (Br . Bl)
@@ -1902,6 +1971,7 @@
      129309
      (Br . Bl)
      129489)
+    (":people_hugging:" . 129730)
     (":performing_arts:" . 127917)
     (":persevere:" . 128547)
     (":person_bald:" 129489
@@ -1910,6 +1980,9 @@
     (":person_curly_hair:" 129489
      (Br . Bl)
      129457)
+    (":person_feeding_baby:" 129489
+     (Br . Bl)
+     127868)
     (":person_fencing:" . 129338)
     (":person_in_manual_wheelchair:" 129489
      (Br . Bl)
@@ -1917,6 +1990,7 @@
     (":person_in_motorized_wheelchair:" 129489
      (Br . Bl)
      129468)
+    (":person_in_tuxedo:" . 129333)
     (":person_red_hair:" 129489
      (Br . Bl)
      129456)
@@ -1927,6 +2001,7 @@
      (Br . Bl)
      129455)
     (":person_with_turban:" . 128115)
+    (":person_with_veil:" . 128112)
     (":peru:" 127477
      (Br . Bl)
      127466)
@@ -1936,6 +2011,7 @@
      127469)
     (":phone:" . 9742)
     (":pick:" . 9935)
+    (":pickup_truck:" . 128763)
     (":pie:" . 129383)
     (":pig:" . 128055)
     (":pig2:" . 128022)
@@ -1944,6 +2020,8 @@
     (":pilot:" 129489
      (Br . Bl)
      9992)
+    (":pinata:" . 129669)
+    (":pinched_fingers:" . 129292)
     (":pinching_hand:" . 129295)
     (":pineapple:" . 127821)
     (":ping_pong:" . 127955)
@@ -1955,10 +2033,12 @@
      (Br . Bl)
      127475)
     (":pizza:" . 127829)
+    (":placard:" . 129703)
     (":place_of_worship:" . 128720)
     (":plate_with_cutlery:" . 127869)
     (":play_or_pause_button:" . 9199)
     (":pleading_face:" . 129402)
+    (":plunger:" . 129696)
     (":point_down:" . 128071)
     (":point_left:" . 128072)
     (":point_right:" . 128073)
@@ -1967,6 +2047,9 @@
     (":poland:" 127477
      (Br . Bl)
      127473)
+    (":polar_bear:" 128059
+     (Br . Bl)
+     10052)
     (":police_car:" . 128659)
     (":police_officer:" . 128110)
     (":policeman:" 128110
@@ -1986,6 +2069,7 @@
     (":postbox:" . 128238)
     (":potable_water:" . 128688)
     (":potato:" . 129364)
+    (":potted_plant:" . 129716)
     (":pouch:" . 128093)
     (":poultry_leg:" . 127831)
     (":pound:" . 128183)
@@ -2088,11 +2172,13 @@
     (":ring:" . 128141)
     (":ringed_planet:" . 129680)
     (":robot:" . 129302)
+    (":rock:" . 129704)
     (":rocket:" . 128640)
     (":rofl:" . 129315)
     (":roll_eyes:" . 128580)
     (":roll_of_paper:" . 129531)
     (":roller_coaster:" . 127906)
+    (":roller_skate:" . 128764)
     (":romania:" 127479
      (Br . Bl)
      127476)
@@ -2188,7 +2274,9 @@
      917631)
     (":scream:" . 128561)
     (":scream_cat:" . 128576)
+    (":screwdriver:" . 129691)
     (":scroll:" . 128220)
+    (":seal:" . 129453)
     (":seat:" . 128186)
     (":secret:" . 12953)
     (":see_no_evil:" . 128584)
@@ -2206,6 +2294,7 @@
     (":seven:" 55
      (Br . Bl)
      8419)
+    (":sewing_needle:" . 129697)
     (":seychelles:" 127480
      (Br . Bl)
      127464)
@@ -2274,6 +2363,7 @@
     (":smile_cat:" . 128568)
     (":smiley:" . 128515)
     (":smiley_cat:" . 128570)
+    (":smiling_face_with_tear:" . 129394)
     (":smiling_face_with_three_hearts:" . 129392)
     (":smiling_imp:" . 128520)
     (":smirk:" . 128527)
@@ -2463,6 +2553,7 @@
      (Br . Bl)
      127471)
     (":takeout_box:" . 129377)
+    (":tamale:" . 129748)
     (":tanabata_tree:" . 127883)
     (":tangerine:" . 127818)
     (":tanzania:" 127481
@@ -2474,6 +2565,7 @@
     (":teacher:" 129489
      (Br . Bl)
      127979)
+    (":teapot:" . 129750)
     (":technologist:" 129489
      (Br . Bl)
      128187)
@@ -2489,6 +2581,7 @@
      127469)
     (":thermometer:" . 127777)
     (":thinking:" . 129300)
+    (":thong_sandal:" . 129652)
     (":thought_balloon:" . 128173)
     (":thread:" . 129525)
     (":three:" 51
@@ -2528,6 +2621,7 @@
     (":tongue:" . 128069)
     (":toolbox:" . 129520)
     (":tooth:" . 129463)
+    (":toothbrush:" . 129701)
     (":top:" . 128285)
     (":tophat:" . 127913)
     (":tornado:" . 127786)
@@ -2540,6 +2634,10 @@
     (":train:" . 128651)
     (":train2:" . 128646)
     (":tram:" . 128650)
+    (":transgender_flag:" 127987
+     (Br . Bl)
+     9895)
+    (":transgender_symbol:" . 9895)
     (":triangular_flag_on_post:" . 128681)
     (":triangular_ruler:" . 128208)
     (":trident:" . 128305)
@@ -2733,6 +2831,7 @@
     (":wilted_flower:" . 129344)
     (":wind_chime:" . 127888)
     (":wind_face:" . 127788)
+    (":window:" . 129695)
     (":wine_glass:" . 127863)
     (":wink:" . 128521)
     (":wolf:" . 128058)
@@ -2743,6 +2842,9 @@
     (":woman_astronaut:" 128105
      (Br . Bl)
      128640)
+    (":woman_beard:" 129492
+     (Br . Bl)
+     9792)
     (":woman_cartwheeling:" 129336
      (Br . Bl)
      9792)
@@ -2759,6 +2861,9 @@
     (":woman_farmer:" 128105
      (Br . Bl)
      127806)
+    (":woman_feeding_baby:" 128105
+     (Br . Bl)
+     127868)
     (":woman_firefighter:" 128105
      (Br . Bl)
      128658)
@@ -2771,6 +2876,9 @@
     (":woman_in_motorized_wheelchair:" 128105
      (Br . Bl)
      129468)
+    (":woman_in_tuxedo:" 129333
+     (Br . Bl)
+     9792)
     (":woman_judge:" 128105
      (Br . Bl)
      9878)
@@ -2817,14 +2925,19 @@
     (":woman_with_turban:" 128115
      (Br . Bl)
      9792)
+    (":woman_with_veil:" 128112
+     (Br . Bl)
+     9792)
     (":womans_clothes:" . 128090)
     (":womans_hat:" . 128082)
     (":women_wrestling:" 129340
      (Br . Bl)
      9792)
     (":womens:" . 128698)
+    (":wood:" . 129717)
     (":woozy_face:" . 129396)
     (":world_map:" . 128506)
+    (":worm:" . 129713)
     (":worried:" . 128543)
     (":wrench:" . 128295)
     (":wrestling:" . 129340)
