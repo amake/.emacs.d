@@ -992,6 +992,7 @@ See URL `http://batsov.com/rubocop/'."
   :diminish (lsp-mode . "LSP")
   :bind (:map lsp-mode-map
               ("C-c C-a" . #'lsp-execute-code-action))
+  :hook (lsp-mode . lsp-enable-which-key-integration)
   :custom
   (lsp-file-watch-threshold nil)
   (lsp-solargraph-multi-root nil)
