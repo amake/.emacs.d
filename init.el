@@ -1141,6 +1141,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package json-mode
   :after lsp-mode
   :mode ("\\.arb\\'" . json-mode)
+  :bind (:map js-mode-map ("M-." . nil))
   :ensure-system-package ((npm . npm8)
                           (vscode-json-languageserver . "sudo npm install -g vscode-json-languageserver"))
   :hook (json-mode . lsp-deferred))
