@@ -304,7 +304,7 @@ not be synced across machines.")
 
 (use-package flyspell
   :ensure nil
-  :ensure-system-package (aspell . "sudo port install aspell aspell-dict-en")
+  :ensure-system-package (aspell . "sudo port -N install aspell aspell-dict-en")
   :hook ((text-mode . flyspell-mode)
          ;; (prog-mode . flyspell-prog-mode)
          ))
