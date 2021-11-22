@@ -759,7 +759,8 @@ See URL `http://batsov.com/rubocop/'."
 (use-package web-mode
   :mode ("\\.html?\\'"
          "\\.erb\\'"
-         "\\.vue\\'")
+         "\\.vue\\'"
+         "\\.tsx\\'")
   :ensure-system-package ((npm . npm8)
                           (vls . "sudo npm install -g vls"))
   :hook (web-mode . (lambda ()
