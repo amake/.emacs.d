@@ -764,9 +764,12 @@ See URL `http://batsov.com/rubocop/'."
   :ensure-system-package ((npm . npm8)
                           (vls . "sudo npm install -g vls"))
   :hook (web-mode . (lambda ()
-                      (when (vue-file-p)
+                      (when (or (react-file-p) (vue-file-p))
                         (lsp-deferred))))
   :config
+  (defun react-file-p ()
+    (and buffer-file-name
+         (string= (file-name-extension buffer-file-name) "tsx")))
   (defun vue-file-p ()
     (and buffer-file-name
          (string= (file-name-extension buffer-file-name) "vue"))))
