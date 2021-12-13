@@ -983,6 +983,8 @@ See URL `http://batsov.com/rubocop/'."
 (use-package apache-mode
   :mode "envvars\\'")
 
+(use-package nginx-mode)
+
 (use-package helpful
   :bind (("C-h f" . #'helpful-callable)
          ("C-h v" . #'helpful-variable)
