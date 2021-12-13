@@ -135,7 +135,14 @@ with `save-buffer'."
   ;; Run server so `emacsclient` will edit in GUI editor.
   ;; May have to prepend /Applications/Emacs.app/Contents/MacOS/bin
   ;; to PATH on OS X.
-  (server-start))
+  (server-start)
+  ;; New stuff
+  ;;
+  ;; Undo variable-pitch mode line
+  (set-face-attribute 'mode-line nil :inherit 'default)
+  ;; Pixel scrolling
+  (when (fboundp #'pixel-scroll-precision-mode)
+    (pixel-scroll-precision-mode)))
 
 (require 'package)
 (setq package-enable-at-startup nil)
