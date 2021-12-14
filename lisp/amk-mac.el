@@ -23,7 +23,7 @@
   "Open the current working directory in the Finder."
   (interactive)
   (let ((cmd (if buffer-file-name
-                 (format "open -R '%s'" buffer-file-name)
+                 (format "open -R %s" (shell-quote-argument buffer-file-name))
                "open .")))
     (shell-command cmd)))
 
@@ -31,14 +31,14 @@
   "Open the current file in the default app."
   (interactive)
   (if (buffer-file-name)
-      (shell-command (format "open '%s'" buffer-file-name))
+      (shell-command (format "open %s" (shell-quote-argument buffer-file-name)))
     (error "Buffer is not associated with a file")))
 
 (defun amk-mac-reveal-file ()
   "Reveal the current file in the Finder."
   (interactive)
   (if (buffer-file-name)
-      (shell-command (concat "open -R " (buffer-file-name)))
+      (shell-command (format "open -R %s" (shell-quote-argument (buffer-file-name))))
     (error "Buffer is not associated with a file")))
 
 (defun amk-mac-open-terminal ()
@@ -50,8 +50,8 @@
   "Touch current buffer's file."
   (interactive)
   (when-let ((file (buffer-file-name)))
-    (shell-command (concat "touch " file))
-    (shell-command (concat "date -r " file))))
+    (shell-command (format "touch %s" (shell-quote-argument file)))
+    (shell-command (format "date -r %s" (shell-quote-argument file)))))
 
 (defun amk-mac--set-default (symbol value)
   "Set SYMBOL to VALUE."
