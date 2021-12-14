@@ -111,5 +111,32 @@ Programmatically set with `amk-mac-set-appearance-mode'."
 
 (add-hook 'after-make-frame-functions #'amk-mac--apply-appearance-mode-to-frame)
 
+(defcustom amk-mac-plist-mode-convert-format "xml1"
+  "The format from which binary plists should be converted."
+  :group 'amk-mac
+  :type '(choice (const  "xml1")
+                  (const "json")
+                  (const "swift")
+                  (const "objc")))
+
+
+(defun amk-mac-convert-binary-plist (&optional buf)
+  "Convert BUF or current from binary to something human-readable in a new buffer."
+  ;; This approach used instead of `jka-compr' machinery due to issues described
+  ;; here: https://hints.macworld.com/article.php?story=2005061422012079
+  (interactive)
+  (with-current-buffer (or buf (current-buffer))
+    (save-excursion
+      (goto-char (point-min))
+      (if (looking-at "bplist" t)
+          (progn
+            (shell-command-on-region
+             (point-min)
+             (point-max)
+             (format "plutil -convert %s %s -o -"
+                     amk-mac-plist-mode-convert-format
+                     (shell-quote-argument (file-remote-p buffer-file-name 'localname)))))
+        (error "Not a binary plist")))))
+
 (provide 'amk-mac)
 ;;; amk-mac.el ends here
