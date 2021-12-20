@@ -773,6 +773,10 @@ See URL `http://batsov.com/rubocop/'."
   :hook (web-mode . (lambda ()
                       (when (or (react-file-p) (vue-file-p))
                         (lsp-deferred))))
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
   :config
   (defun react-file-p ()
     (and buffer-file-name
