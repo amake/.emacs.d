@@ -1191,5 +1191,10 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package csv-mode)
 
+(use-package editorconfig
+  :diminish editorconfig-mode
+  :config
+  (editorconfig-mode 1))
+
 (provide 'init)
 ;;; init.el ends here
