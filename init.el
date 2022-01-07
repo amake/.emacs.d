@@ -770,9 +770,11 @@ See URL `http://batsov.com/rubocop/'."
          "\\.tsx\\'")
   :ensure-system-package ((npm . npm8)
                           (vls . "sudo npm install -g vls"))
+  :after prettier
   :hook (web-mode . (lambda ()
                       (when (or (react-file-p) (vue-file-p))
-                        (lsp-deferred))))
+                        (lsp-deferred)
+                        (prettier-mode))))
   :custom
   (web-mode-markup-indent-offset 2)
   (web-mode-css-indent-offset 2)
@@ -784,6 +786,9 @@ See URL `http://batsov.com/rubocop/'."
   (defun vue-file-p ()
     (and buffer-file-name
          (string= (file-name-extension buffer-file-name) "vue"))))
+
+(use-package prettier
+  :diminish prettier-mode)
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
