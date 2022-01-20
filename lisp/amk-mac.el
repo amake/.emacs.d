@@ -69,17 +69,14 @@ If FRAME is nil then apply to all frames in `frame-list'.
 This does nothing if the variable `window-system' is nil (in a terminal)."
   (when window-system
     (cond ((eq mode 'light)
-           (setq frame-background-mode 'light)
            (set-background-color "white")
            (set-foreground-color "black")
            (modify-all-frames-parameters '((ns-appearance . nil))))
           ((eq mode 'dark)
-           (setq frame-background-mode 'dark)
            (set-background-color "black")
            (set-foreground-color "white")
            (modify-all-frames-parameters '((ns-appearance . dark))))
           ((eq window-system 'mac)
-           (setq frame-background-mode nil)
            (set-background-color "mac:textBackgroundColor")
            (set-foreground-color "mac:textColor")))
     (mapc #'frame-set-background-mode (frame-list))))
