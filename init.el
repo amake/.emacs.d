@@ -856,6 +856,12 @@ See URL `http://batsov.com/rubocop/'."
   :custom
   (typescript-indent-level 2))
 
+(use-package svelte-mode
+  :defer t
+  :ensure-system-package ((npm . npm8)
+                          (svelteserver . "sudo npm install -g svelte-language-server"))
+  :hook (svelte-mode . lsp-deferred))
+
 (use-package go-mode
   :defer t
   :hook ((go-mode . (lambda ()
