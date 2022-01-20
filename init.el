@@ -1202,5 +1202,7 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (editorconfig-mode 1))
 
+(use-package docker)
+
 (provide 'init)
 ;;; init.el ends here
