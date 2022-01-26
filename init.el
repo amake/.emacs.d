@@ -857,6 +857,12 @@ See URL `http://batsov.com/rubocop/'."
   :custom
   (typescript-indent-level 2))
 
+(use-package jest-test-mode
+  :hook (typescript-mode js-mode typescript-tsx-mode)
+  :diminish (jest-test-mode)
+  :config
+  (put 'jest-test-command-string 'safe-local-variable #'stringp))
+
 (use-package svelte-mode
   :defer t
   :ensure-system-package ((npm . npm8)
