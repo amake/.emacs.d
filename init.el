@@ -788,7 +788,8 @@ See URL `http://batsov.com/rubocop/'."
          (string= (file-name-extension buffer-file-name) "vue"))))
 
 (use-package prettier
-  :diminish prettier-mode)
+  :diminish prettier-mode
+  :hook (typescript-mode . prettier-mode))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
