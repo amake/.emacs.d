@@ -185,6 +185,10 @@ not be synced across machines.")
   ;; NS port doesn't pick up LC_ALL, which causes encoding errors in e.g.
   ;; org-babel execution.
   (add-to-list 'exec-path-from-shell-variables "LC_ALL")
+  ;; Don't pick up MANPATH because I don't set it, and the value it determines
+  ;; is missing MacPorts manpages.
+  (setq exec-path-from-shell-variables
+        (delete "MANPATH" exec-path-from-shell-variables))
   ;; Ensure emacs shell has regular shell environment
   (exec-path-from-shell-initialize))
 
