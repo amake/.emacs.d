@@ -1191,6 +1191,7 @@ See URL `http://batsov.com/rubocop/'."
                           ("/opt/local/lib/libvterm.dylib" . libvterm))
   :custom ((vterm-shell "/bin/zsh --login")
            (vterm-buffer-name-string "vterm %s")
+           (vterm-max-scrollback 2000)
            (vterm-always-compile-module t)))
 
 (use-package amk-vterm
