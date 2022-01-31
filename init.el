@@ -146,6 +146,7 @@ with `save-buffer'."
 
 (require 'package)
 (setq package-enable-at-startup nil)
+(setq package-user-dir (format "%s-%d" package-user-dir emacs-major-version))
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/") ; ensure https
                          ("melpa" . "https://melpa.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")
