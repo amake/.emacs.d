@@ -21,6 +21,7 @@ tramp
 
 # elpa packages
 /elpa/
+/elpa-*/
 
 # reftex files
 *.rel
