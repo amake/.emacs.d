@@ -794,7 +794,8 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package prettier
   :diminish prettier-mode
-  :hook (typescript-mode . prettier-mode))
+  :hook ((typescript-mode . prettier-mode)
+         (svelte-mode . prettier-mode)))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
