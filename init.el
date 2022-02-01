@@ -145,14 +145,10 @@ with `save-buffer'."
     (pixel-scroll-precision-mode)))
 
 (require 'package)
-(setq package-enable-at-startup nil)
-(setq package-user-dir (format "%s-%d" package-user-dir emacs-major-version))
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/") ; ensure https
                          ("melpa" . "https://melpa.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")
                          ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
-(when (< emacs-major-version 27)
-  (package-initialize))
 
 ;; Bootstrap use-package
 ;; http://cachestocaches.com/2015/8/getting-started-use-package/
