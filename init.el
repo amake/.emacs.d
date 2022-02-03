@@ -1108,6 +1108,10 @@ See URL `http://batsov.com/rubocop/'."
   :custom
   (flutter-sdk-path "/Applications/flutter/"))
 
+(use-package vue-l10n
+  :ensure nil
+  :load-path "lisp")
+
 (use-package flutter-l10n-flycheck
   :ensure nil
   :load-path "lisp/flutter"
