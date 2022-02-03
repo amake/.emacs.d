@@ -43,11 +43,15 @@
 
 ;;; Code generation
 
-(defconst vue-l10n--ref-templ "{{ $t('%s') }}")
+(defconst vue-l10n--ref-text-templ "{{ $t('%s') }}")
 
-(defun vue-l10n--gen-string-ref (id)
-  "Generate a reference to the string with ID."
-  (format vue-l10n--ref-templ id))
+(defconst vue-l10n--ref-attr-templ "$t('%s')")
+
+(defun vue-l10n--gen-string-ref (id type)
+  "Generate a reference for TYPE to the string with ID."
+  (cond ((eq type 'vue-text-string) (format vue-l10n--ref-text-templ id))
+        ((eq type 'vue-attr-string) (format vue-l10n--ref-attr-templ id))
+        (t (error "Unknown type: %s" type))))
 
 (defconst vue-l10n--def-templ
   "\"%s\": \"%s\",\n")
@@ -72,7 +76,7 @@
 
 ;;; Internal utilities
 
-(defun vue-l10n--forward-vue-string (&optional arg)
+(defun vue-l10n--forward-vue-text-string (&optional arg)
   "Move to the end or beginning of the string at point.
 Go forward for positive ARG, or backward for negative ARG.
 Assumes start in middle of string.  Not meant for general use;
@@ -85,7 +89,22 @@ only for making `bounds-of-thing-at-point' work."
     (re-search-backward ">[^>]" nil 'move)
     (forward-char)))
 
-(put 'vue-string 'forward-op #'vue-l10n--forward-vue-string)
+(put 'vue-text-string 'forward-op #'vue-l10n--forward-vue-text-string)
+
+(defun vue-l10n--forward-vue-attr-string (&optional arg)
+  "Move to the end or beginning of the string at point.
+Go forward for positive ARG, or backward for negative ARG.
+Assumes start in middle of string.  Not meant for general use;
+only for making `bounds-of-thing-at-point' work."
+  (interactive "^p")
+  (if (natnump arg)
+      (progn
+        (re-search-forward "[^\"]+\"" nil 'move)
+        (backward-char))
+    (re-search-backward "=\"[^>]" nil 'move)
+    (forward-char 2)))
+
+(put 'vue-attr-string 'forward-op #'vue-l10n--forward-vue-attr-string)
 
 (defun vue-l10n--normalize-string (string)
   "Normalize a Vue.js STRING."
@@ -184,7 +203,10 @@ only for making `bounds-of-thing-at-point' work."
 The corresponding string definition will be put on the kill
 ring for yanking into the l10n class."
   (interactive)
-  (let* ((bounds (bounds-of-thing-at-point 'vue-string))
+  (let* ((type (cond ((bounds-of-thing-at-point 'vue-text-string) 'vue-text-string)
+                     ((bounds-of-thing-at-point 'vue-attr-string) 'vue-attr-string)
+                     (t (error "No Vue string at point!"))))
+         (bounds (bounds-of-thing-at-point type))
          (beg (car bounds))
          (end (cdr bounds))
          (value (vue-l10n--normalize-string
@@ -192,7 +214,7 @@ ring for yanking into the l10n class."
          (existing (vue-l10n--get-existing-ids))
          (id (vue-l10n--read-id existing))
          (definition (vue-l10n--gen-string-def id value))
-         (reference (vue-l10n--gen-string-ref id))
+         (reference (vue-l10n--gen-string-ref id type))
          (comment (vue-l10n--gen-comment value)))
     (when id ; null id means user chose to skip
       (vue-l10n--ensure-i18n-block)
@@ -213,20 +235,23 @@ of the l10n class indicated by `vue-l10n-file'."
         (template-end (cdr (vue-l10n--find-template-bounds))))
     (message "Template end: %d" template-end)
     (unwind-protect
-        (while (re-search-forward ">[^<]+<" template-end t)
+        (while (re-search-forward ">\\([^<]+\\)<\\|=\"\\([^\"]+\\)\"" template-end t)
           ;; Store match bounds now so they don't get clobbered
-          (let* ((beg (+ (match-beginning 0) 1))
-                 (end (- (match-end 0) 1))
+          (let* ((group (cond ((match-string 1) 1)
+                              ((match-string 2) 2)))
+                 (type (cond ((= group 1) 'vue-text-string)
+                             ((= group 2) 'vue-attr-string)))
+                 (beg (match-beginning group))
+                 (end (match-end group))
                  (value (vue-l10n--normalize-string
-                         (buffer-substring beg end)))) ; Empty match
-            (message "Found %s" value)
+                         (match-string group)))) ; Empty match
             (unless (or (string-empty-p value)
                         (vue-l10n--interpolation-p value))
               (backward-char) ;; Go back behind the <
               (push-mark beg)
               (activate-mark)
               (let* ((id (vue-l10n--read-id existing))
-                     (reference (vue-l10n--gen-string-ref id))
+                     (reference (vue-l10n--gen-string-ref id type))
                      (comment (vue-l10n--gen-comment value)))
                 (when id ; null id means user chose to skip
                   ;; `replace-match' sometimes fails with
