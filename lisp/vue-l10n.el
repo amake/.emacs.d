@@ -25,7 +25,24 @@
 ;;; Commentary:
 
 ;; vue-l10n.el is a package providing helpful functions for localizing Vue.js
-;; applications
+;; applications.
+;;
+;; Usage:
+;;
+;; 1. Load this package
+;;
+;; 2. Ensure that `vue-l10n-source-lang' is set appropriately. dir-locals are
+;;    recommended for per-project customization.
+;;
+;; 3. Open a Vue.js template file. web-mode (+ lsp-mode) is recommended for
+;;    working with Vue files in general.
+;;
+;; 4. Interactively run `vue-l10n-externalize-all' to externalize all strings in
+;;    the buffer following the point.
+;;
+;;    Alternatively, run `vue-l10n-externalize-at-point' to externalize one by
+;;    one. In this case the string definition is killed for manual yanking into
+;;    the <i18n> block.
 
 ;;; Code:
 
