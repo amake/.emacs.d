@@ -240,6 +240,7 @@ ring for yanking into the l10n class."
     (when id ; null id means user chose to skip
       (vue-l10n--ensure-i18n-block)
       (delete-region beg end)
+      (goto-char beg) ; In case e.g. user moved point while choosing the id
       (insert reference)
       ;; (insert comment)
       (unless (gethash id existing)
@@ -280,6 +281,7 @@ of the l10n class indicated by `vue-l10n-file'."
                   ;; so delete and insert instead. Previously:
                   ;;(replace-match reference t t)
                   (delete-region beg end)
+                  (goto-char beg) ; In case e.g. user moved point while choosing the id
                   (insert reference)
                   ;; (insert comment)
                   (unless (or (member id history)
