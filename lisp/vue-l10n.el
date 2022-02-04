@@ -40,7 +40,7 @@
 
 (put 'vue-l10n-source-lang 'safe-local-variable #'stringp)
 
-(defvar-local vue-l10n-localizable-attributes '("label"))
+(defvar-local vue-l10n-localizable-attributes '("label" "placeholder"))
 
 (defun vue-l10n--localizable-attributes-list-p (val)
   "Validate that VAL is a list of localizable attributes."
