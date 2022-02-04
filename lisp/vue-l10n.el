@@ -220,9 +220,10 @@ Match 2: `vue-attr-string'"
 
 ;;;###autoload
 (defun vue-l10n-externalize-at-point ()
-  "Replace a string with a Flutter l10n call.
-The corresponding string definition will be put on the kill
-ring for yanking into the l10n class."
+  "Replace a string with a lookup.
+
+The corresponding string definition will be put on the kill ring for yanking
+into the <i18n> block."
   (interactive)
   (let* ((type (cond ((bounds-of-thing-at-point 'vue-text-string) 'vue-text-string)
                      ((bounds-of-thing-at-point 'vue-attr-string) 'vue-attr-string)
@@ -249,8 +250,9 @@ ring for yanking into the l10n class."
 ;;;###autoload
 (defun vue-l10n-externalize-all ()
   "Interactively externalize all string literals in the buffer.
-The corresponding string definitions will be appended to the end
-of the l10n class indicated by `vue-l10n-file'."
+
+The corresponding string definitions will be appended to the
+source (`vue-l10n-source-lang') section of the <i18n> block."
   (interactive)
   (let (history
         (existing (vue-l10n--get-existing-ids))
