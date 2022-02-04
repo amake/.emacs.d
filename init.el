@@ -780,6 +780,7 @@ See URL `http://batsov.com/rubocop/'."
   (web-mode-markup-indent-offset 2)
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
+  (web-mode-enable-auto-indentation nil)
   :config
   (defun react-file-p ()
     (and buffer-file-name
