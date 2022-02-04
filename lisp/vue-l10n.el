@@ -36,18 +36,29 @@
 
 ;;; Public variables
 
-(defvar-local vue-l10n-source-lang "en")
+(defgroup vue-l10n nil
+  "Vue.js L10N"
+  :group 'convenience)
 
-(put 'vue-l10n-source-lang 'safe-local-variable #'stringp)
-
-(defvar-local vue-l10n-localizable-attributes '("label" "placeholder"))
+(defcustom vue-l10n-source-lang "en"
+  "The source language used for localization."
+  :group 'vue-l10n
+  :type 'string
+  :safe #'stringp)
 
 (defun vue-l10n--localizable-attributes-list-p (val)
   "Validate that VAL is a list of localizable attributes."
   (and (listp val)
        (seq-every-p #'stringp val)))
 
-(put 'vue-l10n-localizable-attributes 'safe-local-variable #'vue-l10n--localizable-attributes-list-p)
+(defcustom vue-l10n-localizable-attributes '("label" "placeholder")
+  "HTML attributes that are localizable.
+
+These will be picked up by `vue-l10n-externalize-all'. Other attributes are
+ignored."
+  :group 'vue-l10n
+  :type '(repeat string)
+  :safe #'vue-l10n--localizable-attributes-list-p)
 
 
 ;;; Code generation
