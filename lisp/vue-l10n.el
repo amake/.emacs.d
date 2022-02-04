@@ -40,6 +40,15 @@
 
 (put 'vue-l10n-source-lang 'safe-local-variable #'stringp)
 
+(defvar-local vue-l10n-localizable-attributes '("label"))
+
+(defun vue-l10n--localizable-attributes-list-p (val)
+  "Validate that VAL is a list of localizable attributes."
+  (and (listp val)
+       (seq-every-p #'stringp val)))
+
+(put 'vue-l10n-localizable-attributes 'safe-local-variable #'vue-l10n--localizable-attributes-list-p)
+
 
 ;;; Code generation
 
@@ -194,6 +203,18 @@ only for making `bounds-of-thing-at-point' work."
   "Return non-nil if STR is a Vue interpolation like {{this}}."
   (string-match-p "^{{.*}}$" str))
 
+(defun vue-l10n--build-string-search-pattern ()
+  "Build a pattern for searching for localizable strings.
+
+Match 1: `vue-text-string'
+Match 2: `vue-attr-string'"
+  (mapconcat
+   #'identity
+   `(">\\([^<]+\\)<"
+     ,(format "\\(?:%s\\)=\"\\([^\"]+\\)\""
+              (mapconcat #'identity vue-l10n-localizable-attributes "\\|")))
+   "\\|"))
+
 
 ;;; Public interface
 
@@ -232,10 +253,10 @@ of the l10n class indicated by `vue-l10n-file'."
   (interactive)
   (let (history
         (existing (vue-l10n--get-existing-ids))
-        (template-end (cdr (vue-l10n--find-template-bounds))))
-    (message "Template end: %d" template-end)
+        (template-end (cdr (vue-l10n--find-template-bounds)))
+        (search-pattern (vue-l10n--build-string-search-pattern)))
     (unwind-protect
-        (while (re-search-forward ">\\([^<]+\\)<\\|=\"\\([^\"]+\\)\"" template-end t)
+        (while (re-search-forward search-pattern template-end t)
           ;; Store match bounds now so they don't get clobbered
           (let* ((group (cond ((match-string 1) 1)
                               ((match-string 2) 2)))
