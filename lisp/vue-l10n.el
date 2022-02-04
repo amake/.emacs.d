@@ -269,7 +269,7 @@ of the l10n class indicated by `vue-l10n-file'."
                          (match-string group)))) ; Empty match
             (unless (or (string-empty-p value)
                         (vue-l10n--interpolation-p value))
-              (backward-char) ;; Go back behind the <
+              (goto-char end) ; Ensure point is at end of string, not whole match
               (push-mark beg)
               (activate-mark)
               (let* ((id (vue-l10n--read-id existing))
