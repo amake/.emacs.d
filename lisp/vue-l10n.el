@@ -163,7 +163,7 @@ only for making `bounds-of-thing-at-point' work."
       (insert (vue-l10n--gen-i18n-block)))))
 
 (defconst vue-l10n--i18n-block-pattern
-  "^[ \t]*<i18n[^>]*>\n?\\(\\(?:.\\|\n\\)*\\)\n?</i18n>")
+  "^[ \t]*<i18n[^>]*>\n?\\(\\(?:.\\|\n\\)*?\n?\\)</i18n>")
 
 (defun vue-l10n--append-to-i18n-block (lang key value)
   "Append KEY and VALUE to the LANG object in the <i18n> block."
