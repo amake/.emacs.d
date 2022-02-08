@@ -175,7 +175,7 @@ only for making `bounds-of-thing-at-point' work."
       (re-search-forward vue-l10n--i18n-block-pattern)
       (let ((beg (match-beginning 1))
             (end (match-end 1))
-            (temp-buffer (generate-new-buffer " *temp*" t)))
+            (temp-buffer (vue-l10n--gen-temp-buffer)))
         (unwind-protect
             (progn
               (narrow-to-region beg end)
@@ -185,6 +185,13 @@ only for making `bounds-of-thing-at-point' work."
               (replace-buffer-contents temp-buffer))
           (kill-buffer temp-buffer)
           (widen))))))
+
+(defun vue-l10n--gen-temp-buffer ()
+  "Get a temp buffer. Adapter for Emacs 27 compatibility."
+  (let ((args '(" *temp*")))
+    (when (> (cdr (func-arity #'generate-new-buffer)) 1)
+      (setq args `(,@args t)))
+    (apply #'generate-new-buffer args)))
 
 (defun vue-l10n--read-i18n-block ()
   "Read contents of <i18n> block as a hash table."
