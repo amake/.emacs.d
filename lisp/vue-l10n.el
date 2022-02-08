@@ -198,7 +198,9 @@ only for making `bounds-of-thing-at-point' work."
   "Return a hash table of existing string IDs from the <i18n> block."
   (if (vue-l10n--i18n-block-exists-p)
       (let* ((data (vue-l10n--read-i18n-block)))
-        (gethash vue-l10n-source-lang data))
+        (or
+         (gethash vue-l10n-source-lang data)
+         (make-hash-table :test #'equal)))
     (make-hash-table :test #'equal)))
 
 (defun vue-l10n--read-id (existing)
