@@ -332,6 +332,14 @@ not be synced across machines.")
   (when (macosp)
     (setq dired-use-ls-dired nil)))
 
+(use-package amk-dired-mac
+  :ensure nil
+  :load-path "lisp"
+  :after (dired)
+  :bind (:map dired-mode-map
+              ("C-c C-o" . #'amk-dired-mac-open-in-finder)
+              ("C-c C-r" . #'amk-dired-mac-reveal-in-finder)))
+
 (use-package dired-x
   :ensure nil)
 
