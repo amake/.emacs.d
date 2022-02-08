@@ -48,6 +48,7 @@
 
 (eval-when-compile (require 'subr-x))
 (require 'thingatpt)
+(require 'json)
 
 
 
