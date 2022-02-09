@@ -1013,13 +1013,13 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (auto-sudoedit-mode 1)
   (defun auto-sudoedit--skip-if-internal (old-function &rest args)
-    (let ((path (car args)))
+    (let ((path (auto-sudoedit-current-path)))
       (unless (and (stringp path)
                    (or (emacs-internal-file-p path)
                        (python-system-file-p path)
                        (go-system-file-p path)))
         (apply old-function args))))
-  (advice-add #'auto-sudoedit-should-activate :around #'auto-sudoedit--skip-if-internal))
+  (advice-add #'auto-sudoedit :around #'auto-sudoedit--skip-if-internal))
 
 (use-package hide-lines
   :defer t)
