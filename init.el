@@ -414,6 +414,8 @@ not be synced across machines.")
 
 (use-package tramp
   :ensure nil
+  :custom
+  (tramp-allow-unsafe-temporary-files t)
   :config
   ;; Make Tramp respect the remote server's PATH setting, so we can pick up
   ;; things like rbenv shims for remote Ruby execution via bundler
