@@ -108,7 +108,6 @@
                 "C-:"))
   (global-unset-key (kbd item)))
 
-(show-paren-mode)
 (column-number-mode)
 (electric-pair-mode)
 (delete-selection-mode)
@@ -264,6 +263,13 @@ not be synced across machines.")
                                 (desktop-save desktop-dirname))))
   :config
   (desktop-save-mode t))
+
+(use-package paren
+  :ensure nil
+  :custom
+  (show-paren-context-when-offscreen 'overlay "From Emacs 29")
+  :config
+  (show-paren-mode))
 
 (use-package files
   :ensure nil
