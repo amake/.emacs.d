@@ -1100,7 +1100,7 @@ See URL `http://batsov.com/rubocop/'."
         ;; the appearance here
         (set-foreground-color foreground))))
   (advice-add #'amk-mac-apply-appearance-mode :after (lambda (&rest _)
-                                                     (lsp-ui-doc--delete-frame)))
+                                                       (lsp-ui-doc--delete-frame)))
   (lsp-ui-doc--delete-frame))
 
 (use-package lsp-ivy
@@ -1186,7 +1186,7 @@ See URL `http://batsov.com/rubocop/'."
   ;; This variable isn't initialized yet at :custom eval time,
   ;; so set it here
   (setq beacon-dont-blink-major-modes
-   (delq 'magit-status-mode beacon-dont-blink-major-modes)))
+        (delq 'magit-status-mode beacon-dont-blink-major-modes)))
 
 (use-package jq-mode)
 
