@@ -338,6 +338,10 @@ not be synced across machines.")
   (when (macosp)
     (setq dired-use-ls-dired nil)))
 
+(use-package image-dired
+  :ensure nil
+  :hook (image-dired-thumbnail . (lambda () (display-line-numbers-mode -1))))
+
 (use-package amk-dired-mac
   :ensure nil
   :load-path "lisp"
