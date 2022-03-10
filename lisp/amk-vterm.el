@@ -14,7 +14,8 @@
 ;;; Code:
 
 (require 'seq)
-(require 'projectile)
+(require 'projectile nil t)
+(require 'project nil t)
 
 (defun amk-vterm--find-vterm-bufs (predicate)
   "Find existing vterm-mode buffers matching PREDICATE."
@@ -29,10 +30,21 @@
   "Get expanded `default-directory' for BUF."
   (expand-file-name (buffer-local-value 'default-directory buf)))
 
+(defun amk-vterm--project-root ()
+  "Get the current project root."
+  ;; projectile seems to better handle complex git setups, so prefer it when
+  ;; available
+  (cond ((featurep 'projectile)
+         (projectile-project-root)) ; appears guaranteed to be "expanded"
+        ((featurep 'project)
+         (let ((project (project-current)))
+           (when project
+             (expand-file-name (project-root project)))))))
+
 (defun amk-vterm-for-project ()
   "Open vterm for current Projectile project or CWD."
   (interactive)
-  (let* ((proj-root (projectile-project-root)) ; appears guaranteed to be "expanded"
+  (let* ((proj-root (amk-vterm--project-root))
          (curr-dir (expand-file-name default-directory))
          (predicate (if proj-root
                         (lambda (buf) (string-prefix-p proj-root (amk-vterm--buf-default-dir buf)))
