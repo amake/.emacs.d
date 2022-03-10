@@ -17,14 +17,14 @@
 (require 'vterm)
 (require 'projectile)
 
-(defun amk-vterm--find-vterm-buf (predicate)
-  "Find an existing vterm-mode buffer matching PREDICATE."
-  (seq-find (lambda (buf)
-              (with-current-buffer buf
-                (and
-                 (eq major-mode 'vterm-mode)
-                 (funcall predicate buf))))
-            (buffer-list)))
+(defun amk-vterm--find-vterm-bufs (predicate)
+  "Find existing vterm-mode buffers matching PREDICATE."
+  (seq-filter (lambda (buf)
+                (with-current-buffer buf
+                  (and
+                   (eq major-mode 'vterm-mode)
+                   (funcall predicate buf))))
+              (buffer-list)))
 
 (defun amk-vterm--buf-default-dir (buf)
   "Get expanded `default-directory' for BUF."
@@ -35,13 +35,17 @@
   (interactive)
   (let* ((proj-root (projectile-project-root)) ; appears guaranteed to be "expanded"
          (curr-dir (expand-file-name default-directory))
-         (curr-vterm (if proj-root
-                         (amk-vterm--find-vterm-buf
-                          (lambda (buf) (string-prefix-p proj-root (amk-vterm--buf-default-dir buf))))
-                       (amk-vterm--find-vterm-buf
-                        (lambda (buf) (string= curr-dir (amk-vterm--buf-default-dir buf)))))))
+         (predicate (if proj-root
+                        (lambda (buf) (string-prefix-p proj-root (amk-vterm--buf-default-dir buf)))
+                      (lambda (buf) (string= curr-dir (amk-vterm--buf-default-dir buf)))))
+         (all-vterms (amk-vterm--find-vterm-bufs predicate))
+         (target-vterm (if (cadr all-vterms) ; at least 2 items
+                           (completing-read
+                            "Switch to vterm:"
+                            (mapcar (lambda (buf) `(,(buffer-name buf) . ,buf)) all-vterms))
+                         (car all-vterms)))) ; 0 or 1 item
     (switch-to-buffer
-     (or curr-vterm
+     (or target-vterm
          (let ((default-directory (or proj-root curr-dir)))
            (vterm))))))
 
