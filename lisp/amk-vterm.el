@@ -14,7 +14,6 @@
 ;;; Code:
 
 (require 'seq)
-(require 'vterm)
 (require 'projectile)
 
 (defun amk-vterm--find-vterm-bufs (predicate)
