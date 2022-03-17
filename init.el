@@ -760,11 +760,10 @@ See URL `http://batsov.com/rubocop/'."
     (interactive)
     (counsel-rg nil default-directory)))
 
-(use-package all-the-icons-ivy
+(use-package all-the-icons
   :if (display-graphic-p)
   :after counsel
   :config
-  (all-the-icons-ivy-setup)
   (mapc (lambda (item) (add-to-list 'all-the-icons-mode-icon-alist item))
         '((conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
           (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
