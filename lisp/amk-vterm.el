@@ -46,9 +46,14 @@
   (interactive)
   (let* ((proj-root (amk-vterm--project-root))
          (curr-dir (expand-file-name default-directory))
+         (curr-buf (current-buffer))
          (predicate (if proj-root
-                        (lambda (buf) (string-prefix-p proj-root (amk-vterm--buf-default-dir buf)))
-                      (lambda (buf) (string= curr-dir (amk-vterm--buf-default-dir buf)))))
+                        (lambda (buf) (and
+                                  (not (eq curr-buf buf))
+                                  (string-prefix-p proj-root (amk-vterm--buf-default-dir buf))))
+                      (lambda (buf) (and
+                                (not (eq curr-buf buf))
+                                (string= curr-dir (amk-vterm--buf-default-dir buf))))))
          (all-vterms (amk-vterm--find-vterm-bufs predicate))
          (target-vterm (if (cadr all-vterms) ; at least 2 items
                            (completing-read
