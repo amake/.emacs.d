@@ -766,23 +766,17 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (all-the-icons-ivy-setup)
   (mapc (lambda (item) (add-to-list 'all-the-icons-mode-icon-alist item))
-        '((sh-mode all-the-icons-alltheicon "terminal" :face all-the-icons-purple)
-          (conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
+        '((conf-mode all-the-icons-fileicon "config" :face all-the-icons-yellow)
           (play-routes-mode all-the-icons-material "router" :face all-the-icons-dcyan)
           (Info-mode all-the-icons-material "info_outline")
-          (tcl-mode all-the-icons-fileicon "tcl" :face all-the-icons-purple)
           (octave-mode all-the-icons-fileicon "octave" :face all-the-icons-cyan-alt)
           (sql-mode all-the-icons-fileicon "sqlite" :face all-the-icons-blue-alt)
           (package-menu-mode all-the-icons-octicon "package" :face all-the-icons-dyellow)
           (groovy-mode all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt)
-          (dart-mode all-the-icons-faicon "location-arrow" :face all-the-icons-blue-alt)
           (flycheck-error-list-mode all-the-icons-material "error_outline" :face all-the-icons-red)
-          (tex-mode all-the-icons-fileicon "tex" :face all-the-icons-dyellow)
-          (kotlin-mode all-the-icons-fileicon "kotlin" :face all-the-icons-blue)
           (restclient-mode all-the-icons-faicon "bed" :face all-the-icons-orange)))
-  (mapc (lambda (item) (add-to-list 'all-the-icons-icon-alist item))
-        '(("\\.gradle$" all-the-icons-fileicon "gradle" :face all-the-icons-green)
-          ("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt))))
+  (mapc (lambda (item) (add-to-list 'all-the-icons-extension-icon-alist item))
+        '(("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt))))
 
 (use-package all-the-icons-ivy-rich
   :ensure t
@@ -801,6 +795,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
+
 (use-package web-mode
   :mode ("\\.html?\\'"
          "\\.erb\\'"
