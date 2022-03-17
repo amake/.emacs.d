@@ -784,6 +784,23 @@ See URL `http://batsov.com/rubocop/'."
         '(("\\.gradle$" all-the-icons-fileicon "gradle" :face all-the-icons-green)
           ("\\.groovy$" all-the-icons-fileicon "groovy" :face all-the-icons-blue-alt))))
 
+(use-package all-the-icons-ivy-rich
+  :ensure t
+  :config
+  (all-the-icons-ivy-rich-mode))
+
+(use-package ivy-rich
+  :ensure t
+  :config
+  (ivy-rich-mode))
+
+(use-package all-the-icons-ibuffer
+  :ensure t
+  :config
+  (all-the-icons-ibuffer-mode))
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
 (use-package web-mode
   :mode ("\\.html?\\'"
          "\\.erb\\'"
