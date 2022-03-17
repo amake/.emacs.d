@@ -1243,7 +1243,9 @@ See URL `http://batsov.com/rubocop/'."
   :ensure nil
   :load-path "lisp"
   :after (projectile vterm)
-  :bind ("C-z" . amk-vterm-for-project))
+  :bind (("C-z" . amk-vterm-for-project)
+         :map vterm-mode-map
+         ("M-z" . amk-vterm-for-project)))
 
 (use-package csharp-mode
   :after lsp-mode
