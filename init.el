@@ -1129,9 +1129,9 @@ See URL `http://batsov.com/rubocop/'."
   ;; :hook (java-mode . lsp-deferred)
   :demand t
   :ensure-system-package ((mvn . maven3)
-                          ("/opt/local/share/doc/README.openjdk11.txt" . openjdk11))
+                          ("/Library/Java/JavaVirtualMachines/openjdk11" . openjdk11))
   :custom
-  (lsp-java-java-path "/Library/Java/JavaVirtualMachines/openjdk11-temurin/Contents/Home/bin/java"))
+  (lsp-java-java-path "/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home/bin/java"))
 
 (use-package dart-mode
   :after (lsp-dart scale-to-fit)
