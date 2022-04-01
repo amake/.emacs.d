@@ -1272,7 +1272,12 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (editorconfig-mode 1))
 
-(use-package docker)
+(use-package docker
+  :hook ((docker-container-mode
+          docker-image-mode
+          docker-network-mode
+          docker-volume-mode)
+         . (lambda () (display-line-numbers-mode -1))))
 
 (provide 'init)
 ;;; init.el ends here
