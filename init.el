@@ -243,8 +243,7 @@ not be synced across machines.")
   :ensure nil
   :load-path "lisp"
   :after magit
-  :hook ((magit-status-mode . emoji-github-enable)
-         (magit-log-mode . emoji-github-enable))
+  :hook ((magit-status-mode magit-log-mode) . emoji-github-enable)
   :config
   (global-prettify-symbols-mode))
 
@@ -965,12 +964,13 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package paredit
   :diminish paredit-mode
-  :hook ((emacs-lisp-mode . paredit-mode)
-         (eval-expression-minibuffer-setup . paredit-mode)
-         (ielm-mode . paredit-mode)
-         (lisp-mode . paredit-mode)
-         (lisp-interaction-mode . paredit-mode)
-         (scheme-mode . paredit-mode))
+  :hook ((emacs-lisp-mode
+          eval-expression-minibuffer-setup
+          ielm-mode
+          lisp-mode
+          lisp-interaction-mode
+          scheme-mode)
+         . paredit-mode)
   :bind (("M-S-<down>" . amk-edit-move-lines-down)
          ("M-S-<up>" . amk-edit-move-lines-up)
          ("M-<right>" . paredit-forward-slurp-sexp)
@@ -1013,8 +1013,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package rainbow-mode
   :diminish rainbow-mode
-  :hook ((prog-mode . rainbow-mode)
-         (conf-mode . rainbow-mode)))
+  :hook ((prog-mode conf-mode) . rainbow-mode))
 
 (defun emacs-internal-file-p (path)
   "Return non-nil if PATH represents a file that might be part of the Emacs installation."
