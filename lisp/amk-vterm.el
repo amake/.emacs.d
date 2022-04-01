@@ -1,4 +1,4 @@
-;;; amk-vterm.el --- Functions for terminal stuff
+;;; amk-vterm.el --- Functions for terminal stuff -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021 Aaron Madlon-Kay
 
