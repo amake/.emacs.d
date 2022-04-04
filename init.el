@@ -388,6 +388,11 @@ not be synced across machines.")
   :custom
   (js-indent-level 2))
 
+(use-package css-mode
+  :ensure nil
+  :custom
+  (css-indent-offset 2))
+
 (use-package browse-url
   :ensure nil
   :config
