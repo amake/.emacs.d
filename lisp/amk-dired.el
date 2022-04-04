@@ -20,9 +20,14 @@
   "Diff marked files in ediff."
   (interactive)
   (let ((files (dired-get-marked-files)))
-    (if files
-        (apply #'ediff-files files)
-      (error "No files marked"))))
+    (cond
+     ((cadddr files)
+      (error "Must have 2 or 3 files marked"))
+     ((caddr files)
+      (apply #'ediff-files3 files))
+     ((cadr files)
+      (apply #'ediff-files files))
+     (t (error "Must have 2 or 3 files marked")))))
 
 (provide 'amk-dired)
 ;;; amk-dired.el ends here
