@@ -1,4 +1,4 @@
-;;; amk-dired.el --- dired utilitiesOS
+;;; amk-dired.el --- Dired utilities
 
 ;; Copyright (C) 2022 Aaron Madlon-Kay
 
