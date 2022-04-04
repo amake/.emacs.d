@@ -349,6 +349,13 @@ not be synced across machines.")
               ("C-c C-o" . #'amk-dired-mac-open-in-finder)
               ("C-c C-r" . #'amk-dired-mac-reveal-in-finder)))
 
+(use-package amk-dired
+  :ensure nil
+  :load-path "lisp"
+  :after (dired)
+  :bind (:map dired-mode-map
+              ("C-c C-d" . #'amk-dired-ediff)))
+
 (use-package dired-x
   :ensure nil)
 
