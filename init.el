@@ -395,6 +395,7 @@ not be synced across machines.")
 
 (use-package browse-url
   :ensure nil
+  :bind ("s-<mouse-1>" . #'browse-url-at-point)
   :config
   (when (macosp)
     (setq browse-url-generic-program "open")))
