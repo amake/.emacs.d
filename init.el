@@ -1141,9 +1141,9 @@ See URL `http://batsov.com/rubocop/'."
   ;; :hook (java-mode . lsp-deferred)
   :demand t
   :ensure-system-package ((mvn . maven3)
-                          ("/Library/Java/JavaVirtualMachines/openjdk11-zulu" . openjdk11-zulu))
+                          ("/Library/Java/JavaVirtualMachines/openjdk11" . openjdk11))
   :custom
-  (lsp-java-java-path "/Library/Java/JavaVirtualMachines/openjdk11-zulu/Contents/Home/bin/java"))
+  (lsp-java-java-path "/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home/bin/java"))
 
 (use-package dart-mode
   :after (lsp-dart scale-to-fit)
