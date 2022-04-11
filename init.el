@@ -805,6 +805,7 @@ See URL `http://batsov.com/rubocop/'."
   (all-the-icons-ibuffer-mode))
 
 (use-package all-the-icons-dired
+  :diminish all-the-icons-dired-mode
   :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package web-mode
