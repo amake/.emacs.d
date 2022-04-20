@@ -253,6 +253,10 @@ not be synced across machines.")
   :after nxml-mode
   :hook (nxml-mode . hl-tags-mode))
 
+(use-package macports
+  :ensure nil
+  :load-path "lisp")
+
 (use-package desktop
   :ensure nil
   :if (display-graphic-p)
