@@ -839,6 +839,8 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package prettier
   :diminish prettier-mode
+  :ensure-system-package ((npm . npm8)
+                          (prettier . "sudo npm install -g prettier"))
   :hook ((typescript-mode . prettier-mode)
          (svelte-mode . prettier-mode)))
 
