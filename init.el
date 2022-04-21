@@ -1298,5 +1298,10 @@ See URL `http://batsov.com/rubocop/'."
           docker-volume-mode)
          . (lambda () (display-line-numbers-mode -1))))
 
+(use-package terraform-mode
+  :after lsp-mode
+  :ensure-system-package terraform-ls
+  :hook (terraform-mode . lsp-deferred))
+
 (provide 'init)
 ;;; init.el ends here
