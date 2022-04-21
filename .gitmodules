@@ -7,3 +7,6 @@
 [submodule "hl-tags-mode"]
 	path = lisp/hl-tags-mode
 	url = https://github.com/amake/hl-tags-mode.git
+[submodule "macports"]
+	path = lisp/macports
+	url = https://github.com/amake/macports.el.git

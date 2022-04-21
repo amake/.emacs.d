@@ -255,7 +255,7 @@ not be synced across machines.")
 
 (use-package macports
   :ensure nil
-  :load-path "lisp")
+  :load-path "lisp/macports")
 
 (use-package desktop
   :ensure nil
