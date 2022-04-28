@@ -1,4 +1,4 @@
-;;; amk-dired.el --- Dired utilities
+;;; amk-dired.el --- Dired utilities -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2022 Aaron Madlon-Kay
 

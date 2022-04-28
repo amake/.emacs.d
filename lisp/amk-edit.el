@@ -1,4 +1,4 @@
-;;; amk-edit.el --- Custom editing commands
+;;; amk-edit.el --- Custom editing commands -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017-2020 Aaron Madlon-Kay
 

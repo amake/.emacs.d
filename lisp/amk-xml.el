@@ -1,4 +1,4 @@
-;;; amk-xml.el --- Custom XML commands
+;;; amk-xml.el --- Custom XML commands -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021 Aaron Madlon-Kay
 

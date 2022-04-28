@@ -1,4 +1,4 @@
-;;; amk-type-specimen.el --- Generate type specimens
+;;; amk-type-specimen.el --- Generate type specimens -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021 Aaron Madlon-Kay
 

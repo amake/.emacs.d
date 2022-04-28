@@ -1,4 +1,4 @@
-;;; amk-browse.el --- Custom browsing commands
+;;; amk-browse.el --- Custom browsing commands -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018-2020 Aaron Madlon-Kay
 

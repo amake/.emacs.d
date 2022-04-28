@@ -1,4 +1,4 @@
-;;; amk-mac.el --- Functions specific to macOS
+;;; amk-mac.el --- Functions specific to macOS -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2017-2020 Aaron Madlon-Kay
 

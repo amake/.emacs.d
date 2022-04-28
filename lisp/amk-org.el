@@ -1,4 +1,4 @@
-;;; amk-org.el --- Org-related commands
+;;; amk-org.el --- Org-related commands -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020 Aaron Madlon-Kay
 

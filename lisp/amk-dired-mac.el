@@ -1,4 +1,4 @@
-;;; amk-dired-mac.el --- dired utilities for macOS
+;;; amk-dired-mac.el --- dired utilities for macOS -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021 Aaron Madlon-Kay
 
