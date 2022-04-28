@@ -13,6 +13,7 @@
 
 ;;; Code:
 
+(require 'vterm)
 (require 'seq)
 (require 'projectile nil t)
 (require 'project nil t)
