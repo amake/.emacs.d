@@ -1301,7 +1301,8 @@ See URL `http://batsov.com/rubocop/'."
 (use-package terraform-mode
   :after lsp-mode
   :ensure-system-package terraform-ls
-  :hook (terraform-mode . lsp-deferred))
+  :hook ((terraform-mode . lsp-deferred)
+         (terraform-mode . terraform-format-on-save-mode)))
 
 (provide 'init)
 ;;; init.el ends here
