@@ -944,7 +944,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package py-autopep8
   :after python
   :ensure-system-package (autopep8 . py310-autopep8)
-  :hook (python-mode . py-autopep8-enable-on-save))
+  :hook (python-mode . py-autopep8-mode))
 
 (use-package pyvenv
   :commands (pyvenv-activate pyvenv-workon))
