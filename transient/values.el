@@ -1,1 +1,3 @@
-((magit-diff:magit-status-mode "--no-ext-diff" "--color-moved=default"))
+((macports-reclaim "-v" "-N")
+ (macports-selfupdate "-v" "-N")
+ (macports-upgrade "-N"))
