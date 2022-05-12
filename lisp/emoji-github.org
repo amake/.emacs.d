@@ -1907,27 +1907,29 @@
 
    #+begin_src elisp :var data=emojis-data
      (pp
-      (remove nil
-              (mapcar (lambda (item)
-                        (when-let* ((name (car item))
-                                    (url (cadr item))
-                                    (cp-str (when (string-match "https://.*/unicode/\\([^.]+\\)\\.png.*" url)
-                                              (match-string 1 url)))
-                                    (cp (mapcar (lambda (cp)
-                                                  (string-to-number cp 16))
-                                                (split-string cp-str "-"))))
-                          (cons
-                           (format ":%s:" name)
-                           (cond ((= 1 (length cp))
-                                  (car cp))
-                                 (t (let (ret)
-                                      ;; insert composition rules
-                                      (dolist (c cp)
-                                        (push c ret)
-                                        (push '(Br . Bl) ret))
-                                      (pop ret) ; remove last rule
-                                      (reverse ret)))))))
-                      data)))
+      (remove
+       nil
+       (mapcar
+        (lambda (item)
+          (when-let* ((name (car item))
+                      (url (cadr item))
+                      (cp-str (when (string-match "https://.*/unicode/\\([^.]+\\)\\.png.*" url)
+                                (match-string 1 url)))
+                      (cp (mapcar (lambda (cp)
+                                    (string-to-number cp 16))
+                                  (split-string cp-str "-"))))
+            (cons
+             (format ":%s:" name)
+             (cond ((cdr cp) ; two or more items
+                    (let (ret)
+                      ;; insert composition rules
+                      (dolist (c cp)
+                        (push c ret)
+                        (push '(Br . Bl) ret))
+                      (pop ret) ; remove last rule
+                      (reverse ret)))
+                   (t (car cp))))))
+        data)))
    #+end_src
 
    #+RESULTS:
