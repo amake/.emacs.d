@@ -1304,5 +1304,9 @@ See URL `http://batsov.com/rubocop/'."
   :hook ((terraform-mode . lsp-deferred)
          (terraform-mode . terraform-format-on-save-mode)))
 
+(use-package coffee-mode)
+
+(use-package pug-mode)
+
 (provide 'init)
 ;;; init.el ends here
