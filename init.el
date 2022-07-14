@@ -267,6 +267,11 @@ not be synced across machines.")
   :config
   (desktop-save-mode t))
 
+(use-package compile
+  :ensure nil
+  :custom
+  (compilation-scroll-output 'first-error))
+
 (use-package paren
   :ensure nil
   :custom
