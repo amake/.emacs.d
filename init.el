@@ -985,7 +985,7 @@ See URL `http://batsov.com/rubocop/'."
                           (pdfinfo . poppler))
   :hook (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
   :config
-  (pdf-tools-install))
+  (pdf-tools-install t))
 
 (use-package paredit
   :diminish paredit-mode
