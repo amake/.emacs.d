@@ -1313,5 +1313,9 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package pug-mode)
 
+(use-package nodejs-repl
+  :custom
+  (nodejs-repl-arguments '("--experimental-repl-await")))
+
 (provide 'init)
 ;;; init.el ends here
