@@ -178,9 +178,14 @@ not be synced across machines.")
 (use-package exec-path-from-shell
   :if (macosp)
   :config
-  ;; NS port doesn't pick up LC_ALL, which causes encoding errors in e.g.
-  ;; org-babel execution.
-  (add-to-list 'exec-path-from-shell-variables "LC_ALL")
+  (dolist (var '(
+                 ;; NS port doesn't pick up LC_ALL, which causes encoding
+                 ;; errors in e.g. org-babel execution.
+                 "LC_ALL"
+                 ;; terraform-ls with tfenv needs this or it will try to
+                 ;; install terraform to /opt/local.
+                 "TFENV_CONFIG_DIR"))
+    (add-to-list 'exec-path-from-shell-variables var))
   ;; Don't pick up MANPATH because I don't set it, and the value it determines
   ;; is missing MacPorts manpages.
   (setq exec-path-from-shell-variables
