@@ -269,6 +269,10 @@ not be synced across machines.")
   :hook (auto-save-mode . (lambda ()
                             (if (eq (desktop-owner) (emacs-pid))
                                 (desktop-save desktop-dirname))))
+  :custom
+  (desktop-load-locked-desktop (if (>= emacs-major-version 29)
+                                   'check-pid
+                                 'ask))
   :config
   (desktop-save-mode t))
 
