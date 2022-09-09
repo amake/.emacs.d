@@ -1311,6 +1311,8 @@ See URL `http://batsov.com/rubocop/'."
 (use-package terraform-mode
   :after lsp-mode
   :ensure-system-package terraform-ls
+  :custom
+  (lsp-terraform-ls-enable-show-reference t)
   :hook ((terraform-mode . lsp-deferred)
          (terraform-mode . terraform-format-on-save-mode)))
 
