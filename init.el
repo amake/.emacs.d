@@ -1328,5 +1328,22 @@ See URL `http://batsov.com/rubocop/'."
   :custom
   (nodejs-repl-arguments '("--experimental-repl-await")))
 
+(use-package edit-indirect
+  :after thingatpt
+  :bind (:map prog-mode-map
+              ("C-c '" . amk-indirect-edit-string))
+  :config
+  (defun amk-indirect-guess-mode (_buf _beg _end)
+    "Guess mode a bit more smartly than `edit-indirect-default-guess-mode'."
+    (cond ((save-excursion (goto-char 0) (re-search-forward "SELECT" nil t))
+           (sql-mode))
+          (t (normal-mode))))
+  (defun amk-indirect-edit-string ()
+    "Indirectly edit string at point."
+    (interactive)
+    (pcase-let ((`(,beg . ,end) (thing-at-point-bounds-of-string-at-point)))
+      (let ((edit-indirect-guess-mode-function #'amk-indirect-guess-mode))
+        (edit-indirect-region (1+ beg) (1- end) t)))))
+
 (provide 'init)
 ;;; init.el ends here
