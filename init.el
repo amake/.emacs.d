@@ -1328,22 +1328,22 @@ See URL `http://batsov.com/rubocop/'."
   :custom
   (nodejs-repl-arguments '("--experimental-repl-await")))
 
-(use-package edit-indirect
-  :after thingatpt
-  :bind (:map prog-mode-map
-              ("C-c '" . amk-indirect-edit-string))
+(use-package edit-indirect)
+
+(use-package edit-string
+  :ensure nil
+  :after (edit-indirect thingatpt)
+  :load-path "lisp"
+  :bind (:map
+         prog-mode-map
+         ("C-c '" . edit-string-at-point)
+         :map
+         typescript-mode-map ; override default
+         ("C-c '" . edit-string-at-point))
   :config
-  (defun amk-indirect-guess-mode (_buf _beg _end)
-    "Guess mode a bit more smartly than `edit-indirect-default-guess-mode'."
-    (cond ((save-excursion (goto-char 0) (re-search-forward "SELECT" nil t))
-           (sql-mode))
-          (t (normal-mode))))
-  (defun amk-indirect-edit-string ()
-    "Indirectly edit string at point."
-    (interactive)
-    (pcase-let ((`(,beg . ,end) (thing-at-point-bounds-of-string-at-point)))
-      (let ((edit-indirect-guess-mode-function #'amk-indirect-guess-mode))
-        (edit-indirect-region (1+ beg) (1- end) t)))))
+  (defun amk-sql-p ()
+    (save-excursion (goto-char 0) (re-search-forward "\\bSELECT\\b" nil t)))
+  (add-to-list 'edit-string-guess-mode-alist `(,#'amk-sql-p . ,#'sql-mode)))
 
 (provide 'init)
 ;;; init.el ends here
