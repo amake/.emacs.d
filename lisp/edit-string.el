@@ -78,21 +78,28 @@ Returns a function that will restore the trimmed whitespace."
       (substring s1 0 (1- (abs cmp))))))
 
 (defun edit-string--collect-indents ()
-  "Return a list of all indent strings from the current buffer."
+  "Return a hash of all indent strings from the current buffer."
   (save-excursion
     (goto-char 0)
-    (let (indents)
-      (while (and
-              (re-search-forward "^[ \t]*" nil t)
-              (not (eobp))
-              (not (bobp)))
-        (push (match-string-no-properties 0) indents))
+    (let ((indents (make-hash-table :test #'equal)))
+      (condition-case nil
+          (while (and (re-search-forward "^[ \t]*" nil t) (not (eobp)))
+            (let ((indent (match-string-no-properties 0)))
+              (puthash indent t indents)
+              ;; An empty-string indent means there is no common indent
+              ;; to remove, so we can exit early.
+              (when (= 0 (length indent))
+                (signal 'quit nil))))
+        (quit nil))
       indents)))
 
 (defun edit-string--compute-common-indent ()
   "Compute the longest common indent string in the current buffer."
   (let ((indents (edit-string--collect-indents)))
-    (seq-reduce #'edit-string--common-prefix indents (car indents))))
+    (if (gethash "" indents)
+        ""
+      (let ((keys (hash-table-keys indents)))
+        (seq-reduce #'edit-string--common-prefix keys (car keys))))))
 
 ;; Advice for edit-indirect. Could be removed if upstreamed; see
 ;; https://github.com/Fanael/edit-indirect/issues/6
