@@ -18,9 +18,9 @@
          :sync t
          :success
          (cl-function (lambda (&key data &allow-other-keys)
-                        (setq ret (mapcar (lambda (item)
-                                            (list (car item) (cdr item)))
-                                          data)))))
+                        (setq ret (mapcar
+                                   (pcase-lambda (`(,key . ,value)) (list key value))
+                                   data)))))
        ret)
    #+end_src
 
@@ -1910,10 +1910,8 @@
       (remove
        nil
        (mapcar
-        (lambda (item)
-          (when-let* ((name (car item))
-                      (url (cadr item))
-                      (cp-str (when (string-match "https://.*/unicode/\\([^.]+\\)\\.png.*" url)
+        (pcase-lambda (`(,name ,url))
+          (when-let* ((cp-str (when (string-match "https://.*/unicode/\\([^.]+\\)\\.png.*" url)
                                 (match-string 1 url)))
                       (cp (mapcar (lambda (cp)
                                     (string-to-number cp 16))
