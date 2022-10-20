@@ -1341,8 +1341,8 @@ See URL `http://batsov.com/rubocop/'."
          ("C-c '" . edit-string-at-point))
   :config
   (defun amk-sql-p ()
-    (save-excursion (goto-char 0) (re-search-forward "\\bSELECT\\b" nil t)))
-  (add-to-list 'edit-string-guess-mode-alist `(,#'amk-sql-p . ,#'sql-mode)))
+    (re-search-forward "\\bSELECT\\b" nil t))
+  (add-to-list 'edit-string-guess-mode-alist '(amk-sql-p . sql-mode)))
 
 (provide 'init)
 ;;; init.el ends here

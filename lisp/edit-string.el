@@ -125,7 +125,7 @@ Content is (PREDICATE . FUNC).")
   (condition-case nil
       (progn
         (pcase-dolist (`(,pred . ,func) edit-string-guess-mode-alist)
-         (when (funcall pred)
+         (when (save-excursion (goto-char 0) (funcall pred))
            (funcall func)
            (signal 'quit nil)))
         (normal-mode))
