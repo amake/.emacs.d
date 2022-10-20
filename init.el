@@ -37,24 +37,24 @@
   ;; Source Han Mono: https://github.com/adobe-fonts/source-han-mono
   ;; Source Han Code JP: https://github.com/adobe-fonts/source-han-code-jp
   ;; Sarasa Gothic: https://github.com/be5invis/Sarasa-Gothic
-  (dolist (item '((hangul . "Sarasa Gothic K") ; Or "Source Han Mono K"
-                  (han . "Sarasa Gothic SC") ; Or "Source Han Mono SC"
-                  (japanese-jisx0213.2004-1 . "Sarasa Gothic J") ; Or "Source Han Code JP"
-                  (cyrillic . "PragmataPro Liga")
-                  (greek . "PragmataPro Liga")
-                  (hebrew . "PragmataPro Liga")
-                  (thai . "Noto Sans Thai")
-                  (arabic . "PragmataPro Liga")
-                  (bengali . "Noto Sans Bengali")
-                  (devanagari . "Noto Sans Devanagari")
-                  (kannada . "Noto Sans Kannada")
-                  (malayalam . "Noto Sans Malayalam")
-                  (gurmukhi . "Noto Sans Gurmukhi")
-                  (tamil . "Noto Sans Tamil")
-                  (telugu . "Noto Sans Telugu")
-                  (khmer . "Noto Sans Khmer")))
-    (set-fontset-font t (car item)
-                      (font-spec :family (cdr item)))))
+  (pcase-dolist (`(,charset . ,family)
+                 '((hangul . "Sarasa Gothic K") ; Or "Source Han Mono K"
+                   (han . "Sarasa Gothic SC") ; Or "Source Han Mono SC"
+                   (japanese-jisx0213.2004-1 . "Sarasa Gothic J") ; Or "Source Han Code JP"
+                   (cyrillic . "PragmataPro Liga")
+                   (greek . "PragmataPro Liga")
+                   (hebrew . "PragmataPro Liga")
+                   (thai . "Noto Sans Thai")
+                   (arabic . "PragmataPro Liga")
+                   (bengali . "Noto Sans Bengali")
+                   (devanagari . "Noto Sans Devanagari")
+                   (kannada . "Noto Sans Kannada")
+                   (malayalam . "Noto Sans Malayalam")
+                   (gurmukhi . "Noto Sans Gurmukhi")
+                   (tamil . "Noto Sans Tamil")
+                   (telugu . "Noto Sans Telugu")
+                   (khmer . "Noto Sans Khmer")))
+    (set-fontset-font t charset (font-spec :family family))))
 (dolist (item '(("Source Han Mono K" . 1.25)
                 ("Source Han Mono JP" . 1.25)
                 ("Source Han Code JP" . 1.25)
@@ -92,16 +92,17 @@
 (defvar amk-code-directory nil "Where I keep my programming projects.")
 
 ;; Make some emacs-app-mac keys match vanilla Emacs.app
-(dolist (item '(("s-u" . revert-buffer)
-                ("s-n" . make-frame)
-                ("s-w" . delete-frame)
-                ("s-a" . mark-whole-buffer)
-                ("s-v" . yank)
-                ("s-c" . kill-ring-save)
-                ("s-x" . kill-region)
-                ("s-q" . save-buffers-kill-emacs)
-                ("s-s" . save-buffer)))
-  (global-set-key (kbd (car item)) (cdr item)))
+(pcase-dolist (`(,key . ,func)
+               '(("s-u" . revert-buffer)
+                 ("s-n" . make-frame)
+                 ("s-w" . delete-frame)
+                 ("s-a" . mark-whole-buffer)
+                 ("s-v" . yank)
+                 ("s-c" . kill-ring-save)
+                 ("s-x" . kill-region)
+                 ("s-q" . save-buffers-kill-emacs)
+                 ("s-s" . save-buffer)))
+  (global-set-key (kbd key) func))
 
 ;; Don't intercept Japanese IME controls
 (dolist (item '("C-S-j"
