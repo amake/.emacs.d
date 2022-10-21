@@ -44,7 +44,8 @@
     (save-excursion
       (goto-char 0)
       (while (not (eobp))
-        (delete-region (point) (+ (point) (length indent)))
+        (unless (eolp) ; Don't deindent empty lines
+          (delete-region (point) (+ (point) (length indent))))
         (forward-line)))
     indent))
 
@@ -64,7 +65,8 @@ Returns a function that will restore the trimmed whitespace."
     (insert leading)
     (while (not (eobp))
       (goto-char (line-beginning-position))
-      (insert indent)
+      (unless (eolp) ; Don't indent empty lines
+        (insert indent))
       (forward-line))
     (insert trailing)))
 
@@ -84,12 +86,15 @@ Returns a function that will restore the trimmed whitespace."
     (let ((indents (make-hash-table :test #'equal)))
       (condition-case nil
           (while (and (re-search-forward "^[ \t]*" nil t) (not (eobp)))
-            (let ((indent (match-string-no-properties 0)))
-              (puthash indent t indents)
-              ;; An empty-string indent means there is no common indent
-              ;; to remove, so we can exit early.
-              (when (= 0 (length indent))
-                (signal 'quit nil))))
+            (if (eolp)
+                ;; Skip empty lines
+                (forward-line)
+              (let ((indent (match-string-no-properties 0)))
+                (puthash indent t indents)
+                ;; An empty-string indent means there is no common indent
+                ;; to remove, so we can exit early.
+                (when (= 0 (length indent))
+                  (signal 'quit nil)))))
         (quit nil))
       indents)))
 
