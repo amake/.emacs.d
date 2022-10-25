@@ -921,6 +921,8 @@ See URL `http://batsov.com/rubocop/'."
   :defer t
   :ensure-system-package ((npm . npm8)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
+  :bind ( ; Alternate binding to avoid clobber via `edit-string-at-point'
+         "C-c C-'" . typescript-convert-to-template)
   :hook (typescript-mode . lsp-deferred)
   :custom
   (typescript-indent-level 2))
