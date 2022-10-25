@@ -925,6 +925,7 @@ See URL `http://batsov.com/rubocop/'."
          "C-c C-'" . typescript-convert-to-template)
   :hook (typescript-mode . lsp-deferred)
   :custom
+  (typescript-autoconvert-to-template-flag t)
   (typescript-indent-level 2))
 
 (use-package jest-test-mode
