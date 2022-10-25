@@ -1333,6 +1333,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package edit-string
   :ensure nil
+  :demand t
   :load-path "lisp"
   :bind (:map
          prog-mode-map
