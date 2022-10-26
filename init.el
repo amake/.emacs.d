@@ -917,12 +917,26 @@ See URL `http://batsov.com/rubocop/'."
                                     '((default "v")))
   (counsel-projectile-mode))
 
+(use-package edit-string
+  :ensure nil
+  :demand t
+  :load-path "lisp"
+  :bind (:map
+         prog-mode-map
+         ("C-c '" . edit-string-at-point))
+  :config
+  (defun amk-sql-p ()
+    (re-search-forward "\\bSELECT\\b" nil t))
+  (add-to-list 'edit-string-guess-mode-alist '(amk-sql-p . sql-mode)))
+
 (use-package typescript-mode
   :defer t
+  :after edit-string
   :ensure-system-package ((npm . npm8)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
   :bind ( ; Alternate binding to avoid clobber via `edit-string-at-point'
-         "C-c C-'" . typescript-convert-to-template)
+         ("C-c C-'" . typescript-convert-to-template)
+         ("C-c '" . edit-string-at-point))
   :hook (typescript-mode . lsp-deferred)
   :custom
   (typescript-autoconvert-to-template-flag t)
@@ -1333,21 +1347,6 @@ See URL `http://batsov.com/rubocop/'."
   (nodejs-repl-arguments '("--experimental-repl-await")))
 
 (use-package edit-indirect)
-
-(use-package edit-string
-  :ensure nil
-  :demand t
-  :load-path "lisp"
-  :bind (:map
-         prog-mode-map
-         ("C-c '" . edit-string-at-point)
-         :map
-         typescript-mode-map ; override default
-         ("C-c '" . edit-string-at-point))
-  :config
-  (defun amk-sql-p ()
-    (re-search-forward "\\bSELECT\\b" nil t))
-  (add-to-list 'edit-string-guess-mode-alist '(amk-sql-p . sql-mode)))
 
 (provide 'init)
 ;;; init.el ends here
