@@ -60,26 +60,30 @@
   (set-default symbol value))
 
 (defun amk-mac-apply-appearance-mode (mode)
+  "Set Mac appearance MODE (light, dark, auto) on all frames."
+  (dolist (frame (frame-list))
+    (amk-mac--apply-appearance-mode-to-frame frame mode)))
+
+(defun amk-mac--apply-appearance-mode-to-frame (frame mode)
   "Set Mac appearance MODE (light, dark, auto) on FRAME.
 
-If FRAME is nil then apply to all frames in `frame-list'.
-
-'auto' only works on Yamamoto Mitsuharu's Mac port.
+\\='auto only works on Yamamoto Mitsuharu's Mac port.
 
 This does nothing if the variable `window-system' is nil (in a terminal)."
   (when window-system
-    (cond ((eq mode 'light)
-           (set-background-color "white")
-           (set-foreground-color "black")
-           (modify-all-frames-parameters '((ns-appearance . nil))))
-          ((eq mode 'dark)
-           (set-background-color "black")
-           (set-foreground-color "white")
-           (modify-all-frames-parameters '((ns-appearance . dark))))
-          ((eq window-system 'mac)
-           (set-background-color "mac:textBackgroundColor")
-           (set-foreground-color "mac:textColor")))
-    (mapc #'frame-set-background-mode (frame-list))))
+    (with-selected-frame frame
+      (cond ((eq mode 'light)
+            (set-background-color "white")
+            (set-foreground-color "black")
+            (modify-frame-parameters frame '((ns-appearance . nil))))
+           ((eq mode 'dark)
+            (set-background-color "black")
+            (set-foreground-color "white")
+            (modify-frame-parameters frame '((ns-appearance . dark))))
+           ((eq window-system 'mac)
+            (set-background-color "mac:textBackgroundColor")
+            (set-foreground-color "mac:textColor"))))
+    (frame-set-background-mode frame)))
 
 (defcustom amk-mac-appearance-mode nil
   "Mac appearance mode: 'light, 'dark, or nil (auto).
