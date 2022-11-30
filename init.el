@@ -963,9 +963,7 @@ See URL `http://batsov.com/rubocop/'."
   :ensure-system-package gopls)
 
 (use-package groovy-mode
-  :defer t
-  :hook (groovy-mode . (lambda ()
-                         (local-unset-key (kbd "C-s")))))
+  :defer t)
 
 (use-package python
   :ensure nil
