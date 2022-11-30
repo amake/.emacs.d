@@ -1028,7 +1028,9 @@ See URL `http://batsov.com/rubocop/'."
          ("M-S-<down>" . amk-edit-move-lines-down)
          ("M-S-<up>" . amk-edit-move-lines-up)
          ("M-<right>" . paredit-forward-slurp-sexp)
-         ("M-<left>" . paredit-forward-barf-sexp)))
+         ("M-<left>" . paredit-forward-barf-sexp)
+         ("RET" . nil)
+         ("C-j" . nil)))
 
 (use-package swift-mode
   :defer t)
