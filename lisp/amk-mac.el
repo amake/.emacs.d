@@ -67,7 +67,7 @@
 (defun amk-mac--apply-appearance-mode-to-frame (frame mode)
   "Set Mac appearance MODE (light, dark, auto) on FRAME.
 
-\\='auto only works on Yamamoto Mitsuharu's Mac port.
+Auto only works on Yamamoto Mitsuharu's Mac port.
 
 This does nothing if the variable `window-system' is nil (in a terminal)."
   (when window-system
@@ -86,9 +86,9 @@ This does nothing if the variable `window-system' is nil (in a terminal)."
     (frame-set-background-mode frame)))
 
 (defcustom amk-mac-appearance-mode nil
-  "Mac appearance mode: 'light, 'dark, or nil (auto).
+  "Mac appearance mode: \\='light, \\='dark, or nil (auto).
 
-'auto' only works on Yamamoto Mitsuharu's Mac port, not the NS port.
+Auto only works on Yamamoto Mitsuharu's Mac port, not the NS port.
 
 Programmatically set with `amk-mac-set-appearance-mode'."
   :group 'amk-mac
@@ -107,12 +107,11 @@ Programmatically set with `amk-mac-set-appearance-mode'."
     (amk-mac--set-default 'amk-mac-appearance-mode next)
     (message "%s" (or next "auto"))))
 
-(defun amk-mac--apply-appearance-mode-to-frame (frame)
+(defun amk-mac--apply-current-appearance-mode-to-frame (frame)
   "Apply current theme to supplied FRAME."
-  (with-selected-frame frame
-    (amk-mac-apply-appearance-mode amk-mac-appearance-mode)))
+  (amk-mac--apply-appearance-mode-to-frame frame amk-mac-appearance-mode))
 
-(add-hook 'after-make-frame-functions #'amk-mac--apply-appearance-mode-to-frame)
+(add-hook 'after-make-frame-functions #'amk-mac--apply-current-appearance-mode-to-frame)
 
 (defcustom amk-mac-plist-mode-convert-format "xml1"
   "The format from which binary plists should be converted."
