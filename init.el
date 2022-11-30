@@ -1109,7 +1109,7 @@ See URL `http://batsov.com/rubocop/'."
          ("C-h F" . #'helpful-function)
          ("C-h C" . #'helpful-command))
   :config
-  (when (string= emacs-version "29.0.50")
+  (when (>= emacs-major-version 29)
     ;; Remove when fixed upstream; see
     ;; https://github.com/Wilfred/elisp-refs/issues/35
     ;; https://github.com/Wilfred/helpful/issues/282
