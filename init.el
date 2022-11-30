@@ -880,6 +880,7 @@ See URL `http://batsov.com/rubocop/'."
 (use-package projectile
   :demand t
   :ensure-system-package (rg . ripgrep)
+  :diminish projectile-mode
   :hook (shell-mode . rename-buffer-with-project)
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom
