@@ -931,13 +931,13 @@ See URL `http://batsov.com/rubocop/'."
   (add-to-list 'edit-string-guess-mode-alist '(amk-sql-p . sql-mode)))
 
 (use-package typescript-mode
-  :defer t
   :after edit-string
   :ensure-system-package ((npm . npm8)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
-  :bind ( ; Alternate binding to avoid clobber via `edit-string-at-point'
-         ("C-c C-'" . typescript-convert-to-template)
-         ("C-c '" . edit-string-at-point))
+  :bind (:map typescript-mode-map
+              ;; Alternate binding to avoid clobber via `edit-string-at-point'
+              ("C-c C-'" . typescript-convert-to-template)
+              ("C-c '" . edit-string-at-point))
   :hook (typescript-mode . lsp-deferred)
   :custom
   (typescript-autoconvert-to-template-flag t)
