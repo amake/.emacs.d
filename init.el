@@ -1027,8 +1027,10 @@ See URL `http://batsov.com/rubocop/'."
          ("M-S-<up>" . amk-edit-move-lines-up)
          ("M-<right>" . paredit-forward-slurp-sexp)
          ("M-<left>" . paredit-forward-barf-sexp)
+         ;; Workaround for
+         ;; https://www.reddit.com/r/emacs/comments/z5d4xp/paredit_25_released/iyct3iq/
          ("RET" . nil)
-         ("C-j" . nil)))
+         ("C-j" . #'paredit-newline)))
 
 (use-package swift-mode
   :defer t)
