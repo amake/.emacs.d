@@ -451,6 +451,7 @@ not be synced across machines.")
      (dot . t)
      (python . t)
      (ruby . t)
+     (sqlite . t)
      (passthrough . t))))
 
 (use-package tramp
