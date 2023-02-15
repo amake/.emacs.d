@@ -483,6 +483,7 @@
    | deer                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f98c.png?v8                                     |
    | denmark                              | https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1f0.png?v8                               |
    | department_store                     | https://github.githubassets.com/images/icons/emoji/unicode/1f3ec.png?v8                                     |
+   | dependabot                           | https://github.githubassets.com/images/icons/emoji/dependabot.png?v8                                        |
    | derelict_house                       | https://github.githubassets.com/images/icons/emoji/unicode/1f3da.png?v8                                     |
    | desert                               | https://github.githubassets.com/images/icons/emoji/unicode/1f3dc.png?v8                                     |
    | desert_island                        | https://github.githubassets.com/images/icons/emoji/unicode/1f3dd.png?v8                                     |
@@ -642,6 +643,7 @@
    | fish                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f41f.png?v8                                     |
    | fish_cake                            | https://github.githubassets.com/images/icons/emoji/unicode/1f365.png?v8                                     |
    | fishing_pole_and_fish                | https://github.githubassets.com/images/icons/emoji/unicode/1f3a3.png?v8                                     |
+   | fishsticks                           | https://github.githubassets.com/images/icons/emoji/fishsticks.png?v8                                        |
    | fist                                 | https://github.githubassets.com/images/icons/emoji/unicode/270a.png?v8                                      |
    | fist_left                            | https://github.githubassets.com/images/icons/emoji/unicode/1f91b.png?v8                                     |
    | fist_oncoming                        | https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png?v8                                     |
