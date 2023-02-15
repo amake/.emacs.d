@@ -858,7 +858,9 @@ See URL `http://batsov.com/rubocop/'."
   :ensure-system-package ((npm . npm8)
                           (prettier . "sudo npm install -g prettier"))
   :hook ((typescript-mode . prettier-mode)
-         (svelte-mode . prettier-mode)))
+         (svelte-mode . prettier-mode)
+         (typescript-ts-mode . prettier-mode)
+         (tsx-ts-mode . prettier-mode)))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
@@ -944,8 +946,13 @@ See URL `http://batsov.com/rubocop/'."
   (typescript-autoconvert-to-template-flag t)
   (typescript-indent-level 2))
 
+(use-package typescript-ts-mode
+  :ensure nil
+  :hook ((typescript-ts-mode . lsp-deferred)
+         (tsx-ts-mode . lsp-deferred)))
+
 (use-package jest-test-mode
-  :hook (typescript-mode js-mode typescript-tsx-mode)
+  :hook (typescript-mode js-mode typescript-ts-mode)
   :diminish (jest-test-mode)
   :config
   (put 'jest-test-command-string 'safe-local-variable #'stringp))
