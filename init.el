@@ -1119,27 +1119,7 @@ See URL `http://batsov.com/rubocop/'."
          ("C-h k" . #'helpful-key)
          ("C-c C-d" . #'helpful-at-point)
          ("C-h F" . #'helpful-function)
-         ("C-h C" . #'helpful-command))
-  :config
-  (when (>= emacs-major-version 29)
-    ;; Remove when fixed upstream; see
-    ;; https://github.com/Wilfred/elisp-refs/issues/35
-    ;; https://github.com/Wilfred/helpful/issues/282
-    (defvar read-symbol-positions-list nil)
-    (defun helpful--autoloaded-p (sym buf)
-      "Return non-nil if function SYM is autoloaded."
-      (-when-let (file-name (buffer-file-name buf))
-        (setq file-name (s-chop-suffix ".gz" file-name))
-        (help-fns--autoloaded-p sym)))
-    (defun helpful--skip-advice (docstring)
-      "Remove mentions of advice from DOCSTRING."
-      (let* ((lines (s-lines docstring))
-             (relevant-lines
-              (--take-while
-               (not (or (s-starts-with-p ":around advice:" it)
-                        (s-starts-with-p "This function has :around advice:" it)))
-               lines)))
-        (s-trim (s-join "\n" relevant-lines))))))
+         ("C-h C" . #'helpful-command)))
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
