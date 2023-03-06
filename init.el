@@ -931,7 +931,10 @@ See URL `http://batsov.com/rubocop/'."
   :config
   (defun amk-sql-p ()
     (re-search-forward "\\bSELECT\\b" nil t))
-  (add-to-list 'edit-string-guess-mode-alist '(amk-sql-p . sql-mode)))
+  (add-to-list 'edit-string-guess-mode-alist '(amk-sql-p . sql-mode))
+  (defun amk-js-p ()
+    (re-search-forward "\\b\\(function\\|var\\|let\\|const\\|return\\)\\b" nil t))
+  (add-to-list 'edit-string-guess-mode-alist '(amk-js-p . js-mode)))
 
 (use-package typescript-mode
   :after edit-string
