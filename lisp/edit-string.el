@@ -62,13 +62,14 @@ Returns a function that will restore the trimmed whitespace."
   "Restore trimmed LEADING, TRAILING, and INDENT strings."
   (save-excursion
     (goto-char 0)
-    (insert leading)
-    (while (not (eobp))
-      (goto-char (line-beginning-position))
-      (unless (eolp) ; Don't indent empty lines
-        (insert indent))
-      (forward-line))
-    (insert trailing)))
+    (when leading (insert leading))
+    (when indent
+      (while (not (eobp))
+       (goto-char (line-beginning-position))
+       (unless (eolp)                   ; Don't indent empty lines
+         (insert indent))
+       (forward-line)))
+    (when trailing (insert trailing))))
 
 ;; Util
 
