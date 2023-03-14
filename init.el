@@ -464,6 +464,8 @@ not be synced across machines.")
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
 (use-package ob-async
+  ;; Disable on Emacs 30+ pending https://github.com/astahlman/ob-async/pull/93
+  :if (<= emacs-major-version 29)
   :hook (ob-async-pre-execute-src-block
          .
          ;; This can't be its own function because we'd have to redefine the
