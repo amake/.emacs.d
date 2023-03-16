@@ -1129,7 +1129,8 @@ See URL `http://batsov.com/rubocop/'."
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :diminish (lsp-mode . "LSP")
-  :bind (:map lsp-mode-map
+  :bind (("C-c l" . #'amk-counsel-rg-lsp-workspace)
+         :map lsp-mode-map
               ("C-c C-a" . #'lsp-execute-code-action))
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :custom
@@ -1144,7 +1145,11 @@ See URL `http://batsov.com/rubocop/'."
   (defun amk-lsp-disable-format-on-save ()
     (remove-hook 'before-save-hook #'amk-lsp-format-buffer-quick t))
   (defun amk-lsp-organize-imports-on-save ()
-    (add-hook 'before-save-hook #'lsp-organize-imports nil t)))
+    (add-hook 'before-save-hook #'lsp-organize-imports nil t))
+  (defun amk-counsel-rg-lsp-workspace ()
+    "Like `counsel-rg' but always searches from the LSP workspace root."
+    (interactive)
+    (counsel-rg nil (lsp-workspace-root))))
 
 (use-package lsp-ui
   :commands lsp-ui
