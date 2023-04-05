@@ -1350,5 +1350,21 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package edit-indirect)
 
+(use-package quelpa-use-package
+  :demand t)
+
+(use-package copilot
+  :quelpa (copilot :fetcher github
+                   :repo "zerolfx/copilot.el"
+                   :branch "main"
+                   :files ("dist" "*.el"))
+  :ensure-system-package (node . nodejs16)
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("C-<return>" . copilot-accept-completion)
+              ("C-<tab>" . copilot-accept-completion))
+  :custom
+  (copilot-node-executable "/opt/local/bin/node"))
+
 (provide 'init)
 ;;; init.el ends here
