@@ -82,3 +82,4 @@ semanticdb
 /.cache
 /.dap-breakpoints
 /eln-cache
+/quelpa
