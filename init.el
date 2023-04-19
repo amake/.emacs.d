@@ -400,6 +400,7 @@ not be synced across machines.")
 (use-package js
   :ensure nil
   :after lsp-mode
+  :mode (("\\.mjs\\'" . js-mode))
   :ensure-system-package ((npm . npm8)
                           (typescript-language-server . "sudo npm install -g typescript-language-server")
                           (tsserver . "sudo npm install -g typescript"))
