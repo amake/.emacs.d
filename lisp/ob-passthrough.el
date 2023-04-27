@@ -37,7 +37,9 @@
 (defalias 'org-babel-execute:csv 'org-babel-execute:passthrough)
 
 ;; SQL output is SQL
-(defalias 'org-babel-execute:sql 'org-babel-execute:$template)
+(defalias 'org-babel-execute:sql-pass 'org-babel-execute:$template)
+
+(defalias 'sql-pass-mode 'sql-mode)
 
 (provide 'ob-passthrough)
 ;;; ob-passthrough.el ends here
