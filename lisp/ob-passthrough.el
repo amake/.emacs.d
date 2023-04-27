@@ -8,7 +8,7 @@
 
 ;;; Commentary:
 
-;; This ob evaluates the block as ifself, so it can be used as input
+;; This ob evaluates the block as itself, so it can be used as input
 ;; for another block
 
 ;;; Code:
