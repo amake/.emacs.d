@@ -52,8 +52,9 @@
   "Swap the current line with the previous one."
   (interactive)
   (amk-edit--save-column
-   (transpose-lines 1)
-   (forward-line -2)))
+   (unless (= 1 (line-beginning-position))
+     (transpose-lines 1)
+     (forward-line -2))))
 
 ;;;###autoload
 (defun amk-edit-move-lines-down ()
