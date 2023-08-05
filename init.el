@@ -141,7 +141,9 @@ with `save-buffer'."
   ;; Undo variable-pitch mode line
   (set-face-attribute 'mode-line nil :inherit 'default)
   ;; Pixel scrolling
-  (when (fboundp #'pixel-scroll-precision-mode)
+  (when (and (fboundp #'pixel-scroll-precision-mode)
+             ;; Use default pixel scrolling on Mac port
+             (not (boundp 'mac-mouse-wheel-smooth-scroll)))
     (pixel-scroll-precision-mode)))
 
 (require 'package)
