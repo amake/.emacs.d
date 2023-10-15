@@ -1134,7 +1134,8 @@ See URL `http://batsov.com/rubocop/'."
   :diminish (lsp-mode . "LSP")
   :bind (("C-c C-l" . #'amk-counsel-rg-lsp-workspace)
          :map lsp-mode-map
-              ("C-c C-a" . #'lsp-execute-code-action))
+         ("C-c C-a" . #'lsp-execute-code-action)
+         ("C-M-i" . #'company-complete))
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :custom
   (lsp-file-watch-threshold nil)
