@@ -985,12 +985,12 @@ See URL `http://batsov.com/rubocop/'."
   :ensure nil
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp-deferred)
-  :ensure-system-package ((python3 . python310)
-                          (pylsp . py310-python-lsp-server)))
+  :ensure-system-package ((python3 . python311)
+                          (pylsp . py311-python-lsp-server)))
 
 (use-package py-autopep8
   :after python
-  :ensure-system-package (autopep8 . py310-autopep8)
+  :ensure-system-package (autopep8 . py311-autopep8)
   :hook (python-mode . py-autopep8-mode))
 
 (use-package pyvenv
