@@ -25,7 +25,7 @@
    #+end_src
 
    #+name: emojis-data
-   #+RESULTS[4bef403ee83cb50da3b20dc5c01d97db66264278]:
+   #+RESULTS[7b1f77a8037b91ba6daac2ef2a8a1146f93b451c]:
    | +1                                   | https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8                                     |
    | -1                                   | https://github.githubassets.com/images/icons/emoji/unicode/1f44e.png?v8                                     |
    | 100                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png?v8                                     |
@@ -40,6 +40,7 @@
    | abc                                  | https://github.githubassets.com/images/icons/emoji/unicode/1f524.png?v8                                     |
    | abcd                                 | https://github.githubassets.com/images/icons/emoji/unicode/1f521.png?v8                                     |
    | accept                               | https://github.githubassets.com/images/icons/emoji/unicode/1f251.png?v8                                     |
+   | accessibility                        | https://github.githubassets.com/images/icons/emoji/accessibility.png?v8                                     |
    | accordion                            | https://github.githubassets.com/images/icons/emoji/unicode/1fa97.png?v8                                     |
    | adhesive_bandage                     | https://github.githubassets.com/images/icons/emoji/unicode/1fa79.png?v8                                     |
    | adult                                | https://github.githubassets.com/images/icons/emoji/unicode/1f9d1.png?v8                                     |
@@ -1908,28 +1909,30 @@
    Massaged into [[file:/Applications/MacPorts/EmacsMac.app/Contents/Resources/lisp/progmodes/prog-mode.el.gz::(defvar-local prettify-symbols-alist nil][prettify-symbols-alist]] format:
 
    #+begin_src elisp :var data=emojis-data
-     (pp
-      (remove
-       nil
-       (mapcar
-        (pcase-lambda (`(,name ,url))
-          (when-let* ((cp-str (when (string-match "https://.*/unicode/\\([^.]+\\)\\.png.*" url)
-                                (match-string 1 url)))
-                      (cp (mapcar (lambda (cp)
-                                    (string-to-number cp 16))
-                                  (split-string cp-str "-"))))
-            (cons
-             (format ":%s:" name)
-             (cond ((cdr cp) ; two or more items
-                    (let (ret)
-                      ;; insert composition rules
-                      (dolist (c cp)
-                        (push c ret)
-                        (push '(Br . Bl) ret))
-                      (pop ret) ; remove last rule
-                      (reverse ret)))
-                   (t (car cp))))))
-        data)))
+     (require 'pp)
+     (let ((pp-default-function #'pp-28))
+       (pp
+        (remove
+         nil
+         (mapcar
+          (pcase-lambda (`(,name ,url))
+            (when-let* ((cp-str (when (string-match "https://.*/unicode/\\([^.]+\\)\\.png.*" url)
+                                  (match-string 1 url)))
+                        (cp (mapcar (lambda (cp)
+                                      (string-to-number cp 16))
+                                    (split-string cp-str "-"))))
+              (cons
+               (format ":%s:" name)
+               (cond ((cdr cp)               ; two or more items
+                      (let (ret)
+                        ;; insert composition rules
+                        (dolist (c cp)
+                          (push c ret)
+                          (push '(Br . Bl) ret))
+                        (pop ret)            ; remove last rule
+                        (reverse ret)))
+                     (t (car cp))))))
+          data))))
    #+end_src
 
    #+RESULTS:
