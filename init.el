@@ -1374,7 +1374,7 @@ See URL `http://batsov.com/rubocop/'."
                    :repo "zerolfx/copilot.el"
                    :branch "main"
                    :files ("dist" "*.el"))
-  :ensure-system-package (node . nodejs16)
+  :ensure-system-package (node . nodejs18)
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
               ("C-<return>" . copilot-accept-completion)
