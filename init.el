@@ -1385,7 +1385,7 @@ See URL `http://batsov.com/rubocop/'."
 
 (use-package copilot
   :quelpa (copilot :fetcher github
-                   :repo "zerolfx/copilot.el"
+                   :repo "copilot-emacs/copilot.el"
                    :branch "main"
                    :files ("dist" "*.el"))
   :ensure-system-package (node . nodejs18)
