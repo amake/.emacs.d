@@ -457,6 +457,13 @@ not be synced across machines.")
      (sqlite . t)
      (passthrough . t))))
 
+(use-package org-crypt
+  :ensure nil
+  :after org
+  :custom (org-tags-exclude-from-inheritance '("crypt"))
+  :config
+  (org-crypt-use-before-save-magic))
+
 (use-package tramp
   :ensure nil
   :custom
