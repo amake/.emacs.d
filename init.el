@@ -879,7 +879,14 @@ not be synced across machines.")
                                      (format " ‹%s›"
                                              (projectile-project-name)))))
   :config
-  (projectile-mode))
+  (projectile-mode)
+  ;; Workaround for https://github.com/bbatsov/projectile/issues/1816
+  (defun amk-safe-projectile-expand-file-name-wildcard (old-func &rest args)
+    "Swallow errors and return the same fallback as original function."
+    (condition-case nil
+        (apply old-func args)
+      (file-error (expand-file-name (car args) (cadr args)))))
+  (advice-add #'projectile-expand-file-name-wildcard :around #'amk-safe-projectile-expand-file-name-wildcard))
 
 (use-package counsel-projectile
   :demand t
