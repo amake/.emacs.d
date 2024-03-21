@@ -840,19 +840,7 @@ not be synced across machines.")
   :bind ("C-=" . er/expand-region))
 
 (use-package dired-collapse
-  :hook (dired-mode . dired-collapse-mode)
-  :config
-  (defun amk-safe-f-entries (old-func &rest args)
-    "Swallow errors to return nil."
-    (condition-case nil
-        (apply old-func args)
-      (file-error nil)))
-  (defun amk-dired-collapse-207 (old-func &rest args)
-    "A workaround for https://github.com/Fuco1/dired-hacks/pull/207."
-    (advice-add #'f-entries :around #'amk-safe-f-entries)
-    (apply old-func args)
-    (advice-remove #'f-entries #'amk-safe-f-entries))
-  (advice-add #'dired-collapse :around #'amk-dired-collapse-207))
+  :hook (dired-mode . dired-collapse-mode))
 
 (use-package dash-at-point
   :bind ("C-c d" . dash-at-point))
