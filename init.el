@@ -1346,5 +1346,17 @@ not be synced across machines.")
   :custom
   (copilot-node-executable "/opt/local/bin/node"))
 
+(use-package difftastic
+  :demand t
+  :ensure-system-package (difft . difftastic)
+  :bind (:map magit-blame-read-only-mode-map
+         ("D" . difftastic-magit-show)
+         ("S" . difftastic-magit-show))
+  :config
+  (eval-after-load 'magit-diff
+    '(transient-append-suffix 'magit-diff '(-1 -1)
+       [("D" "Difftastic diff (dwim)" difftastic-magit-diff)
+        ("S" "Difftastic show" difftastic-magit-show)])))
+
 (provide 'init)
 ;;; init.el ends here
