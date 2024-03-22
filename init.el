@@ -1183,14 +1183,7 @@ not be synced across machines.")
     (scale-to-fit-setup 80 -2 0)))
 
 (use-package lsp-dart
-  :after (lsp-mode jsonrpc)
-  :config
-  ;; Fix for https://github.com/emacs-lsp/lsp-dart/issues/209
-  (cl-defmethod initialize-instance :after ((conn lsp-dart-flutter-daemon-connection) _slots)
-    "CONN."
-    (let ((proc (jsonrpc--process conn)))
-      (when proc
-        (set-process-filter proc #'lsp-dart-flutter-daemon--process-filter)))))
+  :after lsp-mode)
 
 (use-package flutter
   :ensure nil
