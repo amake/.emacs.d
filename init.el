@@ -417,10 +417,16 @@ not be synced across machines.")
 
 (use-package browse-url
   :ensure nil
-  :bind ("s-<mouse-1>" . #'browse-url-at-point)
+  :bind ("s-<mouse-1>" . #'amk-browse-url-at-mouse)
   :config
   (when (macosp)
-    (setq browse-url-generic-program "open")))
+    (setq browse-url-generic-program "open"))
+  (defun amk-browse-url-at-mouse (click)
+    "Browse URL at mouse position."
+    (interactive "e")
+    (save-excursion
+      (posn-set-point (event-end click))
+      (browse-url-at-point))))
 
 (use-package ob-passthrough
   :ensure nil
