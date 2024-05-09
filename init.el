@@ -545,6 +545,11 @@ not be synced across machines.")
              (file-exists-p amk-code-directory))
     (add-to-list 'magit-repository-directories `(,amk-code-directory . 1))))
 
+(use-package amk-magit
+  :ensure nil
+  :after magit
+  :load-path "lisp")
+
 (use-package forge
   ;; To store GitHub token in macOS keychain per `auth-source' config below:
   ;; 0. Create token at https://github.com/settings/tokens
