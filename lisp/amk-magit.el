@@ -48,7 +48,7 @@ Requires the `when-merged` git command to be installed."
           (magit--with-temp-process-buffer
             (magit-process-git t "when-merged" "-c" rev merged-to-branch)
             (string-trim (buffer-string)))))
-    (magit-show-commit merged-in-commit (magit-show-commit--arguments))))
+    (apply #'magit-show-commit `(,merged-in-commit ,@(magit-show-commit--arguments)))))
 
 (provide 'amk-magit)
 ;;; amk-magit.el ends here
