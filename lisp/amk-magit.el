@@ -15,20 +15,12 @@
 
 (require 'magit)
 
-(defun amk-magit-default-head-branch ()
-  "Return the default HEAD branch for the current repository."
-  (magit--with-temp-process-buffer
-    (magit-process-git t "symbolic-ref" (concat "refs/remotes/" (magit-get-current-remote) "/HEAD"))
-    (string-trim (buffer-string))))
-
 (defun amk-magit-reset-default-branch-to-upstream ()
   "Update default branch to latest remote HEAD."
   (interactive)
   (magit-run-git "remote" "update" "--prune")
-  (let* ((remote (magit-get-current-remote))
-         (remote-head (amk-magit-default-head-branch))
-         (local-head (substring-no-properties remote-head
-                                              (length (concat "refs/remotes/" remote "/")))))
+  (pcase-let* ((`(,remote ,local-head) (magit--get-default-branch))
+               (remote-head (concat "refs/remotes/" remote "/" local-head)))
     (magit-branch-reset local-head remote-head)))
 
 (defun amk-magit-show-merged-revision (rev)
@@ -43,11 +35,11 @@ Requires the `when-merged` git command to be installed."
                        (magit-branch-or-commit-at-point))))
      (list (or (and (not current-prefix-arg) atpoint)
                (magit-read-branch-or-commit "Show commit" atpoint)))))
-  (let* ((merged-to-branch (amk-magit-default-head-branch))
-         (merged-in-commit
-          (magit--with-temp-process-buffer
-            (magit-process-git t "when-merged" "-c" rev merged-to-branch)
-            (string-trim (buffer-string)))))
+  (pcase-let* ((`(,_remote ,merged-to-branch) (magit--get-default-branch))
+               (merged-in-commit
+                (magit--with-temp-process-buffer
+                  (magit-process-git t "when-merged" "-c" rev merged-to-branch)
+                  (string-trim (buffer-string)))))
     (apply #'magit-show-commit `(,merged-in-commit ,@(magit-show-commit--arguments)))))
 
 (provide 'amk-magit)
