@@ -5,7 +5,7 @@
 ;; Author: Aaron Madlon-Kay
 ;; Version: 0.1.0
 ;; URL: https://github.com/amake/.emacs.d
-;; Package-Requires: ((emacs "24.4") (magit "3.3.0"))
+;; Package-Requires: ((emacs "25.1") (magit "3.3.0"))
 
 ;;; Commentary:
 
@@ -14,6 +14,20 @@
 ;;; Code:
 
 (require 'magit)
+
+(defun amk-magit-prune-merged-branches ()
+  "Prompt to delete all branches that have been merged into the default branch."
+  (interactive)
+  (pcase-let* ((`(,remote ,local-head) (magit--get-default-branch))
+               (merged-branches (magit-list-merged-branches))
+               (to-delete (seq-filter
+                           (lambda (branch)
+                             (not (string= branch local-head)))
+                           merged-branches)))
+    (when (yes-or-no-p
+           (format "Delete %d branch(es) merged into %s (%s)?"
+                   (length to-delete) local-head (mapconcat #'identity to-delete ", ")))
+      (magit-branch-delete to-delete))))
 
 (defun amk-magit-reset-default-branch-to-upstream ()
   "Update default branch to latest remote HEAD."
