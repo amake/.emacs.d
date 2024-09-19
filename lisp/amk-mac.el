@@ -5,7 +5,7 @@
 ;; Author: Aaron Madlon-Kay
 ;; Version: 0.1.0
 ;; URL: https://github.com/amake/.emacs.d
-;; Package-Requires: ((emacs "25.1"))
+;; Package-Requires: ((emacs "26.1"))
 
 ;;; Commentary:
 
@@ -23,7 +23,7 @@
   "Open the current working directory in the Finder."
   (interactive)
   (let ((cmd (if buffer-file-name
-                 (format "open -R %s" (shell-quote-argument buffer-file-name))
+                 (format "open -R %s" (shell-quote-argument (file-local-name buffer-file-name)))
                "open .")))
     (shell-command cmd)))
 
@@ -31,14 +31,16 @@
   "Open the current file in the default app."
   (interactive)
   (if (buffer-file-name)
-      (shell-command (format "open %s" (shell-quote-argument buffer-file-name)))
+      (shell-command
+       (format "open %s" (shell-quote-argument (file-local-name buffer-file-name))))
     (error "Buffer is not associated with a file")))
 
 (defun amk-mac-reveal-file ()
   "Reveal the current file in the Finder."
   (interactive)
   (if (buffer-file-name)
-      (shell-command (format "open -R %s" (shell-quote-argument (buffer-file-name))))
+      (shell-command
+       (format "open -R %s" (shell-quote-argument (file-local-name buffer-file-name))))
     (error "Buffer is not associated with a file")))
 
 (defun amk-mac-open-terminal ()
@@ -49,7 +51,7 @@
 (defun amk-mac-touch ()
   "Touch current buffer's file."
   (interactive)
-  (when-let ((file (buffer-file-name)))
+  (when-let ((file (file-local-name buffer-file-name)))
     (shell-command (format "touch %s" (shell-quote-argument file)))
     (shell-command (format "date -r %s" (shell-quote-argument file)))))
 
