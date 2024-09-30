@@ -34,8 +34,11 @@
   (interactive)
   (magit-run-git "remote" "update" "--prune")
   (pcase-let* ((`(,remote ,local-head) (magit--get-default-branch))
+               (local-head (or local-head (car (magit--get-default-branch t))))
                (remote-head (concat "refs/remotes/" remote "/" local-head)))
-    (magit-branch-reset local-head remote-head)))
+    (if local-head
+        (magit-branch-reset local-head remote-head)
+      (error "Could not determine local head"))))
 
 (defun amk-magit-show-merged-revision (rev)
   "Show the commit in which REV was merged into the default HEAD branch.
