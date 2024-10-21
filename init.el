@@ -775,7 +775,12 @@ not be synced across machines.")
   (defun amk-counsel-rg-here ()
     "Like `counsel-rg' but always searches from the cwd, not project root."
     (interactive)
-    (counsel-rg nil default-directory)))
+    (counsel-rg nil default-directory))
+  (defun amk-git-log-visit-in-magit (log-text &rest _)
+    "Visit the commit described by the git log text."
+    (let ((commit (car (split-string log-text))))
+      (magit-show-commit commit)))
+  (advice-add #'counsel-git-log-action :after #'amk-git-log-visit-in-magit))
 
 (use-package all-the-icons
   :if (display-graphic-p)
