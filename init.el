@@ -453,6 +453,7 @@ not be synced across machines.")
          ("C-c C-." . org-time-stamp-inactive))
   :hook (org-babel-after-execute . org-redisplay-inline-images)
   :config
+  (plist-put org-format-latex-options :scale 2.0)
   (org-babel-do-load-languages
    'org-babel-load-languages
    `(,@org-babel-load-languages
