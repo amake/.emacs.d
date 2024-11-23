@@ -978,8 +978,8 @@ not be synced across machines.")
   :ensure nil
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp-deferred)
-  :ensure-system-package ((python3 . python311)
-                          (pylsp . py311-python-lsp-server)))
+  :ensure-system-package ((python3 . python312)
+                          (pylsp . py312-python-lsp-server)))
 
 (use-package py-autopep8
   :after python
