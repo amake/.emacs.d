@@ -1361,6 +1361,7 @@ not be synced across machines.")
               ("C-<return>" . copilot-accept-completion)
               ("C-<tab>" . copilot-accept-completion))
   :custom
+  (copilot-indent-offset-warning-disable t)
   (copilot-node-executable "/opt/local/bin/node"))
 
 (use-package difftastic
