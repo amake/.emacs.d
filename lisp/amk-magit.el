@@ -18,7 +18,7 @@
 (defun amk-magit-prune-merged-branches ()
   "Prompt to delete all branches that have been merged into the default branch."
   (interactive)
-  (pcase-let* ((`(,remote ,local-head) (magit--get-default-branch))
+  (pcase-let* ((`(,_remote ,local-head) (magit--get-default-branch))
                (merged-branches (magit-list-merged-branches))
                (to-delete (seq-filter
                            (lambda (branch)
@@ -27,7 +27,7 @@
     (when (yes-or-no-p
            (format "Delete %d branch(es) merged into %s (%s)?"
                    (length to-delete) local-head (mapconcat #'identity to-delete ", ")))
-      (magit-branch-delete to-delete))))
+      (funcall-interactively #'magit-branch-delete to-delete))))
 
 (defun amk-magit-reset-default-branch-to-upstream ()
   "Update default branch to latest remote HEAD."
