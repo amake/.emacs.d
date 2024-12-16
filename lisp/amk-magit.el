@@ -19,7 +19,7 @@
   "Prompt to delete all branches that have been merged into the default branch."
   (interactive)
   (pcase-let* ((`(,_remote ,local-head) (magit--get-default-branch))
-               (merged-branches (magit-list-merged-branches))
+               (merged-branches (magit-list-merged-branches local-head))
                (to-delete (seq-filter
                            (lambda (branch)
                              (not (string= branch local-head)))
