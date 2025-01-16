@@ -1376,5 +1376,11 @@ not be synced across machines.")
        [("D" "Difftastic diff (dwim)" difftastic-magit-diff)
         ("S" "Difftastic show" difftastic-magit-show)])))
 
+(use-package gptel
+  :config
+  (gptel-make-ollama "Ollama"
+    :stream t
+    :models '(llama3.2)))
+
 (provide 'init)
 ;;; init.el ends here
