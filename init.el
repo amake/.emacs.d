@@ -1378,6 +1378,15 @@ not be synced across machines.")
 
 (use-package gptel
   :config
+  ;; To store OpenAI token in macOS keychain per `auth-source' config below:
+  ;; 0. Create key at https://platform.openai.com/api-keys
+  ;; 1. Open Keychain Access
+  ;; 2. Create new password item
+  ;; 3. Make sure it's recognized as an Internet password by entering
+  ;;    https://api.openai.com for the Keychain Item Name
+  ;; 4. Use apikey as Account Name
+  ;; 5. Enter key as password and save
+  ;; 6. Test with `security find-internet-password -g -s api.openai.com -a apikey`
   (gptel-make-ollama "Ollama"
     :stream t
     :models '(llama3.2)))
