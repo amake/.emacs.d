@@ -811,9 +811,8 @@ not be synced across machines.")
   (ivy-rich-mode))
 
 (use-package all-the-icons-ibuffer
-  :ensure t
-  :config
-  (all-the-icons-ibuffer-mode))
+  :diminish all-the-icons-ibuffer-mode
+  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package all-the-icons-dired
   :diminish all-the-icons-dired-mode
