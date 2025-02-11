@@ -541,6 +541,7 @@ not be synced across machines.")
   :diminish (smerge-mode auto-revert-mode)
   :custom
   (magit-diff-refine-hunk 'all "Always show character-level diffs")
+  (magit-format-file-function #'magit-format-file-all-the-icons)
   :config
   (when (and amk-code-directory
              (file-exists-p amk-code-directory))
