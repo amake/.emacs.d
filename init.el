@@ -1071,11 +1071,6 @@ not be synced across machines.")
   (company-dabbrev-downcase nil)
   (company-dabbrev-ignore-case t))
 
-(use-package company-quickhelp
-  :after company
-  :config
-  (company-quickhelp-mode))
-
 (use-package rainbow-mode
   :diminish rainbow-mode
   :hook ((prog-mode conf-mode) . rainbow-mode))
