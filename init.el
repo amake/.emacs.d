@@ -1388,5 +1388,20 @@ not be synced across machines.")
     :stream t
     :models '(llama3.2 deepseek-coder-v2 deepseek-r1:14b)))
 
+(use-package aidermacs
+  :ensure-system-package ((python . python312)
+                          uv
+                          (aider . "uv tool install --force --python python3.12 aider@latest"))
+  :bind (("C-c a" . aidermacs-transient-menu))
+  :config
+  ;; Enable minor mode for Aider files
+  (aidermacs-setup-minor-mode)
+  :custom
+  ;; See the Configuration section below
+  (aidermacs-backend 'vterm)
+  (aidermacs-auto-commits nil)
+  (aidermacs-use-architect-mode nil)
+  (aidermacs-default-model "sonnet"))
+
 (provide 'init)
 ;;; init.el ends here
