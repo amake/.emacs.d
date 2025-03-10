@@ -1391,7 +1391,7 @@ not be synced across machines.")
 (use-package aidermacs
   :ensure-system-package ((python . python312)
                           uv
-                          (aider . "uv tool install --force --python python3.12 aider@latest"))
+                          (aider . "uv tool install --force --python python3.12 aider-chat@latest"))
   :bind (("C-c a" . aidermacs-transient-menu))
   :config
   ;; Enable minor mode for Aider files
