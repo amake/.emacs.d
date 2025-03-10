@@ -166,7 +166,8 @@ with `save-buffer'."
 
 (use-package diminish)
 (use-package bind-key)
-(use-package use-package-ensure-system-package)
+(use-package use-package-ensure-system-package
+  :ensure nil)
 
 (defconst local-custom-file "~/.emacs.d/init-local.el"
   "A local version of CUSTOM-FILE for settings that should \
