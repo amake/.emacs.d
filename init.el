@@ -1386,7 +1386,7 @@ not be synced across machines.")
   ;; 6. Test with `security find-internet-password -g -s api.openai.com -a apikey`
   (gptel-make-ollama "Ollama"
     :stream t
-    :models '(llama3.2)))
+    :models '(llama3.2 deepseek-coder-v2 deepseek-r1:14b)))
 
 (provide 'init)
 ;;; init.el ends here
