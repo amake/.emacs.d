@@ -893,7 +893,9 @@ not be synced across machines.")
     (condition-case nil
         (apply old-func args)
       (file-error (expand-file-name (car args) (cadr args)))))
-  (advice-add #'projectile-expand-file-name-wildcard :around #'amk-safe-projectile-expand-file-name-wildcard))
+  (advice-add #'projectile-expand-file-name-wildcard :around #'amk-safe-projectile-expand-file-name-wildcard)
+  ;; Pending https://github.com/bbatsov/projectile/issues/1940
+  (put 'projectile-indexing-method 'safe-local-variable (lambda (x) (memq x '(native hybrid alien)))))
 
 (use-package counsel-projectile
   :demand t
