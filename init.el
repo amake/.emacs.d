@@ -1376,6 +1376,9 @@ not be synced across machines.")
         ("S" "Difftastic show" difftastic-magit-show)])))
 
 (use-package gptel
+  :ensure-system-package ((python . python312)
+                          uv
+                          (mlx_lm.server . "uv tool install --force --python python3.12 mlx-lm@latest"))
   :config
   ;; To store OpenAI token in macOS keychain per `auth-source' config below:
   ;; 0. Create key at https://platform.openai.com/api-keys
@@ -1388,7 +1391,12 @@ not be synced across machines.")
   ;; 6. Test with `security find-internet-password -g -s api.openai.com -a apikey`
   (gptel-make-ollama "Ollama"
     :stream t
-    :models '(llama3.2 deepseek-coder-v2 deepseek-r1:14b)))
+    :models '(llama3.2 deepseek-coder-v2 deepseek-r1:14b))
+  (gptel-make-openai "mlx_lm"
+    :stream t
+    :protocol "http"
+    :host "localhost:8080"
+    :models '(Qwen/Qwen2.5-Coder-7B-Instruct)))
 
 (use-package aidermacs
   :ensure-system-package ((python . python312)
