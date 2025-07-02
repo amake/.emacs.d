@@ -266,6 +266,13 @@ not be synced across machines.")
   :ensure nil
   :load-path "lisp/macports")
 
+(use-package amk-tabulated-list
+  :ensure nil
+  :load-path "lisp"
+  :bind (:map tabulated-list-mode-map
+              ("M-{" . #'amk-tabulated-list-fit-current-column-width)
+              ("M-}" . #'amk-tabulated-list-fit-current-column-width)))
+
 (use-package desktop
   :ensure nil
   :if (display-graphic-p)
