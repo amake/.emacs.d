@@ -42,7 +42,8 @@
 
 (defun amk-tabulated-list--get-column-max-width (col-nb)
   "Return the maximum width of column COL-NB in the current tabulated list."
-  (let ((max-width 0))
+  (let* ((name (car (aref tabulated-list-format col-nb)))
+         (max-width (string-width name)))
     (dolist (entry tabulated-list-entries)
       (let ((desc (aref (cadr entry) col-nb)))
         (setq max-width
