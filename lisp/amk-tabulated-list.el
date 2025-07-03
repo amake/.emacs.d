@@ -67,5 +67,20 @@ than the current width."
       (tabulated-list-print t)
       (tabulated-list-init-header))))
 
+(defun amk-tabulated-list-fit-all-columns-width (&optional shrink)
+  "Fit all columns in a tabulated list to their maximum widths.
+
+If SHRINK is non-nil, shrink the columns to their maximum widths if they are
+larger than the current widths."
+  (interactive "P")
+  (setq tabulated-list-format (copy-tree tabulated-list-format t))
+  (dolist (col-nb (number-sequence 0 (1- (length tabulated-list-format))))
+    (let* ((max-width (amk-tabulated-list--get-column-max-width col-nb))
+           (current-width (cadr (aref tabulated-list-format col-nb))))
+      (when (> max-width (if shrink 0 current-width))
+        (setf (cadr (aref tabulated-list-format col-nb)) max-width))))
+  (tabulated-list-print t)
+  (tabulated-list-init-header))
+
 (provide 'amk-tabulated-list)
 ;;; amk-tabulated-list.el ends here
