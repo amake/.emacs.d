@@ -50,12 +50,16 @@
                    (string-width (if (stringp desc) desc (car desc)))))))
     max-width))
 
-(defun amk-tabulated-list-fit-current-column-width ()
-  "Fit the current column in a tabulated list to its maximum width."
-  (interactive)
+(defun amk-tabulated-list-fit-current-column-width (&optional shrink)
+  "Fit the current column in a tabulated list to its maximum width.
+
+If SHRINK is non-nil, shrink the column to its maximum width if it is larger
+than the current width."
+  (interactive "P")
   (let* ((col-nb (amk-tabulated-list--get-current-column-nb))
+         (current-width (cadr (aref tabulated-list-format col-nb)))
          (max-width (amk-tabulated-list--get-column-max-width col-nb)))
-    (when (> max-width 0)
+    (when (> max-width (if shrink 0 current-width))
       (setq tabulated-list-format (copy-tree tabulated-list-format t))
       (setf (cadr (aref tabulated-list-format col-nb))
             max-width)
