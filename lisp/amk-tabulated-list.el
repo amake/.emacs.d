@@ -47,9 +47,7 @@
       (let ((desc (aref (cadr entry) col-nb)))
         (setq max-width
               (max max-width
-                   (if (stringp desc)
-                       (string-width desc)
-                     (string-width (car desc)))))))
+                   (string-width (if (stringp desc) desc (car desc)))))))
     max-width))
 
 (defun amk-tabulated-list-fit-current-column-width ()
