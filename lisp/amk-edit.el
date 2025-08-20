@@ -86,6 +86,9 @@
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(defalias 'amk-edit-kill-pwd 'amk-edit-kill-current-path
+  "Copy the current working directory to the clipboard.")
+
 ;;;###autoload
 (defun amk-edit-split-buffer-chars (&optional delimiter)
   "Split the buffer so that each char past point is separated by DELIMITER.
