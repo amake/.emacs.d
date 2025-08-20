@@ -75,13 +75,19 @@
    (forward-line -1)))
 
 ;;;###autoload
-(defun amk-edit-kill-current-path ()
-  "Copy the current buffer file name to the clipboard."
+(defun amk-edit-kill-current-path (&optional absolute)
+  "Copy the current buffer file name to the clipboard. With a prefix or ABSOLUTE, copy the absolute path."
   ;; https://stackoverflow.com/a/9414763/448068
-  (interactive)
-  (let ((filename (if (equal major-mode 'dired-mode)
-                      default-directory
-                    (buffer-file-name))))
+  (interactive "P")
+  (let* ((abs-filename (if (equal major-mode 'dired-mode)
+                           default-directory
+                         (buffer-file-name)))
+         (root (when (fboundp 'projectile-project-root)
+                 (projectile-project-root)))
+         (filename
+          (if (or absolute (not root))
+              abs-filename
+            (file-relative-name abs-filename root))))
     (when filename
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
