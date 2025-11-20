@@ -1357,10 +1357,6 @@ not be synced across machines.")
   :demand t)
 
 (use-package copilot
-  :quelpa (copilot :fetcher github
-                   :repo "copilot-emacs/copilot.el"
-                   :branch "main"
-                   :files ("dist" "*.el"))
   :ensure-system-package (node . nodejs18)
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
