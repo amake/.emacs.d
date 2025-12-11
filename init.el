@@ -989,12 +989,12 @@ not be synced across machines.")
   :ensure nil
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . lsp-deferred)
-  :ensure-system-package ((python3 . python312)
-                          (pylsp . py312-python-lsp-server)))
+  :ensure-system-package ((python3 . python313)
+                          (pylsp . py313-python-lsp-server)))
 
 (use-package py-autopep8
   :after python
-  :ensure-system-package (autopep8 . py312-autopep8)
+  :ensure-system-package (autopep8 . py313-autopep8)
   :hook (python-mode . py-autopep8-mode))
 
 (use-package pyvenv
@@ -1379,9 +1379,9 @@ not be synced across machines.")
         ("S" "Difftastic show" difftastic-magit-show)])))
 
 (use-package gptel
-  :ensure-system-package ((python . python312)
+  :ensure-system-package ((python . python313)
                           uv
-                          (mlx_lm.server . "uv tool install --force --python python3.12 mlx-lm@latest"))
+                          (mlx_lm.server . "uv tool install --force --python python3.13 mlx-lm@latest"))
   :config
   ;; To store OpenAI token in macOS keychain per `auth-source' config below:
   ;; 0. Create key at https://platform.openai.com/api-keys
@@ -1402,9 +1402,9 @@ not be synced across machines.")
     :models '(Qwen/Qwen2.5-Coder-7B-Instruct)))
 
 (use-package aidermacs
-  :ensure-system-package ((python . python312)
+  :ensure-system-package ((python . python313)
                           uv
-                          (aider . "uv tool install --force --python python3.12 --with google-cloud-aiplatform --with 'anthropic[vertex]' aider-chat@latest"))
+                          (aider . "uv tool install --force --python python3.13 --with google-cloud-aiplatform --with 'anthropic[vertex]' aider-chat@latest"))
   :bind (("C-c a" . aidermacs-transient-menu))
   :config
   ;; Enable minor mode for Aider files
