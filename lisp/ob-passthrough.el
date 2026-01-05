@@ -36,6 +36,9 @@
 ;; CSV output is CSV
 (defalias 'org-babel-execute:csv 'org-babel-execute:passthrough)
 
+;; Markdown output is Markdown
+(defalias 'org-babel-execute:markdown 'org-babel-execute:passthrough)
+
 ;; SQL output is SQL
 (defalias 'org-babel-execute:sql-pass 'org-babel-execute:$template)
 
