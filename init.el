@@ -893,9 +893,7 @@ not be synced across machines.")
                                      (format " ‹%s›"
                                              (projectile-project-name)))))
   :config
-  (projectile-mode)
-  ;; Pending https://github.com/bbatsov/projectile/issues/1940
-  (put 'projectile-indexing-method 'safe-local-variable (lambda (x) (memq x '(native hybrid alien)))))
+  (projectile-mode))
 
 (use-package counsel-projectile
   :demand t
