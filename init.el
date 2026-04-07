@@ -412,7 +412,7 @@ not be synced across machines.")
   :after lsp-mode
   :mode (("\\.mjs\\'" . js-mode)
          ("\\.cjs\\'" . js-mode))
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (typescript-language-server . "sudo npm install -g typescript-language-server")
                           (tsserver . "sudo npm install -g typescript"))
   :hook (js-mode . lsp-deferred)
@@ -706,7 +706,7 @@ not be synced across machines.")
 
 (use-package flycheck-commitlint
   :ensure nil
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (commitlint . "sudo npm install -g @commitlint/cli @commitlint/config-conventional"))
   :after flycheck
   :load-path "lisp"
@@ -833,7 +833,7 @@ not be synced across machines.")
          "\\.erb\\'"
          "\\.vue\\'"
          "\\.tsx\\'")
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (vls . "sudo npm install -g vls"))
   :after prettier
   :hook (web-mode . (lambda ()
@@ -855,7 +855,7 @@ not be synced across machines.")
 
 (use-package prettier
   :diminish prettier-mode
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (prettier . "sudo npm install -g prettier"))
   :hook ((typescript-mode . prettier-mode)
          (svelte-mode . prettier-mode)
@@ -938,7 +938,7 @@ not be synced across machines.")
 
 (use-package typescript-mode
   :after edit-string
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (typescript-language-server . "sudo npm install -g typescript-language-server"))
   :bind (:map typescript-mode-map
               ;; Alternate binding to avoid clobber via `edit-string-at-point'
@@ -962,7 +962,7 @@ not be synced across machines.")
 
 (use-package svelte-mode
   :defer t
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (svelteserver . "sudo npm install -g svelte-language-server"))
   :hook (svelte-mode . lsp-deferred))
 
@@ -1255,7 +1255,7 @@ not be synced across machines.")
 (use-package cmake-mode)
 
 (use-package yaml-mode
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (yaml-language-server . "sudo npm install -g yaml-language-server"))
   :hook ((yaml-mode . lsp-deferred)
          (yaml-mode . flyspell-prog-mode))
@@ -1285,7 +1285,7 @@ not be synced across machines.")
   :after lsp-mode
   :mode ("\\.arb\\'" . json-mode)
   :bind (:map js-mode-map ("M-." . nil))
-  :ensure-system-package ((npm . npm10)
+  :ensure-system-package ((npm . npm11)
                           (vscode-json-languageserver . "sudo npm install -g vscode-json-languageserver"))
   :hook (json-mode . lsp-deferred))
 
