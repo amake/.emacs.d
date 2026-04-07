@@ -1348,7 +1348,7 @@ not be synced across machines.")
   :demand t)
 
 (use-package copilot
-  :ensure-system-package (node . nodejs18)
+  :ensure-system-package (node . nodejs22)
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
               ("C-<return>" . copilot-accept-completion)
