@@ -199,7 +199,6 @@ not be synced across machines.")
 
 (use-package amk-edit
   :ensure nil
-  :load-path "lisp"
   :bind (("M-<up>" . amk-edit-move-lines-up)
          ("M-<down>" . amk-edit-move-lines-down)
          ;; For use on CLI
@@ -207,30 +206,25 @@ not be synced across machines.")
          ("ESC <down>" . amk-edit-move-lines-down)))
 
 (use-package amk-xml
-  :ensure nil
-  :load-path "lisp")
+  :ensure nil)
 
 (use-package amk-mac
-  :ensure nil
-  :load-path "lisp")
+  :ensure nil)
 
 (use-package amk-browse
   :ensure nil
   :disabled
-  :load-path "lisp"
   :bind ("C-c C-o" . #'amk-browse-multi)
   :config
   (add-to-list 'amk-browse-alist '(backlog-issue-p . backlog-browse-issue)))
 
 (use-package amk-org
   :ensure nil
-  :load-path "lisp"
   :after (amk-edit org))
 
 (use-package backlog
   :ensure nil
   :disabled
-  :load-path "lisp/backlog"
   :after (request ivy)
   :bind ("C-c C-b" . #'backlog-browse-issue-at-point))
 
@@ -238,19 +232,16 @@ not be synced across machines.")
 
 (use-package shfmt
   :ensure nil
-  :load-path "lisp/shfmt"
   :after reformatter
   :ensure-system-package shfmt
   :diminish shfmt-on-save-mode
   :hook (sh-mode . shfmt-on-save-mode))
 
 (use-package scale-to-fit
-  :ensure nil
-  :load-path "lisp")
+  :ensure nil)
 
 (use-package emoji-github
   :ensure nil
-  :load-path "lisp"
   :after magit
   :hook ((magit-status-mode magit-log-mode) . emoji-github-enable)
   :config
@@ -258,17 +249,14 @@ not be synced across machines.")
 
 (use-package hl-tags-mode
   :ensure nil
-  :load-path "lisp/hl-tags-mode"
   :after nxml-mode
   :hook (nxml-mode . hl-tags-mode))
 
 (use-package macports
-  :ensure nil
-  :load-path "lisp/macports")
+  :ensure nil)
 
 (use-package amk-tabulated-list
   :ensure nil
-  :load-path "lisp"
   :bind (:map tabulated-list-mode-map
               ("M-{" . #'amk-tabulated-list-fit-current-column-width)
               ("M-}" . #'amk-tabulated-list-fit-current-column-width)))
@@ -372,7 +360,6 @@ not be synced across machines.")
 
 (use-package amk-dired-mac
   :ensure nil
-  :load-path "lisp"
   :after (dired)
   :bind (:map dired-mode-map
               ("C-c C-o" . #'amk-dired-mac-open-in-finder)
@@ -380,7 +367,6 @@ not be synced across machines.")
 
 (use-package amk-dired
   :ensure nil
-  :load-path "lisp"
   :after (dired)
   :bind (:map dired-mode-map
               ("C-c C-d" . #'amk-dired-ediff)))
@@ -438,8 +424,7 @@ not be synced across machines.")
       (browse-url-at-point))))
 
 (use-package ob-passthrough
-  :ensure nil
-  :load-path "lisp")
+  :ensure nil)
 
 (use-package org
   :ensure org-contrib
@@ -558,8 +543,7 @@ not be synced across machines.")
 
 (use-package amk-magit
   :ensure nil
-  :after magit
-  :load-path "lisp")
+  :after magit)
 
 (use-package forge
   ;; To store GitHub token in macOS keychain per `auth-source' config below:
@@ -648,7 +632,6 @@ not be synced across machines.")
 (use-package flycheck-innosetup
   :ensure nil
   :after flycheck
-  :load-path "lisp"
   :config
   (flycheck-innosetup-setup))
 
@@ -657,7 +640,6 @@ not be synced across machines.")
   :ensure nil
   :after flycheck
   :ensure-system-package languagetool
-  :load-path "lisp"
   :custom
   (flycheck-languagetool-mother-tongue "en-US")
   (flycheck-languagetool-disable-rules-alist
@@ -676,7 +658,6 @@ not be synced across machines.")
 (use-package flycheck-sassc
   :ensure nil
   :after flycheck
-  :load-path "lisp"
   :ensure-system-package sassc
   :config
   (flycheck-sassc-setup))
@@ -684,7 +665,6 @@ not be synced across machines.")
 (use-package flycheck-dart-sass
   :ensure nil
   :after flycheck
-  :load-path "lisp"
   :ensure-system-package (sass . dart-sass)
   :config
   (flycheck-dart-sass-setup))
@@ -692,7 +672,6 @@ not be synced across machines.")
 (use-package flycheck-yard
   :ensure nil
   :after flycheck
-  :load-path "lisp"
   :config
   (flycheck-yard-setup))
 
@@ -700,7 +679,6 @@ not be synced across machines.")
   :ensure nil
   :ensure-system-package committed
   :after flycheck
-  :load-path "lisp"
   :config
   (flycheck-committed-setup))
 
@@ -709,7 +687,6 @@ not be synced across machines.")
   :ensure-system-package ((npm . npm11)
                           (commitlint . "sudo npm install -g @commitlint/cli @commitlint/config-conventional"))
   :after flycheck
-  :load-path "lisp"
   :config
   (flycheck-commitlint-setup))
 
@@ -924,7 +901,6 @@ not be synced across machines.")
 (use-package edit-string
   :ensure nil
   :demand t
-  :load-path "lisp"
   :bind (:map
          prog-mode-map
          ("C-c '" . edit-string-at-point))
@@ -1210,8 +1186,7 @@ not be synced across machines.")
   (flutter-sdk-path "/Applications/flutter/"))
 
 (use-package vue-l10n
-  :ensure nil
-  :load-path "lisp")
+  :ensure nil)
 
 (use-package flutter-l10n-flycheck
   :ensure nil
@@ -1299,7 +1274,6 @@ not be synced across machines.")
 
 (use-package amk-vterm
   :ensure nil
-  :load-path "lisp"
   :after (projectile vterm)
   :bind (("C-z" . amk-vterm-for-project)
          :map vterm-mode-map

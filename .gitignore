@@ -84,3 +84,4 @@ semanticdb
 /eln-cache
 /quelpa
 /image-dired
+/user-lisp/.user-lisp-autoloads.el

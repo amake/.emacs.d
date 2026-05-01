@@ -1,12 +1,12 @@
 [submodule "lisp/flutter"]
-	path = lisp/flutter
+	path = user-lisp/flutter
 	url = https://github.com/amake/flutter.el.git
 [submodule "lisp/shfmt"]
-	path = lisp/shfmt
+	path = user-lisp/shfmt
 	url = https://github.com/amake/shfmt.el.git
 [submodule "hl-tags-mode"]
-	path = lisp/hl-tags-mode
+	path = user-lisp/hl-tags-mode
 	url = https://github.com/amake/hl-tags-mode.git
 [submodule "macports"]
-	path = lisp/macports
+	path = user-lisp/macports
 	url = https://github.com/amake/macports.el.git
