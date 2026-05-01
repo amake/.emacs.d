@@ -349,6 +349,9 @@ not be synced across machines.")
 
 (use-package dired
   :ensure nil
+  :custom
+  ;; Show human-readable file sizes
+  (dired-listing-switches (concat dired-listing-switches " -h"))
   :config
   ;; macOS ls doesn't support --dired
   (when (macosp)
