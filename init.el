@@ -179,6 +179,11 @@ not be synced across machines.")
   "Return non-nil if the OS is macOS."
   (string= system-type "darwin"))
 
+(use-package elisp-mode
+  :ensure nil
+  :custom
+  elisp-fontify-semantically t)
+
 (use-package exec-path-from-shell
   :if (macosp)
   :config
