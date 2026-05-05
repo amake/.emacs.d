@@ -567,6 +567,15 @@ not be synced across machines.")
   :custom
   (git-link-use-commit t))
 
+(use-package smerge-mode
+  :ensure nil
+  :config
+  (defun amk-smerge-auto-refine (&rest _)
+    "Automatically refine after navigating conflicts."
+    (smerge-refine))
+  (advice-add #'smerge-next :after #'amk-smerge-auto-refine)
+  (advice-add #'smerge-prev :after #'amk-smerge-auto-refine))
+
 (use-package auth-source
   :ensure nil
   :config
