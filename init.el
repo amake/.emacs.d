@@ -708,10 +708,12 @@ not be synced across machines.")
   :ensure nil
   :config
   (defun objective-c-file-p ()
-    (and buffer-file-name
-         (string= (file-name-extension buffer-file-name) "m")
-         (re-search-forward "@interface\\|@implementation"
-                            magic-mode-regexp-match-limit t)))
+    (let ((ext (file-name-extension buffer-file-name)))
+     (and buffer-file-name
+          (or (string= ext "m")
+              (string= ext "mm"))
+          (re-search-forward "@interface\\|@implementation"
+                             magic-mode-regexp-match-limit t))))
   ;; Can't use use-package :magic because it only supports regexp
   (add-to-list 'magic-mode-alist '(objective-c-file-p . objc-mode)))
 
