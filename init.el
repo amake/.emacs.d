@@ -158,7 +158,17 @@ with `save-buffer'."
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
   :config
   (unless (string= (user-login-name) "root")
-    (package-install-selected-packages)))
+    (package-install-selected-packages))
+  (defun amk-package-upgrade-all ()
+    "Upgrade all packages, including built-ins."
+    (interactive)
+    ;; Somehow these get set to circular lists lately
+    (setq package--builtin-alist nil
+          package-alist nil)
+    ;; Support for upgrading builtins seems buggy--it always reports some
+    ;; outdated no matter what
+    (let ((package-install-upgrade-built-in nil))
+      (package-upgrade-all))))
 
 (use-package diminish)
 (use-package bind-key)
