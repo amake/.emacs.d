@@ -182,7 +182,7 @@ not be synced across machines.")
 (use-package elisp-mode
   :ensure nil
   :custom
-  elisp-fontify-semantically t)
+  (elisp-fontify-semantically t))
 
 (use-package exec-path-from-shell
   :if (macosp)
