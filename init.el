@@ -126,9 +126,7 @@ with `save-buffer'."
 
 ;; Only on GUI
 (when (display-graphic-p)
-  (if (fboundp #'global-display-line-numbers-mode)
-      (global-display-line-numbers-mode) ; emacs 26 and later
-    (global-linum-mode))
+  (global-display-line-numbers-mode) ; emacs 26 and later
   ;; Disable C-z (suspend-frame) in GUI because it's pointless
   ;; and I keep hitting it.
   (global-unset-key (kbd "C-z"))
@@ -146,23 +144,21 @@ with `save-buffer'."
              (not (boundp 'mac-mouse-wheel-smooth-scroll)))
     (pixel-scroll-precision-mode)))
 
-(require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/") ; ensure https
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
-
-;; Bootstrap use-package
-;; http://cachestocaches.com/2015/8/getting-started-use-package/
-(unless (package-installed-p 'use-package)
-  (unless (string= (user-login-name) "root")
-    (package-refresh-contents)
-    (package-install 'use-package)))
-(eval-when-compile
-  (require 'use-package))
-(unless (string= (user-login-name) "root")
-  (package-install-selected-packages))
 (setq use-package-always-ensure t)
+
+(use-package package
+  :demand t
+  :ensure nil
+  :custom
+  (package-install-upgrade-built-in t)
+  (package-archives
+   '(("gnu" . "https://elpa.gnu.org/packages/") ; ensure https
+     ("melpa" . "https://melpa.org/packages/")
+     ("melpa-stable" . "https://stable.melpa.org/packages/")
+     ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+  :config
+  (unless (string= (user-login-name) "root")
+    (package-install-selected-packages)))
 
 (use-package diminish)
 (use-package bind-key)
@@ -1297,13 +1293,6 @@ not be synced across machines.")
   :bind (("C-z" . amk-vterm-for-project)
          :map vterm-mode-map
          ("M-z" . amk-vterm-for-project)))
-
-(use-package csharp-mode
-  :after lsp-mode
-  ;; Omnisharp has errors with Emacs; see
-  ;; https://github.com/OmniSharp/omnisharp-roslyn/issues/1689
-  ;; :hook (csharp-mode . lsp-deferred)
-  )
 
 (use-package csv-mode)
 
