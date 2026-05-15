@@ -1326,6 +1326,7 @@ not be synced across machines.")
   :hook (json-mode . lsp-deferred))
 
 (use-package vterm
+  :demand t
   :ensure-system-package (cmake
                           ("/opt/local/lib/libvterm.dylib" . libvterm))
   :custom ((vterm-shell "/bin/zsh --login")
@@ -1333,12 +1334,19 @@ not be synced across machines.")
            (vterm-max-scrollback 2000)
            (vterm-always-compile-module t)))
 
-(use-package amk-vterm
+(use-package ghostel
+  :demand t
+  :custom
+  (ghostel-module-auto-install 'download))
+
+(use-package amk-term
   :ensure nil
-  :after (projectile vterm)
-  :bind (("C-z" . amk-vterm-for-project)
+  :after (projectile vterm ghostel)
+  :bind (("C-z" . amk-term-ghostel-for-project)
          :map vterm-mode-map
-         ("M-z" . amk-vterm-for-project)))
+         ("M-z" . amk-term-vterm-for-project)
+         :map ghostel-semi-char-mode-map
+         ("M-z" . amk-term-ghostel-for-project)))
 
 (use-package csv-mode)
 
