@@ -1428,20 +1428,5 @@ not be synced across machines.")
     :host "localhost:8080"
     :models '(Qwen/Qwen2.5-Coder-7B-Instruct)))
 
-(use-package aidermacs
-  :ensure-system-package ((python . python313)
-                          uv
-                          (aider . "uv tool install --force --python python3.13 --with google-cloud-aiplatform --with 'anthropic[vertex]' aider-chat@latest"))
-  :bind (("C-c a" . aidermacs-transient-menu))
-  :config
-  ;; Enable minor mode for Aider files
-  (aidermacs-setup-minor-mode)
-  :custom
-  ;; See the Configuration section below
-  (aidermacs-backend 'vterm)
-  (aidermacs-auto-commits nil)
-  (aidermacs-use-architect-mode nil)
-  (aidermacs-default-model "sonnet"))
-
 (provide 'init)
 ;;; init.el ends here
