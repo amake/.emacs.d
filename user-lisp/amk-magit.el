@@ -24,10 +24,14 @@
                            (lambda (branch)
                              (not (string= branch local-head)))
                            merged-branches)))
-    (when (yes-or-no-p
-           (format "Delete %d branch(es) merged into %s (%s)?"
-                   (length to-delete) local-head (mapconcat #'identity to-delete ", ")))
-      (funcall-interactively #'magit-branch-delete to-delete))))
+    (if to-delete
+        (when (yes-or-no-p
+               (format "Delete %d branch(es) merged into %s (%s)?"
+                       (length to-delete)
+                       local-head
+                       (mapconcat #'identity to-delete ", ")))
+          (funcall-interactively #'magit-branch-delete to-delete))
+      (message "No branches merged into %s" local-head))))
 
 (defun amk-magit-reset-default-branch-to-upstream ()
   "Update default branch to latest remote HEAD."
