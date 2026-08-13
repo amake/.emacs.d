@@ -957,6 +957,11 @@ not be synced across machines.")
   (advice-add #'counsel-projectile-rg :around #'counsel-projectile-rg--no-tramp)
   (counsel-projectile-modify-action 'counsel-projectile-switch-project-action
                                     '((default "v")))
+  ;; Work around https://github.com/ericdanan/counsel-projectile/issues/193
+  (unless (functionp 'projectile-ignored-files-rel)
+    (defun projectile-ignored-files-rel () (list)))
+  (unless (functionp 'projectile-ignored-directories-rel)
+    (defun projectile-ignored-directories-rel () (list)))
   (counsel-projectile-mode))
 
 (use-package edit-string
